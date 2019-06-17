@@ -1,0 +1,51 @@
+/*=============================================>>>>>
+= Common =
+===============================================>>>>>*/
+
+* {
+  // iOS smooth scroll fix
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  height: 100%;
+  background-color: $off-black;
+  position: relative;
+
+  &.nav-open {
+    overflow: hidden;
+    max-height: 100vh;
+
+    #app {
+      &:before {
+        opacity: 0.7;
+        z-index: 4;
+      }
+    }
+  }
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+main {
+  flex: 1;
+}
+
+.half-wrap {
+  width: 100%;
+  max-width: calc(#{$wrap-width} / 2);
+  padding-left: 20px;
+  padding-right: 20px;
+
+  &.half-wrap-right {
+    margin-right: auto;
+  }
+  &.half-wrap-left {
+    margin-left: auto;
+  }
+}
