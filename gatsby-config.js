@@ -31,8 +31,6 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     facebook: website.facebook,
-    blogSlug: website.blogSlug,
-    categorySlug: website.categorySlug,
   },
   /* Plugins */
   plugins: [
