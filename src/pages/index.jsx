@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
-import { Layout, Wrapper } from '../components';
+import { Layout } from '../components';
+import { Wrapper } from '../components/common';
 
 class Index extends Component {
   render() {
     const {
       data: {
         page: {
-          data: pageData
-        }
+          data: pageData,
+        },
       },
       location,
     } = this.props;
-    console.log('Props @ Home', this.props);
     const {
       metaTitle,
       metaDescription,
@@ -37,11 +37,11 @@ export default Index;
 
 export const pageQuery = graphql`
   query IndexQuery {
-    site {
-      siteMetadata {
-        blogSlug,
-      }
-    },
+    # site {
+    #   siteMetadata {
+    #     blogSlug,
+    #   }
+    # },
     page: prismicHome {
       uid,
       data {
