@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { Wrapper } from '../common';
-// import DonationOption from './DonationOption';
+import { SponsorshipTiles, DonationTiles } from '.';
 import './DonationModal.scss';
 
-const RECURRING_DONATION_OPTION = 'RECURRING_DONATION_OPTION';
-const ONCE_OFF_DONATION_OPTION = 'ONCE_OFF_DONATION_OPTION';
+const RECURRING_OPTION = 'RECURRING_OPTION';
+const ONCE_OFF_OPTION = 'ONCE_OFF_OPTION';
 
 const ModeSelectionButton = (props) => {
   const {
@@ -30,7 +30,7 @@ class DonationModalTemplate extends Component {
   state = {
     phase: 0,
     selectedDonationOption: null,
-    donationMode: RECURRING_DONATION_OPTION,
+    donationMode: RECURRING_OPTION,
     stripe: null,
   };
 
@@ -71,14 +71,14 @@ class DonationModalTemplate extends Component {
       stripeProducts,
       stripePlans,
     } = this.props;
-    const stripeProductTiles = stripeProducts.edges.map(stripeProduct => (
+    const stripeProductItems = stripeProducts.edges.map(stripeProduct => (
       { ...stripeProduct.node }
     ));
-    const stripePlanTiles = stripePlans.edges.map(stripeProduct => (
+    const stripePlanItems = stripePlans.edges.map(stripeProduct => (
       { ...stripeProduct.node }
     ));
-    const recurringDonationMode = donationMode === RECURRING_DONATION_OPTION;
-    const onceOffDonationMode = donationMode === ONCE_OFF_DONATION_OPTION;
+    const recurringDonationMode = donationMode === RECURRING_OPTION;
+    const onceOffDonationMode = donationMode === ONCE_OFF_OPTION;
     return (
       <section className="donation-modal">
         <Wrapper>
@@ -86,23 +86,27 @@ class DonationModalTemplate extends Component {
             <div className="donation-mode-selector">
               <ModeSelectionButton
                 isActive={recurringDonationMode}
-                mode={RECURRING_DONATION_OPTION}
+                mode={RECURRING_OPTION}
                 label="Contribute Monthly"
                 setDonationModeHandler={this.setDonationMode}
               />
               <ModeSelectionButton
                 isActive={onceOffDonationMode}
-                mode={ONCE_OFF_DONATION_OPTION}
+                mode={ONCE_OFF_OPTION}
                 label="Contribute Once"
                 setDonationModeHandler={this.setDonationMode}
               />
             </div>
             <div className="donation-tiles">
               {recurringDonationMode && (
-                <div>RECURRING_DONATION_OPTION</div>
+                <SponsorshipTiles
+                  tiles={stripeProductItems}
+                />
               )}
               {onceOffDonationMode && (
-                <div>ONCE_OFF_DONATION_OPTION</div>
+                <DonationTiles
+                  tiles={stripePlanItems}
+                />
               )}
             </div>
             <div className="modal-actions">
