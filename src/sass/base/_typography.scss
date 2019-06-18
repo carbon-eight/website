@@ -23,7 +23,7 @@ $font-weight-black: 900;
   font-weight: $font-weight-regular;
 }
 
-@mixin h1($dark-font: false) {
+@mixin h1($dark-font: true) {
   @include headings-font();
   font-size: 64px;
   line-height: 1.1em;
@@ -34,13 +34,13 @@ $font-weight-black: 900;
   }
 
   @if $dark-font == true {
-    color: $black;
+    color: $off-black;
   } @else {
     color: $white;
   }
 }
 
-@mixin h2($dark-font: false) {
+@mixin h2($dark-font: true) {
   @include headings-font();
   font-size: 36px;
   line-height: 1.2em;
@@ -51,13 +51,13 @@ $font-weight-black: 900;
   }
 
   @if $dark-font == true {
-    color: $black;
+    color: $off-black;
   } @else {
     color: $white;
   }
 }
 
-@mixin h3($dark-font: false) {
+@mixin h3($dark-font: true) {
   @include headings-font();
   font-size: 24px;
   line-height: 1.5em;
@@ -68,24 +68,27 @@ $font-weight-black: 900;
   }
 
   @if $dark-font == true {
-    color: $black;
+    color: $off-black;
   } @else {
     color: $white;
   }
 }
 
-@mixin h4($dark-font: false) {
+@mixin h4($dark-font: true) {
   @include headings-font();
   font-size: 14px;
   line-height: 1.5em;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
   font-weight: $font-weight-bold;
 
   @include media-down(mobile) {
-    font-size: 42px;
+    font-size: 14px;
   }
 
   @if $dark-font == true {
-    color: $black;
+    color: $off-black;
   } @else {
     color: $white;
   }
@@ -102,7 +105,7 @@ $font-weight-black: 900;
   }
 
   @if $dark-font == true {
-    color: $black;
+    color: $off-black;
   } @else {
     color: $white;
   }

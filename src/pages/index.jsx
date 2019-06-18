@@ -27,7 +27,7 @@ class Index extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <Wrapper>
-          <div>Home</div>
+          <h1>Contribute to regenerating aussie soil.</h1>
           <DonationModal />
         </Wrapper>
       </Layout>

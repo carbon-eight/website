@@ -7,6 +7,25 @@ import './DonationModal.scss';
 const RECURRING_DONATION_OPTION = 'RECURRING_DONATION_OPTION';
 const ONCE_OFF_DONATION_OPTION = 'ONCE_OFF_DONATION_OPTION';
 
+const ModeSelectionButton = (props) => {
+  const {
+    isActive,
+    mode,
+    label,
+    setDonationModeHandler,
+  } = props;
+  return (
+    <button
+      type="button"
+      className={`donation-mode-button selection-button ${isActive ? 'active' : ''}`}
+      onClick={event => setDonationModeHandler(event, mode)}
+      aria-label={`Choose to ${label}`}
+    >
+      <span>{label}</span>
+    </button>
+  );
+};
+
 class DonationModalTemplate extends Component {
   state = {
     phase: 0,
@@ -44,27 +63,25 @@ class DonationModalTemplate extends Component {
       stripeProducts,
       stripePlans,
     } = this.props;
+    const recurringDonationMode = donationMode === RECURRING_DONATION_OPTION;
+    const onceOffDonationMode = donationMode === ONCE_OFF_DONATION_OPTION;
     return (
       <section className="donation-modal">
         <Wrapper>
           <div className="modal-container">
             <div className="donation-mode-selector">
-              <button
-                type="button"
-                className="donation-mode-button"
-                onClick={event => this.setDonationMode(event, RECURRING_DONATION_OPTION)}
-                aria-label="Show package testimonials"
-              >
-                <span>Contribute Monthly</span>
-              </button>
-              <button
-                type="button"
-                className="donation-mode-button"
-                onClick={event => this.setDonationMode(event, ONCE_OFF_DONATION_OPTION)}
-                aria-label="Show package testimonials"
-              >
-                <span>Contribute Once</span>
-              </button>
+              <ModeSelectionButton
+                isActive={recurringDonationMode}
+                mode={RECURRING_DONATION_OPTION}
+                label="Contribute Monthly"
+                setDonationModeHandler={this.setDonationMode}
+              />
+              <ModeSelectionButton
+                isActive={onceOffDonationMode}
+                mode={ONCE_OFF_DONATION_OPTION}
+                label="Contribute Once"
+                setDonationModeHandler={this.setDonationMode}
+              />
             </div>
           </div>
         </Wrapper>
