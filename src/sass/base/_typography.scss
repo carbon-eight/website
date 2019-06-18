@@ -25,8 +25,59 @@ $font-weight-black: 900;
 
 @mixin h1($dark-font: false) {
   @include headings-font();
-  font-size: 52px;
+  font-size: 64px;
+  line-height: 1.1em;
+  font-weight: $font-weight-bold;
+
+  @include media-down(mobile) {
+    font-size: 42px;
+  }
+
+  @if $dark-font == true {
+    color: $black;
+  } @else {
+    color: $white;
+  }
+}
+
+@mixin h2($dark-font: false) {
+  @include headings-font();
+  font-size: 36px;
   line-height: 1.2em;
+  font-weight: $font-weight-semi-bold;
+
+  @include media-down(mobile) {
+    font-size: 28px;
+  }
+
+  @if $dark-font == true {
+    color: $black;
+  } @else {
+    color: $white;
+  }
+}
+
+@mixin h3($dark-font: false) {
+  @include headings-font();
+  font-size: 24px;
+  line-height: 1.5em;
+  font-weight: $font-weight-regular;
+
+  @include media-down(mobile) {
+    font-size: 18px;
+  }
+
+  @if $dark-font == true {
+    color: $black;
+  } @else {
+    color: $white;
+  }
+}
+
+@mixin h4($dark-font: false) {
+  @include headings-font();
+  font-size: 14px;
+  line-height: 1.5em;
   font-weight: $font-weight-bold;
 
   @include media-down(mobile) {
@@ -42,12 +93,12 @@ $font-weight-black: 900;
 
 @mixin p1($dark-font: true, $font-weight: $font-weight-regular) {
   @include body-font();
-  font-size: 18px;
-  line-height: 1.7em;
+  font-size: 16px;
+  line-height: 1.5em;
   font-weight: $font-weight;
 
   @include media-down(mobile) {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   @if $dark-font == true {
