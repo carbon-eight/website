@@ -6,6 +6,7 @@ const {
   PRISMIC_REPO_NAME,
   PRISMIC_API_KEY,
   GOOGLE_ANALYTICS_ID,
+  STRIPE_SECRET_KEY,
   // MAILCHIMP_ENDPOINT,
 } = process.env;
 
@@ -75,6 +76,7 @@ module.exports = {
     //     endpoint: MAILCHIMP_ENDPOINT,
     //   },
     // },
+    'gatsby-plugin-stripe',
     {
       resolve: 'gatsby-source-prismic',
       options: {
@@ -84,6 +86,14 @@ module.exports = {
         linkResolver: () => post => `/${post.uid}`,
         // PrismJS highlighting for labels and slices
         htmlSerializer: () => prismicHtmlSerializer,
+      },
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Sku', 'Plan'],
+        secretKey: STRIPE_SECRET_KEY,
+        downloadFiles: true,
       },
     },
     'gatsby-plugin-lodash',

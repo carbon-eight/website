@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
 import { Wrapper } from '../components/common';
+import { DonationModal } from '../components/Donations';
 
 class Index extends Component {
   render() {
@@ -26,7 +27,8 @@ class Index extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <Wrapper>
-          <span>Home</span>
+          <div>Home</div>
+          <DonationModal />
         </Wrapper>
       </Layout>
     );

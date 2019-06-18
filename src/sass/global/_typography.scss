@@ -3,12 +3,7 @@
 ===============================================>>>>>*/
 
 body {
-  @include body-font();
-  color: $black;
-  font-size: 16px;
-  font-weight: $font-weight-regular;
-  font-size-adjust: auto;
-  line-height: 1.75em;
+  @include p1();
   text-align: left;
   word-wrap: break-word;
   text-rendering: optimizeLegibility;
@@ -30,6 +25,9 @@ h6 {
 }
 
 h1 { @include h1(); }
+h2 { @include h2(); }
+h3 { @include h3(); }
+h4 { @include h4(); }
 
 // --------------------------------------------------------------------------
 //   Content Elements
