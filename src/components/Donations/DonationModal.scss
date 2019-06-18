@@ -1,0 +1,43 @@
+.donation-modal {
+  .wrapper {
+
+  }
+
+  .modal-container {
+
+  }
+
+  .donation-mode-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 80px;
+
+    button {
+      margin-right: 30px;
+
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .donation-tiles {
+    margin-bottom: 80px;
+  }
+
+  .modal-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 80px;
+
+    button {
+      margin-right: 30px;
+
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

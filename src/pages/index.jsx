@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { Layout } from '../components';
 import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
+import './index.scss';
 
 class Index extends Component {
   render() {
@@ -27,8 +28,10 @@ class Index extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <Wrapper>
-          <h1>Contribute to regenerating aussie soil.</h1>
-          <DonationModal />
+          <div className="page-block donation-block">
+            <h1 className="page-title">Contribute to regenerating aussie soil.</h1>
+            <DonationModal />
+          </div>
         </Wrapper>
       </Layout>
     );

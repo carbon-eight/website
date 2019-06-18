@@ -29,6 +29,7 @@ const ModeSelectionButton = (props) => {
 class DonationModalTemplate extends Component {
   state = {
     phase: 0,
+    selectedDonationOption: null,
     donationMode: RECURRING_DONATION_OPTION,
     stripe: null,
   };
@@ -43,7 +44,13 @@ class DonationModalTemplate extends Component {
     this.setState({ donationMode });
   }
 
-  checkoutHandler = async (event, stripe, items) => {
+  selectDonationOption = (event, selectedDonationOption) => {
+    if (event) event.preventDefault();
+    this.setState({ selectedDonationOption });
+  }
+
+  redirectToCheckout = async (event, stripe, items) => {
+    if (!items || !stripe) return null;
     const { error } = await stripe.redirectToCheckout({
       items,
       successUrl: `${window.location.origin}#success`,
@@ -57,12 +64,19 @@ class DonationModalTemplate extends Component {
     const {
       phase,
       donationMode,
+      selectedDonationOption,
       stripe,
     } = this.state;
     const {
       stripeProducts,
       stripePlans,
     } = this.props;
+    const stripeProductTiles = stripeProducts.edges.map(stripeProduct => (
+      { ...stripeProduct.node }
+    ));
+    const stripePlanTiles = stripePlans.edges.map(stripeProduct => (
+      { ...stripeProduct.node }
+    ));
     const recurringDonationMode = donationMode === RECURRING_DONATION_OPTION;
     const onceOffDonationMode = donationMode === ONCE_OFF_DONATION_OPTION;
     return (
@@ -82,6 +96,25 @@ class DonationModalTemplate extends Component {
                 label="Contribute Once"
                 setDonationModeHandler={this.setDonationMode}
               />
+            </div>
+            <div className="donation-tiles">
+              {recurringDonationMode && (
+                <div>RECURRING_DONATION_OPTION</div>
+              )}
+              {onceOffDonationMode && (
+                <div>ONCE_OFF_DONATION_OPTION</div>
+              )}
+            </div>
+            <div className="modal-actions">
+              <button
+                type="button"
+                disabled={!selectedDonationOption}
+                className="modal-action-button cta-button"
+                onClick={event => this.redirectToCheckout(event, selectedDonationOption)}
+                aria-label="Proceed to checkout"
+              >
+                <span>Next</span>
+              </button>
             </div>
           </div>
         </Wrapper>
@@ -112,7 +145,7 @@ const DonationModal = props => (
           edges {
             node {
               id
-              amount
+              price: amount
               currency
             }
           }
