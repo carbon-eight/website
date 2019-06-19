@@ -1,13 +1,19 @@
 import React from 'react';
-import './DonationTile.scss';
 import { DonationIllustration } from './DonationIllustration';
+import './DonationTile.scss';
 
 const DonationTile = (props) => {
   const {
-    someProp,
+    active,
+    animationStyles,
+    donationType,
+    illustrationType,
   } = props;
+  const classNames = `donation-tile${active ? ' active' : ''}`;
   return (
-    <div>DonationTile</div>
+    <div className={classNames} style={active ? animationStyles : null}>
+      DonationTile
+    </div>
   );
 };
 

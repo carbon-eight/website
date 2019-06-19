@@ -20,7 +20,9 @@ const DonationTiles = (props) => {
       {donationTiles && donationTiles.map((tile, index) => (
         <DonationTile
           active={active}
-          styles={{ transitionDelay: (0.3 + (index * 0.2)) }}
+          animationStyles={{
+            transitionDelay: `${(0.3 + ((index) * 0.2)).toFixed(1)}s`,
+          }}
           donationType={ONCE_OFF_OPTION}
           illustrationType={index}
           {...tile}
@@ -29,7 +31,9 @@ const DonationTiles = (props) => {
       {variableTile && (
         <VariableDonationTile
           active={active}
-          styles={{ transitionDelay: (0.3 + ((donationTiles.length - 1) * 0.2)) }}
+          animationStyles={{
+            transitionDelay: `${(0.3 + (donationTiles.length * 0.2)).toFixed(1)}s`,
+          }}
           donationType={ONCE_OFF_OPTION}
           illustrationType={DONATION_TYPE_VARIABLE}
           {...variableTile}

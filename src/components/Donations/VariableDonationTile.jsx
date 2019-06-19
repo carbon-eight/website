@@ -1,12 +1,19 @@
 import React from 'react';
 import './VariableDonationTile.scss';
+import './DonationTile.scss';
 
 const VariableDonationTile = (props) => {
   const {
-    someProp,
+    active,
+    animationStyles,
+    donationType,
+    illustrationType,
   } = props;
+  const classNames = `donation-tile${active ? ' active' : ''}`;
   return (
-    <div>VariableDonationTile</div>
+    <div className={classNames} style={active ? animationStyles : null}>
+      VariableDonationTile
+    </div>
   );
 };
 

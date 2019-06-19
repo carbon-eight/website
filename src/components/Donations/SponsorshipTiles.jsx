@@ -13,7 +13,9 @@ const SponsorshipTiles = (props) => {
       {tiles && tiles.map((tile, index) => (
         <DonationTile
           active={active}
-          styles={{ transitionDelay: (0.3 + (index * 0.2)) }}
+          animationStyles={{
+            transitionDelay: `${(0.3 + ((index + 1) * 0.2)).toFixed(1)}s`,
+          }}
           illustrationType={index}
           {...tile}
         />

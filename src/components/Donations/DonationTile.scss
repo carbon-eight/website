@@ -1,0 +1,22 @@
+.donation-tile {
+  display: block;
+  margin-right: 30px;
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:not(.active) {
+    transition-delay: 0 !important;
+  }
+
+}
