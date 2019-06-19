@@ -12,7 +12,14 @@ const DonationTile = (props) => {
   const classNames = `donation-tile${active ? ' active' : ''}`;
   return (
     <div className={classNames} style={active ? animationStyles : null}>
-      DonationTile
+      <div className="illustration-container">
+        <DonationIllustration
+          illustrationType={illustrationType}
+        />
+      </div>
+      <div className="amount-container">
+        amount
+      </div>
     </div>
   );
 };
