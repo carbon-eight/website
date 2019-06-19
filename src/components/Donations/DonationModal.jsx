@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { Wrapper } from '../common';
-import { SponsorshipTiles, DonationTiles } from '.';
+import {
+  SponsorshipTiles,
+  DonationTiles,
+} from '.';
+import {
+  RECURRING_OPTION,
+  ONCE_OFF_OPTION,
+} from './donation-constants';
 import './DonationModal.scss';
-
-const RECURRING_OPTION = 'RECURRING_OPTION';
-const ONCE_OFF_OPTION = 'ONCE_OFF_OPTION';
 
 const ModeSelectionButton = (props) => {
   const {
@@ -49,7 +53,8 @@ class DonationModalTemplate extends Component {
     this.setState({ selectedDonationOption });
   }
 
-  redirectToCheckout = async (event, stripe, items) => {
+  redirectToCheckout = async (event, items) => {
+    const { stripe } = this.state;
     if (!items || !stripe) return null;
     const { error } = await stripe.redirectToCheckout({
       items,
@@ -65,7 +70,6 @@ class DonationModalTemplate extends Component {
       phase,
       donationMode,
       selectedDonationOption,
-      stripe,
     } = this.state;
     const {
       stripeProducts,
@@ -97,17 +101,15 @@ class DonationModalTemplate extends Component {
                 setDonationModeHandler={this.setDonationMode}
               />
             </div>
-            <div className="donation-tiles">
-              {recurringDonationMode && (
-                <SponsorshipTiles
-                  tiles={stripeProductItems}
-                />
-              )}
-              {onceOffDonationMode && (
-                <DonationTiles
-                  tiles={stripePlanItems}
-                />
-              )}
+            <div className="donation-options">
+              <SponsorshipTiles
+                active={recurringDonationMode}
+                tiles={stripePlanItems}
+              />
+              <DonationTiles
+                active={onceOffDonationMode}
+                tiles={stripeProductItems}
+              />
             </div>
             <div className="modal-actions">
               <button
@@ -134,6 +136,7 @@ const DonationModal = props => (
         stripeProducts: allStripeSku (
           filter: { product: { id: { eq: "prod_FH57pA9mhamtKh" } } }
           sort: { fields: [price] }
+          limit: 4
         ) {
           edges {
             node {
@@ -145,6 +148,7 @@ const DonationModal = props => (
         }
         stripePlans: allStripePlan(
           sort: { fields: [amount] }
+          limit: 3
         ) {
           edges {
             node {
