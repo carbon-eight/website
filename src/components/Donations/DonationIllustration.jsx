@@ -11,7 +11,6 @@ export const DonationIllustration = (props) => {
   const {
     illustrationType,
   } = props;
-  console.log('illustrationType @ DonationIllustration', illustrationType);
   switch (illustrationType) {
     case (DONATION_TYPE_SMALL):
       return (

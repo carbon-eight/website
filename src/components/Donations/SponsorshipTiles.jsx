@@ -6,6 +6,7 @@ const SponsorshipTiles = (props) => {
   const {
     active,
     tiles,
+    selectTileHandler,
   } = props;
   const className = `tiles sponsorship-tiles${active ? ' active' : ''}`;
   return (
@@ -17,6 +18,7 @@ const SponsorshipTiles = (props) => {
             transitionDelay: `${(0.3 + ((index + 1) * 0.2)).toFixed(1)}s`,
           }}
           illustrationType={index}
+          selectTileHandler={selectTileHandler}
           {...tile}
         />
       ))}

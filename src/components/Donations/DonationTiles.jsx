@@ -11,6 +11,7 @@ const DonationTiles = (props) => {
   const {
     active,
     tiles,
+    selectTileHandler,
   } = props;
   const className = `tiles donation-tiles${active ? ' active' : ''}`;
   const donationTiles = tiles.filter(tile => tile.id !== VARIABLE_DONATION_SKU);
@@ -25,6 +26,7 @@ const DonationTiles = (props) => {
           }}
           donationType={ONCE_OFF_OPTION}
           illustrationType={index}
+          selectTileHandler={selectTileHandler}
           {...tile}
         />
       ))}
@@ -36,6 +38,7 @@ const DonationTiles = (props) => {
           }}
           donationType={ONCE_OFF_OPTION}
           illustrationType={DONATION_TYPE_VARIABLE}
+          selectTileHandler={selectTileHandler}
           {...variableTile}
         />
       )}

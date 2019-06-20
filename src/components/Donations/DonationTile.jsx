@@ -8,15 +8,14 @@ const DonationTile = (props) => {
     animationStyles,
     donationType,
     illustrationType,
+    selectTileHandler,
   } = props;
   const classNames = `donation-tile${active ? ' active' : ''}`;
   return (
     <div className={classNames} style={active ? animationStyles : null}>
-      <div className="illustration-container">
-        <DonationIllustration
-          illustrationType={illustrationType}
-        />
-      </div>
+      <DonationIllustration
+        illustrationType={illustrationType}
+      />
       <div className="amount-container">
         amount
       </div>
