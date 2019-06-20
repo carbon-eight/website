@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { Wrapper } from '../common';
+import { ProgressDots } from '..';
 import {
   SponsorshipTiles,
   DonationTiles,
@@ -107,7 +108,6 @@ class DonationModalTemplate extends Component {
     ));
     const recurringDonationMode = donationMode === RECURRING_OPTION;
     const onceOffDonationMode = donationMode === ONCE_OFF_OPTION;
-    console.log({ donationSuccess });
     return (
       <section className="donation-modal">
         <Wrapper>
@@ -157,6 +157,10 @@ class DonationModalTemplate extends Component {
                 </div>
               </>
             )}
+            <ProgressDots
+              numberOfDots={3}
+              activeDot={donationSuccess ? 3 : 1}
+            />
           </div>
         </Wrapper>
       </section>

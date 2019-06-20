@@ -1,0 +1,22 @@
+.progress-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .progress-dot {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid $tertiary;
+    margin-right: 50px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.active {
+      background-color: $tertiary;
+    }
+  }
+}

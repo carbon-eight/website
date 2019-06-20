@@ -1,10 +1,7 @@
 import React from 'react';
 import './DonationSuccess.scss';
 
-const DonationSuccess = (props) => {
-  const {
-    someProp,
-  } = props;
+const DonationSuccess = () => {
   return (
     <div className="donation-success">
       <p className="donation-success-message">
