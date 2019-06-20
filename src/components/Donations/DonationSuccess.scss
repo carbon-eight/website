@@ -20,6 +20,9 @@
     max-width: 485px;
     max-height: 460px;
     margin: 0 auto;
+    animation: reveal 0.3s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
 
     .success-background {
 
