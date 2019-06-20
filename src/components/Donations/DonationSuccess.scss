@@ -1,0 +1,52 @@
+.donation-success {
+  display: flex;
+  flex-direction: column;
+
+  .donation-success-message {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    span {
+      display: block;
+      @include h3();
+      text-align: center;
+    }
+  }
+
+  .success-illustration {
+    width: 100%;
+    max-width: 485px;
+    max-height: 460px;
+    margin: 0 auto;
+
+    .success-background {
+
+    }
+
+    .success-background-bits {
+
+    }
+
+    .success-glove {
+      animation: hoverFloat 6s ease-in-out infinite;
+
+      @keyframes hoverFloat {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    }
+
+    .success-tick {
+
+    }
+  }
+}

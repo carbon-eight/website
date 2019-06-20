@@ -4,7 +4,7 @@ import { Wrapper } from '../common';
 import {
   SponsorshipTiles,
   DonationTiles,
-  DonationSuccessMessage,
+  DonationSuccess,
 } from '.';
 import {
   RECURRING_OPTION,
@@ -113,7 +113,7 @@ class DonationModalTemplate extends Component {
         <Wrapper>
           <div className="modal-container">
             { donationSuccess ? (
-              <DonationSuccessMessage />
+              <DonationSuccess />
             ) : (
               <>
                 <div className="donation-mode-selector">
