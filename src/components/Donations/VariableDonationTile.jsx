@@ -5,12 +5,14 @@ import './DonationTile.scss';
 
 const VariableDonationTile = (props) => {
   const {
+    id,
     visible,
     animationStyles,
-    donationType,
     illustrationType,
+    isSelected,
+    selectTileHandler,
   } = props;
-  const classNames = `donation-tile${visible ? ' visible' : ''}`;
+  const classNames = `donation-tile${visible ? ' visible' : ''}${isSelected ? ' selected' : ''}`;
   return (
     <div className={classNames} style={visible ? animationStyles : null}>
       <div className="container">

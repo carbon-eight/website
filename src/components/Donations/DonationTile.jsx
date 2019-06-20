@@ -19,14 +19,20 @@ const DonationTile = (props) => {
     animationStyles,
     donationType,
     illustrationType,
+    isSelected,
     selectTileHandler,
   } = props;
-  console.log('Props @ DonationTile', props);
-  const classNames = `donation-tile${visible ? ' visible' : ''}`;
+  const classNames = `donation-tile${visible ? ' visible' : ''}${isSelected ? ' selected' : ''}`;
   const isRecurringDonation = donationType === RECURRING_OPTION;
   // const isOnceOffDonation = donationType === ONCE_OFF_OPTION;
   return (
-    <div className={classNames} style={visible ? animationStyles : null}>
+    <button
+      type="button"
+      className={classNames}
+      onClick={event => selectTileHandler(event, id)}
+      aria-label="hello"
+      style={visible ? animationStyles : null}
+    >
       <div className="container">
         <DonationIllustration
           illustrationType={illustrationType}
@@ -40,7 +46,7 @@ const DonationTile = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

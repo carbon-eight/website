@@ -12,22 +12,22 @@ const DonationTiles = (props) => {
     visible,
     tiles,
     selectTileHandler,
-    selectedDonationOption,
+    selectedDonationId,
   } = props;
-  const className = `tiles donation-tiles${visible ? ' active' : ''}`;
+  const className = `tiles donation-tiles${visible ? ' visible' : ''}`;
   const donationTiles = tiles.filter(tile => tile.id !== VARIABLE_DONATION_SKU);
   const variableTile = tiles.find(tile => tile.id === VARIABLE_DONATION_SKU);
   return (
     <div className={className}>
       {donationTiles && donationTiles.map((tile, index) => {
         const { id } = tile;
-        const isSelected = selectedDonationOption ? selectedDonationOption.id === id : false;
         const animationStyles = {
           transitionDelay: `${(0.3 + ((index + 1) * 0.2)).toFixed(1)}s`,
         };
         return (
           <DonationTile
             visible={visible}
+            isSelected={selectedDonationId === id}
             animationStyles={animationStyles}
             donationType={ONCE_OFF_OPTION}
             illustrationType={index}
@@ -38,6 +38,7 @@ const DonationTiles = (props) => {
       })}
       {variableTile && (
         <VariableDonationTile
+          isSelected={selectedDonationId === VARIABLE_DONATION_SKU}
           visible={visible}
           animationStyles={{
             transitionDelay: `${(0.3 + ((donationTiles.length + 1) * 0.2)).toFixed(1)}s`,

@@ -101,20 +101,28 @@
     }
   }
 
-  // &.active {
-  //   .amount-container {
-  //     .amount {
-  //       transform: translateX(0) translateY(0);
-  //       border-color: $primary;
-  //     }
-  //   }
-  //
-  //   &:hover {
-  //     .amount-container {
-  //       .amount {
-  //         transform: translateX(0) translateY(0);
-  //       }
-  //     }
-  //   }
-  // }
+  &.selected {
+    .container {
+      transform: translateX(0) translateY(0);
+      border-color: $primary;
+    }
+    .amount-container {
+      .amount {
+        transform: translateX(0) translateY(0);
+        border-color: $primary;
+      }
+    }
+
+    &:hover {
+      .container {
+        transform: translateX(0) translateY(0);
+        border-color: $primary;
+      }
+      .amount-container {
+        .amount {
+          transform: translateX(0) translateY(0);
+        }
+      }
+    }
+  }
 }
