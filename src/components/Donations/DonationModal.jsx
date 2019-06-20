@@ -8,6 +8,7 @@ import {
 import {
   RECURRING_OPTION,
   ONCE_OFF_OPTION,
+  VARIABLE_DONATION_SKU,
 } from './donation-constants';
 import './DonationModal.scss';
 
@@ -32,7 +33,6 @@ const ModeSelectionButton = (props) => {
 
 class DonationModalTemplate extends Component {
   state = {
-    phase: 0,
     selectedDonationId: null,
     donationMode: RECURRING_OPTION,
     stripe: null,
@@ -56,9 +56,29 @@ class DonationModalTemplate extends Component {
     this.setState({ selectedDonationId });
   }
 
-  redirectToCheckout = async (event, items) => {
-    const { stripe } = this.state;
-    if (!items || !stripe) return null;
+  redirectToCheckout = async (event, selectedDonationId) => {
+    const {
+      stripe,
+      donationMode,
+    } = this.state;
+    if (!selectedDonationId || !stripe) return null;
+    const items = [];
+    if (selectedDonationId === VARIABLE_DONATION_SKU) {
+      items.push({
+        sku: selectedDonationId,
+        quantity: 50, // replace with input value
+      });
+    } else if (donationMode === ONCE_OFF_OPTION) {
+      items.push({
+        sku: selectedDonationId,
+        quantity: 1,
+      });
+    } else if (donationMode === RECURRING_OPTION) {
+      items.push({
+        plan: selectedDonationId,
+        quantity: 1,
+      });
+    }
     const { error } = await stripe.redirectToCheckout({
       items,
       successUrl: `${window.location.origin}#success`,
@@ -70,7 +90,6 @@ class DonationModalTemplate extends Component {
 
   render() {
     const {
-      phase,
       donationMode,
       selectedDonationId,
     } = this.state;

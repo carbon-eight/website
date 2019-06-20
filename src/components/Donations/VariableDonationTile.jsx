@@ -14,7 +14,13 @@ const VariableDonationTile = (props) => {
   } = props;
   const classNames = `donation-tile${visible ? ' visible' : ''}${isSelected ? ' selected' : ''}`;
   return (
-    <div className={classNames} style={visible ? animationStyles : null}>
+    <button
+      type="button"
+      className={classNames}
+      onClick={event => selectTileHandler(event, id)}
+      aria-label="hello"
+      style={visible ? animationStyles : null}
+    >
       <div className="container">
         <div className="illustration-container">
           <DonationIllustration
@@ -29,7 +35,7 @@ const VariableDonationTile = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

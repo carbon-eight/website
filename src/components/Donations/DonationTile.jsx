@@ -2,7 +2,6 @@ import React from 'react';
 import { DonationIllustration } from './DonationIllustration';
 import {
   RECURRING_OPTION,
-  ONCE_OFF_OPTION,
 } from './donation-constants';
 import './DonationTile.scss';
 
@@ -24,7 +23,6 @@ const DonationTile = (props) => {
   } = props;
   const classNames = `donation-tile${visible ? ' visible' : ''}${isSelected ? ' selected' : ''}`;
   const isRecurringDonation = donationType === RECURRING_OPTION;
-  // const isOnceOffDonation = donationType === ONCE_OFF_OPTION;
   return (
     <button
       type="button"
