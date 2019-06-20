@@ -103,13 +103,15 @@ class DonationModalTemplate extends Component {
             </div>
             <div className="donation-options">
               <SponsorshipTiles
-                active={recurringDonationMode}
+                visible={recurringDonationMode}
                 tiles={stripePlanItems}
+                selectedDonationOption={selectedDonationOption}
                 selectTileHandler={this.selectDonationOption}
               />
               <DonationTiles
-                active={onceOffDonationMode}
+                visible={onceOffDonationMode}
                 tiles={stripeProductItems}
+                selectedDonationOption={selectedDonationOption}
                 selectTileHandler={this.selectDonationOption}
               />
             </div>

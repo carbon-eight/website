@@ -1,29 +1,120 @@
 .donation-tile {
   flex: 1;
-  display: flex;
-  flex-direction: column;
   margin-right: 50px;
   opacity: 0;
   transform: translateY(10%);
   transition-property: transform, opacity;
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
-  padding: 40px 20px;
-  background-color: $off-white;
-  border-radius: 24px;
   position: relative;
+  z-index: 2;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    background-color: $off-white;
+    border: 3px solid $off-white;
+    border-radius: 24px;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transform: translateX(0) translateY(0);
+  }
+
+  &:before {
+    content: '';
+    @include center-align(absolute);
+    background-color: $primary;
+    border-radius: 24px;
+    width: 98%;
+    height: 98%;
+    z-index: -1;
+  }
 
   &:last-child {
     margin-right: 0;
   }
 
-  &.active {
+  &.visible {
     opacity: 1;
     transform: translateY(0);
+    z-index: 3;
   }
 
   .amount-container {
     position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%);
+
+    .inner-container {
+      position: relative;
+
+      &:before {
+        content: '';
+        @include center-align(absolute);
+        background-color: $primary;
+        border-radius: 24px;
+        width: 98%;
+        height: 98%;
+        z-index: 1;
+      }
+    }
+
+    .amount {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: $white;
+      padding: 10px 30px;
+      border: 3px solid $tertiary;
+      border-radius: 24px;
+      transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+      transform: translateX(0) translateY(0);
+      position: relative;
+      z-index: 2;
+
+      .price {
+        display: block;
+        @include h2();
+        white-space: nowrap;
+      }
+      .frequency {
+        display: block;
+        @include h4();
+        margin-left: 10px;
+        white-space: nowrap;
+      }
+    }
   }
 
+  &:hover {
+    .container {
+      transform: translateX(-10px) translateY(-10px);
+      border-color: $primary;
+    }
+    .amount-container {
+      .amount {
+        transform: translateX(-5px) translateY(-5px);
+        border-color: $primary;
+      }
+    }
+  }
+
+  // &.active {
+  //   .amount-container {
+  //     .amount {
+  //       transform: translateX(0) translateY(0);
+  //       border-color: $primary;
+  //     }
+  //   }
+  //
+  //   &:hover {
+  //     .amount-container {
+  //       .amount {
+  //         transform: translateX(0) translateY(0);
+  //       }
+  //     }
+  //   }
+  // }
 }
