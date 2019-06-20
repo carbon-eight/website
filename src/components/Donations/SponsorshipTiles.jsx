@@ -22,6 +22,7 @@ const SponsorshipTiles = (props) => {
         };
         return (
           <DonationTile
+            key={id}
             isSelected={selectedDonationId === id}
             visible={visible}
             animationStyles={animationStyles}

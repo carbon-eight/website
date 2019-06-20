@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
+import queryString from 'query-string';
 import { Layout } from '../components';
 import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
@@ -25,12 +26,17 @@ class Index extends Component {
       metaDescription,
       openGraphImage,
     };
+    const queryParams = queryString.parse(location.search);
+    console.log({ queryParams });
+    const donationSuccess = queryParams.success === 'true';
     return (
       <Layout location={location} seoData={seoData}>
         <Wrapper>
           <div className="page-block donation-block">
             <h1 className="page-title">Contribute to regenerating aussie soil.</h1>
-            <DonationModal />
+            <DonationModal
+              donationSuccess={donationSuccess}
+            />
           </div>
         </Wrapper>
       </Layout>

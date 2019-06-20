@@ -4,6 +4,7 @@ import { Wrapper } from '../common';
 import {
   SponsorshipTiles,
   DonationTiles,
+  DonationSuccessMessage,
 } from '.';
 import {
   RECURRING_OPTION,
@@ -81,9 +82,9 @@ class DonationModalTemplate extends Component {
     }
     const { error } = await stripe.redirectToCheckout({
       items,
-      successUrl: `${window.location.origin}#success`,
-      cancelUrl: `${window.location.origin}/`,
-      billingAddressCollection: 'required',
+      successUrl: `${window.location.origin}?success=true`,
+      cancelUrl: `${window.location.origin}`,
+      // billingAddressCollection: 'required',
     });
     if (error) console.error('Error redirecting to the checkout:', error);
   }
@@ -94,6 +95,7 @@ class DonationModalTemplate extends Component {
       selectedDonationId,
     } = this.state;
     const {
+      donationSuccess,
       stripeProducts,
       stripePlans,
     } = this.props;
@@ -105,49 +107,56 @@ class DonationModalTemplate extends Component {
     ));
     const recurringDonationMode = donationMode === RECURRING_OPTION;
     const onceOffDonationMode = donationMode === ONCE_OFF_OPTION;
+    console.log({ donationSuccess });
     return (
       <section className="donation-modal">
         <Wrapper>
           <div className="modal-container">
-            <div className="donation-mode-selector">
-              <ModeSelectionButton
-                isActive={recurringDonationMode}
-                mode={RECURRING_OPTION}
-                label="Contribute Monthly"
-                setDonationModeHandler={this.setDonationMode}
-              />
-              <ModeSelectionButton
-                isActive={onceOffDonationMode}
-                mode={ONCE_OFF_OPTION}
-                label="Contribute Once"
-                setDonationModeHandler={this.setDonationMode}
-              />
-            </div>
-            <div className="donation-options">
-              <SponsorshipTiles
-                visible={recurringDonationMode}
-                tiles={stripePlanItems}
-                selectedDonationId={selectedDonationId}
-                selectTileHandler={this.selectDonationOption}
-              />
-              <DonationTiles
-                visible={onceOffDonationMode}
-                tiles={stripeProductItems}
-                selectedDonationId={selectedDonationId}
-                selectTileHandler={this.selectDonationOption}
-              />
-            </div>
-            <div className="modal-actions">
-              <button
-                type="button"
-                disabled={!selectedDonationId}
-                className="modal-action-button cta-button"
-                onClick={event => this.redirectToCheckout(event, selectedDonationId)}
-                aria-label="Proceed to checkout"
-              >
-                <span>Next</span>
-              </button>
-            </div>
+            { donationSuccess ? (
+              <DonationSuccessMessage />
+            ) : (
+              <>
+                <div className="donation-mode-selector">
+                  <ModeSelectionButton
+                    isActive={recurringDonationMode}
+                    mode={RECURRING_OPTION}
+                    label="Contribute Monthly"
+                    setDonationModeHandler={this.setDonationMode}
+                  />
+                  <ModeSelectionButton
+                    isActive={onceOffDonationMode}
+                    mode={ONCE_OFF_OPTION}
+                    label="Contribute Once"
+                    setDonationModeHandler={this.setDonationMode}
+                  />
+                </div>
+                <div className="donation-options">
+                  <SponsorshipTiles
+                    visible={recurringDonationMode}
+                    tiles={stripePlanItems}
+                    selectedDonationId={selectedDonationId}
+                    selectTileHandler={this.selectDonationOption}
+                  />
+                  <DonationTiles
+                    visible={onceOffDonationMode}
+                    tiles={stripeProductItems}
+                    selectedDonationId={selectedDonationId}
+                    selectTileHandler={this.selectDonationOption}
+                  />
+                </div>
+                <div className="modal-actions">
+                  <button
+                    type="button"
+                    disabled={!selectedDonationId}
+                    className="modal-action-button cta-button"
+                    onClick={event => this.redirectToCheckout(event, selectedDonationId)}
+                    aria-label="Proceed to checkout"
+                  >
+                    <span>Next</span>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </Wrapper>
       </section>

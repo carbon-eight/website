@@ -39,6 +39,7 @@
     "prismic-reactjs": "^0.3.2",
     "prismjs": "^1.15.0",
     "prop-types": "^15.7.2",
+    "query-string": "^6.7.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",

@@ -26,6 +26,7 @@ const DonationTiles = (props) => {
         };
         return (
           <DonationTile
+            key={id}
             visible={visible}
             isSelected={selectedDonationId === id}
             animationStyles={animationStyles}
