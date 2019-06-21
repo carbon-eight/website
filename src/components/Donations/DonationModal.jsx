@@ -67,6 +67,9 @@ class DonationModalTemplate extends Component {
 
   redirectToCheckout = async (event, selectedDonationId) => {
     const {
+      location,
+    } = this.props;
+    const {
       stripe,
       donationMode,
       variableAmount,
@@ -92,8 +95,8 @@ class DonationModalTemplate extends Component {
     }
     const { error } = await stripe.redirectToCheckout({
       items,
-      successUrl: `${window.location.origin}?success=true`,
-      cancelUrl: `${window.location.origin}`,
+      successUrl: `${location.origin}?success=true`,
+      cancelUrl: `${location.origin}`,
       // billingAddressCollection: 'required',
     });
     if (error) console.error('Error redirecting to the checkout:', error);

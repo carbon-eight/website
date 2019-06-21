@@ -35,6 +35,7 @@ class Index extends Component {
           <div className="page-block donation-block">
             <h1 className="page-title">Contribute to regenerating aussie soil.</h1>
             <DonationModal
+              location={location}
               donationSuccess={donationSuccess}
             />
           </div>
