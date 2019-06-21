@@ -36,7 +36,8 @@ const ModeSelectionButton = (props) => {
 class DonationModalTemplate extends Component {
   state = {
     selectedDonationId: null,
-    donationMode: RECURRING_OPTION,
+    variableAmount: null,
+    donationMode: ONCE_OFF_OPTION, // NOTE: Before go live change me to RECURRING_OPTION
     stripe: null,
   };
 
@@ -53,6 +54,13 @@ class DonationModalTemplate extends Component {
     });
   }
 
+  setVariableAmount = (event) => {
+    // if (event) event.preventDefault();
+    this.setState({
+      variableAmount: event.target.value,
+    });
+  }
+
   selectDonationOption = (event, selectedDonationId) => {
     if (event) event.preventDefault();
     this.setState({ selectedDonationId });
@@ -62,13 +70,15 @@ class DonationModalTemplate extends Component {
     const {
       stripe,
       donationMode,
+      variableAmount,
     } = this.state;
     if (!selectedDonationId || !stripe) return null;
     const items = [];
     if (selectedDonationId === VARIABLE_DONATION_SKU) {
+      if (!variableAmount) return null;
       items.push({
         sku: selectedDonationId,
-        quantity: 50, // replace with input value
+        quantity: parseInt(variableAmount),
       });
     } else if (donationMode === ONCE_OFF_OPTION) {
       items.push({
@@ -92,6 +102,7 @@ class DonationModalTemplate extends Component {
 
   render() {
     const {
+      variableAmount,
       donationMode,
       selectedDonationId,
     } = this.state;
@@ -140,6 +151,8 @@ class DonationModalTemplate extends Component {
                   <DonationTiles
                     visible={onceOffDonationMode}
                     tiles={stripeProductItems}
+                    variableAmount={variableAmount}
+                    setVariableAmountHandler={this.setVariableAmount}
                     selectedDonationId={selectedDonationId}
                     selectTileHandler={this.selectDonationOption}
                   />

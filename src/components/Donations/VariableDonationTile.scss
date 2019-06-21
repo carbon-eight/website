@@ -1,0 +1,40 @@
+.variable-donation-tile {
+
+  .container {
+
+    .amount-container {
+
+      .inner-container {
+
+        .amount {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          .dollar {
+            @include h2();
+          }
+
+          input[type='number'] {
+            display: block;
+            -moz-appearance:none;
+            -webkit-appearance: none;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            box-shadow: none;
+            @include h2();
+            margin-left: 5px;
+            white-space: normal;
+          }
+
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+      }
+    }
+  }
+
+}

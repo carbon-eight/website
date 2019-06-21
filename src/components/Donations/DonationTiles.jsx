@@ -13,6 +13,8 @@ const DonationTiles = (props) => {
     tiles,
     selectTileHandler,
     selectedDonationId,
+    variableAmount,
+    setVariableAmountHandler,
   } = props;
   const className = `tiles donation-tiles${visible ? ' visible' : ''}`;
   const donationTiles = tiles.filter(tile => tile.id !== VARIABLE_DONATION_SKU);
@@ -39,6 +41,8 @@ const DonationTiles = (props) => {
       })}
       {variableTile && (
         <VariableDonationTile
+          variableAmount={variableAmount}
+          setVariableAmountHandler={setVariableAmountHandler}
           isSelected={selectedDonationId === VARIABLE_DONATION_SKU}
           visible={visible}
           animationStyles={{
