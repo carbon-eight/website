@@ -14,6 +14,8 @@ import {
 } from './donation-constants';
 import './DonationModal.scss';
 
+const isClient = typeof window !== 'undefined';
+
 const ModeSelectionButton = (props) => {
   const {
     isActive,
@@ -42,7 +44,14 @@ class DonationModalTemplate extends Component {
   };
 
   componentDidMount() {
-    const stripe = window.Stripe('pk_test_86PRNmvFzBl74FSwWhOfL8J5000mohXvYl');
+    const {
+      site: {
+        siteMetadata: {
+          stripeApiKey,
+        },
+      },
+    } = this.props;
+    const stripe = isClient ? window.Stripe(stripeApiKey) : null;
     this.setState({ stripe });
   }
 
@@ -187,6 +196,11 @@ const DonationModal = props => (
   <StaticQuery
     query={graphql`
       query {
+        site {
+          siteMetadata {
+            stripeApiKey,
+          }
+        },
         stripeProducts: allStripeSku (
           filter: { product: { id: { eq: "prod_FH57pA9mhamtKh" } } }
           sort: { fields: [price] }

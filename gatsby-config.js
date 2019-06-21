@@ -6,6 +6,7 @@ const {
   PRISMIC_REPO_NAME,
   PRISMIC_API_KEY,
   GOOGLE_ANALYTICS_ID,
+  STRIPE_API_KEY,
   STRIPE_SECRET_KEY,
   // MAILCHIMP_ENDPOINT,
 } = process.env;
@@ -32,6 +33,7 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     facebook: website.facebook,
+    stripeApiKey: STRIPE_API_KEY,
   },
   /* Plugins */
   plugins: [
