@@ -23,12 +23,13 @@ const DonationTile = (props) => {
   } = props;
   const classNames = `donation-tile${visible ? ' visible' : ''}${isSelected ? ' selected' : ''}`;
   const isRecurringDonation = donationType === RECURRING_OPTION;
+  const ariaLabel = `Select to donate ${formatPrice(price)}${isRecurringDonation ? ' per month' : ''}`;
   return (
     <button
       type="button"
       className={classNames}
       onClick={event => selectTileHandler(event, id)}
-      aria-label="hello"
+      aria-label={ariaLabel}
       style={visible ? animationStyles : null}
     >
       <div className="container">

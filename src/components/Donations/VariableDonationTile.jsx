@@ -4,6 +4,9 @@ import { DonationIllustration } from './DonationIllustration';
 import './VariableDonationTile.scss';
 import './DonationTile.scss';
 
+const MIN_DONATION_VALUE = 1;
+const MAX_DONATION_VALUE = 9999;
+
 const VariableDonationTile = (props) => {
   const {
     id,
@@ -16,6 +19,11 @@ const VariableDonationTile = (props) => {
     setVariableAmountHandler,
   } = props;
   const inputRef = useRef();
+  const validateVariableAmount = (event) => {
+    const inputValue = event.target.value;
+    if (inputValue !== '' && (inputValue < MIN_DONATION_VALUE || inputValue > MAX_DONATION_VALUE || inputValue === '-')) return null;
+    setVariableAmountHandler(inputValue);
+  };
   const selectVariableTileHandler = (event) => {
     inputRef.current.focus();
     selectTileHandler(event, id);
@@ -26,7 +34,7 @@ const VariableDonationTile = (props) => {
       type="button"
       className={classNames}
       onClick={event => selectVariableTileHandler(event)}
-      aria-label="hello"
+      aria-label="Select to nominate your own amount to donate"
       style={visible ? animationStyles : null}
     >
       <div className="container">
@@ -41,12 +49,13 @@ const VariableDonationTile = (props) => {
               <span className="dollar">$</span>
               <AutosizeInput
                 ref={inputRef}
-                name="variable"
+                name="variable-donation"
                 type="number"
                 value={variableAmount || ''}
                 placeholder="100"
-                maxLength="4"
-                onChange={event => setVariableAmountHandler(event)}
+                min={MIN_DONATION_VALUE}
+                max={MAX_DONATION_VALUE}
+                onChange={event => validateVariableAmount(event)}
               />
             </div>
           </div>

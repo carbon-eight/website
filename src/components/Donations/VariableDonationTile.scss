@@ -24,8 +24,12 @@
             outline: none;
             box-shadow: none;
             @include h2();
-            margin-left: 5px;
             white-space: normal;
+            text-align: center;
+
+            @include placeholder {
+              color: darken($tertiary, 5%);
+            }
           }
 
           input::-webkit-outer-spin-button,

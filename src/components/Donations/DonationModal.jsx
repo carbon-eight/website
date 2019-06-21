@@ -54,10 +54,9 @@ class DonationModalTemplate extends Component {
     });
   }
 
-  setVariableAmount = (event) => {
-    // if (event) event.preventDefault();
+  setVariableAmount = (variableAmount) => {
     this.setState({
-      variableAmount: event.target.value,
+      variableAmount,
     });
   }
 
@@ -78,7 +77,7 @@ class DonationModalTemplate extends Component {
       if (!variableAmount) return null;
       items.push({
         sku: selectedDonationId,
-        quantity: parseInt(variableAmount),
+        quantity: parseInt(variableAmount, 10),
       });
     } else if (donationMode === ONCE_OFF_OPTION) {
       items.push({
@@ -160,7 +159,7 @@ class DonationModalTemplate extends Component {
                 <div className="modal-actions">
                   <button
                     type="button"
-                    disabled={!selectedDonationId}
+                    disabled={!selectedDonationId || (selectedDonationId === VARIABLE_DONATION_SKU && !variableAmount)}
                     className="modal-action-button cta-button"
                     onClick={event => this.redirectToCheckout(event, selectedDonationId)}
                     aria-label="Proceed to checkout"
