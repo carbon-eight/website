@@ -1,0 +1,54 @@
+.image-text-block {
+  margin-bottom: 50px;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+
+    @include media-down(mobile) {
+      flex-direction: column;
+    }
+
+    .col {
+      width: 50%;
+
+      @include media-down(mobile) {
+        width: 100%;
+      }
+    }
+
+    .image-col {
+
+      .image-container {
+        width: 100%;
+        padding-bottom: 60%;
+        position: relative;
+      }
+    }
+
+    .text-col {
+      display: flex;
+      flex-direction: column;
+
+    }
+  }
+
+  &:nth-child(odd) {
+    .container {
+      flex-direction: row;
+
+      @include media-down(mobile) {
+        flex-direction: column;
+      }
+    }
+  }
+  &:nth-child(even) {
+    .container {
+      flex-direction: row-reverse;
+
+      @include media-down(mobile) {
+        flex-direction: column;
+      }
+    }
+  }
+}
