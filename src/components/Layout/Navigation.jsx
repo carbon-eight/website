@@ -7,17 +7,25 @@ class Navigation extends Component {
   render() {
     const {
       location,
-      navigation,
+      settings,
+      navActive,
+      closeNav,
+      toggleNavHandler,
     } = this.props;
+    const {
+      primaryMenu: navItems,
+      socialLinks,
+      email,
+    } = settings;
     const { pathname: currentPath } = location;
     return (
       <nav className="navigation" role="navigation">
         <div className="nav-container">
           <ul className="nav-items">
-            {navigation.map((item) => {
+            {navItems && navItems.map((item) => {
               const {
                 title,
-                page_link: pageLink,
+                pageLink,
               } = item;
               const { slug } = pageLink;
               const { text } = title;

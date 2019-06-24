@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Wrapper } from '../common';
+import './Footer.scss';
 
 class Footer extends Component {
   render() {

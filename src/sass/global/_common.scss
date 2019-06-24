@@ -31,9 +31,19 @@ body {
   position: relative;
 }
 
+.header {
+  z-index: 3;
+}
+
+nav.navigation {
+  z-index: 2;
+}
+
 main {
   flex: 1;
   padding-top: 100px;
+  position: relative;
+  z-index: 1;
 }
 
 .page-block {

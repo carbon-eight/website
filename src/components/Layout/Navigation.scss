@@ -1,11 +1,9 @@
 .navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-
-  @include media-down(tablet) {
-    display: none;
-  }
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary;
+  z-index: 3;
 
   .nav-container {
 

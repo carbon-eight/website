@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-// import { Navigation } from '.';
 import { Wrapper, Logo } from '../common';
+import './Header.scss';
+
 
 class Header extends Component {
   render() {
-    // const {
-    //   location,
-    //   navigation,
-    // } = this.props;
+    const {
+      navActive,
+      toggleNavHandler,
+    } = this.props;
     return (
       <header className="header">
         <Wrapper>
-          <Logo />
+          <Logo clickable />
         </Wrapper>
       </header>
     );

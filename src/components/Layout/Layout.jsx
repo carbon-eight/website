@@ -4,6 +4,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import {
   Header,
   Footer,
+  Navigation,
 } from '.';
 import { SEO } from '..';
 import '../../sass/global/styles.scss';
@@ -13,7 +14,7 @@ const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : 
 
 class PureLayout extends Component {
   state = {
-    navOpen: false,
+    navActive: false,
   };
 
   componentDidMount() {
@@ -27,12 +28,12 @@ class PureLayout extends Component {
 
   toggleNav = (event) => {
     event.preventDefault();
-    const { navOpen } = this.state;
+    const { navActive } = this.state;
     if (event) event.preventDefault();
-    if (navOpen) document.body.classList.remove('nav-open');
-    if (!navOpen) document.body.classList.add('nav-open');
+    if (navActive) document.body.classList.remove('nav-open');
+    if (!navActive) document.body.classList.add('nav-open');
     this.setState({
-      navOpen: !navOpen,
+      navActive: !navActive,
     });
   };
 
@@ -40,20 +41,20 @@ class PureLayout extends Component {
     if (event) event.preventDefault();
     document.body.classList.add('nav-open');
     this.setState({
-      navOpen: true,
+      navActive: true,
     });
   };
 
   closeNav = () => {
     document.body.classList.remove('nav-open');
     this.setState({
-      navOpen: false,
+      navActive: false,
     });
   };
 
   render() {
     const {
-      navOpen,
+      navActive,
     } = this.state;
     const {
       children,
@@ -78,9 +79,15 @@ class PureLayout extends Component {
         />
         <div id="app" className="app">
           <Header
-            navOpen={navOpen}
             location={location}
-            navigation={primaryMenu}
+            navActive={navActive}
+            toggleNavHandler={event => this.toggleNav(event)}
+          />
+          <Navigation
+            location={location}
+            settings={settings}
+            navActive={navActive}
+            closeNav={event => this.closeNav(event)}
             toggleNavHandler={event => this.toggleNav(event)}
           />
           <main className={isHome ? 'home' : location.pathname.replace(/\//g, '')}>
@@ -102,15 +109,32 @@ class Layout extends Component {
             settings: prismicSettings {
               data {
                 primaryMenu: primary_menu {
+                  description {
+                    html
+                    text
+                  }
+                  targetAudience: target_audience {
+                    html
+                    text
+                  }
                   title {
                     text
                   }
-                  page_link {
-                    link_type
-                    uid
-                    slug
+                  pageLink: page_link {
+                    target
                     url
+                    link_type
                   }
+                }
+                socialLinks: social_links {
+                  link {
+                    url
+                    target
+                  }
+                  type
+                }
+                email {
+                  text
                 }
               }
             }
