@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import {
+  Wrapper,
+} from '../common';
 import { decodeEntities } from '../../util/helpers';
 import './SubscribeBlock.scss';
 
@@ -66,26 +69,22 @@ export default class SubscribeForm extends Component {
     } = this.state;
     return (
       <div className="subscribe-form-block page-block">
-        <h2 className="block-title">{title.text}</h2>
-        <div className={`form-container ${submitSuccess ? 'submit-success' : ''}`}>
-          <div className="inner-container">
-            { submitSuccess && (
-              <div className="success-message">
-                <span className="title">Nice one! You’re on the list.</span>
-              </div>
-            )}
-            { !submitSuccess && (
-              <>
-                <div className="sign-up-message">
-                  <span className="title">More stories are in the making.</span>
-                  <span className="subtitle">Want to see more? Subscribe my to my newsletter to get the news stories delivered to your inbox</span>
+        <Wrapper>
+          <h2 className="block-title">{title.text}</h2>
+          <div className={`form-container ${submitSuccess ? 'submit-success' : ''}`}>
+            <>
+              { submitSuccess && (
+                <div className="success-message">
+                  <span className="title">Nice one! You’re on the list.</span>
                 </div>
+              )}
+              { !submitSuccess && (
                 <form
                   className={`subscribe-form ${submitError ? 'has-error' : ''}`}
                   name="subscribe"
                   onSubmit={event => this.handleSubmit(event)}
                 >
-                  <label className="field full-width" htmlFor="name">
+                  <label className="field" htmlFor="name">
                     <span>Full name</span>
                     <input
                       type="text"
@@ -95,7 +94,7 @@ export default class SubscribeForm extends Component {
                       required
                     />
                   </label>
-                  <label htmlFor="email" className="field full-width" aria-label="Email">
+                  <label htmlFor="email" className="field" aria-label="Email">
                     <span>Your email</span>
                     <input
                       type="email"
@@ -108,17 +107,22 @@ export default class SubscribeForm extends Component {
                       required
                     />
                   </label>
-                  <button className={`submit-button ${submitting ? 'submitting' : ''}`} aria-label="Send" type="submit" disabled={submitting}>
+                  <button
+                    type="submit"
+                    className={`cta-button submit-button ${submitting ? 'submitting' : ''}`}
+                    aria-label="Subscribe to the newsletter"
+                    disabled={submitting}
+                  >
                     <span className="label">{submitting ? 'Submitting...' : 'Sign up'}</span>
                   </button>
                   <div className="error-message">
                     <span>{this.isAlreadySubscribed ? 'Looks like you\'re already subscribed to our mailing list.' : `Uh oh! Something went wrong!`}</span>
                   </div>
                 </form>
-              </>
-            )}
+              )}
+            </>
           </div>
-        </div>
+        </Wrapper>
       </div>
     );
   }
