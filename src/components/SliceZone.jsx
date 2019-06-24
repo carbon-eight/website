@@ -11,13 +11,12 @@ const SUBSCRIBE_BLOCK_TYPE = 'newsletter_subscriber';
 export default class SliceZone extends Component {
   render() {
     const { allSlices } = this.props;
-    console.log({allSlices});
-    const slices = allSlices.map((s) => {
-      switch (s.slice_type) {
+    const slices = allSlices.map((slice) => {
+      switch (slice.sliceType) {
         case IMAGE_TEXT_BLOCKS_TYPE:
-          return <ImageTextBlocks key={s.id} input={s} />;
+          return <ImageTextBlocks key={slice.id} data={slice} />;
         case SUBSCRIBE_BLOCK_TYPE:
-          return <SubscribeBlock key={s.id} input={s} />;
+          return <SubscribeBlock key={slice.id} data={slice} />;
         default:
           return null;
       }

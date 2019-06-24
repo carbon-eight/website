@@ -28,22 +28,21 @@ class Index extends Component {
       openGraphImage,
     };
     const queryParams = queryString.parse(location.search);
-    console.log({ queryParams });
     const donationSuccess = queryParams.success === 'true';
     return (
       <Layout location={location} seoData={seoData}>
         <Wrapper>
           <div className="page-block donation-block">
-            <h1 className="page-title">Contribute to regenerating aussie soil.</h1>
+            <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
             <DonationModal
               location={location}
               donationSuccess={donationSuccess}
             />
-            <SliceZone
-              allSlices={body}
-              // siteMetadata={siteMetadata}
-            />
           </div>
+          <SliceZone
+            allSlices={body}
+            // siteMetadata={siteMetadata}
+          />
         </Wrapper>
       </Layout>
     );
@@ -65,17 +64,38 @@ export const pageQuery = graphql`
         body {
           ... on PrismicDonateBodyImageTextBlocks {
             id
-            slice_type
+            sliceType: slice_type
+            primary {
+              title {
+                html
+                text
+              }
+            }
             items {
-              block_image {
+              blockImage: block_image {
                 alt
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 800, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+              blockTitle: block_title {
+                html
+                text
+              }
+              description {
+                html
+                text
               }
               link {
                 id
                 url
                 target
               }
-              link_label {
+              linkLabel: link_label {
                 html
                 text
               }
@@ -83,7 +103,7 @@ export const pageQuery = graphql`
           }
           ... on PrismicDonateBodyNewsletterSubscriber {
             id
-            slice_type
+            sliceType: slice_type
             primary {
               title {
                 html
