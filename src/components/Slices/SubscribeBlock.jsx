@@ -75,7 +75,7 @@ export default class SubscribeForm extends Component {
             <>
               { submitSuccess && (
                 <div className="success-message">
-                  <span className="title">Nice one! You’re on the list.</span>
+                  <p>Nice one! You’re on the list.</p>
                 </div>
               )}
               { !submitSuccess && (
@@ -85,7 +85,6 @@ export default class SubscribeForm extends Component {
                   onSubmit={event => this.handleSubmit(event)}
                 >
                   <label className="field" htmlFor="name">
-                    <span>Full name</span>
                     <input
                       type="text"
                       id="name"
@@ -95,13 +94,12 @@ export default class SubscribeForm extends Component {
                     />
                   </label>
                   <label htmlFor="email" className="field" aria-label="Email">
-                    <span>Your email</span>
                     <input
                       type="email"
                       id="email"
                       disabled={submitting}
                       name="email"
-                      placeholder="hello@email.com"
+                      placeholder="Email"
                       onChange={event => this.handleChange(event)}
                       value={email}
                       required
@@ -116,7 +114,7 @@ export default class SubscribeForm extends Component {
                     <span className="label">{submitting ? 'Submitting...' : 'Sign up'}</span>
                   </button>
                   <div className="error-message">
-                    <span>{this.isAlreadySubscribed ? 'Looks like you\'re already subscribed to our mailing list.' : `Uh oh! Something went wrong!`}</span>
+                    <span>{this.isAlreadySubscribed ? 'Oops! Looks like you\'re already subscribed to our mailing list.' : `Uh oh! Something went wrong!`}</span>
                   </div>
                 </form>
               )}
