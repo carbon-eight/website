@@ -8,7 +8,7 @@ const {
   GOOGLE_ANALYTICS_ID,
   STRIPE_API_KEY,
   STRIPE_SECRET_KEY,
-  // MAILCHIMP_ENDPOINT,
+  MAILCHIMP_ENDPOINT,
 } = process.env;
 
 const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer');
@@ -72,12 +72,12 @@ module.exports = {
         trackingId: GOOGLE_ANALYTICS_ID,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-mailchimp',
-    //   options: {
-    //     endpoint: MAILCHIMP_ENDPOINT,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: MAILCHIMP_ENDPOINT,
+      },
+    },
     'gatsby-plugin-stripe',
     {
       resolve: 'gatsby-source-prismic',
