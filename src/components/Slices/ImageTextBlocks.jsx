@@ -27,9 +27,9 @@ const ImageTextBlocks = (props) => {
     max: 10, // max tilt rotation (degrees)
     perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
     scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 1000, // Speed of the enter/exit transition
+    speed: 6000, // Speed of the enter/exit transition
     transition: false, // Set a transition on enter/exit.
-    axis: null, // What axis should be disabled. Can be X or Y.
+    axis: 'X', // What axis should be disabled. Can be X or Y.
     reset: true, // If the tilt effect has to be reset on exit.
     easing: 'cubic-bezier(.03, .98, .52, .99)', // Easing on enter/exit.
   };
@@ -46,15 +46,19 @@ const ImageTextBlocks = (props) => {
               link,
               linkLabel,
             } = block;
+            const count = (index < 9) ? `0${index + 1}` : `${index + 1}`;
             return (
               <div className="image-text-block" key={generateKey(blockTitle.text)}>
                 <div className="col text-col">
-                  <h3 className="block title">{blockTitle.text}</h3>
-                  <HtmlContent className="description" content={description.html} />
-                  <ContentLink
-                    link={link}
-                    linkLabel={linkLabel}
-                  />
+                  <div className="container">
+                    <span className="count">{count}</span>
+                    <h3 className="title">{blockTitle.text}</h3>
+                    <HtmlContent className="description" content={description.html} />
+                    <ContentLink
+                      link={link}
+                      linkLabel={linkLabel}
+                    />
+                  </div>
                 </div>
                 <div className="col image-col">
                   <Tilt className="container" options={tiltOptions}>

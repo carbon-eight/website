@@ -11,7 +11,7 @@ const ContentLink = (props) => {
     return (
       <a
         href={link.url}
-        className="styled-button"
+        className="cta-button"
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Navigate to ${linkLabel.text}`}
@@ -23,7 +23,7 @@ const ContentLink = (props) => {
   return (
     <Link
       to={link.url}
-      className="styled-button"
+      className="cta-button"
       aria-label={`Navigate to ${linkLabel.text}`}
     >
       <span>{linkLabel.text}</span>
