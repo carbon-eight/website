@@ -1,0 +1,8 @@
+.colourful-background {
+
+  &.inverted {
+    svg {
+      transform: scaleX(-1);
+    }
+  }
+}

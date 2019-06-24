@@ -1,4 +1,5 @@
 const Entities = require('html-entities').AllHtmlEntities;
+const seedRandom = require('seedrandom');
 
 export const decodeEntities = content => Entities.decode(content);
 
@@ -10,3 +11,5 @@ export const getExcerpt = (content, length) => {
   // Return with added ellipsis
   return `${excerpt}...`;
 };
+
+export const getSeededRandom = seedStr => seedRandom(seedStr)();
