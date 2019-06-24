@@ -1,0 +1,78 @@
+.subscribe-form-block {
+
+  .form-container {
+
+    &.submit-success {
+      .inner-container {
+        justify-content: center;
+        align-items: center;
+
+        .title {
+        }
+
+        .subtitle {
+          margin-bottom: 40px;
+        }
+      }
+    }
+
+    .inner-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .title {
+        display: block;
+      }
+
+      .subtitle {
+        display: block;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+
+        .field {
+          position: relative;
+          margin-bottom: 0;
+          padding-bottom: 20px;
+        }
+
+        .submit-button {
+
+        }
+
+        &.has-error {
+          .error-message {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .error-message {
+          position: absolute;
+          top: auto;
+          left: 0;
+          bottom: -5px;
+          opacity: 0;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          transform: translateY(-10px);
+
+          @include media-down(mobile) {
+            bottom: -15px;
+          }
+
+          span {
+            display: block;
+            @include p1();
+            text-align: left;
+            color: $error;
+          }
+        }
+      }
+    }
+  }
+}
