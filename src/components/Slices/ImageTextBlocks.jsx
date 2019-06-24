@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Wrapper, Image } from '../common';
+import { Wrapper, Image, HtmlContent } from '../common';
 import './ImageTextBlocks.scss';
 
 const ImageTextBlocks = (props) => {
@@ -23,20 +23,21 @@ const ImageTextBlocks = (props) => {
             const {
               blockImage,
               blockTitle,
+              description,
               link,
               linkLabel,
             } = block;
             return (
               <div className="image-text-block">
                 <div className="col text-col">
-                  <h3 className="block title">blockTitle</h3>
-                  <p className="description">blockDescription</p>
+                  <h3 className="block title">{blockTitle.text}</h3>
+                  <HtmlContent className="description" content={description.html} />
                   <Link
                     to="/"
                     className="styled-button"
-                    aria-label="Navigate to ..."
+                    aria-label={`Navigate to ${linkLabel.text}`}
                   >
-                    <span>{linkLabel}</span>
+                    <span>{linkLabel.text}</span>
                   </Link>
                 </div>
                 <div className="col image-col">

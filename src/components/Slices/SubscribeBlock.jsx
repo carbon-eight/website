@@ -55,7 +55,7 @@ export default class SubscribeForm extends Component {
       submitError,
     } = this.state;
     return (
-      <div className="subscribe-form-block">
+      <div className="subscribe-form-block page-block">
         <div className={`form-container ${submitSuccess ? 'submit-success' : ''}`}>
           <div className="inner-container">
             { submitSuccess && (
