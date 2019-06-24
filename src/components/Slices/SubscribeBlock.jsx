@@ -49,6 +49,16 @@ export default class SubscribeForm extends Component {
 
   render() {
     const {
+      data,
+    } = this.props;
+    const {
+      primary,
+      // items,
+    } = data;
+    const {
+      title,
+    } = primary;
+    const {
       email,
       submitting,
       submitSuccess,
@@ -56,6 +66,7 @@ export default class SubscribeForm extends Component {
     } = this.state;
     return (
       <div className="subscribe-form-block page-block">
+        <h2 className="block-title">{title.text}</h2>
         <div className={`form-container ${submitSuccess ? 'submit-success' : ''}`}>
           <div className="inner-container">
             { submitSuccess && (

@@ -1,7 +1,13 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Wrapper, Image, HtmlContent } from '../common';
+import {
+  Wrapper,
+  Image,
+  HtmlContent,
+  ContentLink,
+} from '../common';
 import './ImageTextBlocks.scss';
+
+const generateKey = pre => `${pre}_${new Date().getTime()}`;
 
 const ImageTextBlocks = (props) => {
   const {
@@ -28,17 +34,14 @@ const ImageTextBlocks = (props) => {
               linkLabel,
             } = block;
             return (
-              <div className="image-text-block">
+              <div className="image-text-block" key={generateKey(blockTitle.text)}>
                 <div className="col text-col">
                   <h3 className="block title">{blockTitle.text}</h3>
                   <HtmlContent className="description" content={description.html} />
-                  <Link
-                    to="/"
-                    className="styled-button"
-                    aria-label={`Navigate to ${linkLabel.text}`}
-                  >
-                    <span>{linkLabel.text}</span>
-                  </Link>
+                  <ContentLink
+                    link={link}
+                    linkLabel={linkLabel}
+                  />
                 </div>
                 <div className="col image-col">
                   <div className="image-container">
