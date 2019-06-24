@@ -70,11 +70,21 @@ export default class SubscribeForm extends Component {
                   <span className="subtitle">Want to see more? Subscribe my to my newsletter to get the news stories delivered to your inbox</span>
                 </div>
                 <form
-                  className="subscribe-form"
+                  className={`subscribe-form ${submitError ? 'has-error' : ''}`}
                   name="subscribe"
                   onSubmit={event => this.handleSubmit(event)}
                 >
-                  <label htmlFor="email" className={`field full-width ${submitError ? 'has-error' : ''}`} aria-label="Email">
+                  <label className="field full-width" htmlFor="name">
+                    <span>Full name</span>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Name"
+                      required
+                    />
+                  </label>
+                  <label htmlFor="email" className="field full-width" aria-label="Email">
                     <span>Your email</span>
                     <input
                       type="email"
@@ -87,7 +97,7 @@ export default class SubscribeForm extends Component {
                       required
                     />
                   </label>
-                  <button className={`submit-button styled-button ${submitting ? 'submitting' : ''}`} aria-label="Send" type="submit" disabled={submitting}>
+                  <button className={`submit-button ${submitting ? 'submitting' : ''}`} aria-label="Send" type="submit" disabled={submitting}>
                     <span className="label">{submitting ? 'Submitting...' : 'Sign up'}</span>
                   </button>
                   <div className="error-message">

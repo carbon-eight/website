@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import queryString from 'query-string';
-import { Layout } from '../components';
+import { Layout, SliceZone } from '../components';
 import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
 import './index.scss';
@@ -17,6 +17,7 @@ class Index extends Component {
       location,
     } = this.props;
     const {
+      body,
       metaTitle,
       metaDescription,
       openGraphImage,
@@ -38,6 +39,10 @@ class Index extends Component {
               location={location}
               donationSuccess={donationSuccess}
             />
+            <SliceZone
+              allSlices={body}
+              // siteMetadata={siteMetadata}
+            />
           </div>
         </Wrapper>
       </Layout>
@@ -54,9 +59,39 @@ export const pageQuery = graphql`
     #     blogSlug,
     #   }
     # },
-    page: prismicHome {
+    page: prismicDonate {
       uid,
       data {
+        body {
+          ... on PrismicDonateBodyImageTextBlocks {
+            id
+            slice_type
+            items {
+              block_image {
+                alt
+              }
+              link {
+                id
+                url
+                target
+              }
+              link_label {
+                html
+                text
+              }
+            }
+          }
+          ... on PrismicDonateBodyNewsletterSubscriber {
+            id
+            slice_type
+            primary {
+              title {
+                html
+                text
+              }
+            }
+          }
+        }
         metaTitle: meta_title {
           html
           text

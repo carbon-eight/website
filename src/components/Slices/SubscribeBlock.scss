@@ -1,26 +1,6 @@
 .subscribe-form-block {
-  width: 100%;
-  padding-bottom: 80%;
-  position: relative;
-  margin-bottom: 30px;
-
-  @include media-down(tablet) {
-    padding-bottom: 0;
-  }
 
   .form-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    @include newspaper-grid();
-
-    @include media-down(tablet) {
-      position: static;
-      padding: 30px 15px;
-    }
 
     &.submit-success {
       .inner-container {
@@ -33,59 +13,20 @@
         .subtitle {
           margin-bottom: 40px;
         }
-
-
-
-        .nav-item {
-          padding: 15px 0px;
-          border-bottom: 1px solid $off-black;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-
-
-          span {
-            @include h6();
-            margin-top: 2.5px;
-          }
-
-          .arrow {
-            margin: 0 10px;
-            height: 15px;
-            width: 20px;
-            fill: $off-black;
-            transform: translateX(0%);
-            transition: transform 0.5s ease;
-          }
-
-          &:hover {
-            .arrow {
-              @include animation($animation: bounce-left, $duration: 0.5s, $delay: 0s)
-            }
-          }
-        }
       }
     }
 
     .inner-container {
-      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 450px;
-      margin: 0 auto;
 
       .title {
         display: block;
-        @include h2();
-        margin-bottom: 20px;
       }
 
       .subtitle {
         display: block;
-        @include p1();
-        margin-bottom: 30px;
       }
 
       form {
@@ -98,43 +39,38 @@
           position: relative;
           margin-bottom: 0;
           padding-bottom: 20px;
-
-          input {
-            border-bottom: 1px dotted $off-black;
-            padding-bottom: 5px;
-          }
-
-          &.has-error {
-            .error-message {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .error-message {
-            position: absolute;
-            top: auto;
-            left: 0;
-            bottom: -5px;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: translateY(-10px);
-
-            @include media-down(mobile) {
-              bottom: -15px;
-            }
-
-            span {
-              display: block;
-              @include p2();
-              text-align: left;
-              color: $error;
-            }
-          }
         }
 
         .submit-button {
-          margin-top: 40px;
+
+        }
+
+        &.has-error {
+          .error-message {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .error-message {
+          position: absolute;
+          top: auto;
+          left: 0;
+          bottom: -5px;
+          opacity: 0;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          transform: translateY(-10px);
+
+          @include media-down(mobile) {
+            bottom: -15px;
+          }
+
+          span {
+            display: block;
+            @include p1();
+            text-align: left;
+            color: $error;
+          }
         }
       }
     }
