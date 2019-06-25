@@ -28,7 +28,7 @@ const ModeSelectionButton = (props) => {
       type="button"
       className={`donation-mode-button selection-button ${isActive ? 'active' : ''}`}
       onClick={event => setDonationModeHandler(event, mode)}
-      aria-label={`Choose to ${label}`}
+      aria-label={`Choose to donate ${label}`}
     >
       <span>{label}</span>
     </button>
@@ -142,13 +142,13 @@ class DonationModalTemplate extends Component {
                   <ModeSelectionButton
                     isActive={recurringDonationMode}
                     mode={RECURRING_OPTION}
-                    label="Contribute Monthly"
+                    label="Monthly"
                     setDonationModeHandler={this.setDonationMode}
                   />
                   <ModeSelectionButton
                     isActive={onceOffDonationMode}
                     mode={ONCE_OFF_OPTION}
-                    label="Contribute Once"
+                    label="Once"
                     setDonationModeHandler={this.setDonationMode}
                   />
                 </div>

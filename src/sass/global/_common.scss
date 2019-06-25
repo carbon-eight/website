@@ -44,6 +44,10 @@ main {
   padding-top: 100px;
   position: relative;
   z-index: 1;
+
+  @include media-down(mobile) {
+    padding-top: 50px;
+  }
 }
 
 .page-block {

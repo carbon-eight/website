@@ -31,19 +31,17 @@ class Index extends Component {
     const donationSuccess = queryParams.success === 'true';
     return (
       <Layout location={location} seoData={seoData}>
-        <Wrapper>
-          <div className="page-block donation-block">
-            <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
-            <DonationModal
-              location={location}
-              donationSuccess={donationSuccess}
-            />
-          </div>
-          <SliceZone
-            allSlices={body}
-            // siteMetadata={siteMetadata}
+        <div className="page-block donation-block">
+          <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
+          <DonationModal
+            location={location}
+            donationSuccess={donationSuccess}
           />
-        </Wrapper>
+        </div>
+        <SliceZone
+          allSlices={body}
+          // siteMetadata={siteMetadata}
+        />
       </Layout>
     );
   }

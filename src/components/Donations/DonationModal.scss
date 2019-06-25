@@ -16,6 +16,41 @@
     button {
       margin-right: 30px;
 
+      @include media-down(mobile) {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+
+        &:before {
+          display: none;
+        }
+
+        span {
+          white-space: nowrap;
+        }
+
+        &:hover {
+          span {
+            transform: translateX(0) translateY(0);
+            border-color: $primary;
+          }
+        }
+
+        &:nth-child(odd) {
+          span {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+        &:nth-child(even) {
+          span {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+
       &:last-child {
         margin-left: 0;
       }
@@ -27,6 +62,10 @@
     height: 430px;
     position: relative;
     margin-bottom: 80px;
+
+    @include media-down(mobile) {
+      margin-bottom: 60px;
+    }
   }
 
   .modal-actions {
@@ -35,12 +74,10 @@
     justify-content: center;
     margin-bottom: 80px;
 
-    button {
-      margin-right: 30px;
-
-      &:last-child {
-        margin-left: 0;
-      }
+    @include media-down(mobile) {
+      margin-bottom: 60px;
     }
+
+    button {}
   }
 }
