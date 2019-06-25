@@ -4,7 +4,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import {
   Header,
   Footer,
-  Navigation,
+  NavigationMenu,
 } from '.';
 import { SEO } from '..';
 import '../../sass/global/styles.scss';
@@ -83,7 +83,7 @@ class PureLayout extends Component {
             navActive={navActive}
             toggleNavHandler={event => this.toggleNav(event)}
           />
-          <Navigation
+          <NavigationMenu
             location={location}
             settings={settings}
             navActive={navActive}
