@@ -4,8 +4,10 @@ import smoothscroll from 'smoothscroll-polyfill';
 import {
   Header,
   Footer,
-  NavigationMenu,
 } from '.';
+import {
+  NavigationMenu,
+} from '../Navigation';
 import { SEO } from '..';
 import '../../sass/global/styles.scss';
 

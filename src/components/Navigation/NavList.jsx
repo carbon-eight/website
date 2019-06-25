@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavItem } from '.';
-import './NavList.scss';
 
 const NavList = (props) => {
   const {
+    verbose = false,
     location,
     navItems,
     closeNav,
@@ -17,6 +17,7 @@ const NavList = (props) => {
             navItem={item}
             currentPath={currentPath}
             closeNav={closeNav}
+            verbose={verbose}
           />
         ))}
       </ul>
