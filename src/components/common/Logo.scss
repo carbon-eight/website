@@ -18,6 +18,11 @@
     width: 130px;
     height: 65px;
 
+    @include media-down(mobile) {
+      width: 90px;
+      height: 45px;
+    }
+
     path {
       fill: $secondary;
       transition: fill 0.3s ease;

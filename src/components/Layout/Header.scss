@@ -9,6 +9,10 @@ header.header {
 
   .logo {
     margin: 40px;
+
+    @include media-down(mobile) {
+      margin: 20px;
+    }
   }
 
   .toggle-nav-button {
@@ -18,11 +22,22 @@ header.header {
     box-sizing: content-box;
     position: relative;
 
+    @include media-down(mobile) {
+      margin: 20px;
+      width: 32px;
+      height: 22px;
+    }
+
     .hamburger-icon {
       top: 0;
       @include horizontal-align(absolute);
       width: 38px;
       height: 26px;
+
+      @include media-down(mobile) {
+        width: 32px;
+        height: 22px;
+      }
     }
 
     .close-icon {
@@ -30,6 +45,11 @@ header.header {
       @include horizontal-align(absolute);
       width: 30px;
       height: 30px;
+
+      @include media-down(mobile) {
+        width: 22px;
+        height: 22px;
+      }
     }
   }
 }
