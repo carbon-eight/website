@@ -2,16 +2,19 @@
 = Brand colours =
 ===============================================>>>>>*/
 $primary: #03A678;
-$secondary: #26C281;
+$secondary: rgb(38, 194, 129);
+// $secondary: #00C57B;
 $tertiary: #E8F4EF;
 $highlight: #542537;
 $primary-darker: darken($primary, 5%);
 $secondary-darker: darken($secondary, 5%);
 
 /*=============================================>>>>>
-= Additional =
+= Earthy Browns =
 ===============================================>>>>>*/
-$border: #D8E5EE;
+
+$earth: #5B4A2F; // top soil baby!
+$earth-darker: #3F321D;
 
 /*=============================================>>>>>
 = Black/white =

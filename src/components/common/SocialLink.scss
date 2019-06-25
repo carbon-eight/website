@@ -1,0 +1,50 @@
+.social-link {
+  display: block;
+
+  &.light {
+    svg {
+      fill: $white;
+      g {
+        fill: $white;
+      }
+      mask {
+        fill: $white;
+      }
+    }
+  }
+
+  &.dark {
+    svg {
+      fill: $off-black;
+      g {
+        fill: $off-black;
+      }
+      mask {
+        fill: $off-black;
+      }
+    }
+  }
+
+  &.small {
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &.medium {
+    svg {
+      height: 36px;
+      width: 36px;
+
+      @include media-down(mobile) {
+        height: 36px;
+        width: 36px;
+      }
+    }
+  }
+
+  svg {
+
+  }
+}

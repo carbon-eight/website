@@ -1,0 +1,32 @@
+footer.footer {
+  .layer {
+    padding-bottom: 2%;
+    position: relative;
+
+    svg {
+      @include horizontal-align(absolute);
+      top: auto;
+      bottom: 0;
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .middle-layer {
+    background-color: $earth;
+  }
+
+  .bottom-layer {
+    background-color: $earth-darker;
+    padding: 50px 0;
+
+    .cols {
+      display: flex;
+      flex-direction: row;
+
+      .col {
+        width: 50%;
+      }
+    }
+  }
+}

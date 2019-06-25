@@ -4,37 +4,28 @@
   transition: opacity 0.3s ease;
 
   svg {
-    width: 100px;
-    height: 80px;
-  }
+    width: 130px;
+    height: 65px;
 
-  &.large {
-    svg {
-      width: 165px;
-      height: 135px;
+    path {
+      fill: $secondary;
+      transition: fill 0.3s ease;
 
-      @include media-down(mobile) {
-        width: 140px;
-        height: 100px;
+      &.highlight {
+        fill: $primary;
       }
     }
   }
 
-  &.small {
+  &.nav-open {
     svg {
-      @include media-down(mobile) {
-        width: 45px;
-        height: 35px;
+      path {
+        fill: $white;
+        &.highlight {
+          fill: $white;
+        }
       }
     }
-  }
-
-  &.white {
-    fill: $white;
-  }
-
-  &.black {
-    fill: $black;
   }
 
   &:active, &:focus {

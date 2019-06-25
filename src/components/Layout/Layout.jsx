@@ -5,6 +5,9 @@ import {
   Header,
   Footer,
 } from '.';
+import {
+  NavigationMenu,
+} from '../Navigation';
 import { SEO } from '..';
 import '../../sass/global/styles.scss';
 
@@ -13,7 +16,7 @@ const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : 
 
 class PureLayout extends Component {
   state = {
-    navOpen: false,
+    navActive: false,
   };
 
   componentDidMount() {
@@ -27,12 +30,12 @@ class PureLayout extends Component {
 
   toggleNav = (event) => {
     event.preventDefault();
-    const { navOpen } = this.state;
+    const { navActive } = this.state;
     if (event) event.preventDefault();
-    if (navOpen) document.body.classList.remove('nav-open');
-    if (!navOpen) document.body.classList.add('nav-open');
+    if (navActive) document.body.classList.remove('nav-open');
+    if (!navActive) document.body.classList.add('nav-open');
     this.setState({
-      navOpen: !navOpen,
+      navActive: !navActive,
     });
   };
 
@@ -40,20 +43,20 @@ class PureLayout extends Component {
     if (event) event.preventDefault();
     document.body.classList.add('nav-open');
     this.setState({
-      navOpen: true,
+      navActive: true,
     });
   };
 
   closeNav = () => {
     document.body.classList.remove('nav-open');
     this.setState({
-      navOpen: false,
+      navActive: false,
     });
   };
 
   render() {
     const {
-      navOpen,
+      navActive,
     } = this.state;
     const {
       children,
@@ -61,13 +64,11 @@ class PureLayout extends Component {
       settings,
       seoData,
     } = this.props;
-    const { primaryMenu } = settings;
     const {
       metaTitle = null,
       metaDescription = null,
       openGraphImage = null,
     } = seoData;
-    console.log('props @ Layout', this.props);
     const isHome = Boolean(location.pathname === '/');
     return (
       <>
@@ -78,15 +79,24 @@ class PureLayout extends Component {
         />
         <div id="app" className="app">
           <Header
-            navOpen={navOpen}
             location={location}
-            navigation={primaryMenu}
+            navActive={navActive}
+            toggleNavHandler={event => this.toggleNav(event)}
+          />
+          <NavigationMenu
+            location={location}
+            settings={settings}
+            navActive={navActive}
+            closeNav={event => this.closeNav(event)}
             toggleNavHandler={event => this.toggleNav(event)}
           />
           <main className={isHome ? 'home' : location.pathname.replace(/\//g, '')}>
             {children}
           </main>
-          <Footer />
+          <Footer
+            location={location}
+            settings={settings}
+          />
         </div>
       </>
     );
@@ -102,15 +112,56 @@ class Layout extends Component {
             settings: prismicSettings {
               data {
                 primaryMenu: primary_menu {
-                  title {
+                  description {
+                    html
                     text
                   }
-                  page_link {
-                    link_type
-                    uid
-                    slug
-                    url
+                  audience {
+                    html
+                    text
                   }
+                  linkLabel: link_label {
+                    text
+                  }
+                  link {
+                    target
+                    url
+                    link_type
+                  }
+                }
+                footerMenu: footer_menu {
+                  audience {
+                    html
+                    text
+                  }
+                  linkLabel: link_label {
+                    text
+                  }
+                  link {
+                    target
+                    url
+                    link_type
+                  }
+                }
+                legalLinks: legal_links {
+                  linkLabel: link_label {
+                    text
+                  }
+                  link {
+                    target
+                    url
+                    link_type
+                  }
+                }
+                socialLinks: social_links {
+                  link {
+                    url
+                    target
+                  }
+                  type
+                }
+                email {
+                  text
                 }
               }
             }
