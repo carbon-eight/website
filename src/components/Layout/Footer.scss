@@ -3,7 +3,7 @@ footer.footer {
     padding-bottom: 2%;
     position: relative;
 
-    svg {
+    svg.curve {
       @include horizontal-align(absolute);
       top: auto;
       bottom: 0;
@@ -26,6 +26,83 @@ footer.footer {
 
       .col {
         width: 50%;
+
+        .row {
+          display: flex;
+          flex-direction: row;
+
+          .row-item {
+            display: flex;
+            flex-direction: column;
+            margin-right: 50px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+
+          .label {
+            @include h4($dark-font: false);
+            text-align: left;
+            margin-bottom: 30px;
+          }
+
+          .row-value {
+            @include p1($dark-font: false);
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .col-left {
+        .logo {
+          margin-bottom: 50px;
+        }
+      }
+
+      .col-right {
+        .nav-items {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          li {
+            width: 50%;
+            margin-bottom: 30px;
+          }
+
+          .audience {
+            display: block;
+            @include h4($dark-font: false);
+            text-align: left;
+            margin-bottom: 30px;
+          }
+
+          .nav-item {
+            display: flex;
+            flex-direction: column;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          .nav-link {
+            display: block;
+            @include p1($dark-font: false);
+            margin-bottom: 10px;
+          }
+        }
+
+        .signature {
+          margin-top: 30px;
+          @include h4($dark-font: false);
+          text-align: left;
+
+          a {
+            @include h4($dark-font: false);
+            margin-left: 5px;
+          }
+        }
       }
     }
   }

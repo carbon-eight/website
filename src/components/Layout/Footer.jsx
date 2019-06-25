@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Wrapper } from '../common';
+import { Logo, Wrapper } from '../common';
 import { NavItem } from '../Navigation';
 import './Footer.scss';
 
@@ -35,7 +35,7 @@ const Footer = (props) => {
             <div className="col col-left">
               <div className="row">
                 <div className="row-item">
-                  logo
+                  <Logo collapsed clickable />
                 </div>
               </div>
               <div className="row">
@@ -50,7 +50,7 @@ const Footer = (props) => {
                       return (
                         <li key={type}>
                           <a
-                            className="social-link"
+                            className="social-link row-value"
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -64,9 +64,9 @@ const Footer = (props) => {
                   </ul>
                 </div>
                 <div className="row-item">
-                  <span className="label">Contact</span>
+                  <span className="label">Email</span>
                   <a
-                    className="email"
+                    className="email row-value"
                     href={`mailto:${email.text}`}
                     aria-label={`Send email to ${email.text}`}
                   >
