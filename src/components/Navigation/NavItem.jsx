@@ -3,7 +3,8 @@ import { Link } from 'gatsby';
 
 const NavItem = (props) => {
   const {
-    verbose,
+    includeAudience,
+    includeDescription,
     navItem,
     currentPath,
     closeNav,
@@ -19,18 +20,18 @@ const NavItem = (props) => {
   const isActive = Boolean(`/${slug}/` === currentPath) || Boolean(currentPath === '/' && slug === 'home');
   return (
     <li key={slug} className={`nav-item ${isActive ? 'active' : ''}`}>
-      {verbose && (
+      {includeAudience && (
         <span className="audience">{audience.text}</span>
       )}
       <Link
         to={`/${slug}/`}
         className="nav-link"
-        onClick={event => closeNav(event)}
+        onClick={closeNav ? event => closeNav(event) : null}
         aria-label={`Navigate to ${linkLabel.text} page`}
       >
         <span>{linkLabel.text}</span>
       </Link>
-      {verbose && (
+      {includeDescription && (
         <p className="description">
           {description.text}
         </p>

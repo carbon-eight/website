@@ -21,7 +21,8 @@ const NavigationMenu = (props) => {
         <Wrapper>
           <div className="menu-row">
             <NavList
-              verbose
+              includeAudience
+              includeDescription
               location={location}
               navItems={navItems}
               closeNav={closeNav}

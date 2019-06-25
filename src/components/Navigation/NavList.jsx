@@ -3,10 +3,11 @@ import { NavItem } from '.';
 
 const NavList = (props) => {
   const {
-    verbose = false,
     location,
     navItems,
     closeNav,
+    includeAudience = false,
+    includeDescription = false,
   } = props;
   const { pathname: currentPath } = location;
   return (
@@ -17,7 +18,8 @@ const NavList = (props) => {
             navItem={item}
             currentPath={currentPath}
             closeNav={closeNav}
-            verbose={verbose}
+            includeAudience={includeAudience}
+            includeDescription={includeDescription}
           />
         ))}
       </ul>
