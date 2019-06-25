@@ -24,6 +24,7 @@ const NavItem = (props) => {
       )}
       <Link
         to={`/${slug}/`}
+        className="nav-link"
         onClick={event => closeNav(event)}
         aria-label={`Navigate to ${title.text} page`}
       >

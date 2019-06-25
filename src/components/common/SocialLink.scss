@@ -34,12 +34,12 @@
 
   &.medium {
     svg {
-      height: 25px;
-      width: 25px;
+      height: 36px;
+      width: 36px;
 
       @include media-down(mobile) {
-        height: 20px;
-        width: 20px;
+        height: 36px;
+        width: 36px;
       }
     }
   }
