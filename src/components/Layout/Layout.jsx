@@ -64,13 +64,11 @@ class PureLayout extends Component {
       settings,
       seoData,
     } = this.props;
-    const { primaryMenu } = settings;
     const {
       metaTitle = null,
       metaDescription = null,
       openGraphImage = null,
     } = seoData;
-    console.log('props @ Layout', this.props);
     const isHome = Boolean(location.pathname === '/');
     return (
       <>
@@ -95,7 +93,10 @@ class PureLayout extends Component {
           <main className={isHome ? 'home' : location.pathname.replace(/\//g, '')}>
             {children}
           </main>
-          <Footer />
+          <Footer
+            location={location}
+            settings={settings}
+          />
         </div>
       </>
     );
@@ -115,14 +116,38 @@ class Layout extends Component {
                     html
                     text
                   }
-                  targetAudience: target_audience {
+                  audience {
                     html
                     text
                   }
-                  title {
+                  linkLabel: link_label {
                     text
                   }
-                  pageLink: page_link {
+                  link {
+                    target
+                    url
+                    link_type
+                  }
+                }
+                footerMenu: footer_menu {
+                  audience {
+                    html
+                    text
+                  }
+                  linkLabel: link_label {
+                    text
+                  }
+                  link {
+                    target
+                    url
+                    link_type
+                  }
+                }
+                legalLinks: legal_links {
+                  linkLabel: link_label {
+                    text
+                  }
+                  link {
                     target
                     url
                     link_type

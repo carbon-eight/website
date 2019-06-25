@@ -9,26 +9,26 @@ const NavItem = (props) => {
     closeNav,
   } = props;
   const {
-    title,
-    targetAudience,
+    linkLabel,
+    audience,
     description,
-    pageLink,
+    link,
   } = navItem;
-  const { slug } = pageLink;
+  const { slug } = link;
   if (slug === 'home') return null;
   const isActive = Boolean(`/${slug}/` === currentPath) || Boolean(currentPath === '/' && slug === 'home');
   return (
     <li key={slug} className={`nav-item ${isActive ? 'active' : ''}`}>
       {verbose && (
-        <span className="audience">{targetAudience.text}</span>
+        <span className="audience">{audience.text}</span>
       )}
       <Link
         to={`/${slug}/`}
         className="nav-link"
         onClick={event => closeNav(event)}
-        aria-label={`Navigate to ${title.text} page`}
+        aria-label={`Navigate to ${linkLabel.text} page`}
       >
-        <span>{title.text}</span>
+        <span>{linkLabel.text}</span>
       </Link>
       {verbose && (
         <p className="description">
