@@ -17,23 +17,13 @@
     }
   }
 
-  &.large {
+  &.nav-open {
     svg {
-      width: 165px;
-      height: 135px;
-
-      @include media-down(mobile) {
-        width: 140px;
-        height: 100px;
-      }
-    }
-  }
-
-  &.small {
-    svg {
-      @include media-down(mobile) {
-        width: 45px;
-        height: 35px;
+      path {
+        fill: $white;
+        &.highlight {
+          fill: $white;
+        }
       }
     }
   }

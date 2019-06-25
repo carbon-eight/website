@@ -16,7 +16,7 @@ const NavigationMenu = (props) => {
     email,
   } = settings;
   return (
-    <div className="navigation-menu">
+    <div className={`navigation-menu ${navActive ? 'nav-open' : ''}`}>
       <div className="container">
         <Wrapper>
           <div className="menu-row">

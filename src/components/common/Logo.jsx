@@ -13,11 +13,10 @@ const LogoSvg = () => (
 
 const Logo = (props) => {
   const {
-    colour,
-    size,
+    classes,
     clickable,
   } = props;
-  const logoClasses = `logo${colour ? ` ${colour}` : ''}${size ? ` ${size}` : ''}`;
+  const logoClasses = `logo${classes ? ` ${classes}` : ''}`;
   return (
     clickable ? (
       <Link className={logoClasses} to="/" aria-label="Return Home">
