@@ -44,10 +44,18 @@ main {
   padding-top: 100px;
   position: relative;
   z-index: 1;
+
+  @include media-down(mobile) {
+    padding-top: 50px;
+  }
 }
 
 .page-block {
   margin-bottom: 200px;
+
+  @include media-down(mobile) {
+    margin-bottom: 140px;
+  }
 
   .block-title {
     @include h1();
@@ -55,5 +63,9 @@ main {
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 70px;
+
+    @include media-down(mobile) {
+      margin-bottom: 50px;
+    }
   }
 }

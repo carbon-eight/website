@@ -54,10 +54,12 @@ const ImageTextBlocks = (props) => {
                     <span className="count">{count}</span>
                     <h3 className="title">{blockTitle.text}</h3>
                     <HtmlContent className="description" content={description.html} />
-                    <ContentLink
-                      link={link}
-                      linkLabel={linkLabel}
-                    />
+                    <div className="actions">
+                      <ContentLink
+                        link={link}
+                        linkLabel={linkLabel}
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="col image-col">

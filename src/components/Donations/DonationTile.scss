@@ -9,6 +9,20 @@
   position: relative;
   z-index: -1;
 
+  @include media-down(mobile) {
+    flex: none;
+    width: calc(50% - 10px);
+    margin-right: 0;
+    margin-bottom: 50px;
+
+    &:nth-child(odd) {
+      margin-right: 10px;
+    }
+    &:nth-child(even) {
+      margin-left: 10px;
+    }
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -84,6 +98,10 @@
         @include h4();
         margin-left: 10px;
         white-space: nowrap;
+
+        @include media-down(mobile) {
+          display: none;
+        }
       }
     }
   }

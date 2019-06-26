@@ -8,6 +8,11 @@
       width: 145px;
       height: 70px;
 
+      @include media-down(mobile) {
+        width: 100px;
+        height: 50px;
+      }
+
       path {
         fill: $white;
       }
@@ -17,6 +22,11 @@
   svg {
     width: 130px;
     height: 65px;
+
+    @include media-down(mobile) {
+      width: 90px;
+      height: 45px;
+    }
 
     path {
       fill: $secondary;

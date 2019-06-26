@@ -7,8 +7,29 @@ header.header {
   flex-direction: row;
   justify-content: space-between;
 
+  transform: translateY(0);
+  transition: transform 0.5s ease, padding 0.3s ease;
+  z-index: 3;
+
+  &.headroom--not-top {
+    transform: translateY(-100%);
+
+    &.scrolling-up {
+      transform: translateY(0);
+      &:after {
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.3s ease 0.3s;
+      }
+    }
+  }
+
   .logo {
     margin: 40px;
+
+    @include media-down(mobile) {
+      margin: 20px;
+    }
   }
 
   .toggle-nav-button {
@@ -18,11 +39,22 @@ header.header {
     box-sizing: content-box;
     position: relative;
 
+    @include media-down(mobile) {
+      margin: 20px;
+      width: 32px;
+      height: 22px;
+    }
+
     .hamburger-icon {
       top: 0;
       @include horizontal-align(absolute);
       width: 38px;
       height: 26px;
+
+      @include media-down(mobile) {
+        width: 32px;
+        height: 22px;
+      }
     }
 
     .close-icon {
@@ -30,6 +62,11 @@ header.header {
       @include horizontal-align(absolute);
       width: 30px;
       height: 30px;
+
+      @include media-down(mobile) {
+        width: 22px;
+        height: 22px;
+      }
     }
   }
 }

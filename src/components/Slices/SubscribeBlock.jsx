@@ -111,7 +111,7 @@ export default class SubscribeForm extends Component {
                     aria-label="Subscribe to the newsletter"
                     disabled={submitting}
                   >
-                    <span className="label">{submitting ? 'Submitting...' : 'Sign up'}</span>
+                    <span className="label">{submitting ? 'Submitting...' : 'Stay in the Loop'}</span>
                   </button>
                   <div className="error-message">
                     <span>{this.isAlreadySubscribed ? 'Oops! Looks like you\'re already subscribed to our mailing list.' : `Uh oh! Something went wrong!`}</span>
