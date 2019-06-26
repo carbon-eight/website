@@ -1,15 +1,52 @@
 import React, { Component } from 'react';
-import { Wrapper, Logo } from '../common';
+import { Logo } from '../common';
 import './Header.scss';
 
+const isClient = typeof window !== 'undefined';
+
 class Header extends Component {
+  state = {
+    headerHeight: 0,
+    viewportTopPos: 0,
+    scrollingUp: false,
+  };
+
+  componentDidMount() {
+    const headerHeight = this.headerRef.clientHeight;
+    this.setState({ headerHeight });
+    if (isClient) {
+      window.addEventListener('scroll', this.handleScroll);
+      this.handleScroll();
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const { viewportTopPos: prevTopPos } = this.state;
+    const newTopPos = window.scrollY;
+    this.setState({
+      viewportTopPos: newTopPos,
+      scrollingUp: Boolean(prevTopPos > newTopPos),
+    });
+  }
+
   render() {
     const {
       navActive,
       toggleNavHandler,
     } = this.props;
+    const {
+      viewportTopPos,
+      scrollingUp,
+      headerHeight,
+    } = this.state;
+    const headroomTop = Boolean(viewportTopPos < headerHeight);
+    const headerClasses = `header ${scrollingUp ? ' scrolling-up' : ''}${headroomTop ? ' headroom--top' : ' headroom--not-top'}`;
     return (
-      <header className="header">
+      <header className={headerClasses} ref={headerRef => this.headerRef = headerRef}>
         <Logo classes={`${navActive ? 'nav-open' : ''}`} clickable />
         <button
           className="toggle-nav-button"

@@ -7,6 +7,23 @@ header.header {
   flex-direction: row;
   justify-content: space-between;
 
+  transform: translateY(0);
+  transition: transform 0.5s ease, padding 0.3s ease;
+  z-index: 3;
+
+  &.headroom--not-top {
+    transform: translateY(-100%);
+
+    &.scrolling-up {
+      transform: translateY(0);
+      &:after {
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.3s ease 0.3s;
+      }
+    }
+  }
+
   .logo {
     margin: 40px;
 

@@ -64,6 +64,7 @@
     margin-bottom: 80px;
 
     @include media-down(mobile) {
+      height: 500px;
       margin-bottom: 60px;
     }
   }
