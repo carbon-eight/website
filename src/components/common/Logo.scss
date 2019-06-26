@@ -3,6 +3,17 @@
   opacity: 1;
   transition: opacity 0.3s ease;
 
+  &.collapsed {
+    svg {
+      width: 145px;
+      height: 70px;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+
   svg {
     width: 130px;
     height: 65px;
