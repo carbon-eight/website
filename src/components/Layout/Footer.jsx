@@ -33,12 +33,12 @@ const Footer = (props) => {
         <Wrapper>
           <div className="cols">
             <div className="col col-left">
-              <div className="row">
+              <div className="row logo-row">
                 <div className="row-item">
                   <Logo collapsed clickable />
                 </div>
               </div>
-              <div className="row">
+              <div className="row contact-row">
                 <div className="row-item">
                   <span className="label">Follow</span>
                   <ul className="social-links">

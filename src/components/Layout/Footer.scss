@@ -3,6 +3,10 @@ footer.footer {
     padding-bottom: 2%;
     position: relative;
 
+    @include media-down(mobile) {
+      padding-bottom: 15%;
+    }
+
     svg.curve {
       @include horizontal-align(absolute);
       top: auto;
@@ -24,8 +28,21 @@ footer.footer {
       display: flex;
       flex-direction: row;
 
+      @include media-down(mobile) {
+        flex-direction: column;
+      }
+
       .col {
         width: 50%;
+
+        @include media-down(mobile) {
+          width: 100%;
+          margin-bottom: 80px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
 
         .row {
           display: flex;
@@ -35,6 +52,10 @@ footer.footer {
             display: flex;
             flex-direction: column;
             margin-right: 50px;
+
+            @include media-down(mobile) {
+              width: 50%;
+            }
 
             &:last-child {
               margin-right: 0;
