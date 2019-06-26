@@ -1,10 +1,15 @@
+.image-text-blocks {
+
+}
+
 .image-text-block {
   display: flex;
   flex-direction: row;
   margin-bottom: 50px;
 
   @include media-down(mobile) {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    margin-bottom: 80px;
   }
 
 
@@ -19,6 +24,11 @@
 
   .image-col {
     padding: 20px;
+
+    @include media-down(mobile) {
+      padding: 0;
+      margin-bottom: 20px;
+    }
 
     .container {
       width: 100%;
@@ -58,6 +68,11 @@
         padding-bottom: 50%;
         z-index: 2;
         transform-origin: 0 0;
+
+        @include media-down(mobile) {
+          width: 90%;
+          padding-bottom: 60%;
+        }
       }
     }
   }
@@ -76,20 +91,39 @@
       @include h4();
       text-align: left;
       margin-bottom: 40px;
+
+      @include media-down(mobile) {
+        margin-bottom: 20px;
+      }
     }
 
     .title {
       @include h2();
       margin-bottom: 50px;
+
+      @include media-down(mobile) {
+        margin-bottom: 30px;
+      }
     }
 
     .description {
       @include p1();
       margin-bottom: 50px;
+
+      @include media-down(mobile) {
+        margin-bottom: 30px;
+      }
     }
 
-    .cta-button {
-      display: inline-block;
+    .actions {
+      @include media-down(mobile) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .cta-button {
+        display: inline-block;
+      }
     }
   }
 
@@ -98,7 +132,7 @@
     flex-direction: row;
 
     @include media-down(mobile) {
-      flex-direction: column;
+      flex-direction: column-reverse;
     }
 
     .image-col {
@@ -124,7 +158,7 @@
     flex-direction: row-reverse;
 
     @include media-down(mobile) {
-      flex-direction: column;
+      flex-direction: column-reverse;
     }
 
     .image-col {

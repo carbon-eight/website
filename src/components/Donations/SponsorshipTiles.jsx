@@ -9,7 +9,6 @@ class SponsorshipTiles extends Component {
   componentDidMount() {
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
-    window.addEventListener('load', this.handleResize);
   }
 
   componentWillUnmount() {
