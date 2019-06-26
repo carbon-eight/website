@@ -23,15 +23,29 @@
       align-items: center;
       position: relative;
 
+      @include media-down(mobile) {
+        width: 100%;
+        flex-direction: column;
+      }
+
       .field {
         flex: 1;
         position: relative;
         margin-bottom: 0;
         margin-right: 20px;
+
+        @include media-down(mobile) {
+          width: 100%;
+          max-width: 300px;
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
       }
 
       .submit-button {
-
+        @include media-down(mobile) {
+          margin-top: 20px;
+        }
       }
 
       &.has-error {
