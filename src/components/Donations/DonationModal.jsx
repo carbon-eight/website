@@ -41,9 +41,14 @@ class DonationModalTemplate extends Component {
     variableAmount: null,
     donationMode: ONCE_OFF_OPTION, // NOTE: Before go live change me to RECURRING_OPTION
     stripe: null,
+    tilesHeight: 0,
   };
 
   componentDidMount() {
+    if (isClient) this.initializeStripe();
+  }
+
+  initializeStripe = () => {
     const {
       site: {
         siteMetadata: {
@@ -51,8 +56,12 @@ class DonationModalTemplate extends Component {
         },
       },
     } = this.props;
-    const stripe = isClient ? window.Stripe(stripeApiKey) : null;
+    const stripe = window.Stripe(stripeApiKey);
     this.setState({ stripe });
+  }
+
+  setTilesHeight = (tilesHeight) => {
+    this.setState({ tilesHeight });
   }
 
   setDonationMode = (event, donationMode) => {
@@ -116,6 +125,7 @@ class DonationModalTemplate extends Component {
       variableAmount,
       donationMode,
       selectedDonationId,
+      tilesHeight,
     } = this.state;
     const {
       donationSuccess,
@@ -130,6 +140,8 @@ class DonationModalTemplate extends Component {
     ));
     const recurringDonationMode = donationMode === RECURRING_OPTION;
     const onceOffDonationMode = donationMode === ONCE_OFF_OPTION;
+    const tilesStyles = tilesHeight ? { height: tilesHeight } : {};
+    console.log({ tilesStyles });
     return (
       <section className="donation-modal">
         <Wrapper>
@@ -152,12 +164,13 @@ class DonationModalTemplate extends Component {
                     setDonationModeHandler={this.setDonationMode}
                   />
                 </div>
-                <div className="donation-options">
+                <div className="donation-options" style={tilesStyles}>
                   <SponsorshipTiles
                     visible={recurringDonationMode}
                     tiles={stripePlanItems}
                     selectedDonationId={selectedDonationId}
                     selectTileHandler={this.selectDonationOption}
+                    setTilesHeightHandler={this.setTilesHeight}
                   />
                   <DonationTiles
                     visible={onceOffDonationMode}
