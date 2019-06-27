@@ -13,7 +13,7 @@ class ExpressionOfInterestTemplate extends Component {
       location,
     } = this.props;
     console.log('Props @ ExpressionOfInterestTemplate', this.props);
-    console.log({pageData});
+    console.log({ pageData });
     const {
       body,
       heroTitle,
