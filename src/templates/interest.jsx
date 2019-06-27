@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
-import { Layout, SliceZone } from '../components';
+import { Layout, SliceZone, PageHero } from '../components';
 
 class ExpressionOfInterestTemplate extends Component {
   render() {
@@ -12,8 +12,6 @@ class ExpressionOfInterestTemplate extends Component {
       },
       location,
     } = this.props;
-    console.log('Props @ ExpressionOfInterestTemplate', this.props);
-    console.log({ pageData });
     const {
       body,
       heroTitle,
@@ -27,10 +25,12 @@ class ExpressionOfInterestTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
-    console.log({ heroTitle });
     return (
       <Layout location={location} seoData={seoData}>
-        <h1 className="block-title">{heroTitle.text}</h1>
+        <PageHero
+          title={heroTitle.text}
+          subtitle={heroSubtitle.text}
+        />
         <SliceZone
           allSlices={body}
         />

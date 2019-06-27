@@ -141,7 +141,6 @@ class DonationModalTemplate extends Component {
     const recurringDonationMode = donationMode === RECURRING_OPTION;
     const onceOffDonationMode = donationMode === ONCE_OFF_OPTION;
     const tilesStyles = tilesHeight ? { height: tilesHeight } : {};
-    console.log({ tilesStyles });
     return (
       <section className="donation-modal">
         <Wrapper>

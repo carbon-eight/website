@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {
   ImageTextBlocks,
   SubscribeBlock,
+  EnquiryForm,
+  ExplanationBlocks,
+  PartnerShowcase,
 } from './Slices';
 
 const IMAGE_TEXT_BLOCKS_TYPE = 'image_text_blocks';
@@ -15,12 +18,17 @@ export default class SliceZone extends Component {
   render() {
     const { allSlices } = this.props;
     const slices = allSlices.map((slice) => {
-      console.log(slice.sliceType);
       switch (slice.sliceType) {
         case IMAGE_TEXT_BLOCKS_TYPE:
           return <ImageTextBlocks key={slice.id} data={slice} />;
         case SUBSCRIBE_BLOCK_TYPE:
           return <SubscribeBlock key={slice.id} data={slice} />;
+        case ENQUIRY_FORM_TYPE:
+          return <EnquiryForm key={slice.id} data={slice} />;
+        case EXPLANATION_BLOCKS_TYPE:
+          return <ExplanationBlocks key={slice.id} data={slice} />;
+        case PARTNER_SHOWCASE_TYPE:
+          return <PartnerShowcase key={slice.id} data={slice} />;
         default:
           return null;
       }
