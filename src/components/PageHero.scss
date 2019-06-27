@@ -24,8 +24,7 @@
   }
 
   .bottom-curve {
-    margin-top: -1px;
-    background-color: transparent;
+    background: linear-gradient(180deg, $tertiary 5%, transparent 5%);
     padding-bottom: 6%;
     position: relative;
 

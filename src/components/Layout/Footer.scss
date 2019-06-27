@@ -16,6 +16,10 @@ footer.footer {
     }
   }
 
+  .top-layer {
+    background: linear-gradient(180deg, transparent 70%, $earth 70%);
+  }
+
   .middle-layer {
     background-color: $earth;
   }
