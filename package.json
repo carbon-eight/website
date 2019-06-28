@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@reach/skip-nav": "^0.1.2",
+    "add": "^2.0.6",
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-canonical-urls": "^2.0.12",
@@ -52,7 +53,8 @@
     "typeface-lora": "^0.0.72",
     "typeface-source-sans-pro": "^0.0.54",
     "typography": "^0.16.18",
-    "viewport-units-buggyfill": "^0.6.2"
+    "viewport-units-buggyfill": "^0.6.2",
+    "yarn": "^1.16.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

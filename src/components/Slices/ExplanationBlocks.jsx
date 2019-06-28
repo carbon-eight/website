@@ -13,12 +13,12 @@ const ExplanationBlocks = (props) => {
     primary,
     items: blocks,
   } = data;
-  console.log({ data });
   const {
     title,
   } = primary;
+  const willScroll = Boolean(blocks.length > 3);
   return (
-    <section className="explanation-blocks page-block">
+    <section className={`explanation-blocks page-block ${willScroll ? 'scroll' : ''}`}>
       <Wrapper>
         <h2 className="block-title">{title.text}</h2>
         <div className="blocks">
