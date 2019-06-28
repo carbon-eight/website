@@ -73,6 +73,7 @@ export const pageQuery = graphql`
               blockImage: block_image {
                 alt
                 localFile {
+                  id
                   childImageSharp {
                     fluid(maxWidth: 800, quality: 90) {
                       ...GatsbyImageSharpFluid_withWebp
@@ -83,7 +84,7 @@ export const pageQuery = graphql`
               description {
                 text
               }
-              title {
+              blockTitle: title {
                 text
               }
             }
@@ -105,7 +106,7 @@ export const pageQuery = graphql`
               link {
                 url
                 target
-                link_type
+                linkType: link_type
               }
               name {
                 text

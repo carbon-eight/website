@@ -65,7 +65,7 @@ const ImageTextBlocks = (props) => {
                 <div className="col image-col">
                   <Tilt className="container" options={tiltOptions}>
                     <ColourfulBackground
-                      seed={index}
+                      index={index}
                       inverted={Boolean(index % 2 === 0)}
                     />
                     <div className="image-container">

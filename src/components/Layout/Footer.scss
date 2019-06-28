@@ -1,11 +1,6 @@
 footer.footer {
   .layer {
-    padding-bottom: 2%;
     position: relative;
-
-    @include media-down(mobile) {
-      padding-bottom: 15%;
-    }
 
     svg.curve {
       @include horizontal-align(absolute);
@@ -17,10 +12,16 @@ footer.footer {
   }
 
   .top-layer {
-    background: linear-gradient(180deg, transparent 70%, $earth 70%);
+    padding-bottom: 5%;
+    background: linear-gradient(180deg, transparent 97%, $earth 97%);
+
+    @include media-down(mobile) {
+      padding-bottom: 10%;
+    }
   }
 
   .middle-layer {
+    padding-bottom: 5%;
     background-color: $earth;
   }
 

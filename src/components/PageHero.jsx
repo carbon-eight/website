@@ -1,6 +1,6 @@
 import React from 'react';
-import './PageHero.scss';
 import { Wrapper } from './common';
+import './PageHero.scss';
 
 const PageHero = (props) => {
   const {
@@ -8,7 +8,7 @@ const PageHero = (props) => {
     subtitle,
   } = props;
   return (
-    <section className="page-hero">
+    <section className="page-hero page-block">
       <div className="top">
         <Wrapper>
           <h1 className="title">{title}</h1>
