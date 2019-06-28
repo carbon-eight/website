@@ -1,0 +1,17 @@
+.enquiry-form {
+  .wrapper {
+    max-width: 1152px;
+  }
+
+  .title {
+    @include h1();
+    text-align: center;
+  }
+
+  .subtitle {
+    @include h3();
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 60px;
+  }
+}

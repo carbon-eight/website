@@ -1,12 +1,25 @@
 import React from 'react';
+import { Wrapper } from '../common';
 import './EnquiryForm.scss';
 
 const EnquiryForm = (props) => {
   const {
-    someProp,
+    data,
   } = props;
+  const {
+    primary,
+  } = data;
+  const {
+    formTitle,
+    formSubtitle,
+  } = primary;
   return (
-    <div>EnquiryForm</div>
+    <section className="enquiry-form page-block">
+      <Wrapper>
+        <h2 className="block-title">{formTitle.text}</h2>
+        <p className="subtitle">{formSubtitle.text}</p>
+      </Wrapper>
+    </section>
   );
 };
 
