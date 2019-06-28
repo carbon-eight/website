@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrapper, Image } from '../common';
 import { ColourfulBackground } from '..';
+import { SQUARE_BACKGROUND_TYPE } from '../ColourfulBackground';
 import './ExplanationBlocks.scss';
 
 const generateKey = pre => `${pre}_${new Date().getTime()}`;
@@ -34,7 +35,7 @@ const ExplanationBlocks = (props) => {
                 <div className="image-container">
                   <ColourfulBackground
                     index={index}
-                    square
+                    backgroundType={SQUARE_BACKGROUND_TYPE}
                   />
                   <div className="inner-image">
                     <Image image={blockImage} />

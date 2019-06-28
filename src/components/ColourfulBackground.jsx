@@ -1,7 +1,7 @@
 import React from 'react';
-import { getSeededRandom } from '../util/helpers';
 import './ColourfulBackground.scss';
 
+export const RECT_BACKGROUND_TYPE = 'RECT_BACKGROUND_TYPE';
 const rectBackgrounds = [
   (
     <svg viewBox="0 0 575 500" xmlns="http://www.w3.org/2000/svg">
@@ -23,6 +23,7 @@ const rectBackgrounds = [
   ),
 ];
 
+export const SQUARE_BACKGROUND_TYPE = 'SQUARE_BACKGROUND_TYPE';
 const squareBackgrounds = [
   (
     <svg viewBox="0 0 269 234" xmlns="http://www.w3.org/2000/svg">
@@ -53,14 +54,60 @@ const squareBackgrounds = [
   ),
 ];
 
+export const SMALL_SQUARE_BACKGROUND_TYPE = 'SMALL_SQUARE_BACKGROUND_TYPE';
+const smallSquareBackgrounds = [
+  (
+    <svg viewBox="0 0 171 155" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fillRule="evenodd">
+        <g fill="#E8F4EF">
+          <g>
+            <path d="M94.698 155c22.638 0 34.972-4.204 50.236-18.6 16.483-15.545 25.566-26.706 25.566-51.15 0-15.925-12.491-22.897-20.092-35.65C135.536 24.649 116.407 0 85.25 0c-23.552 0-34.171 15.56-49.6 31C20.236 46.425 0 61.72 0 85.25c0 30.269 11.873 36.023 35.65 51.15 13.208 8.402 42.235 18.6 59.048 18.6z" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  ),
+  (
+    <svg viewBox="0 0 171 134" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fillRule="evenodd">
+        <g fill="#E8F4EF">
+          <path d="M115.46 133.264c-22.637 0-74.63 3.796-89.894-10.6C9.083 107.12 0 95.958 0 71.514c0-15.925 19.074-58.25 50.23-58.25 23.553 0 76.056-23.44 91.485-8 15.414 15.426 28.785 42.72 28.785 66.25 0 30.27-38.226 61.75-55.04 61.75z" />
+        </g>
+      </g>
+    </svg>
+  ),
+  (
+    <svg viewBox="0 0 171 134" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" fillRule="evenodd">
+        <g fill="#E8F4EF">
+          <path d="M55.04 133.264c22.637 0 74.63 3.796 89.894-10.6 16.483-15.544 25.566-26.706 25.566-51.15 0-15.925-19.074-58.25-50.23-58.25-23.553 0-76.056-23.44-91.485-8C13.371 20.69 0 47.984 0 71.514c0 30.27 38.226 61.75 55.04 61.75z" />
+        </g>
+      </g>
+    </svg>
+  ),
+];
+
 const ColourfulBackground = (props) => {
   const {
     index,
     inverted,
-    square,
+    backgroundType,
   } = props;
   let backgrounds = rectBackgrounds;
-  if (square) backgrounds = squareBackgrounds;
+  switch (backgroundType) {
+    case (RECT_BACKGROUND_TYPE):
+      backgrounds = rectBackgrounds;
+      break;
+    case (SQUARE_BACKGROUND_TYPE):
+      backgrounds = squareBackgrounds;
+      break;
+    case (SMALL_SQUARE_BACKGROUND_TYPE):
+      backgrounds = smallSquareBackgrounds;
+      break;
+    default:
+      backgrounds = rectBackgrounds;
+      break;
+  }
   const backgroundIndex = (index % backgrounds.length);
   return (
     <div className={`colourful-background${inverted ? ' inverted' : ''}`}>

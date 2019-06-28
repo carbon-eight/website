@@ -93,11 +93,11 @@ export const pageQuery = graphql`
             id
             sliceType: slice_type
             primary {
-              subtitle {
+              title {
                 html
                 text
               }
-              title {
+              subtitle {
                 html
                 text
               }

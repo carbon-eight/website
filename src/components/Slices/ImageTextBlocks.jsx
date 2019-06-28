@@ -7,6 +7,7 @@ import {
   ContentLink,
 } from '../common';
 import { ColourfulBackground } from '..';
+import { RECT_BACKGROUND_TYPE } from '../ColourfulBackground';
 import './ImageTextBlocks.scss';
 
 const generateKey = pre => `${pre}_${new Date().getTime()}`;
@@ -66,6 +67,7 @@ const ImageTextBlocks = (props) => {
                   <Tilt className="container" options={tiltOptions}>
                     <ColourfulBackground
                       index={index}
+                      backgroundType={RECT_BACKGROUND_TYPE}
                       inverted={Boolean(index % 2 === 0)}
                     />
                     <div className="image-container">
