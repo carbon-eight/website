@@ -9,11 +9,8 @@
         .amount {
           display: flex;
           flex-direction: row;
+          align-items: center;
           justify-content: center;
-
-          .dollar {
-            @include h2();
-          }
 
           input[type='number'] {
             display: block;
@@ -26,9 +23,20 @@
             @include h2();
             white-space: normal;
             text-align: center;
+            padding: 0;
+            line-height: 1;
+            border-bottom: 2px solid $tertiary;
+            transition: border-color 0.3s ease;
+            &:-ms-clear {
+              display: none;
+            }
 
             @include placeholder {
               color: darken($tertiary, 5%);
+            }
+
+            &:focus {
+              border-color: $primary;
             }
           }
 

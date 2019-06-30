@@ -1,5 +1,6 @@
 import React from 'react';
 import { Wrapper } from '../common';
+import { ContactForm } from '../Forms';
 import './EnquiryForm.scss';
 
 const EnquiryForm = (props) => {
@@ -18,6 +19,7 @@ const EnquiryForm = (props) => {
       <Wrapper>
         <h2 className="block-title">{formTitle.text}</h2>
         <p className="subtitle">{formSubtitle.text}</p>
+        <ContactForm />
       </Wrapper>
     </section>
   );

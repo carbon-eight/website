@@ -5,10 +5,7 @@ import {
 } from './donation-constants';
 import './DonationTile.scss';
 
-const formatPrice = (amount) => {
-  const amountDollars = (amount / 100).toFixed(0);
-  return `$${amountDollars}`;
-};
+const formatPrice = amount => (amount / 100).toFixed(0);
 
 const DonationTile = (props) => {
   const {
@@ -23,7 +20,7 @@ const DonationTile = (props) => {
   } = props;
   const classNames = `donation-tile${visible ? ' visible' : ''}${isSelected ? ' selected' : ''}`;
   const isRecurringDonation = donationType === RECURRING_OPTION;
-  const ariaLabel = `Select to donate ${formatPrice(price)}${isRecurringDonation ? ' per month' : ''}`;
+  const ariaLabel = `Select to donate $${formatPrice(price)}${isRecurringDonation ? ' per month' : ''}`;
   return (
     <button
       type="button"
@@ -39,6 +36,7 @@ const DonationTile = (props) => {
         <div className="amount-container">
           <div className="inner-container">
             <div className="amount">
+              <span className="dollar">$</span>
               <span className="price">{formatPrice(price)}</span>
               { isRecurringDonation && <span className="frequency">/ Month</span> }
             </div>
