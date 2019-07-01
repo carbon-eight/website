@@ -1,4 +1,4 @@
-.subscribe-form-block {
+v.subscribe-form-block {
 
   .form-container {
     display: flex;
@@ -39,6 +39,25 @@
           max-width: 300px;
           margin-right: 0;
           margin-bottom: 20px;
+        }
+
+        input {
+          width: 100%;
+          @include h4();
+          padding: 10px 20px;
+          border-width: 3px;
+          border-style: solid;
+          background-color: $tertiary;
+          border-color: $tertiary;
+          border-radius: 16px;
+          transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+          text-align: left;
+          box-sizing: border-box;
+
+          &:active, &:focus {
+            border-color: $primary;
+            outline: none;
+          }
         }
       }
 

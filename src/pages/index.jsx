@@ -39,6 +39,7 @@ class Index extends Component {
         </div>
         <SliceZone
           allSlices={body}
+          location={location}
           // siteMetadata={siteMetadata}
         />
       </Layout>

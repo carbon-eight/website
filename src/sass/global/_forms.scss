@@ -5,6 +5,7 @@ form {
 
   label.field {
     display: block;
+    margin-bottom: 20px;
 
     &.half-width {
       width: calc(50% - 15px);
@@ -31,13 +32,20 @@ form {
       width: 100%;
     }
 
+    .field-label {
+      display: block;
+      @include h4();
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
     input, textarea {
       width: 100%;
       @include h4();
-      padding: 10px 20px;
+      padding: 25px 20px;
       border-width: 3px;
       border-style: solid;
-      background-color: $tertiary;
+      background-color: transparent;
       border-color: $tertiary;
       border-radius: 16px;
       transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;

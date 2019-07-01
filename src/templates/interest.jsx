@@ -25,6 +25,7 @@ class ExpressionOfInterestTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
+    console.log({ location });
     return (
       <Layout location={location} seoData={seoData}>
         <PageHero
@@ -33,6 +34,7 @@ class ExpressionOfInterestTemplate extends Component {
         />
         <SliceZone
           allSlices={body}
+          location={location}
         />
       </Layout>
     );
