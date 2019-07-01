@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import { Wrapper } from '../common';
-import { ProgressDots } from '..';
 import {
   SponsorshipTiles,
   DonationTiles,
@@ -193,10 +192,6 @@ class DonationModalTemplate extends Component {
                 </div>
               </>
             )}
-            <ProgressDots
-              numberOfDots={3}
-              activeDot={donationSuccess ? 3 : 1}
-            />
           </div>
         </Wrapper>
       </section>
