@@ -2,7 +2,29 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout, SliceZone, PageHero } from '../components';
 
+const isClient = typeof window !== 'undefined';
+const MOBILE_BREAKPOINT = 1080;
+
 class ExpressionOfInterestTemplate extends Component {
+  state = {
+    viewportWidth: 0,
+  };
+
+  componentDidMount() {
+    if (isClient) {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ viewportWidth: window.innerWidth });
+  }
+
   render() {
     const {
       data: {
@@ -12,6 +34,9 @@ class ExpressionOfInterestTemplate extends Component {
       },
       location,
     } = this.props;
+    const {
+      viewportWidth,
+    } = this.state;
     const {
       body,
       heroTitle,
@@ -25,11 +50,13 @@ class ExpressionOfInterestTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
+    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     return (
       <Layout location={location} seoData={seoData}>
         <PageHero
           title={heroTitle.text}
           subtitle={heroSubtitle.text}
+          isMobile={isMobile}
         />
         <SliceZone
           allSlices={body}
