@@ -3,6 +3,8 @@ require('dotenv').config({
 });
 
 const {
+  NODE_ENV,
+  IS_STAGING,
   PRISMIC_REPO_NAME,
   PRISMIC_API_KEY,
   GOOGLE_ANALYTICS_ID,
@@ -16,6 +18,14 @@ const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer');
 const website = require('./config/website');
 
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
+
+// Robots txt warning on build
+if (IS_STAGING && NODE_ENV !== 'development') {
+  console.log('\x1b[41m%s\x1b[0m', 'Blocking search engines, change IS_STAGING env variable to prevent this');
+}
+if (!IS_STAGING && NODE_ENV !== 'development') {
+  console.log('\x1b[42m%s\x1b[0m', 'Visible to search engines, change IS_STAGING env variable to prevent this');
+}
 
 module.exports = {
   /* General Information */
@@ -47,7 +57,11 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         sitemap: '/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/', disallow: ['/thank-you/'] }],
+        policy: IS_STAGING ? (
+          [{ userAgent: '*', disallow: '/' }]
+        ) : (
+          [{ userAgent: '*', allow: '/', disallow: ['/thank-you/'] }]
+        ),
       },
     },
     {
