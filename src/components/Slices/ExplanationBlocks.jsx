@@ -6,6 +6,35 @@ import './ExplanationBlocks.scss';
 
 const generateKey = pre => `${pre}_${new Date().getTime()}`;
 
+const Block = ({ block, index }) => {
+  const {
+    blockImage,
+    blockTitle,
+    description,
+  } = block;
+  const count = (index < 9) ? `0${index + 1}` : `${index + 1}`;
+  return (
+    <div className="block" key={generateKey(blockTitle.text)}>
+      <div className="image-container">
+        <ColourfulBackground
+          index={index}
+          backgroundType={SQUARE_BACKGROUND_TYPE}
+        />
+        <div className="inner-image">
+          <Image image={blockImage} />
+        </div>
+      </div>
+      <div className="text-container">
+        <span className="count">{count}</span>
+        <h3 className="title">{blockTitle.text}</h3>
+        <p className="description">
+          {description.text}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const ExplanationBlocks = (props) => {
   const {
     data,
@@ -23,34 +52,12 @@ const ExplanationBlocks = (props) => {
       <Wrapper>
         <h2 className="block-title">{title.text}</h2>
         <div className="blocks">
-          { blocks && blocks.map((block, index) => {
-            const {
-              blockImage,
-              blockTitle,
-              description,
-            } = block;
-            const count = (index < 9) ? `0${index + 1}` : `${index + 1}`;
-            return (
-              <div className="block" key={generateKey(blockTitle.text)}>
-                <div className="image-container">
-                  <ColourfulBackground
-                    index={index}
-                    backgroundType={SQUARE_BACKGROUND_TYPE}
-                  />
-                  <div className="inner-image">
-                    <Image image={blockImage} />
-                  </div>
-                </div>
-                <div className="text-container">
-                  <span className="count">{count}</span>
-                  <h3 className="title">{blockTitle.text}</h3>
-                  <p className="description">
-                    {description.text}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+          { blocks && blocks.map((block, index) => (
+            <Block
+              index={index}
+              block={block}
+            />
+          ))}
         </div>
       </Wrapper>
     </section>

@@ -28,6 +28,10 @@
         width: calc((100% / 3) - 60px);
         margin-right: 30px;
 
+        @include media-down(mobile) {
+          width: calc(90% - 30px);
+        }
+
         &:last-child {
           margin-right: 0;
         }
