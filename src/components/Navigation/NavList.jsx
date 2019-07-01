@@ -15,6 +15,7 @@ const NavList = (props) => {
       <ul className="nav-items">
         {navItems && navItems.map(item => (
           <NavItem
+            key={item.link.slug}
             navItem={item}
             currentPath={currentPath}
             closeNav={closeNav}

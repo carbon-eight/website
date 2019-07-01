@@ -19,7 +19,7 @@ const NavItem = (props) => {
   if (slug === 'home') return null;
   const isActive = Boolean(`/${slug}/` === currentPath) || Boolean(currentPath === '/' && slug === 'home');
   return (
-    <li key={slug} className={`nav-item ${isActive ? 'active' : ''}`}>
+    <li className={`nav-item ${isActive ? 'active' : ''}`}>
       {includeAudience && (
         <span className="audience">{audience.text}</span>
       )}

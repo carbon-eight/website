@@ -48,7 +48,7 @@ const Footer = (props) => {
                         link,
                       } = socialLink;
                       return (
-                        <li key={type}>
+                        <li key={link.url}>
                           <a
                             className="social-link row-value"
                             href={link.url}
@@ -80,6 +80,7 @@ const Footer = (props) => {
                 <ul className="nav-items">
                   {navItems && navItems.map(item => (
                     <NavItem
+                      key={item.link.slug}
                       navItem={item}
                       currentPath={currentPath}
                       includeAudience
@@ -96,6 +97,7 @@ const Footer = (props) => {
                       if (slug === 'home') return null;
                       return (
                         <Link
+                          key={slug}
                           to={`/${slug}/`}
                           className="nav-link"
                           aria-label={`Navigate to ${linkLabel.text} page`}
