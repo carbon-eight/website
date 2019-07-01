@@ -23,6 +23,7 @@ const EnquiryForm = (props) => {
   const {
     formTitle,
     formSubtitle,
+    isBusinessEnquiry,
   } = primary;
   const formAffix = getSlug(location);
   return (
@@ -30,7 +31,10 @@ const EnquiryForm = (props) => {
       <Wrapper>
         <h2 className="block-title">{formTitle.text}</h2>
         <p className="subtitle">{formSubtitle.text}</p>
-        <ContactForm formName={`contact-form${formAffix ? `-${formAffix}` : ''}`} />
+        <ContactForm
+          formName={`contact-form${formAffix ? `-${formAffix}` : ''}`}
+          isBusiness={Boolean(isBusinessEnquiry === 'true')}
+        />
       </Wrapper>
     </section>
   );

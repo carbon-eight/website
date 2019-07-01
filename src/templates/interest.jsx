@@ -25,7 +25,6 @@ class ExpressionOfInterestTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
-    console.log({ location });
     return (
       <Layout location={location} seoData={seoData}>
         <PageHero
@@ -137,6 +136,7 @@ export const pageQuery = graphql`
                 html
                 text
               }
+              isBusinessEnquiry: business_enquiry
             }
           }
         }
