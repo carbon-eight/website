@@ -23,7 +23,7 @@ const ContactForm = ({ formName, isBusiness }) => (
           <input type="text" id="business-name" name="business-name" />
         </label>
         <label className="field half-width half-width-right" htmlFor="name">
-          <span className="field-label">Full name</span>
+          <span className="field-label">Contact name</span>
           <input type="text" id="name" name="name" required />
         </label>
       </>
