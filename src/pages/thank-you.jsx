@@ -12,7 +12,7 @@ const ThankYou = (props) => {
     location,
   } = props;
   const seoData = {
-    metaTitle: 'Thanks for enquiring! » Little & Big',
+    metaTitle: 'Thanks for enquiring! » Carbon8',
     metaDescription: '',
     banner: '',
   };
