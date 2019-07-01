@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import queryString from 'query-string';
 import { Layout, SliceZone } from '../components';
-import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
 import './index.scss';
 
@@ -40,6 +39,7 @@ class Index extends Component {
         </div>
         <SliceZone
           allSlices={body}
+          location={location}
           // siteMetadata={siteMetadata}
         />
       </Layout>

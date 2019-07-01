@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
-import { Layout, SliceZone } from '../components';
+import { Layout, SliceZone, PageHero } from '../components';
 
 class ExpressionOfInterestTemplate extends Component {
   render() {
@@ -12,8 +12,6 @@ class ExpressionOfInterestTemplate extends Component {
       },
       location,
     } = this.props;
-    console.log('Props @ ExpressionOfInterestTemplate', this.props);
-    console.log({pageData});
     const {
       body,
       heroTitle,
@@ -27,12 +25,15 @@ class ExpressionOfInterestTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
-    console.log({ heroTitle });
     return (
       <Layout location={location} seoData={seoData}>
-        <h1 className="block-title">{heroTitle.text}</h1>
+        <PageHero
+          title={heroTitle.text}
+          subtitle={heroSubtitle.text}
+        />
         <SliceZone
           allSlices={body}
+          location={location}
         />
       </Layout>
     );
@@ -73,6 +74,7 @@ export const pageQuery = graphql`
               blockImage: block_image {
                 alt
                 localFile {
+                  id
                   childImageSharp {
                     fluid(maxWidth: 800, quality: 90) {
                       ...GatsbyImageSharpFluid_withWebp
@@ -83,7 +85,7 @@ export const pageQuery = graphql`
               description {
                 text
               }
-              title {
+              blockTitle: title {
                 text
               }
             }
@@ -92,11 +94,11 @@ export const pageQuery = graphql`
             id
             sliceType: slice_type
             primary {
-              subtitle {
+              title {
                 html
                 text
               }
-              title {
+              subtitle {
                 html
                 text
               }
@@ -105,7 +107,7 @@ export const pageQuery = graphql`
               link {
                 url
                 target
-                link_type
+                linkType: link_type
               }
               name {
                 text
@@ -134,6 +136,7 @@ export const pageQuery = graphql`
                 html
                 text
               }
+              isBusinessEnquiry: business_enquiry
             }
           }
         }

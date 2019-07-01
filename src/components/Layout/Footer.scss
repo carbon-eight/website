@@ -1,11 +1,6 @@
 footer.footer {
   .layer {
-    padding-bottom: 2%;
     position: relative;
-
-    @include media-down(mobile) {
-      padding-bottom: 15%;
-    }
 
     svg.curve {
       @include horizontal-align(absolute);
@@ -16,7 +11,17 @@ footer.footer {
     }
   }
 
+  .top-layer {
+    padding-bottom: 5%;
+    background: linear-gradient(180deg, transparent 97%, $earth 97%);
+
+    @include media-down(mobile) {
+      padding-bottom: 10%;
+    }
+  }
+
   .middle-layer {
+    padding-bottom: 5%;
     background-color: $earth;
   }
 
@@ -115,11 +120,17 @@ footer.footer {
         }
 
         .signature {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          width: 100%;
           margin-top: 30px;
           @include h4($dark-font: false);
           text-align: left;
 
-          a {
+          .studio {
+            display: block;
             @include h4($dark-font: false);
             margin-left: 5px;
           }

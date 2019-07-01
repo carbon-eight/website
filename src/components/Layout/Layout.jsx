@@ -126,7 +126,8 @@ class Layout extends Component {
                   link {
                     target
                     url
-                    link_type
+                    linkType: link_type
+                    slug
                   }
                 }
                 footerMenu: footer_menu {
@@ -140,7 +141,8 @@ class Layout extends Component {
                   link {
                     target
                     url
-                    link_type
+                    linkType: link_type
+                    slug
                   }
                 }
                 legalLinks: legal_links {
@@ -150,7 +152,8 @@ class Layout extends Component {
                   link {
                     target
                     url
-                    link_type
+                    linkType: link_type
+                    slug
                   }
                 }
                 socialLinks: social_links {

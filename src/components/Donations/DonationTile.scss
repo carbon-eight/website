@@ -92,6 +92,17 @@
       position: relative;
       z-index: 2;
 
+      .dollar {
+        @include h2();
+        font-size: 28px;
+        margin-right: 5px;
+
+        @include media-down(mobile) {
+          font-size: 24px;
+          margin-right: 2.5px;
+        }
+      }
+
       .price {
         display: block;
         @include h2();

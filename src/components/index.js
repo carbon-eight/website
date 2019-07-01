@@ -3,6 +3,7 @@ import Layout from './Layout';
 import SliceZone from './SliceZone';
 import ProgressDots from './ProgressDots';
 import ColourfulBackground from './ColourfulBackground';
+import PageHero from './PageHero';
 
 export {
   SEO,
@@ -10,4 +11,5 @@ export {
   SliceZone,
   ProgressDots,
   ColourfulBackground,
+  PageHero,
 };
