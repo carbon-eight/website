@@ -64,7 +64,7 @@ $font-weight-black: 900;
   font-weight: $font-weight-regular;
 
   @include media-down(mobile) {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   @if $dark-font == true {
@@ -84,7 +84,7 @@ $font-weight-black: 900;
   font-weight: $font-weight-bold;
 
   @include media-down(mobile) {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   @if $dark-font == true {

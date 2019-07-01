@@ -9,5 +9,9 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 60px;
+
+    @include media-down(mobile) {
+      margin-top: 20px;
+    }
   }
 }
