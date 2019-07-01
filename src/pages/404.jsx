@@ -14,7 +14,7 @@ class FourOhFour extends Component {
       location,
     } = this.props;
     const seoData = {
-      metaTitle: 'Page Not Found » Little & Big',
+      metaTitle: 'Page Not Found » Carbon8',
       metaDescription: '',
       banner: '',
     };
