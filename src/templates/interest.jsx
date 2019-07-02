@@ -61,6 +61,7 @@ class ExpressionOfInterestTemplate extends Component {
         <SliceZone
           allSlices={body}
           location={location}
+          isMobile={isMobile}
         />
       </Layout>
     );

@@ -38,6 +38,7 @@ const Block = ({ block, index }) => {
 const ExplanationBlocks = (props) => {
   const {
     data,
+    isMobile,
   } = props;
   const {
     primary,
@@ -46,7 +47,7 @@ const ExplanationBlocks = (props) => {
   const {
     title,
   } = primary;
-  const willScroll = Boolean(blocks.length > 3);
+  const willScroll = Boolean(blocks.length > 3) || isMobile;
   return (
     <section className={`explanation-blocks page-block ${willScroll ? 'scroll' : ''}`}>
       <Wrapper>

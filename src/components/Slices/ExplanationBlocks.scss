@@ -24,6 +24,8 @@
     }
 
     .blocks {
+      overflow-x: scroll;
+
       .block {
         flex-shrink: 0;
         width: calc((100% / 3) - 60px);
@@ -50,14 +52,15 @@
     }
   }
 
-  .title {
-
+  .block-title {
+    @include media-down(mobile) {
+      padding: 0 20px;
+    }
   }
 
   .blocks {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
     padding-bottom: 40px;
 
     .block {
@@ -95,6 +98,10 @@
           border: 3px solid $primary;
           overflow: hidden;
           z-index: 2;
+
+          img, picture {
+            border-radius: 50%;
+          }
         }
       }
 

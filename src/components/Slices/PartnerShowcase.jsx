@@ -71,6 +71,7 @@ const PartnerShowcase = (props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    centerMode: true,
     responsive: [
       {
         breakpoint: 9999,
@@ -79,14 +80,12 @@ const PartnerShowcase = (props) => {
       {
         breakpoint: 800,
         settings: {
-          centerMode: true,
           centerPadding: '20%',
         },
       },
       {
         breakpoint: 500,
         settings: {
-          centerMode: true,
           centerPadding: '15%',
         },
       },

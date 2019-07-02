@@ -20,6 +20,7 @@ export default class SliceZone extends Component {
       allSlices,
       location,
       // siteMetadata,
+      isMobile,
     } = this.props;
     const slices = allSlices.map((slice) => {
       switch (slice.sliceType) {
@@ -30,7 +31,13 @@ export default class SliceZone extends Component {
         case ENQUIRY_FORM_TYPE:
           return <EnquiryForm key={slice.id} data={slice} location={location} />;
         case EXPLANATION_BLOCKS_TYPE:
-          return <ExplanationBlocks key={slice.id} data={slice} />;
+          return (
+            <ExplanationBlocks
+              key={slice.id}
+              data={slice}
+              isMobile={isMobile}
+            />
+          );
         case PARTNER_SHOWCASE_TYPE:
           return <PartnerShowcase key={slice.id} data={slice} />;
         default:
