@@ -1,0 +1,13 @@
+.legal-page-section {
+  padding: 20px 0px;
+  margin-bottom: 80px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-title {
+    @include h2();
+    margin-bottom: 40px;
+  }
+}

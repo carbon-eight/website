@@ -4,7 +4,29 @@ import { Layout } from '../components';
 import { LegalPageHero, LegalPageBody } from '../components/Legal';
 import './information-page.scss';
 
+const isClient = typeof window !== 'undefined';
+const MOBILE_BREAKPOINT = 800;
+
 class InformationPageTemplate extends Component {
+  state = {
+    viewportWidth: 0,
+  };
+
+  componentDidMount() {
+    if (isClient) {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ viewportWidth: window.innerWidth });
+  }
+
   render() {
     const {
       data: {
@@ -26,10 +48,15 @@ class InformationPageTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
+    const {
+      viewportWidth,
+    } = this.state;
+    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     return (
       <Layout location={location} seoData={seoData}>
         <LegalPageHero
-          title={pageTitle ? pageTitle.text : null}
+          title={pageTitle.text}
+          isMobile={isMobile}
         />
         <LegalPageBody
           sections={sections}
