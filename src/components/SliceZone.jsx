@@ -39,7 +39,13 @@ export default class SliceZone extends Component {
             />
           );
         case PARTNER_SHOWCASE_TYPE:
-          return <PartnerShowcase key={slice.id} data={slice} />;
+          return (
+            <PartnerShowcase
+              key={slice.id}
+              data={slice}
+              isMobile={isMobile}
+            />
+          );
         default:
           return null;
       }

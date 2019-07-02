@@ -1,0 +1,26 @@
+.partner-list {
+  .partners {
+    margin-bottom: -60px;
+
+    @include media-down(mobile) {
+      margin-bottom: 0;
+    }
+
+    .slider {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      @include media-down(mobile) {
+        display: block;
+      }
+    }
+
+    .progress-dots {
+      @include media-up(mobile) {
+        display: none;
+      }
+      margin-top: 40px;
+    }
+  }
+}
