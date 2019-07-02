@@ -69,19 +69,6 @@
       justify-content: center;
     }
 
-    .link-icon {
-      display: block;
-      width: 16px;
-      height: 16px;
-      margin-top: -1px;
-      margin-right: 15px;
-
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
     span {
       @include h4();
       white-space: nowrap;
@@ -95,8 +82,22 @@
   }
 
   a {
-    .name-container {
-      margin-left: -31px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .link-icon {
+      flex-shrink: 0;
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin-right: 10px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &:hover {
