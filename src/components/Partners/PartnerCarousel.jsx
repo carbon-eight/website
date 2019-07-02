@@ -19,12 +19,12 @@ const PartnerCarousel = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: true,
-    centerPadding: '20%',
+    centerPadding: '15%',
     responsive: [
       {
         breakpoint: 500,
         settings: {
-          centerPadding: '15%',
+          centerPadding: '10%',
         },
       },
     ],
