@@ -37,7 +37,7 @@ const VariableDonationTile = (props) => {
       aria-label="Select to nominate your own amount to donate"
       style={visible ? animationStyles : null}
     >
-      <div className="container">
+      <div className="button-container">
         <div className="illustration-container">
           <DonationIllustration
             illustrationType={illustrationType}

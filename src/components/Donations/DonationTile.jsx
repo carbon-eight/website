@@ -29,7 +29,7 @@ const DonationTile = (props) => {
       aria-label={ariaLabel}
       style={visible ? animationStyles : null}
     >
-      <div className="container">
+      <div className="button-container">
         <DonationIllustration
           illustrationType={illustrationType}
         />
