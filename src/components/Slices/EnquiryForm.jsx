@@ -3,6 +3,8 @@ import { Wrapper } from '../common';
 import { ContactForm } from '../Forms';
 import './EnquiryForm.scss';
 
+export const ENQUIRY_FORM_ID = 'enquiry-form';
+
 const getSlug = (location) => {
   if (!location) return null;
   const {
@@ -27,7 +29,7 @@ const EnquiryForm = (props) => {
   } = primary;
   const formAffix = getSlug(location);
   return (
-    <section className="enquiry-form page-block">
+    <section id={ENQUIRY_FORM_ID} className="enquiry-form page-block">
       <Wrapper>
         <h2 className="block-title">{formTitle.text}</h2>
         <p className="subtitle">{formSubtitle.text}</p>

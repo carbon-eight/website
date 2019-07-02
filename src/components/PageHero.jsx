@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrapper } from './common';
 import './PageHero.scss';
+import { ENQUIRY_FORM_ID } from './Slices/EnquiryForm';
 
 const SvgBackground = ({ isMobile }) => (
   isMobile ? (
@@ -57,7 +58,7 @@ const SvgBackground = ({ isMobile }) => (
 
 const scrollToForm = (event) => {
   if (event) event.preventDefault();
-  const targetEl = document.getElementById('contact-form');
+  const targetEl = document.getElementById(ENQUIRY_FORM_ID);
   targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
