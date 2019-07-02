@@ -26,7 +26,6 @@ class InformationPageTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
-    console.log('this.props', this.props);
     return (
       <Layout location={location} seoData={seoData}>
         <LegalPageHero
