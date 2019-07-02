@@ -1,4 +1,5 @@
 input[type="text"],
+input[type="number"],
 input[type="search"],
 input[type="password"],
 input[type="number"],
@@ -12,6 +13,15 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+input[type='number'] {
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 }
 
 // Prevent yellow background-color on chrome auto-fill
