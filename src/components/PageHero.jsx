@@ -55,6 +55,12 @@ const SvgBackground = ({ isMobile }) => (
   )
 );
 
+const scrollToForm = (event) => {
+  if (event) event.preventDefault();
+  const targetEl = document.getElementById('contact-form');
+  targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 const PageHero = (props) => {
   const {
     title,
@@ -67,6 +73,14 @@ const PageHero = (props) => {
         <Wrapper>
           <h1 className="title">{title}</h1>
           <span className="subtitle">{subtitle}</span>
+          <button
+            type="button"
+            className="anchor-to-button cta-button"
+            onClick={event => scrollToForm(event)}
+            aria-label="Zoom down to the contact form"
+          >
+            <span>Get Started</span>
+          </button>
         </Wrapper>
       </div>
       <div className="bottom-curve">

@@ -112,8 +112,8 @@ class DonationModalTemplate extends Component {
     }
     const { error } = await stripe.redirectToCheckout({
       items,
-      successUrl: `${location.origin}?success=true`,
-      cancelUrl: `${location.origin}`,
+      successUrl: `${location.href}?success=true`,
+      cancelUrl: `${location.href}`,
       // billingAddressCollection: 'required',
     });
     if (error) console.error('Error redirecting to the checkout:', error);
@@ -130,7 +130,9 @@ class DonationModalTemplate extends Component {
       donationSuccess,
       stripeProducts,
       stripePlans,
+      location,
     } = this.props;
+    console.log({ location });
     const stripeProductItems = stripeProducts.edges.map(stripeProduct => (
       { ...stripeProduct.node }
     ));
