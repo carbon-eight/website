@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
+import { LegalPageHero, LegalPageBody } from '../components/Legal';
 import './information-page.scss';
 
 class InformationPageTemplate extends Component {
@@ -14,7 +15,8 @@ class InformationPageTemplate extends Component {
       location,
     } = this.props;
     const {
-      // body,
+      pageTitle,
+      sections,
       metaTitle,
       metaDescription,
       openGraphImage,
@@ -24,11 +26,15 @@ class InformationPageTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
+    console.log('this.props', this.props);
     return (
       <Layout location={location} seoData={seoData}>
-        <div className="page-block temp-block">
-          <h1 className="block-title">Information Page - To Be Built!</h1>
-        </div>
+        <LegalPageHero
+          title={pageTitle ? pageTitle.text : null}
+        />
+        <LegalPageBody
+          sections={sections}
+        />
       </Layout>
     );
   }
@@ -45,6 +51,17 @@ export const pageQuery = graphql`
     # },
     page: prismicInformationPage(uid: { eq: $uid }) {
       data {
+        pageTitle: page_name {
+          text
+        }
+        sections {
+          content {
+            html
+          }
+          sectionHeading: section_heading {
+            text
+          }
+        }
         metaTitle: meta_title {
           html
           text

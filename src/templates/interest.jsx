@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Layout, SliceZone, PageHero } from '../components';
 
 const isClient = typeof window !== 'undefined';
-const MOBILE_BREAKPOINT = 1080;
+const MOBILE_BREAKPOINT = 800;
 
 class ExpressionOfInterestTemplate extends Component {
   state = {

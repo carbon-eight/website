@@ -26,6 +26,7 @@
             border-radius: none;
             border-bottom: 2px solid $tertiary;
             transition: border-color 0.3s ease;
+
             &:-ms-clear {
               display: none;
             }
