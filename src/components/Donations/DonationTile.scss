@@ -122,14 +122,16 @@
   }
 
   &:hover {
-    .container {
-      transform: translateX(-10px) translateY(-10px);
-      border-color: $primary;
-    }
-    .amount-container {
-      .amount {
-        transform: translateX(-5px) translateY(-5px);
+    @include media-up(mobile) {
+      .container {
+        transform: translateX(-10px) translateY(-10px);
         border-color: $primary;
+      }
+      .amount-container {
+        .amount {
+          transform: translateX(-5px) translateY(-5px);
+          border-color: $primary;
+        }
       }
     }
   }
