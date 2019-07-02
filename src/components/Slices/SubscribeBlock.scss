@@ -36,14 +36,14 @@
 
         @include media-down(mobile) {
           width: 100%;
-          max-width: 300px;
+          max-width: 500px;
           margin-right: 0;
           margin-bottom: 20px;
         }
 
         input {
           width: 100%;
-          @include h3();
+          @include h4();
           padding: 10px 20px;
           border-width: 3px;
           border-style: solid;
@@ -63,7 +63,9 @@
 
       .submit-button {
         @include media-down(mobile) {
-          margin-top: 20px;
+          width: 100%;
+          max-width: 500px;
+          margin-top: 10px;
         }
       }
 
