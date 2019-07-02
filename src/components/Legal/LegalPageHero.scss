@@ -1,0 +1,8 @@
+.legal-page-hero {
+  background-color: $tertiary;
+  padding: 190px 0 150px;
+
+  @include media-down(mobile) {
+    padding: 130px 0 100px;
+  }
+}
