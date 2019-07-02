@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
+import { LegalPageHero, LegalPageBody } from '../components/Legal';
 import './information-page.scss';
 
+const isClient = typeof window !== 'undefined';
+const MOBILE_BREAKPOINT = 800;
+
 class InformationPageTemplate extends Component {
+  state = {
+    viewportWidth: 0,
+  };
+
+  componentDidMount() {
+    if (isClient) {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ viewportWidth: window.innerWidth });
+  }
+
   render() {
     const {
       data: {
@@ -14,7 +37,8 @@ class InformationPageTemplate extends Component {
       location,
     } = this.props;
     const {
-      // body,
+      pageTitle,
+      sections,
       metaTitle,
       metaDescription,
       openGraphImage,
@@ -24,11 +48,19 @@ class InformationPageTemplate extends Component {
       metaDescription,
       openGraphImage,
     };
+    const {
+      viewportWidth,
+    } = this.state;
+    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     return (
       <Layout location={location} seoData={seoData}>
-        <div className="page-block temp-block">
-          <h1 className="block-title">Information Page - To Be Built!</h1>
-        </div>
+        <LegalPageHero
+          title={pageTitle.text}
+          isMobile={isMobile}
+        />
+        <LegalPageBody
+          sections={sections}
+        />
       </Layout>
     );
   }
@@ -45,6 +77,17 @@ export const pageQuery = graphql`
     # },
     page: prismicInformationPage(uid: { eq: $uid }) {
       data {
+        pageTitle: page_name {
+          text
+        }
+        sections {
+          content {
+            html
+          }
+          sectionHeading: section_heading {
+            text
+          }
+        }
         metaTitle: meta_title {
           html
           text

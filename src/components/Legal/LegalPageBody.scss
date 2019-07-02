@@ -1,0 +1,22 @@
+.legal-page-body {
+  padding: 120px 0;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .col {
+
+      &.col-left {
+        width: 300px;
+        margin-right: 30px;
+      }
+
+      &.col-right {
+        flex: 1;
+        margin-left: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.legal-page-hero {
+  background-color: $tertiary;
+  padding: 230px 0 180px;
+  position: relative;
+  overflow: hidden;
+
+  @include media-down(mobile) {
+    padding: 130px 0 100px;
+  }
+
+  .svg-background {
+    @include center-align(absolute);
+    height: 90%;
+    width: 90%;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+
+    @include media-down(mobile) {
+      height: 100%;
+      width: 95%;
+    }
+  }
+}
