@@ -20,15 +20,6 @@ const isInView = (index, sectionOffset) => {
   return (rect.top - sectionOffset) < 0;
 };
 
-const getPercentageRead = (activeSection) => {
-  const targetEl = document.getElementById(getSectionId(activeSection));
-  if (targetEl.getBoundingClientRect().top > 0) return 0;
-  const elementHeight = targetEl.clientHeight;
-  const elementScrollTop = targetEl.getBoundingClientRect().top;
-  const scrollPercentage = Math.abs(elementScrollTop) / elementHeight;
-  return scrollPercentage.toFixed(2);
-};
-
 const LegalPageNavigation = (props) => {
   const {
     sections,
@@ -36,14 +27,7 @@ const LegalPageNavigation = (props) => {
   } = props;
   const sectionOffset = isMobile ? 50 : 150;
   const [activeSection, setActiveSection] = useState(0);
-  const [percentageRead, setPercentageRead] = useState(0);
-  const [setPercentageDebounced] = useDebouncedCallback(
-    (percentage) => {
-      setPercentageRead(percentage);
-    },
-    50,
-    // { maxWait: 20 },
-  );
+  const [navOpen, setNavOpen] = useState(false);
   const sectionTitles = sections && sections.map(section => section.sectionHeading.text);
   useEffect(() => {
     const findActiveSection = async () => {
@@ -52,7 +36,6 @@ const LegalPageNavigation = (props) => {
         if (isInView(index, sectionOffset)) currActiveSection = index;
       });
       if (currActiveSection !== activeSection) setActiveSection(currActiveSection);
-      setPercentageDebounced(getPercentageRead(currActiveSection, sectionOffset));
     };
     if (isClient) window.addEventListener('scroll', findActiveSection);
     return () => {
@@ -97,11 +80,6 @@ const LegalPageNavigation = (props) => {
             </li>
           ))}
         </ul>
-        { isMobile && (
-          <div className="reading-progress-bar">
-            <div className="inner-progress" style={{ width: `${percentageRead}` }} />
-          </div>
-        )}
       </div>
     </nav>
   );

@@ -7,11 +7,9 @@
   z-index: 33;
 
   @include media-down(mobile) {
-    position: sticky;
-    top: 0px;
-    left: 0px;
+    position: static;
     width: 100%;
-    padding: 0 20px;
+    padding: 0;
     background-color: $primary;
   }
 
@@ -93,23 +91,6 @@
           }
         }
       }
-    }
-  }
-
-  .reading-progress-bar {
-    width: 100%;
-    position: absolute;
-    top: auto;
-    bottom: 0;
-    transform: translateY(100%);
-
-    .inner-progress {
-      display: block;
-      height: 6px;
-      background-color: $primary;
-      // transform: scaleX(0);
-      transition: transform 0.2s ease;
-      transform-origin: left;
     }
   }
 }
