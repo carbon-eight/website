@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getSectionId } from './LegalPageSection';
 import { useDebouncedCallback } from 'use-debounce';
+import { getSectionId } from './LegalPageSection';
 import './LegalPageNavigation.scss';
 
 const isClient = typeof window !== 'undefined';
@@ -20,11 +20,12 @@ const isInView = (index, sectionOffset) => {
   return (rect.top - sectionOffset) < 0;
 };
 
-const getPercentageRead = (activeSection, sectionOffset) => {
+const getPercentageRead = (activeSection) => {
   const targetEl = document.getElementById(getSectionId(activeSection));
+  if (targetEl.getBoundingClientRect().top > 0) return 0;
   const elementHeight = targetEl.clientHeight;
-  const elementScrollTop = Math.abs(targetEl.getBoundingClientRect().top);
-  const scrollPercentage = elementScrollTop / elementHeight;
+  const elementScrollTop = targetEl.getBoundingClientRect().top;
+  const scrollPercentage = Math.abs(elementScrollTop) / elementHeight;
   return scrollPercentage.toFixed(2);
 };
 
@@ -38,10 +39,10 @@ const LegalPageNavigation = (props) => {
   const [percentageRead, setPercentageRead] = useState(0);
   const [setPercentageDebounced] = useDebouncedCallback(
     (percentage) => {
-      setPercentageRead(percentage, sectionOffset);
+      setPercentageRead(percentage);
     },
-    100,
-    { maxWait: 100 },
+    50,
+    // { maxWait: 20 },
   );
   const sectionTitles = sections && sections.map(section => section.sectionHeading.text);
   useEffect(() => {
@@ -51,14 +52,13 @@ const LegalPageNavigation = (props) => {
         if (isInView(index, sectionOffset)) currActiveSection = index;
       });
       if (currActiveSection !== activeSection) setActiveSection(currActiveSection);
-      setPercentageDebounced(getPercentageRead(currActiveSection));
+      setPercentageDebounced(getPercentageRead(currActiveSection, sectionOffset));
     };
     if (isClient) window.addEventListener('scroll', findActiveSection);
     return () => {
       if (isClient) window.addEventListener('scroll', findActiveSection);
     };
   });
-  console.log({ percentageRead });
   return (
     <nav className="legal-page-navigation">
       { isMobile && (

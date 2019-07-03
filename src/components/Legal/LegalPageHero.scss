@@ -8,9 +8,21 @@
     padding: 130px 0 100px;
   }
 
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    @include media-down(mobile) {
+      padding: 0;
+    }
+  }
+
   h1 {
     @include h1();
     color: $primary;
+
+    @include media-down(mobile) {
+      padding: 0 20px;
+    }
   }
 
   .svg-background {
@@ -18,17 +30,17 @@
     height: 75%;
     width: 75%;
 
+    @include media-down(mobile) {
+      height: 90%;
+      width: 90%;
+    }
+
     svg {
       height: 100%;
       width: 100%;
       path {
         fill: $secondary;
       }
-    }
-
-    @include media-down(mobile) {
-      height: 100%;
-      width: 95%;
     }
   }
 }

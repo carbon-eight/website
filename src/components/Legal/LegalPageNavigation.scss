@@ -4,6 +4,15 @@
   padding: 20px 0;
   left: 0;
 
+  @include media-down(mobile) {
+    display: none;
+    position: fixed;
+    top: $header-height-mobile;
+    width: 100%;
+    padding: 0 20px;
+    background-color: $tertiary;
+  }
+
   .nav-items {
     display: flex;
     flex-direction: column;
@@ -48,10 +57,10 @@
 
     .inner-progress {
       display: block;
-      height: 10px;
+      height: 6px;
       background-color: $primary;
       // transform: scaleX(0);
-      transition: transform 0.3s ease;
+      transition: transform 0.2s ease;
       transform-origin: left;
     }
   }

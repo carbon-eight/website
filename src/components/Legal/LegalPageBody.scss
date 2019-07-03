@@ -1,6 +1,10 @@
 .legal-page-body {
   padding: 120px 0;
 
+  @include media-down(mobile) {
+    padding: 80px 0;
+  }
+
   .wrapper {
     display: flex;
     flex-direction: row;
