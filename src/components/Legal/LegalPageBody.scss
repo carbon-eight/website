@@ -1,8 +1,9 @@
 .legal-page-body {
   padding: 120px 0;
+  position: relative;
 
   @include media-down(mobile) {
-    padding: 80px 0;
+    padding: 0 0 80px;
   }
 
   .wrapper {
@@ -16,6 +17,7 @@
     }
 
     .col {
+      display: block;
 
       &.col-left {
         width: 300px;

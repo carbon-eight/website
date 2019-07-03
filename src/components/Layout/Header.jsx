@@ -37,6 +37,7 @@ class Header extends Component {
     const {
       navActive,
       toggleNavHandler,
+      solidHeader,
     } = this.props;
     const {
       viewportTopPos,
@@ -44,7 +45,7 @@ class Header extends Component {
       headerHeight,
     } = this.state;
     const headroomTop = Boolean(viewportTopPos < headerHeight);
-    const headerClasses = `header ${scrollingUp ? ' scrolling-up' : ''}${headroomTop ? ' headroom--top' : ' headroom--not-top'}`;
+    const headerClasses = `header ${solidHeader ? ' solid-background' : ''}${scrollingUp ? ' scrolling-up' : ''}${headroomTop ? ' headroom--top' : ' headroom--not-top'}`;
     return (
       <header className={headerClasses} ref={headerRef => this.headerRef = headerRef}>
         <Logo classes={`${navActive ? 'nav-open' : ''}`} clickable />

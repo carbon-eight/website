@@ -61,41 +61,48 @@ const LegalPageNavigation = (props) => {
   });
   return (
     <nav className="legal-page-navigation">
-      { isMobile && (
-        <button
-          type="button"
-          className="mobile-section-selector"
-          onClick={event => scrollToPageSection(event)}
-          aria-label={`Jump to ${sectionTitles[activeSection]} section`}
-        >
-          <span className="current-active-section">
-            {sectionTitles[activeSection]}
-          </span>
-        </button>
-      )}
-      <ul className="nav-items">
-        { sectionTitles && sectionTitles.map((sectionTitle, index) => (
-          <li
-            key={generateKey(index)}
-            className="nav-item"
+      <div className="navigation-container">
+        { isMobile && (
+          <button
+            type="button"
+            className="mobile-section-selector"
+            onClick={event => scrollToPageSection(event)}
+            aria-label={`Jump to ${sectionTitles[activeSection]} section`}
           >
-            <button
-              type="button"
-              className={`anchor-link${activeSection === index ? ' active' : ''}`}
-              onClick={event => scrollToPageSection(event, index)}
-              aria-label={`Jump to ${sectionTitle} section`}
+            <span className="current-active-section">
+              {`${getSectionAffix(activeSection)} ${sectionTitles[activeSection]}`}
+            </span>
+            <div className="icon">
+              <svg viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.6.154l1.697 1.697L5.65 7.5 0 1.851 1.697.154 5.65 4.106z" fill="#FFF" fillRule="nonzero" />
+              </svg>
+            </div>
+          </button>
+        )}
+        <ul className="nav-items">
+          { sectionTitles && sectionTitles.map((sectionTitle, index) => (
+            <li
+              key={generateKey(index)}
+              className="nav-item"
             >
-              <span className="count">{getSectionAffix(index)}</span>
-              <span className="section-title">{sectionTitle}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
-      { isMobile && (
-        <div className="reading-progress-bar">
-          <div className="inner-progress" style={{ transform: `scaleX(${percentageRead})` }} />
-        </div>
-      )}
+              <button
+                type="button"
+                className={`anchor-link${activeSection === index ? ' active' : ''}`}
+                onClick={event => scrollToPageSection(event, index)}
+                aria-label={`Jump to ${sectionTitle} section`}
+              >
+                <span className="count">{getSectionAffix(index)}</span>
+                <span className="section-title">{sectionTitle}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        { isMobile && (
+          <div className="reading-progress-bar">
+            <div className="inner-progress" style={{ width: `${percentageRead}` }} />
+          </div>
+        )}
+      </div>
     </nav>
   );
 };
