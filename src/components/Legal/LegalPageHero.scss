@@ -2,7 +2,6 @@
   background-color: $tertiary;
   padding: 230px 0 180px;
   position: relative;
-  overflow: hidden;
 
   @include media-down(mobile) {
     padding: 130px 0 100px;

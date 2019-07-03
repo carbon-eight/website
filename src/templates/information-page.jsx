@@ -53,7 +53,7 @@ class InformationPageTemplate extends Component {
     } = this.state;
     const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     return (
-      <Layout location={location} seoData={seoData}>
+      <Layout location={location} seoData={seoData} solidHeader>
         <LegalPageHero
           title={pageTitle.text}
           isMobile={isMobile}

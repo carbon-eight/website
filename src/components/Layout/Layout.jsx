@@ -64,6 +64,7 @@ class PureLayout extends Component {
       location,
       settings,
       seoData,
+      solidHeader,
     } = this.props;
     const {
       metaTitle = null,
@@ -83,6 +84,7 @@ class PureLayout extends Component {
             location={location}
             navActive={navActive}
             toggleNavHandler={event => this.toggleNav(event)}
+            solidHeader={solidHeader}
           />
           <NavigationMenu
             location={location}
