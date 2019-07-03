@@ -39,4 +39,17 @@
       }
     }
   }
+
+  .reading-progress-bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    .inner-progress {
+      display: block;
+      height: 10px;
+      background-color: $primary;
+    }
+  }
 }
