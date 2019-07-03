@@ -1,10 +1,3 @@
 .home {
-
-  .temp-block {
-    padding-top: calc(#{$header-height} + 100px);
-
-    @include media-down(mobile) {
-      padding-top: calc(#{$header-height-mobile} + 50px);
-    }
-  }
+  
 }
