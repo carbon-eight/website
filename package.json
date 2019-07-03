@@ -52,8 +52,10 @@
     "smoothscroll": "^0.4.0",
     "smoothscroll-polyfill": "^0.4.3",
     "typeface-lora": "^0.0.72",
+    "typeface-montserrat": "^0.0.54",
     "typeface-source-sans-pro": "^0.0.54",
     "typography": "^0.16.18",
+    "use-debounce": "^2.1.0",
     "viewport-units-buggyfill": "^0.6.2",
     "yarn": "^1.16.0"
   },

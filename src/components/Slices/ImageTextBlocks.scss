@@ -89,7 +89,6 @@
     .count {
       display: block;
       @include h4();
-      text-align: left;
       margin-bottom: 40px;
 
       @include media-down(mobile) {

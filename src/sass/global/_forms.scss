@@ -79,7 +79,6 @@ form {
     .field-label {
       display: block;
       @include h4();
-      text-align: left;
       margin-bottom: 10px;
     }
 
@@ -93,7 +92,6 @@ form {
       border-color: $tertiary;
       border-radius: 16px;
       transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-      text-align: left;
       box-sizing: border-box;
       box-shadow: none;
 

@@ -8,6 +8,7 @@ const generateKey = pre => `${pre}_${new Date().getTime()}`;
 const LegalPageBody = (props) => {
   const {
     sections,
+    isMobile,
   } = props;
   return (
     <section className="legal-page-body">
@@ -15,6 +16,7 @@ const LegalPageBody = (props) => {
         <div className="col col-left">
           <LegalPageNavigation
             sections={sections}
+            isMobile={isMobile}
           />
         </div>
         <div className="col col-right">

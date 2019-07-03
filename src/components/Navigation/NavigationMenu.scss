@@ -74,7 +74,6 @@
 
               .audience {
                 @include h4($dark-font: false);
-                text-align: left;
                 margin-bottom: 30px;
 
                 @include media-down(mobile) {
@@ -143,7 +142,6 @@
           .label {
             display: block;
             @include h4($dark-font: false);
-            text-align: left;
             margin-bottom: 30px;
 
             @include media-down(mobile) {

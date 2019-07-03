@@ -7,6 +7,10 @@
   p {
     @include clear();
     @include p1();
+
+    strong {
+      font-weight: $font-weight-medium;
+    }
   }
 
   a {
@@ -61,6 +65,18 @@
     }
   }
 
+  ul, ol {
+    padding-left: 25px;
+    margin-bottom: 25px;
+
+    li {
+      margin-left: 15px;
+      font-size: 18px;
+      margin-bottom: 5px;
+      @include p1();
+    }
+  }
+
   ul {
     list-style-type: none;
 
@@ -69,34 +85,24 @@
 
       &:before {
         content: '';
-        height: 7px;
-        width: 7px;
-        border: 1px solid $off-black;
+        height: 3px;
+        width: 3px;
+        border: 3px solid $primary;
+        border-radius: 50%;
         position: absolute;
         top: 7.5px;
         left: -25px;
         z-index: 1;
-
-        @include media-down(mobile) {
-          height: 5px;
-          width: 5px;
-        }
       }
     }
   }
 
   ol {
     list-style-type: decimal;
-  }
-
-  ul, ol {
-    padding-left: 25px;
-    margin-bottom: 25px;
 
     li {
-      font-size: 18px;
-      margin-bottom: 5px;
-      @include p1();
+      margin-left: 10px;
+      text-indent: 0.5em;
     }
   }
 }

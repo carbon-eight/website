@@ -10,6 +10,7 @@ import {
 } from '../Navigation';
 import { SEO } from '..';
 import '../../sass/global/styles.scss';
+import 'typeface-montserrat';
 
 const isClient = typeof window !== 'undefined';
 const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : null;
