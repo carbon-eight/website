@@ -69,7 +69,6 @@ footer.footer {
 
           .label {
             @include h4($dark-font: false);
-            text-align: left;
             margin-bottom: 30px;
           }
 
@@ -100,7 +99,6 @@ footer.footer {
           .audience {
             display: block;
             @include h4($dark-font: false);
-            text-align: left;
             margin-bottom: 30px;
           }
 
@@ -127,7 +125,6 @@ footer.footer {
           width: 100%;
           margin-top: 30px;
           @include h4($dark-font: false);
-          text-align: left;
 
           .studio {
             display: block;
