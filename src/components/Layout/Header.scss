@@ -29,8 +29,10 @@ header.header {
         transition: transform 0.3s ease 0.3s, background-color 0.3s ease, box-shadow 0.3s ease;
       }
       &.solid-background {
-        background-color: $white;
-        box-shadow: rgba(33, 38, 44, 0.1) 0px 2px 4px 0px;
+        @include media-down(mobile) {
+          background-color: $white;
+          box-shadow: rgba(33, 38, 44, 0.1) 0px 2px 4px 0px;
+        }
       }
     }
   }

@@ -31,6 +31,7 @@ const LegalPageNavigation = (props) => {
   const sectionTitles = sections && sections.map(section => section.sectionHeading.text);
   useEffect(() => {
     const findActiveSection = async () => {
+      if (navOpen) setNavOpen(false);
       let currActiveSection = activeSection;
       sectionTitles.forEach((section, index) => {
         if (isInView(index, sectionOffset)) currActiveSection = index;
@@ -49,7 +50,7 @@ const LegalPageNavigation = (props) => {
           <button
             type="button"
             className="mobile-section-selector"
-            onClick={event => scrollToPageSection(event)}
+            onClick={() => setNavOpen(!navOpen)}
             aria-label={`Jump to ${sectionTitles[activeSection]} section`}
           >
             <span className="current-active-section">
@@ -62,7 +63,7 @@ const LegalPageNavigation = (props) => {
             </div>
           </button>
         )}
-        <ul className="nav-items">
+        <ul className={`nav-items${navOpen ? ' nav-open' : ''}`}>
           { sectionTitles && sectionTitles.map((sectionTitle, index) => (
             <li
               key={generateKey(index)}

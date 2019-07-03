@@ -4,7 +4,7 @@
   top: $header-height;
   padding: 20px 0;
   left: 0;
-  z-index: 33;
+  z-index: 2;
 
   @include media-down(mobile) {
     position: static;
@@ -53,13 +53,22 @@
     flex-direction: column;
 
     @include media-down(mobile) {
+      width: 100%;
       position: absolute;
-      background-color: #f0f3f2;
-      padding: 5rem 2rem;
+      background-color: $tertiary;
+      padding: 40px 20px;
       text-align: center;
       transition: visibility .2s,opacity .2s ease-out;
       visibility: hidden;
       opacity: 0;
+      align-items: center;
+
+      &.nav-open {
+        visibility: visible;
+        opacity: 1;
+        z-index: 2;
+        box-shadow: rgba(33, 38, 44, 0.1) 0px 2px 4px 0px;
+      }
     }
 
     .nav-item {
@@ -74,6 +83,16 @@
         &.active {
           span {
             color: $primary;
+          }
+        }
+
+        &:not(.active) {
+          span {
+            color: #C9D7D1;
+
+            @include media-down(mobile) {
+              color: $primary;
+            }
           }
         }
 
