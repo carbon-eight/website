@@ -8,14 +8,22 @@
     padding: 130px 0 100px;
   }
 
+  h1 {
+    @include h1();
+    color: $primary;
+  }
+
   .svg-background {
     @include center-align(absolute);
-    height: 90%;
-    width: 90%;
+    height: 75%;
+    width: 75%;
 
     svg {
       height: 100%;
       width: 100%;
+      path {
+        fill: $secondary;
+      }
     }
 
     @include media-down(mobile) {

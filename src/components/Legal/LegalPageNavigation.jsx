@@ -5,6 +5,7 @@ import './LegalPageNavigation.scss';
 const isClient = typeof window !== 'undefined';
 
 const generateKey = pre => `${pre}_${new Date().getTime()}`;
+const getSectionAffix = index => `${(index < 9) ? `0${index + 1}` : index + 1}`;
 
 const scrollToPageSection = (event, index) => {
   if (event) event.preventDefault();
@@ -12,55 +13,64 @@ const scrollToPageSection = (event, index) => {
   if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
-const isInView = (index, viewportTop) => {
+const isInView = (index) => {
+  const offset = 150; // Offset top position of section with some padding
   const targetEl = document.getElementById(getSectionId(index));
   const rect = targetEl.getBoundingClientRect();
-  const isSectionInView = rect.top < viewportTop && rect.bottom > viewportTop;
-  console.log({ isSectionInView });
-  console.log({ rect });
-  return isSectionInView;
+  return (rect.top - offset) < 0;
 };
 
 const LegalPageNavigation = (props) => {
   const {
     sections,
+    isMobile,
   } = props;
   const [activeSection, setActiveSection] = useState(0);
   const sectionTitles = sections && sections.map(section => section.sectionHeading.text);
   useEffect(() => {
     const findActiveSection = () => {
-      const viewportTop = isClient ? window.scrollY : 0;
-      isInView(0, viewportTop);
-      // setActiveSection(0);
+      let currActiveSection = 0;
+      sectionTitles.forEach((section, index) => {
+        if (isInView(index)) currActiveSection = index;
+      });
+      if (currActiveSection !== activeSection) setActiveSection(currActiveSection);
     };
-    window.addEventListener('scroll', findActiveSection);
+    if (isClient) window.addEventListener('scroll', findActiveSection);
     return () => {
-      window.addEventListener('scroll', findActiveSection);
+      if (isClient) window.addEventListener('scroll', findActiveSection);
     };
   });
-  console.log({ activeSection });
   return (
     <nav className="legal-page-navigation">
+      { isMobile && (
+        <button
+          type="button"
+          className="mobile-section-selector"
+          onClick={event => scrollToPageSection(event)}
+          aria-label={`Jump to ${sectionTitles[activeSection]} section`}
+        >
+          <span className="current-active-section">
+            {sectionTitles[activeSection]}
+          </span>
+        </button>
+      )}
       <ul className="nav-items">
-        { sectionTitles && sectionTitles.map((sectionTitle, index) => {
-          const count = (index < 9) ? `0${index + 1}` : `${index + 1}`;
-          return (
-            <li
-              key={generateKey(index)}
-              className="nav-item"
+        { sectionTitles && sectionTitles.map((sectionTitle, index) => (
+          <li
+            key={generateKey(index)}
+            className="nav-item"
+          >
+            <button
+              type="button"
+              className={`anchor-link${activeSection === index ? ' active' : ''}`}
+              onClick={event => scrollToPageSection(event, index)}
+              aria-label={`Jump to ${sectionTitle} section`}
             >
-              <button
-                type="button"
-                className="anchor-link"
-                onClick={event => scrollToPageSection(event, index)}
-                aria-label={`Jump to ${sectionTitle} section`}
-              >
-                <span className="count">{count}</span>
-                <span className="section-title">{sectionTitle}</span>
-              </button>
-            </li>
-          );
-        })}
+              <span className="count">{getSectionAffix(index)}</span>
+              <span className="section-title">{sectionTitle}</span>
+            </button>
+          </li>
+        ))}
       </ul>
     </nav>
   );

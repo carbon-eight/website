@@ -60,6 +60,7 @@ class InformationPageTemplate extends Component {
         />
         <LegalPageBody
           sections={sections}
+          isMobile={isMobile}
         />
       </Layout>
     );
