@@ -7,6 +7,10 @@
   p {
     @include clear();
     @include p1();
+
+    strong {
+      font-weight: $font-weight-medium;
+    }
   }
 
   a {
