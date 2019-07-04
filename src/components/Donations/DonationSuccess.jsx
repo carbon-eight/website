@@ -1,5 +1,4 @@
 import React from 'react';
-import './DonationSuccess.scss';
 
 const DonationSuccess = () => (
   <div className="donation-success">
@@ -34,7 +33,7 @@ const DonationSuccess = () => (
         </g>
       </svg>
     </div>
-</div>
+  </div>
 );
 
 export default DonationSuccess;
