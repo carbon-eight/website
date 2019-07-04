@@ -9,7 +9,7 @@ const ValleyScene = (props) => {
     <section
       className="valley-scene"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1599 418">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1600 418">
         <defs>
           <path id="valley-scene-a" d="M.434.813h1600v422H.434z" />
           <linearGradient id="valley-scene-c" x1="50%" x2="50%" y1="0%" y2="100%">

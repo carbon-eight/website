@@ -8,24 +8,33 @@
   }
 
   .valley-scene {
-
+    width: 100%;
+    height: 26.125vw;
   }
 
   .farm-scene {
+    width: 100%;
+    height: 30.5vw;
     margin-top: -20vw;
   }
 
   .crop-scene {
+    width: 100%;
+    height: 41.375vw;
     margin-top: -15vw;
   }
 
   .soil-scene {
+    width: 100%;
+    height: 26.125vw;
     margin-top: -14vw;
     position: relative;
     z-index: 2;
   }
 
   .roots-scene {
+    width: 100%;
+    height: 34.75vw;
     margin-top: -5vw;
     position: relative;
     z-index: 1;
