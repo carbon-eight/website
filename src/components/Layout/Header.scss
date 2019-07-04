@@ -8,7 +8,6 @@ header.header {
   justify-content: space-between;
   transform: translateY(0);
   transition: transform 0.5s ease;
-  z-index: 3;
 
   &.solid-background {
     @include media-down(mobile) {
