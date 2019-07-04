@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
+import { Wrapper, Logo } from '../components/common';
 import { HomeMural } from '../components/Mural';
 import './index.scss';
 
@@ -27,6 +28,11 @@ class Index extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <HomeMural />
+        <div className="intro-block">
+          <Wrapper>
+            <Logo collapsed />
+          </Wrapper>
+        </div>
       </Layout>
     );
   }

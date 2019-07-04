@@ -1,3 +1,10 @@
 .soil-scene {
 
+  #bee-one {
+    animation: floatLeftRight 4s ease-out infinite;
+  }
+
+  #bee-two {
+    animation: floatUpDown 6s ease-in-out infinite;
+  }
 }

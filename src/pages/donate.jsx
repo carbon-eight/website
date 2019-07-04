@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import queryString from 'query-string';
 import { Layout, SliceZone } from '../components';
+import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
 import './donate.scss';
 
@@ -31,7 +32,9 @@ class Donate extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <div className="page-block donation-block">
-          <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
+          <Wrapper>
+            <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
+          </Wrapper>
           <DonationModal
             location={location}
             donationSuccess={donationSuccess}

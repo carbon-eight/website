@@ -14,14 +14,7 @@ body {
 
   &.nav-open {
     overflow: hidden;
-    max-height: 100vh;
-
-    #app {
-      &:before {
-        opacity: 0.7;
-        z-index: 4;
-      }
-    }
+    height: 100vh;
   }
 }
 
@@ -34,15 +27,11 @@ body {
 }
 
 .header {
-<<<<<<< Updated upstream
-  z-index: 3;
-=======
   z-index: 6;
->>>>>>> Stashed changes
 }
 
 nav.navigation {
-  z-index: 2;
+  z-index: 4;
 }
 
 main {
