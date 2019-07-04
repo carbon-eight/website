@@ -3,6 +3,7 @@ import {
   CropScene,
   FarmScene,
   SoilScene,
+  RootsScene,
   ValleyScene,
 } from '.';
 import './HomeMural.scss';
@@ -16,6 +17,8 @@ const HomeMural = (props) => {
       <ValleyScene />
       <FarmScene />
       <CropScene />
+      <SoilScene />
+      <RootsScene />
     </div>
   );
 };

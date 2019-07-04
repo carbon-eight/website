@@ -17,4 +17,16 @@
   .crop-scene {
     margin-top: -15vw;
   }
+
+  .soil-scene {
+    margin-top: -14vw;
+    position: relative;
+    z-index: 2;
+  }
+
+  .roots-scene {
+    margin-top: -5vw;
+    position: relative;
+    z-index: 1;
+  }
 }
