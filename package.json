@@ -48,6 +48,7 @@
     "react-slick": "^0.24.0",
     "react-tilt": "^0.1.4",
     "react-typography": "^0.16.18",
+    "rellax": "^1.10.0",
     "seedrandom": "^3.0.1",
     "smoothscroll": "^0.4.0",
     "smoothscroll-polyfill": "^0.4.3",

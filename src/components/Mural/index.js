@@ -4,6 +4,7 @@ import SoilScene from './SoilScene';
 import RootsScene from './RootsScene';
 import ValleyScene from './ValleyScene';
 import HomeMural from './HomeMural';
+import ParallaxElement from './ParallaxElement';
 
 export {
   CropScene,
@@ -12,4 +13,5 @@ export {
   RootsScene,
   ValleyScene,
   HomeMural,
+  ParallaxElement,
 };

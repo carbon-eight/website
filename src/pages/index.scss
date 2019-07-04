@@ -1,3 +1,15 @@
 .home {
-  
+
+  .intro-block {
+    padding: 200px 0px;
+    background-color: #424135;
+    margin-top: -1px;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }

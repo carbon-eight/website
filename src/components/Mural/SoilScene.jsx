@@ -341,27 +341,31 @@ const SoilScene = (props) => {
             <g fill="#4C4131">
               <path d="M564 317.74c0-11.045 8.954-20 20-20s20 8.955 20 20h-40zM822 353.24c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM1151 353.24c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM1292 366.24c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM1329 375.99c0-10.769 8.73-19.5 19.5-19.5s19.5 8.731 19.5 19.5h-39zM1386 259.49c0-10.769 8.73-19.5 19.5-19.5s19.5 8.731 19.5 19.5h-39zM1550 368.039c0-10.77 8.73-19.5 19.5-19.5s19.5 8.73 19.5 19.5h-39zM966 290.74c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM878 249.99c0-11.045 8.954-20 20-20s20 8.955 20 20h-40zM786.5 340.24c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM124.5 340.24c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM313 262.74c0-7.179 5.82-13 13-13s13 5.821 13 13h-26zM89 327.24c0-7.179 5.82-13 13-13s13 5.821 13 13H89z" />
             </g>
-            <g transform="translate(155.5 110)">
-              <circle cx="22.055" cy="21.947" r="4.41" fill="#4F4F4F" />
-              <g transform="translate(0 15.012)">
-                <mask id="soil-scene-H" fill="#fff">
-                  <use xlinkHref="#soil-scene-G" />
-                </mask>
-                <use fill="#D8D264" xlinkHref="#soil-scene-G" />
-                <path fill="#4F4F4F" d="M6.898-1.261h3.783v17.652H6.898z" mask="url(#soil-scene-H)" />
+            <g id="bee-two">
+              <g transform="translate(155.5 110)">
+                <circle cx="22.055" cy="21.947" r="4.41" fill="#4F4F4F" />
+                <g transform="translate(0 15.012)">
+                  <mask id="soil-scene-H" fill="#fff">
+                    <use xlinkHref="#soil-scene-G" />
+                  </mask>
+                  <use fill="#D8D264" xlinkHref="#soil-scene-G" />
+                  <path fill="#4F4F4F" d="M6.898-1.261h3.783v17.652H6.898z" mask="url(#soil-scene-H)" />
+                </g>
+                <path fill="#FFF" d="M15.218 5.812a6.935 6.935 0 0 0-9.807 0c-2.708 2.708 1.56 6.206 4.268 8.914 1.806 1.806 4.98 3.432 9.525 4.88-.852-7.39-2.18-11.988-3.986-13.794z" />
               </g>
-              <path fill="#FFF" d="M15.218 5.812a6.935 6.935 0 0 0-9.807 0c-2.708 2.708 1.56 6.206 4.268 8.914 1.806 1.806 4.98 3.432 9.525 4.88-.852-7.39-2.18-11.988-3.986-13.794z" />
             </g>
-            <g transform="matrix(-1 0 0 1 1325.5 80)">
-              <circle cx="22.055" cy="21.947" r="4.41" fill="#4F4F4F" />
-              <g transform="translate(0 15.012)">
-                <mask id="soil-scene-J" fill="#fff">
-                  <use xlinkHref="#soil-scene-I" />
-                </mask>
-                <use fill="#D8D264" xlinkHref="#soil-scene-I" />
-                <path fill="#4F4F4F" d="M6.898-1.261h3.783v17.652H6.898z" mask="url(#soil-scene-J)" />
+            <g id="bee-one">
+              <g transform="matrix(-1 0 0 1 1325.5 80)">
+                <circle cx="22.055" cy="21.947" r="4.41" fill="#4F4F4F" />
+                <g transform="translate(0 15.012)">
+                  <mask id="soil-scene-J" fill="#fff">
+                    <use xlinkHref="#soil-scene-I" />
+                  </mask>
+                  <use fill="#D8D264" xlinkHref="#soil-scene-I" />
+                  <path fill="#4F4F4F" d="M6.898-1.261h3.783v17.652H6.898z" mask="url(#soil-scene-J)" />
+                </g>
+                <path fill="#FFF" d="M15.218 5.812a6.935 6.935 0 0 0-9.807 0c-2.708 2.708 1.56 6.206 4.268 8.914 1.806 1.806 4.98 3.432 9.525 4.88-.852-7.39-2.18-11.988-3.986-13.794z" />
               </g>
-              <path fill="#FFF" d="M15.218 5.812a6.935 6.935 0 0 0-9.807 0c-2.708 2.708 1.56 6.206 4.268 8.914 1.806 1.806 4.98 3.432 9.525 4.88-.852-7.39-2.18-11.988-3.986-13.794z" />
             </g>
           </g>
         </g>
