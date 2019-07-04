@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
+import { HomeMural } from '../components/Mural';
 import './index.scss';
 
 class Index extends Component {
@@ -25,9 +26,7 @@ class Index extends Component {
     };
     return (
       <Layout location={location} seoData={seoData}>
-        <div className="page-block temp-block">
-          <h1 className="block-title">Home - To Be Built!</h1>
-        </div>
+        <HomeMural />
       </Layout>
     );
   }
