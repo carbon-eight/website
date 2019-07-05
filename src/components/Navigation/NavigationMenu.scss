@@ -22,6 +22,10 @@
     padding: calc(#{$header-height} + 20px) 0px 20px;
     position: relative;
 
+    @include media-down(mobile) {
+      padding: calc(#{$header-height-mobile} + 20px) 0px 20px;
+    }
+
     .wrapper {
       flex: 1;
       max-width: 1040px;
@@ -34,6 +38,10 @@
 
       @include media-down(wrapper) {
         padding: 0 40px;
+      }
+
+      @include media-down(mobile) {
+        padding: 0 20px;
       }
 
       .menu-row {
@@ -88,6 +96,10 @@
                 display: block;
                 @include h2($dark-font: false);
                 margin-bottom: 30px;
+
+                @include media-down(mobile) {
+                  font-size: 26px;
+                }
 
                 span {
                   position: relative;
@@ -155,6 +167,10 @@
 
           .email {
             @include h3($dark-font: false);
+
+            @include media-down(mobile) {
+              font-size: 16px;
+            }
           }
 
           .social-links {
