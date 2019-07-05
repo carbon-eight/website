@@ -88,6 +88,12 @@
     }
 
     @include media-down(mobile) {
+      transform: none;
+      top: auto;
+      bottom: 20px;
+    }
+
+    @include media-down(mobile) {
       height: 75%;
       width: 75%;
     }
