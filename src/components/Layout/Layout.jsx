@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import smoothscroll from 'smoothscroll-polyfill';
 import {
   Header,
   Footer,
@@ -13,7 +12,7 @@ import '../../sass/global/styles.scss';
 import 'typeface-montserrat';
 
 const isClient = typeof window !== 'undefined';
-// const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : null;
+const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : null;
 
 class PureLayout extends Component {
   state = {
@@ -21,12 +20,7 @@ class PureLayout extends Component {
   };
 
   componentDidMount() {
-    // viewportUnitsBuggyfill.init();
-    // smoothscroll.polyfill();
-  }
-
-  componentWillUnmount() {
-    if (isClient) window.removeEventListener('scroll', this.handleScroll);
+    viewportUnitsBuggyfill.init();
   }
 
   toggleNav = (event) => {
