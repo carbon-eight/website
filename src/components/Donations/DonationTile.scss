@@ -27,15 +27,19 @@
       margin: 0 20px 50px;
     }
   }
+
   @include media-down(small-mobile) {
-    width: calc(50% - 10px);
+    width: calc(50% - 20px);
     margin-bottom: 50px;
 
     &:nth-child(odd) {
-      margin-right: 10px;
+      margin: 0 10px 50px;
     }
     &:nth-child(even) {
-      margin-left: 10px;
+      margin: 0 10px 50px;
+    }
+    &:last-child {
+      margin: 0 10px 50px;
     }
   }
 

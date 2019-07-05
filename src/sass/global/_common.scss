@@ -65,7 +65,8 @@ main {
     margin-bottom: 70px;
 
     @include media-down(mobile) {
-      margin-bottom: 50px;
+      max-width: 500px;
+      margin: 0 auto 50px;
     }
   }
 }
