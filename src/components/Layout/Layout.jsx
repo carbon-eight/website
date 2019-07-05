@@ -13,7 +13,7 @@ import '../../sass/global/styles.scss';
 import 'typeface-montserrat';
 
 const isClient = typeof window !== 'undefined';
-const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : null;
+// const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : null;
 
 class PureLayout extends Component {
   state = {
@@ -21,8 +21,8 @@ class PureLayout extends Component {
   };
 
   componentDidMount() {
-    viewportUnitsBuggyfill.init();
-    smoothscroll.polyfill();
+    // viewportUnitsBuggyfill.init();
+    // smoothscroll.polyfill();
   }
 
   componentWillUnmount() {
