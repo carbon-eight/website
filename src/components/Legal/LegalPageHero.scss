@@ -15,12 +15,62 @@
     }
   }
 
-  h1 {
-    @include h1();
-    color: $primary;
+  .container {
+    @include media-down(wrapper) {
+      padding: 0 40px;
+    }
 
     @include media-down(mobile) {
       padding: 0 20px;
+    }
+
+    .back-to-home-link {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 20px;
+
+      &:hover {
+        span {
+          color: $off-black;
+          &.icon {
+            svg {
+              path {
+                fill: $off-black;
+              }
+            }
+          }
+        }
+      }
+
+      span {
+        @include h4();
+        color: $primary;
+        display: block;
+        transition: color 0.3s ease;
+
+        &.icon {
+          height: 11px;
+          width: 7px;
+          position: relative;
+          margin-right: 10px;
+
+          svg {
+            @include center-align(absolute);
+            width: 100%;
+            height: 100%;
+            path {
+              fill: $primary;
+              transition: fill 0.3s ease;
+            }
+          }
+        }
+      }
+    }
+
+    h1 {
+      @include h1();
+      color: $primary;
     }
   }
 
@@ -28,6 +78,11 @@
     @include center-align(absolute);
     height: 75%;
     width: 75%;
+
+    @include media-down(wrapper) {
+      height: 100%;
+      width: 100%;
+    }
 
     @include media-down(mobile) {
       height: 90%;

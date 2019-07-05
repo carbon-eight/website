@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Wrapper } from '../common';
 import './LegalPageHero.scss';
 
@@ -32,7 +33,20 @@ const LegalPageHero = (props) => {
   return (
     <section className="legal-page-hero">
       <Wrapper>
-        <h1>{title}</h1>
+        <div className="container">
+          <Link
+            className="back-to-home-link"
+            to="/"
+          >
+            <span className="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 12">
+                <path fill="#FFF" fillRule="nonzero" d="M6.806 8.74l-1.485 1.555L.38 5.117 5.32-.06l1.485 1.556L3.35 5.117z" />
+              </svg>
+            </span>
+            <span>Back to home</span>
+          </Link>
+          <h1>{title}</h1>
+        </div>
       </Wrapper>
       <div className="svg-background">
         <SvgBackground isMobile={isMobile} />

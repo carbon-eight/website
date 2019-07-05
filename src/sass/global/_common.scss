@@ -15,6 +15,11 @@ body {
     #app {
       overflow: hidden;
       max-height: 100vh;
+
+      main {
+        opacity: 0;
+        transition: opacity 0.1s ease;
+      }
     }
   }
 }
@@ -25,6 +30,10 @@ body {
   min-height: 100vh;
   position: relative;
   overflow: visible;
+
+  main {
+    opacity: 1;
+  }
 }
 
 .header {
