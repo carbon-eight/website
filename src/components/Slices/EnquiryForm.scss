@@ -1,6 +1,10 @@
 .enquiry-form {
   .wrapper {
     max-width: 940px;
+
+    @include media-down(mobile) {
+      max-width: 600px;
+    }
   }
 
   .title {

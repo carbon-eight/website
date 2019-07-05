@@ -4,6 +4,7 @@ import { Layout, SliceZone, PageHero } from '../components';
 
 const isClient = typeof window !== 'undefined';
 const MOBILE_BREAKPOINT = 800;
+const SMALL_MOBILE_BREAKPOINT = 500;
 
 class ExpressionOfInterestTemplate extends Component {
   state = {
@@ -51,16 +52,18 @@ class ExpressionOfInterestTemplate extends Component {
       openGraphImage,
     };
     const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
+    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
     return (
       <Layout location={location} seoData={seoData}>
         <PageHero
           title={heroTitle.text}
           subtitle={heroSubtitle.text}
-          isMobile={isMobile}
+          isSmallMobile={isSmallMobile}
         />
         <SliceZone
           allSlices={body}
           location={location}
+          isSmallMobile={isSmallMobile}
           isMobile={isMobile}
         />
       </Layout>

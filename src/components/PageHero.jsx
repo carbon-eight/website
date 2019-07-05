@@ -3,8 +3,8 @@ import { Wrapper } from './common';
 import './PageHero.scss';
 import { ENQUIRY_FORM_ID } from './Slices/EnquiryForm';
 
-const SvgBackground = ({ isMobile }) => (
-  isMobile ? (
+const SvgBackground = ({ isSmallMobile }) => (
+  isSmallMobile ? (
     <svg viewBox="0 0 361 623" xmlns="http://www.w3.org/2000/svg">
       <g fill="none" fillRule="evenodd">
         <path d="M305.993 621.072c-1.454-2.096-.95-4.897 1.126-6.257 2.076-1.36 4.937-.764 6.391 1.332 1.454 2.096-.693 2.53-2.769 3.89-2.076 1.36-3.294 3.131-4.748 1.035z" fill="#5B4A2F" />
@@ -66,7 +66,7 @@ const PageHero = (props) => {
   const {
     title,
     subtitle,
-    isMobile,
+    isSmallMobile,
   } = props;
   return (
     <section className="page-hero page-block">
@@ -90,7 +90,7 @@ const PageHero = (props) => {
         </svg>
       </div>
       <div className="svg-background">
-        <SvgBackground isMobile={isMobile} />
+        <SvgBackground isSmallMobile={isSmallMobile} />
       </div>
     </section>
   );

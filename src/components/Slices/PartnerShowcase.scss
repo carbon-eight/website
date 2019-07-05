@@ -3,7 +3,7 @@
   .wrapper {
     max-width: 1152px;
 
-    @include media-down(mobile) {
+    @include media-down(small-mobile) {
       padding: 0;
     }
   }
@@ -12,7 +12,7 @@
     @include h1();
     text-align: center;
 
-    @include media-down(mobile) {
+    @include media-down(small-mobile) {
       margin-bottom: 20px;
     }
   }
@@ -23,7 +23,7 @@
     max-width: 650px;
     margin: 0 auto 60px;
 
-    @include media-down(mobile) {
+    @include media-down(small-mobile) {
       margin-bottom: 30px;
     }
   }

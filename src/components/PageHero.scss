@@ -2,6 +2,11 @@
   position: relative;
   overflow: hidden;
 
+  .wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
   .top {
     background-color: $tertiary;
     padding: 190px 0 150px;
@@ -21,6 +26,10 @@
     @include h1();
     max-width: 850px;
     margin-bottom: 60px;
+
+    @include media-down(mobile) {
+      max-width: 500px;
+    }
   }
 
   .subtitle {
@@ -55,14 +64,28 @@
     height: 90%;
     width: 90%;
 
+    @include media-down(mobile) {
+      height: 100%;
+      width: 100%;
+      @include horizontal-align(absolute);
+      top: 0;
+    }
+
+    @include media-down(small-mobile) {
+      @include center-align(absolute);
+    }
+
     svg {
       height: 100%;
       width: 100%;
-    }
 
-    @include media-down(mobile) {
-      height: 100%;
-      width: 95%;
+      @include media-down(mobile) {
+        height: auto;
+      }
+
+      @include media-down(small-mobile) {
+        height: 100%;
+      }
     }
   }
 }

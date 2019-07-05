@@ -21,6 +21,7 @@ export default class SliceZone extends Component {
       location,
       // siteMetadata,
       isMobile,
+      isSmallMobile,
     } = this.props;
     const slices = allSlices.map((slice) => {
       switch (slice.sliceType) {
@@ -43,7 +44,7 @@ export default class SliceZone extends Component {
             <PartnerShowcase
               key={slice.id}
               data={slice}
-              isMobile={isMobile}
+              isSmallMobile={isSmallMobile}
             />
           );
         default:

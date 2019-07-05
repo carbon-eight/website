@@ -6,7 +6,7 @@ const ContactForm = ({ formName, isBusiness }) => (
     className="contact-form"
     name={formName}
     method="POST"
-    action="/success"
+    action="/thank-you/"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
   >

@@ -6,7 +6,7 @@ import './PartnerShowcase.scss';
 const PartnerShowcase = (props) => {
   const {
     data,
-    isMobile,
+    isSmallMobile,
   } = props;
   const {
     primary,
@@ -21,7 +21,7 @@ const PartnerShowcase = (props) => {
       <Wrapper>
         <h2 className="block-title">{title.text}</h2>
         <p className="subtitle">{subtitle.text}</p>
-        { isMobile ? (
+        { isSmallMobile ? (
           <PartnerCarousel partners={partners} />
         ) : (
           <PartnerList partners={partners} />
