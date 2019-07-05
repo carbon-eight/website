@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useDebouncedCallback } from 'use-debounce';
 import { getSectionId } from './LegalPageSection';
 import './LegalPageNavigation.scss';
 

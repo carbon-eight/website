@@ -2,6 +2,10 @@
   padding: 20px 0px;
   margin-bottom: 80px;
 
+  @include media-down(mobile) {
+    margin-bottom: 50px;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -9,5 +13,9 @@
   .section-title {
     @include h2();
     margin-bottom: 40px;
+
+    @include media-down(mobile) {
+      margin-bottom: 20px;
+    }
   }
 }
