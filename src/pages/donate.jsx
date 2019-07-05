@@ -6,7 +6,29 @@ import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
 import './donate.scss';
 
+const isClient = typeof window !== 'undefined';
+const MOBILE_BREAKPOINT = 800;
+
 class Donate extends Component {
+  state = {
+    viewportWidth: 0,
+  };
+
+  componentDidMount() {
+    if (isClient) {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ viewportWidth: window.innerWidth });
+  }
+
   render() {
     const {
       data: {
@@ -27,6 +49,10 @@ class Donate extends Component {
       metaDescription,
       openGraphImage,
     };
+    const {
+      viewportWidth,
+    } = this.state;
+    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     const queryParams = queryString.parse(location.search);
     const donationSuccess = queryParams.success === 'true';
     return (
@@ -38,6 +64,7 @@ class Donate extends Component {
           <DonationModal
             location={location}
             donationSuccess={donationSuccess}
+            isMobile={isMobile}
           />
         </div>
         <SliceZone

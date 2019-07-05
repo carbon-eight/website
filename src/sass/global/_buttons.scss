@@ -19,7 +19,7 @@ button {
   position: relative;
   z-index: 2;
 
-  @include media-down(mobile) {
+  @include media-down(small-mobile) {
     min-width: 190px;
     padding: 8px 20px;
   }

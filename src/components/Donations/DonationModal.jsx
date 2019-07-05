@@ -38,7 +38,7 @@ class DonationModalTemplate extends Component {
   state = {
     selectedDonationId: null,
     variableAmount: null,
-    donationMode: ONCE_OFF_OPTION, // NOTE: Before go live change me to RECURRING_OPTION
+    donationMode: RECURRING_OPTION,
     stripe: null,
     tilesHeight: 0,
   };
@@ -79,7 +79,13 @@ class DonationModalTemplate extends Component {
 
   selectDonationOption = (event, selectedDonationId) => {
     if (event) event.preventDefault();
-    this.setState({ selectedDonationId });
+    const { isMobile } = this.props;
+    const { selectedDonationId: currId } = this.state;
+    if (isMobile && (currId === selectedDonationId)) {
+      this.redirectToCheckout(event, selectedDonationId);
+    } else {
+      this.setState({ selectedDonationId });
+    }
   }
 
   redirectToCheckout = async (event, selectedDonationId) => {
@@ -130,9 +136,7 @@ class DonationModalTemplate extends Component {
       donationSuccess,
       stripeProducts,
       stripePlans,
-      location,
     } = this.props;
-    console.log({ location });
     const stripeProductItems = stripeProducts.edges.map(stripeProduct => (
       { ...stripeProduct.node }
     ));

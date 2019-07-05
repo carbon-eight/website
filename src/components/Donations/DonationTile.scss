@@ -9,10 +9,26 @@
   position: relative;
   z-index: -1;
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   @include media-down(mobile) {
     flex: none;
+    width: calc(50% - 40px);
+
+    &:nth-child(odd) {
+      margin: 0 20px 50px;
+    }
+    &:nth-child(even) {
+      margin: 0 20px 50px;
+    }
+    &:last-child {
+      margin: 0 20px 50px;
+    }
+  }
+  @include media-down(small-mobile) {
     width: calc(50% - 10px);
-    margin-right: 0;
     margin-bottom: 50px;
 
     &:nth-child(odd) {
@@ -46,10 +62,6 @@
     width: 98%;
     height: 98%;
     z-index: -1;
-  }
-
-  &:last-child {
-    margin-right: 0;
   }
 
   &.visible {
@@ -114,7 +126,7 @@
         margin-left: 10px;
         white-space: nowrap;
 
-        @include media-down(mobile) {
+        @include media-down(small-mobile) {
           display: none;
         }
       }
