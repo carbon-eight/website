@@ -1,4 +1,5 @@
 import React from 'react';
+import { Wrapper, HtmlContent } from '../common';
 import './OutcomesDiagram.scss';
 
 const OutcomesDiagram = (props) => {
@@ -6,7 +7,11 @@ const OutcomesDiagram = (props) => {
     someProp,
   } = props;
   return (
-    <div>OutcomesDiagram</div>
+    <div className="outcomes-diagram">
+      <Wrapper>
+        OutcomesDiagram
+      </Wrapper>
+    </div>
   );
 };
 

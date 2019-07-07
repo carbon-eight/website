@@ -1,4 +1,5 @@
 import React from 'react';
+import { Wrapper, HtmlContent } from '../common';
 import './IssueBlocks.scss';
 
 const IssueBlocks = (props) => {
@@ -6,7 +7,11 @@ const IssueBlocks = (props) => {
     someProp,
   } = props;
   return (
-    <div>IssueBlocks</div>
+    <div className="issue-blocks">
+      <Wrapper>
+        IssueBlocks
+      </Wrapper>
+    </div>
   );
 };
 

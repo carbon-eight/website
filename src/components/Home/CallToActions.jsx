@@ -1,12 +1,17 @@
 import React from 'react';
+import { Wrapper, HtmlContent } from '../common';
 import './CallToActions.scss';
 
 const CallToActions = (props) => {
   const {
-    someProp,
+    callToActions,
   } = props;
   return (
-    <div>CallToActions</div>
+    <div className="call-to-actions">
+      <Wrapper>
+        CallToActions
+      </Wrapper>
+    </div>
   );
 };
 

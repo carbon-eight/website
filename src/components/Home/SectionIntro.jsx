@@ -1,5 +1,5 @@
 import React from 'react';
-import { HtmlContent } from '../common';
+import { Wrapper, HtmlContent } from '../common';
 import './SectionIntro.scss';
 
 const SectionIntro = (props) => {
@@ -9,12 +9,14 @@ const SectionIntro = (props) => {
   } = props;
   return (
     <div className="section-intro">
-      <h2 className="headline">
-        {headline.text}
-      </h2>
-      <HtmlContent
-        content={intro.html}
-      />
+      <Wrapper>
+        <h2 className="headline">
+          {headline.text}
+        </h2>
+        <HtmlContent
+          content={intro.html}
+        />
+      </Wrapper>
     </div>
   );
 };

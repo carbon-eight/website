@@ -4,10 +4,10 @@ import { Layout } from '../components';
 import { HomeMural } from '../components/Mural';
 import {
   CarbonEightIntro,
-  SectionIntro,
   IssueBlocks,
-  SolutionBlocks,
   OutcomesDiagram,
+  SectionIntro,
+  SolutionBlocks,
   CallToActions,
 } from '../components/Home';
 import './index.scss';
@@ -53,7 +53,7 @@ class Index extends Component {
         />
         <SectionIntro
           headline={issuesHeadline}
-          intro={issuesHeadline}
+          intro={issuesIntro}
         />
         <IssueBlocks
           issues={issues}

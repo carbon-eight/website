@@ -1,12 +1,17 @@
 import React from 'react';
+import { Wrapper, HtmlContent } from '../common';
 import './SolutionBlocks.scss';
 
 const SolutionBlocks = (props) => {
   const {
-    someProp,
+    solutions,
   } = props;
   return (
-    <div>SolutionBlocks</div>
+    <div className="solution-blocks">
+      <Wrapper>
+        SolutionBlocks
+      </Wrapper>
+    </div>
   );
 };
 
