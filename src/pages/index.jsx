@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
-import { Wrapper, Logo } from '../components/common';
 import { HomeMural } from '../components/Mural';
+import {
+  CarbonEightIntro,
+  SectionIntro,
+  IssueBlocks,
+  SolutionBlocks,
+  OutcomesDiagram,
+  CallToActions,
+} from '../components/Home';
 import './index.scss';
 
 class Index extends Component {
@@ -19,6 +26,19 @@ class Index extends Component {
       metaTitle,
       metaDescription,
       openGraphImage,
+      carbonEightIntro,
+      issuesHeadline,
+      issuesIntro,
+      issues,
+      solutionsHeadline,
+      solutionsIntro,
+      solutions,
+      outcomesHeadline,
+      outcomesIntro,
+      outcomes,
+      callToActionsHeadline,
+      callToActionsIntro,
+      callToActions,
     } = pageData;
     const seoData = {
       metaTitle,
@@ -28,11 +48,37 @@ class Index extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <HomeMural />
-        <div className="intro-block">
-          <Wrapper>
-            <Logo collapsed />
-          </Wrapper>
-        </div>
+        <CarbonEightIntro
+          intro={carbonEightIntro}
+        />
+        <SectionIntro
+          headline={issuesHeadline}
+          intro={issuesHeadline}
+        />
+        <IssueBlocks
+          issues={issues}
+        />
+        <SectionIntro
+          headline={solutionsHeadline}
+          intro={solutionsIntro}
+        />
+        <SolutionBlocks
+          solutions={solutions}
+        />
+        <SectionIntro
+          headline={outcomesHeadline}
+          intro={outcomesIntro}
+        />
+        <OutcomesDiagram
+          outcomes={outcomes}
+        />
+        <SectionIntro
+          headline={callToActionsHeadline}
+          intro={callToActionsIntro}
+        />
+        <CallToActions
+          callToActions={callToActions}
+        />
       </Layout>
     );
   }
@@ -45,6 +91,79 @@ export const pageQuery = graphql`
     page: prismicHome {
       uid,
       data {
+        carbonEightIntro: carbon_eight_introduction {
+          html
+        }
+        issuesHeadline: issues_headline {
+          text
+        }
+        issuesIntro: issues_introduction {
+          html
+        }
+        issues {
+          title {
+            text
+          }
+          description {
+            html
+          }
+          illustration
+        }
+        solutionsHeadline: solutions_headline {
+          text
+        }
+        solutionsIntro: solutions_introduction {
+          html
+        }
+        solutions {
+          title {
+            text
+          }
+          illustration
+          description {
+            html
+          }
+        }
+        outcomesHeadline: outcomes_headline {
+          text
+        }
+        outcomesIntro: outcomes_introduction {
+          html
+        }
+        outcomes {
+          title {
+            text
+          }
+          description {
+            html
+          }
+          illustration
+        }
+        callToActionsHeadline: call_to_actions_headline {
+          text
+        }
+        callToActionsIntro: call_to_actions_introduction {
+          html
+        }
+        callToActions: call_to_actions {
+          buttonLabel: button_label {
+            text
+          }
+          buttonLink: button_link {
+            slug
+            type
+            url
+          }
+          description {
+            html
+          }
+          label {
+            text
+          }
+          title {
+            text
+          }
+        }
         metaTitle: meta_title {
           html
           text
