@@ -1,17 +1,17 @@
 import React from 'react';
 import { Wrapper, HtmlContent } from '../common';
 import { generateKey, getNumberedAffix } from '../../util/helpers';
-import './IssueBlocks.scss';
+import './CallToActionsBlock.scss';
 
-const IssueBlocks = (props) => {
+const CallToActionsBlock = (props) => {
   const {
-    issues,
+    callToActions,
   } = props;
   return (
-    <div className="issue-blocks">
+    <div className="call-to-actions-block">
       <Wrapper>
         <div className="call-to-actions">
-          { issues && issues.map((issue, index) => {
+          { callToActions && callToActions.map((block, index) => {
             // const {
             //   blockImage,
             //   blockTitle,
@@ -20,9 +20,9 @@ const IssueBlocks = (props) => {
             //   linkLabel,
             // } = block;
             return (
-              <div className="issue" key={generateKey(index)}>
+              <div className="call-to-action" key={generateKey(index)}>
                 <span className="count">{getNumberedAffix(index)}</span>
-                Issue
+                CallToAction
               </div>
             );
           })}
@@ -32,4 +32,4 @@ const IssueBlocks = (props) => {
   );
 };
 
-export default IssueBlocks;
+export default CallToActionsBlock;

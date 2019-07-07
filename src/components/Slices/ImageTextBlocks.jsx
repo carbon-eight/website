@@ -7,10 +7,9 @@ import {
   ContentLink,
 } from '../common';
 import { ColourfulBackground } from '..';
+import { generateKey, getNumberedAffix } from '../../util/helpers';
 import { RECT_BACKGROUND_TYPE } from '../ColourfulBackground';
 import './ImageTextBlocks.scss';
-
-const generateKey = pre => `${pre}_${new Date().getTime()}`;
 
 const ImageTextBlocks = (props) => {
   const {
@@ -47,12 +46,11 @@ const ImageTextBlocks = (props) => {
               link,
               linkLabel,
             } = block;
-            const count = (index < 9) ? `0${index + 1}` : `${index + 1}`;
             return (
               <div className="image-text-block" key={generateKey(blockTitle.text)}>
                 <div className="col text-col">
                   <div className="container">
-                    <span className="count">{count}</span>
+                    <span className="count">{getNumberedAffix(index)}</span>
                     <h3 className="title">{blockTitle.text}</h3>
                     <HtmlContent className="description" content={description.html} />
                     <div className="actions">

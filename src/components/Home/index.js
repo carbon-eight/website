@@ -3,7 +3,7 @@ import IssueBlocks from './IssueBlocks';
 import OutcomesDiagram from './OutcomesDiagram';
 import SectionIntro from './SectionIntro';
 import SolutionBlocks from './SolutionBlocks';
-import CallToActions from './CallToActions';
+import CallToActionsBlock from './CallToActionsBlock';
 
 export {
   CarbonEightIntro,
@@ -11,5 +11,5 @@ export {
   OutcomesDiagram,
   SectionIntro,
   SolutionBlocks,
-  CallToActions,
+  CallToActionsBlock,
 };

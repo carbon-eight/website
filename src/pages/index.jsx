@@ -8,7 +8,7 @@ import {
   OutcomesDiagram,
   SectionIntro,
   SolutionBlocks,
-  CallToActions,
+  CallToActionsBlock,
 } from '../components/Home';
 import './index.scss';
 
@@ -76,7 +76,7 @@ class Index extends Component {
           headline={callToActionsHeadline}
           intro={callToActionsIntro}
         />
-        <CallToActions
+        <CallToActionsBlock
           callToActions={callToActions}
         />
       </Layout>
