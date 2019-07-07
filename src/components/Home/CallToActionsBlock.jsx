@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Wrapper, HtmlContent } from '../common';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
+import { generateKey } from '../../util/helpers';
 import './CallToActionsBlock.scss';
 
 const CallToActionsBlock = (props) => {
@@ -12,17 +13,30 @@ const CallToActionsBlock = (props) => {
       <Wrapper>
         <div className="call-to-actions">
           { callToActions && callToActions.map((block, index) => {
-            // const {
-            //   blockImage,
-            //   blockTitle,
-            //   description,
-            //   link,
-            //   linkLabel,
-            // } = block;
+            const {
+              label,
+              title,
+              description,
+              buttonLabel,
+              buttonLink,
+            } = block;
+            const {
+              slug,
+            } = buttonLink;
             return (
               <div className="call-to-action" key={generateKey(index)}>
-                <span className="count">{getNumberedAffix(index)}</span>
-                CallToAction
+                <span className="label">{label.text}</span>
+                <h3>{title.text}</h3>
+                <HtmlContent
+                  content={description.html}
+                />
+                <Link
+                  to={`/${slug}/`}
+                  className="call-to-action-link"
+                  aria-label={`Navigate to ${buttonLabel.text} page`}
+                >
+                  <span>{buttonLabel.text}</span>
+                </Link>
               </div>
             );
           })}
