@@ -1,25 +1,8 @@
 import React from 'react';
 import { Wrapper, HtmlContent } from '../common';
-import { generateKey, getNumberedAffix, toKebabCase } from '../../util/helpers';
+import { IssueIllustration } from './IssueIllustration';
+import { generateKey, getNumberedAffix } from '../../util/helpers';
 import './IssueBlocks.scss';
-
-const CARBON_EMISSIONS_ILLUSTRATION = 'carbon-emissions';
-const BIODIVERSITY_ILLUSTRATION = 'reduction-of-biodiversity';
-const DROUGHT_ILLUSTRATION = 'drought-and-desertification';
-
-const IssueIllustration = ({ illustration }) => {
-  const illustrationId = toKebabCase(illustration);
-  switch (illustrationId) {
-    case (CARBON_EMISSIONS_ILLUSTRATION):
-      return null;
-    case (BIODIVERSITY_ILLUSTRATION):
-      return null;
-    case (DROUGHT_ILLUSTRATION):
-      return null;
-    default:
-      return null;
-  }
-};
 
 const IssueBlocks = (props) => {
   const {

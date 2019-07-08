@@ -1,28 +1,8 @@
 import React from 'react';
+import { OutcomeIllustration } from './OutcomeIllustration';
 import { Wrapper, HtmlContent } from '../common';
-import { generateKey, getNumberedAffix, toKebabCase } from '../../util/helpers';
+import { generateKey, getNumberedAffix } from '../../util/helpers';
 import './OutcomesDiagram.scss';
-
-const BIODIVERSITY_OUTCOME_ILLUSTRATION = 'biodiversity';
-const CARBON_OUTCOME_ILLUSTRATION = 'carbon-drawdown';
-const WATER_OUTCOME_ILLUSTRATION = 'water-retention';
-const PRODUCE_OUTCOME_ILLUSTRATION = 'healthier-produce';
-
-const OutcomeIllustration = ({ illustration }) => {
-  const illustrationId = toKebabCase(illustration);
-  switch (illustrationId) {
-    case (BIODIVERSITY_OUTCOME_ILLUSTRATION):
-      return null;
-    case (CARBON_OUTCOME_ILLUSTRATION):
-      return null;
-    case (WATER_OUTCOME_ILLUSTRATION):
-      return null;
-    case (PRODUCE_OUTCOME_ILLUSTRATION):
-      return null;
-    default:
-      return null;
-  }
-};
 
 const OutcomesDiagram = (props) => {
   const {

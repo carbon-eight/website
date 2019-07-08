@@ -1,25 +1,8 @@
 import React from 'react';
 import { Wrapper, HtmlContent } from '../common';
-import { generateKey, getNumberedAffix, toKebabCase } from '../../util/helpers';
+import { SolutionIllustration } from './SolutionIllustration';
+import { generateKey, getNumberedAffix } from '../../util/helpers';
 import './SolutionBlocks.scss';
-
-const CROPPING_SOLUTION_ILLUSTRATION = 'multi-species-cropping';
-const GRAZING_SOLUTION_ILLUSTRATION = 'holistic-grazing';
-const WATER_CYCLE_SOLUTION_ILLUSTRATION = 'water-cycle-restoration';
-
-const SolutionIllustration = ({ illustration }) => {
-  const illustrationId = toKebabCase(illustration);
-  switch (illustrationId) {
-    case (CROPPING_SOLUTION_ILLUSTRATION):
-      return null;
-    case (GRAZING_SOLUTION_ILLUSTRATION):
-      return null;
-    case (WATER_CYCLE_SOLUTION_ILLUSTRATION):
-      return null;
-    default:
-      return null;
-  }
-};
 
 const SolutionBlocks = (props) => {
   const {
