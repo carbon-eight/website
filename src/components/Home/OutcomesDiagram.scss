@@ -1,3 +1,18 @@
 .outcomes-diagram {
-  
+  padding: 120px 0;
+  .diagram {
+    .circle {
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      border: 3px $tertiary solid;
+      margin: 0 auto;
+      position: relative;
+
+      @include media-down(mobile) {
+        width: calc(100vw - 40px);
+        height: calc(100vw - 40px);
+      }
+    }
+  }
 }

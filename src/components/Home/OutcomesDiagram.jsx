@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { OutcomeIllustration } from './OutcomeIllustration';
+import { OutcomeIcon } from './OutcomeIcon';
 import { Wrapper, HtmlContent } from '../common';
 import { generateKey, getNumberedAffix } from '../../util/helpers';
 import './OutcomesDiagram.scss';
@@ -8,29 +9,35 @@ const OutcomesDiagram = (props) => {
   const {
     outcomes,
   } = props;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeOutcome = outcomes[activeIndex];
   return (
     <div className="outcomes-diagram">
       <Wrapper>
-        <div className="outcomes">
-          { outcomes && outcomes.map((outcome, index) => {
-            const {
-              title,
-              description,
-              illustration,
-            } = outcome;
-            return (
-              <div className="outcome" key={generateKey(index)}>
-                <div className="illustration">
-                  <OutcomeIllustration illustration={illustration} />
-                </div>
-                <span className="count">{`Outcome ${getNumberedAffix(index)}`}</span>
-                <h3 className="title">{title.text}</h3>
-                <HtmlContent
-                  content={description.html}
-                />
-              </div>
-            );
-          })}
+        <div className="diagram">
+          <div className="circle">
+            <div className="outcome-buttons">
+              { outcomes && outcomes.map((outcome, index) => (
+                <button
+                  type="button"
+                  className={`outcome-selector ${activeIndex === index ? 'active' : ''}`}
+                  onClick={event => setActiveIndex(index)}
+                  aria-label={`Find out about ${outcome.title.text}`}
+                >
+                  <OutcomeIcon icon={outcome.illustration} />
+                </button>
+              ))}
+            </div>
+            <div className="outcome-illustration">
+              <OutcomeIllustration illustration={activeOutcome.illustration} />
+            </div>
+            <div className="outcome-elaboration">
+              <h3 className="title">{activeOutcome.title.text}</h3>
+              <HtmlContent
+                content={activeOutcome.description.html}
+              />
+            </div>
+          </div>
         </div>
       </Wrapper>
     </div>
