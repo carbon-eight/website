@@ -82,14 +82,10 @@ class Index extends Component {
         <OutcomesDiagram
           outcomes={outcomes}
         />
-        <SectionIntro
+        <CallToActionsBlock
           label="Take Action"
           headline={callToActionsHeadline}
           intro={callToActionsIntro}
-          topColor={COLOUR_WHITE}
-          bottomColor={COLOUR_WHITE}
-        />
-        <CallToActionsBlock
           callToActions={callToActions}
         />
       </Layout>
