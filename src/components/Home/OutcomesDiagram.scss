@@ -18,11 +18,8 @@
 
       .outcome-buttons {
         .outcome-selector {
-          width: 65px;
-          height: 65px;
-          border-radius: 50%;
           position: absolute;
-          border: 3px solid $secondary;
+          padding: 20px;
           background-color: $white;
 
           &:nth-child(1) {
@@ -47,6 +44,75 @@
             transform: translateY(-50%) translateX(-50%);
           }
 
+          .icon-container {
+            width: 65px;
+            height: 65px;
+            border: 3px solid $secondary;
+            background-color: $white;
+            transition: background-color 0.3s ease;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+
+            &:before {
+              @include center-align(absolute);
+              content: '';
+              height: 140%;
+              width: 140%;
+              border: 2px dashed $secondary;
+              border-radius: 50%;
+              opacity: 0;
+              transition: opacity 0.5s ease;
+              will-change: transform;
+            }
+          }
+
+          &.active {
+            .icon-container {
+              background-color: $secondary;
+
+              .icon {
+                svg {
+                  fill: $white;
+                }
+              }
+
+              &:before {
+                opacity: 1;
+              }
+            }
+
+            &:hover {
+              cursor: default;
+
+              .icon-container {
+                &:before {
+                  animation: none;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            .icon-container {
+              &:before {
+                opacity: 1;
+                animation: rotate 5s infinite;
+                animation-timing-function: linear;
+                transform-origin: 0 0;
+
+                @keyframes rotate {
+                  from {
+                    transform: rotate(0deg) translateX(-50%) translateY(-50%);
+                  }
+                  to {
+                    transform: rotate(360deg) translateX(-50%) translateY(-50%);
+                  }
+                }
+              }
+            }
+          }
+
           .icon {
             @include center-align(absolute);
             width: 50%;
@@ -57,6 +123,7 @@
               height: 100%;
               width: 100%;
               fill: $secondary;
+              transition: fill 0.3s ease;
             }
           }
         }
@@ -79,10 +146,11 @@
         left: auto;
         bottom: 0;
         right: 0;
-        width: 50%;
-        max-width: 350px;
+        width: 55%;
+        max-width: 400px;
         background-color: $white;
         transform: translateX(50%);
+        padding: 20px;
 
         .title {
           @include h2();
