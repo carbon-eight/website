@@ -10,6 +10,7 @@ import {
   SolutionBlocks,
   CallToActionsBlock,
 } from '../components/Home';
+import { COLOUR_WHITE, COLOUR_EARTH_EVEN_LIGHTER } from '../util/colours';
 import './index.scss';
 
 class Index extends Component {
@@ -55,6 +56,8 @@ class Index extends Component {
           label="The Problem"
           headline={issuesHeadline}
           intro={issuesIntro}
+          topColor={COLOUR_EARTH_EVEN_LIGHTER}
+          bottomColor={COLOUR_WHITE}
         />
         <IssueBlocks
           issues={issues}
@@ -63,6 +66,8 @@ class Index extends Component {
           label="Our Solution"
           headline={solutionsHeadline}
           intro={solutionsIntro}
+          topColor={COLOUR_WHITE}
+          bottomColor={COLOUR_WHITE}
         />
         <SolutionBlocks
           solutions={solutions}
@@ -71,6 +76,8 @@ class Index extends Component {
           label="Why It Matters"
           headline={outcomesHeadline}
           intro={outcomesIntro}
+          topColor={COLOUR_WHITE}
+          bottomColor={COLOUR_WHITE}
         />
         <OutcomesDiagram
           outcomes={outcomes}
@@ -79,6 +86,8 @@ class Index extends Component {
           label="Take Action"
           headline={callToActionsHeadline}
           intro={callToActionsIntro}
+          topColor={COLOUR_WHITE}
+          bottomColor={COLOUR_WHITE}
         />
         <CallToActionsBlock
           callToActions={callToActions}

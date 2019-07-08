@@ -1,0 +1,13 @@
+.curly-divider {
+  display: block;
+  width: 100%;
+  height: 2.5vw;
+  position: relative;
+
+  svg {
+    @include horizontal-align(absolute);
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+}

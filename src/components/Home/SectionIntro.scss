@@ -1,6 +1,8 @@
 .section-intro {
-  background-color: $tertiary;
-  padding: 120px 0;
+  .container {
+    background-color: $tertiary;
+    padding: 120px 0;
+  }
 
   .wrapper {
     display: flex;
