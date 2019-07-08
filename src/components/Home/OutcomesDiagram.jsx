@@ -24,7 +24,9 @@ const OutcomesDiagram = (props) => {
                   onClick={event => setActiveIndex(index)}
                   aria-label={`Find out about ${outcome.title.text}`}
                 >
-                  <OutcomeIcon icon={outcome.illustration} />
+                  <div className="icon">
+                    <OutcomeIcon icon={outcome.illustration} />
+                  </div>
                 </button>
               ))}
             </div>
