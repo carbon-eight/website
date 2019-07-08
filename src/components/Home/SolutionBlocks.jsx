@@ -20,14 +20,20 @@ const SolutionBlocks = (props) => {
             } = technique;
             return (
               <div className="solution" key={generateKey(index)}>
-                <div className="illustration">
-                  <SolutionIllustration illustration={illustration} />
+                <div className="col image-col">
+                  <div className="illustration">
+                    <SolutionIllustration illustration={illustration} />
+                  </div>
                 </div>
-                <span className="count">{`Technique ${getNumberedAffix(index)}`}</span>
-                <h3>{title.text}</h3>
-                <HtmlContent
-                  content={description.html}
-                />
+                <div className="col text-col">
+                  <div className="text-container">
+                    <span className="count">{`Technique ${getNumberedAffix(index)}`}</span>
+                    <h3 className="title">{title.text}</h3>
+                    <HtmlContent
+                      content={description.html}
+                    />
+                  </div>
+                </div>
               </div>
             );
           })}

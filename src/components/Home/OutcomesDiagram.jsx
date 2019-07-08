@@ -24,7 +24,7 @@ const OutcomesDiagram = (props) => {
                   <OutcomeIllustration illustration={illustration} />
                 </div>
                 <span className="count">{`Outcome ${getNumberedAffix(index)}`}</span>
-                <h3>{title.text}</h3>
+                <h3 className="title">{title.text}</h3>
                 <HtmlContent
                   content={description.html}
                 />
