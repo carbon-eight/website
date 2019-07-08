@@ -52,6 +52,7 @@ class Index extends Component {
           intro={carbonEightIntro}
         />
         <SectionIntro
+          label="The Problem"
           headline={issuesHeadline}
           intro={issuesIntro}
         />
@@ -59,6 +60,7 @@ class Index extends Component {
           issues={issues}
         />
         <SectionIntro
+          label="Our Solution"
           headline={solutionsHeadline}
           intro={solutionsIntro}
         />
@@ -66,6 +68,7 @@ class Index extends Component {
           solutions={solutions}
         />
         <SectionIntro
+          label="Why It Matters"
           headline={outcomesHeadline}
           intro={outcomesIntro}
         />
@@ -73,6 +76,7 @@ class Index extends Component {
           outcomes={outcomes}
         />
         <SectionIntro
+          label="Take Action"
           headline={callToActionsHeadline}
           intro={callToActionsIntro}
         />
