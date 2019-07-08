@@ -8,8 +8,7 @@ $header-height-mobile: 85px;
 = Brand colours =
 ===============================================>>>>>*/
 $primary: #03A678;
-$secondary: rgb(38, 194, 129);
-// $secondary: #00C57B;
+$secondary: #00C57B;
 $tertiary: #E8F4EF;
 $highlight: #542537;
 $primary-darker: darken($primary, 5%);
@@ -19,8 +18,10 @@ $secondary-darker: darken($secondary, 5%);
 = Earthy Browns =
 ===============================================>>>>>*/
 
-$earth: #5B4A2F; // top soil baby!
-$earth-darker: #3F321D;
+$roots: #B7C38C;
+$earth: #303028; // top soil baby!
+$earth-lighter: #39392F;
+$earth-even-lighter: #424135;
 
 /*=============================================>>>>>
 = Black/white =

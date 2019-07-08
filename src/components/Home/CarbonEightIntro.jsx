@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, HtmlContent } from '../common';
+import { Wrapper, HtmlContent, Logo } from '../common';
 import './CarbonEightIntro.scss';
 
 const CarbonEightIntro = (props) => {
@@ -9,6 +9,8 @@ const CarbonEightIntro = (props) => {
   return (
     <div className="carbon-eight-intro">
       <Wrapper>
+        <Logo collapsed />
+        <span className="label">The Carbon8 Goal</span>
         <HtmlContent
           content={intro.html}
         />

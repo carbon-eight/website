@@ -25,5 +25,9 @@
   .html-content {
     max-width: 550px;
     text-align: center;
+
+    p {
+      @include h3();
+    }
   }
 }

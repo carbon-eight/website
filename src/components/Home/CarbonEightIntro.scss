@@ -1,3 +1,38 @@
 .carbon-eight-intro {
+  padding: 120px 0;
+  background-color: $earth-even-lighter;
 
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 60px;
+
+    svg {
+      path {
+        fill: $roots;
+      }
+    }
+  }
+
+  .label {
+    display: block;
+    @include h4();
+    text-align: center;
+    margin-bottom: 40px;
+    color: $roots;
+  }
+
+  .html-content {
+    max-width: 550px;
+    text-align: center;
+
+    p {
+      @include h2();
+      color: $roots;
+    }
+  }
 }
