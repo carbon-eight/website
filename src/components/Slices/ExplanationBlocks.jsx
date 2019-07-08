@@ -1,10 +1,9 @@
 import React from 'react';
 import { Wrapper, Image } from '../common';
 import { ColourfulBackground } from '..';
+import { generateKey, getNumberedAffix } from '../../util/helpers';
 import { SQUARE_BACKGROUND_TYPE } from '../ColourfulBackground';
 import './ExplanationBlocks.scss';
-
-const generateKey = pre => `${pre}_${new Date().getTime()}`;
 
 const Block = ({ block, index }) => {
   const {
@@ -12,7 +11,6 @@ const Block = ({ block, index }) => {
     blockTitle,
     description,
   } = block;
-  const count = (index < 9) ? `0${index + 1}` : `${index + 1}`;
   return (
     <div className="block" key={generateKey(blockTitle.text)}>
       <div className="image-container">
@@ -25,7 +23,7 @@ const Block = ({ block, index }) => {
         </div>
       </div>
       <div className="text-container">
-        <span className="count">{count}</span>
+        <span className="count">{getNumberedAffix(index)}</span>
         <h3 className="title">{blockTitle.text}</h3>
         <p className="description">
           {description.text}
