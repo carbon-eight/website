@@ -113,6 +113,10 @@
 
           .text-container {
             margin-left: auto;
+            @include media-down(mobile) {
+              max-width: 450px;
+              margin: 0 auto;
+            }
           }
         }
       }
@@ -132,6 +136,10 @@
 
           .text-container {
             margin-right: auto;
+            @include media-down(mobile) {
+              max-width: 450px;
+              margin: 0 auto;
+            }
           }
         }
       }

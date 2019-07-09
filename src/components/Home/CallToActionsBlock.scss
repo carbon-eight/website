@@ -20,10 +20,12 @@
     z-index: 2;
 
     @include media-down(mobile) {
-      margin-top: -60px;
+      margin-top: -0px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      max-width: 450px;
+      margin: -60px auto 0;
     }
 
     .call-to-action {

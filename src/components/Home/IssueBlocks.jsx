@@ -23,11 +23,13 @@ const IssueBlocks = (props) => {
                 <div className="illustration">
                   <IssueIllustration illustration={illustration} />
                 </div>
-                <span className="count">{`Issue ${getNumberedAffix(index)}`}</span>
-                <h3 className="title">{title.text}</h3>
-                <HtmlContent
-                  content={description.html}
-                />
+                <div className="text-container">
+                  <span className="count">{`Issue ${getNumberedAffix(index)}`}</span>
+                  <h3 className="title">{title.text}</h3>
+                  <HtmlContent
+                    content={description.html}
+                  />
+                </div>
               </div>
             );
           })}

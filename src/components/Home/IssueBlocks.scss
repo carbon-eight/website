@@ -61,6 +61,14 @@
         }
       }
 
+      .text-container {
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+      }
+
       .count {
         display: inline-block;
         @include h4();
