@@ -30,7 +30,7 @@
         margin: 0 0 80px;
       }
 
-      &.last-child {
+      &:last-child {
         @include media-up(tablet) {
           margin-right: 0;
         }

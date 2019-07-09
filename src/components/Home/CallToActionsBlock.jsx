@@ -39,11 +39,13 @@ const CallToActionsBlock = (props) => {
             return (
               <div className="call-to-action" key={generateKey(index)}>
                 <div className="container">
-                  <span className="label">{label.text}</span>
-                  <h3 className="title">{title.text}</h3>
-                  <HtmlContent
-                    content={description.html}
-                  />
+                  <div className="text-container">
+                    <span className="label">{label.text}</span>
+                    <h3 className="title">{title.text}</h3>
+                    <HtmlContent
+                      content={description.html}
+                    />
+                  </div>
                   <Link
                     to={`/${slug}/`}
                     className="call-to-action-link cta-button"

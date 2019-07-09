@@ -2,6 +2,10 @@
   .container {
     background-color: $tertiary;
     padding: 120px 0;
+
+    @include media-down(mobile) {
+      padding: 80px 0;
+    }
   }
 
   .wrapper {
@@ -14,6 +18,10 @@
     @include h4();
     text-align: center;
     margin-bottom: 30px;
+
+    @include media-down(mobile) {
+      margin-bottom: 20px;
+    }
   }
 
   .headline {
@@ -21,6 +29,10 @@
     text-align: center;
     max-width: 650px;
     margin-bottom: 60px;
+
+    @include media-down(mobile) {
+      margin-bottom: 40px;
+    }
   }
 
   .html-content {
