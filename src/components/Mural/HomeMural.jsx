@@ -27,17 +27,17 @@ class HomeMural extends Component {
   render() {
     const { isSmallMobile } = this.props;
     return (
-      <div className="home-mural">
-        <ParallaxElement parallaxSpeed={-7}>
+      <div className={`home-mural${isSmallMobile ? ' mobile' : ''}`}>
+        <ParallaxElement parallaxSpeed={isSmallMobile ? -4 : -7}>
           <ValleyScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
-        <ParallaxElement parallaxSpeed={-5}>
+        <ParallaxElement parallaxSpeed={isSmallMobile ? -3 : -5}>
           <FarmScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
-        <ParallaxElement parallaxSpeed={-3}>
+        <ParallaxElement parallaxSpeed={isSmallMobile ? -2 : -3}>
           <CropScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
-        <ParallaxElement parallaxSpeed={-1}>
+        <ParallaxElement parallaxSpeed={2}>
           <SoilScene isSmallMobile={isSmallMobile} />
           <RootsScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>

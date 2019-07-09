@@ -1,10 +1,10 @@
 .home-mural {
   padding-top: calc(#{$header-height} + 100px);
-  background-color: #CEECF7;
+  background: linear-gradient(180deg, $sky 50%, $earth-even-lighter 50%);
   overflow: hidden;
 
   @include media-down(mobile) {
-    padding-top: calc(#{$header-height-mobile} + 50px);
+    padding-top: calc(#{$header-height-mobile} + 200px);
   }
 
   .parallax {
@@ -42,5 +42,31 @@
     margin-top: -5vw;
     position: relative;
     z-index: 1;
+  }
+
+  &.mobile {
+    .valley-scene {
+      height: 43.61vw;
+    }
+
+    .farm-scene {
+      height: 65.28vw;
+      margin-top: -35vw;
+    }
+
+    .crop-scene {
+      height: 94.72vw;
+      margin-top: -32vw;
+    }
+
+    .soil-scene {
+      height: 48.05vw;
+      margin-top: -25vw;
+    }
+
+    .roots-scene {
+      height: 59.44vw;
+      margin-top: -5vw;
+    }
   }
 }
