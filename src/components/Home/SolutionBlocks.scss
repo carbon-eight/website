@@ -36,6 +36,14 @@
           position: relative;
           margin: 0 auto;
 
+          @include media-down(mobile) {
+            padding-bottom: 0;
+            height: 100vw;
+            max-width: 250px;
+            max-height: 250px;
+            margin: 0 auto 30px;
+          }
+
           svg {
             @include center-align(absolute);
             width: 100%;
@@ -48,6 +56,12 @@
         .text-container {
           display: block;
           max-width: 450px;
+
+          @include media-down(mobile) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
         }
 
         .count {
@@ -56,17 +70,29 @@
           color: $secondary;
           border-bottom: $secondary 3px dashed;
           margin-bottom: 40px;
+
+          @include media-down(mobile) {
+            text-align: center;
+            margin-bottom: 20px;
+          }
         }
 
         .title {
           @include h2();
           max-width: 420px;
           margin-bottom: 40px;
+
+          @include media-down(mobile) {
+            text-align: center;
+            margin-bottom: 30px;
+          }
         }
 
         .html-content {
           p {
-
+            @include media-down(mobile) {
+              text-align: center;
+            }
           }
         }
       }
