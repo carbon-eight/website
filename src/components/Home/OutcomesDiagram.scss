@@ -1,8 +1,14 @@
 .outcomes-diagram {
   padding: 120px 0;
 
+  .outcome-elaboration {
+    .title {
+      @include h2();
+      margin-bottom: 20px;
+    }
+  }
+
   .diagram {
-    overflow: hidden;
 
     .circle {
       width: 650px;
@@ -12,9 +18,9 @@
       margin: 0 auto;
       position: relative;
 
-      @include media-down(mobile) {
-        width: calc(100vw - 40px);
-        height: calc(100vw - 40px);
+      @include media-down(tablet) {
+        width: calc(60vw - 40px);
+        height: calc(60vw - 40px);
       }
 
 
@@ -22,7 +28,6 @@
         .outcome-selector {
           position: absolute;
           padding: 20px;
-          background-color: $white;
 
           &:nth-child(1) {
             top: 0;
@@ -44,89 +49,6 @@
             top: 50%;
             left: 0;
             transform: translateY(-50%) translateX(-50%);
-          }
-
-          .icon-container {
-            width: 65px;
-            height: 65px;
-            border: 3px solid $secondary;
-            background-color: $white;
-            transition: background-color 0.3s ease;
-            border-radius: 50%;
-            position: relative;
-            z-index: 1;
-
-            &:before {
-              @include center-align(absolute);
-              content: '';
-              height: 140%;
-              width: 140%;
-              border: 2px dashed $secondary;
-              border-radius: 50%;
-              opacity: 0;
-              transition: opacity 0.5s ease;
-              will-change: transform;
-            }
-          }
-
-          &.active {
-            .icon-container {
-              background-color: $secondary;
-
-              .icon {
-                svg {
-                  fill: $white;
-                }
-              }
-
-              &:before {
-                opacity: 1;
-              }
-            }
-
-            &:hover {
-              cursor: default;
-
-              .icon-container {
-                &:before {
-                  animation: none;
-                }
-              }
-            }
-          }
-
-          &:hover {
-            .icon-container {
-              &:before {
-                opacity: 1;
-                animation: rotate 5s infinite;
-                animation-timing-function: linear;
-                transform-origin: 0 0;
-
-                @keyframes rotate {
-                  from {
-                    transform: rotate(0deg) translateX(-50%) translateY(-50%);
-                  }
-                  to {
-                    transform: rotate(360deg) translateX(-50%) translateY(-50%);
-                  }
-                }
-              }
-            }
-          }
-
-          .icon {
-            @include center-align(absolute);
-            width: 50%;
-            height: 50%;
-
-            svg {
-              @include center-align(absolute);
-              height: 100%;
-              width: 100%;
-              fill: $secondary;
-              transition: fill 0.3s ease;
-            }
           }
         }
       }
@@ -154,10 +76,195 @@
         transform: translateX(50%);
         padding: 20px;
 
-        .title {
-          @include h2();
-          margin-bottom: 20px;
+        @include media-down(tablet) {
+          width: 65%;
+          transform: translateX(50%) translateY(20%);
         }
+
+        @include media-down(small-tablet) {
+          width: 70%;
+          transform: translateX(50%) translateY(50%);
+        }
+      }
+    }
+  }
+
+  .outcome-buttons {
+    .outcome-selector {
+      background-color: $white;
+
+      .icon-container {
+        width: 65px;
+        height: 65px;
+        border: 3px solid $secondary;
+        background-color: $white;
+        transition: background-color 0.3s ease;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+
+        @include media-down(mobile) {
+          width: 50px;
+          height: 50px;
+        }
+
+        &:before {
+          @include center-align(absolute);
+          content: '';
+          height: 140%;
+          width: 140%;
+          border: 2px dashed $secondary;
+          border-radius: 50%;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          will-change: transform;
+
+          @include media-down(mobile) {
+            height: 130%;
+            width: 130%;
+          }
+        }
+      }
+
+      &.active {
+        .icon-container {
+          background-color: $secondary;
+
+          .icon {
+            svg {
+              fill: $white;
+            }
+          }
+
+          &:before {
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          cursor: default;
+
+          .icon-container {
+            &:before {
+              animation: none;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .icon-container {
+          &:before {
+            opacity: 1;
+            animation: rotate 5s infinite;
+            animation-timing-function: linear;
+            transform-origin: 0 0;
+
+            @keyframes rotate {
+              from {
+                transform: rotate(0deg) translateX(-50%) translateY(-50%);
+              }
+              to {
+                transform: rotate(360deg) translateX(-50%) translateY(-50%);
+              }
+            }
+          }
+        }
+      }
+
+      .icon {
+        @include center-align(absolute);
+        width: 50%;
+        height: 50%;
+
+        @include media-down(mobile) {
+          width: 60%;
+          height: 60%;
+        }
+
+        svg {
+          @include center-align(absolute);
+          height: 100%;
+          width: 100%;
+          fill: $secondary;
+          transition: fill 0.3s ease;
+        }
+      }
+    }
+  }
+
+  .diagram-mobile {
+    .outcome-illustration {
+      width: 40%;
+      height: 40%;
+      margin: 0 auto -10vw;
+
+      @include media-down(small-mobile) {
+        width: 70%;
+        height: 70%;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .half-circle {
+      width: 100%;
+      height: 27.78vw;
+      position: relative;
+      margin-bottom: 80px;
+
+      svg {
+        @include center-align(absolute);
+        width: 100%;
+        height: auto;
+      }
+
+      .outcome-buttons {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @include horizontal-align(absolute);
+        top: auto;
+        bottom: 0;
+        padding: 0px 20px;
+
+        .outcome-selector {
+          &:nth-child(1) {
+            transform: translateY(-50%);
+          }
+          &:nth-child(2) {
+            transform: translateY(calc(50% - 3px));
+          }
+          &:nth-child(3) {
+            transform: translateY(calc(50% - 3px));
+          }
+          &:nth-child(4) {
+            transform: translateY(-50%);
+          }
+
+          .icon-container {
+
+          }
+        }
+      }
+    }
+
+    .outcome-elaboration {
+      padding: 0 20px;
+      max-width: 450px;
+      margin: 0 auto;
+
+      .title {
+        text-align: center;
+      }
+
+      .html-content {
+        text-align: center;
       }
     }
   }

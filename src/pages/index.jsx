@@ -15,6 +15,7 @@ import './index.scss';
 
 const isClient = typeof window !== 'undefined';
 const SMALL_MOBILE_BREAKPOINT = 500;
+const MOBILE_BREAKPOINT = 800;
 
 class Index extends Component {
   state = {
@@ -41,6 +42,7 @@ class Index extends Component {
       viewportWidth,
     } = this.state;
     const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
+    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     const {
       data: {
         page: {
@@ -117,7 +119,7 @@ class Index extends Component {
         />
         <OutcomesDiagram
           outcomes={outcomes}
-          isSmallMobile={isSmallMobile}
+          isMobile={isMobile}
         />
         <CallToActionsBlock
           label="Take Action"
