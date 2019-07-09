@@ -59,6 +59,7 @@ class PureLayout extends Component {
       settings,
       seoData,
       solidHeader,
+      isSmallMobile,
     } = this.props;
     const {
       metaTitle = null,
@@ -93,6 +94,7 @@ class PureLayout extends Component {
           <Footer
             location={location}
             settings={settings}
+            isSmallMobile={isSmallMobile}
           />
         </div>
       </>
@@ -113,21 +115,6 @@ class Layout extends Component {
                     html
                     text
                   }
-                  audience {
-                    html
-                    text
-                  }
-                  linkLabel: link_label {
-                    text
-                  }
-                  link {
-                    target
-                    url
-                    linkType: link_type
-                    slug
-                  }
-                }
-                footerMenu: footer_menu {
                   audience {
                     html
                     text

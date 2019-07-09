@@ -54,7 +54,11 @@ class ExpressionOfInterestTemplate extends Component {
     const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
     const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
     return (
-      <Layout location={location} seoData={seoData}>
+      <Layout
+        location={location}
+        seoData={seoData}
+        isSmallMobile={isSmallMobile}
+      >
         <PageHero
           title={heroTitle.text}
           subtitle={heroSubtitle.text}

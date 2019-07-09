@@ -8,6 +8,7 @@ import './donate.scss';
 
 const isClient = typeof window !== 'undefined';
 const MOBILE_BREAKPOINT = 800;
+const SMALL_MOBILE_BREAKPOINT = 500;
 
 class Donate extends Component {
   state = {
@@ -53,10 +54,15 @@ class Donate extends Component {
       viewportWidth,
     } = this.state;
     const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
+    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
     const queryParams = queryString.parse(location.search);
     const donationSuccess = queryParams.success === 'true';
     return (
-      <Layout location={location} seoData={seoData}>
+      <Layout
+        location={location}
+        seoData={seoData}
+        isSmallMobile={isSmallMobile}
+      >
         <div className="page-block donation-block">
           <Wrapper>
             <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
