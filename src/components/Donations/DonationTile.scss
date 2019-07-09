@@ -115,7 +115,7 @@
         margin-left: 10px;
         white-space: nowrap;
 
-        @include media-down(small-mobile) {
+        @include media-down(mobile) {
           display: none;
         }
       }
