@@ -1,3 +1,3 @@
 export const SMALL_MOBILE_BREAKPOINT = 500;
-export const MOBILE_BREAKPOINT = 850;
+export const MOBILE_BREAKPOINT = 800;
 export const TABLET_BREAKPOINT = 1080;

@@ -17,7 +17,7 @@
     button {
       margin-right: 30px;
 
-      @include media-down(small-mobile) {
+      @include media-down(mobile) {
         width: 50%;
         flex: 1;
         min-width: 0;
