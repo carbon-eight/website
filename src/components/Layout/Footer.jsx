@@ -56,7 +56,7 @@ const Footer = (props) => {
                       <Link
                         key={slug}
                         to={`/${slug}/`}
-                        className="nav-link"
+                        className="nav-link col-value"
                         aria-label={`Navigate to ${linkLabel.text} page`}
                       >
                         <span>{linkLabel.text}</span>
@@ -77,7 +77,7 @@ const Footer = (props) => {
                   return (
                     <li key={link.url}>
                       <a
-                        className="social-link row-value"
+                        className="social-link col-value"
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -93,7 +93,7 @@ const Footer = (props) => {
             <div className="col col-contact">
               <span className="label">Email</span>
               <a
-                className="email row-value"
+                className="email col-value"
                 href={`mailto:${email.text}`}
                 aria-label={`Send email to ${email.text}`}
               >

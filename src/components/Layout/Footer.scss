@@ -15,6 +15,45 @@ footer.footer {
     .cols {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
+
+      @include media-down(mobile) {
+        flex-direction: column;
+      }
+
+      .col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+
+        &.col-logo {
+          flex: 2;
+        }
+
+        @include media-down(mobile) {
+          margin-right: 0;
+          margin-bottom: 30px;
+        }
+
+        &:last-child {
+          @include media-up(mobile) {
+            margin-right: 0;
+          }
+        }
+
+        .label {
+          display: block;
+          @include h4();
+          color: $roots;
+          margin-bottom: 10px;
+        }
+
+        .col-value {
+          @include p1();
+          color: $roots;
+        }
+      }
     }
 
     .signature {
