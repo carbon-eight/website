@@ -1,141 +1,37 @@
 footer.footer {
-  .layer {
-    position: relative;
-
-    svg.curve {
-      @include horizontal-align(absolute);
-      top: auto;
-      bottom: 0;
-      height: auto;
-      width: 100%;
-    }
-  }
-
-  .top-layer {
-    padding-bottom: 5%;
-    background: linear-gradient(180deg, transparent 97%, $earth 97%);
-
-    @include media-down(mobile) {
-      padding-bottom: 10%;
-    }
-  }
-
-  .middle-layer {
+  .soil-padding {
     padding-bottom: 5%;
     background-color: $earth-lighter;
   }
 
-  .bottom-layer {
+  .footer-content {
     background-color: $earth-even-lighter;
-    padding: 50px 0;
+    background-image: url('../../assets/images/soil-noise.svg');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: center;
+    padding: 60px 0;
 
     .cols {
       display: flex;
       flex-direction: row;
+    }
 
-      @include media-down(small-mobile) {
-        flex-direction: column;
-      }
+    .signature {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      margin-top: 30px;
+      @include h4();
+      color: $roots;
 
-      .col {
-        width: 50%;
-
-        @include media-down(small-mobile) {
-          width: 100%;
-          margin-bottom: 80px;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-
-        .row {
-          display: flex;
-          flex-direction: row;
-
-          .row-item {
-            display: flex;
-            flex-direction: column;
-            margin-right: 50px;
-
-            @include media-down(mobile) {
-              margin-right: 30px;
-            }
-
-            @include media-down(small-mobile) {
-              width: 50%;
-            }
-
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-
-          .label {
-            @include h4($dark-font: false);
-            margin-bottom: 30px;
-          }
-
-          .row-value {
-            @include p1($dark-font: false);
-            margin-bottom: 10px;
-          }
-        }
-      }
-
-      .col-left {
-        .logo {
-          margin-bottom: 50px;
-        }
-      }
-
-      .col-right {
-        .nav-items {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-
-          li {
-            width: 50%;
-            margin-bottom: 30px;
-          }
-
-          .audience {
-            display: block;
-            @include h4($dark-font: false);
-            margin-bottom: 30px;
-          }
-
-          .nav-item {
-            display: flex;
-            flex-direction: column;
-
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-          .nav-link {
-            display: block;
-            @include p1($dark-font: false);
-            margin-bottom: 10px;
-          }
-        }
-
-        .signature {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: center;
-          width: 100%;
-          margin-top: 30px;
-          @include h4($dark-font: false);
-
-          .studio {
-            display: block;
-            @include h4($dark-font: false);
-            margin-left: 5px;
-          }
-        }
+      .studio {
+        display: block;
+        @include h4();
+        color: $roots;
+        margin-left: 5px;
       }
     }
   }

@@ -6,6 +6,7 @@ import './information-page.scss';
 
 const isClient = typeof window !== 'undefined';
 const MOBILE_BREAKPOINT = 800;
+const SMALL_MOBILE_BREAKPOINT = 500;
 
 class InformationPageTemplate extends Component {
   state = {
@@ -52,8 +53,14 @@ class InformationPageTemplate extends Component {
       viewportWidth,
     } = this.state;
     const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
+    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
     return (
-      <Layout location={location} seoData={seoData} solidHeader>
+      <Layout
+        location={location}
+        seoData={seoData}
+        isSmallMobile={isSmallMobile}
+        solidHeader
+      >
         <LegalPageHero
           title={pageTitle.text}
           isMobile={isMobile}

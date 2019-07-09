@@ -73,7 +73,11 @@ class Index extends Component {
       openGraphImage,
     };
     return (
-      <Layout location={location} seoData={seoData}>
+      <Layout
+        location={location}
+        seoData={seoData}
+        isSmallMobile={isSmallMobile}
+      >
         <HomeMural
           isSmallMobile={isSmallMobile}
         />
