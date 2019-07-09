@@ -8,6 +8,7 @@
   }
 
   .donation-mode-selector {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -17,6 +18,7 @@
       margin-right: 30px;
 
       @include media-down(small-mobile) {
+        width: 50%;
         flex: 1;
         min-width: 0;
         margin: 0;
