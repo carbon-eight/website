@@ -5,6 +5,8 @@
   position: relative;
 
   @include media-down(small-mobile) {
+    width: 100%;
+    position: relative;
     height: 6.95vw;
   }
 
