@@ -4,7 +4,7 @@
   overflow: hidden;
 
   @include media-down(mobile) {
-    padding-top: calc(#{$header-height-mobile} + 50px);
+    padding-top: calc(#{$header-height-mobile} + 200px);
   }
 
   .parallax {

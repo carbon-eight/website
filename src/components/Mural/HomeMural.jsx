@@ -27,7 +27,7 @@ class HomeMural extends Component {
   render() {
     const { isSmallMobile } = this.props;
     return (
-      <div className="home-mural">
+      <div className={`home-mural${isSmallMobile ? ' mobile' : ''}`}>
         <ParallaxElement parallaxSpeed={-7}>
           <ValleyScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
