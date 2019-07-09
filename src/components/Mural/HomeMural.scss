@@ -1,6 +1,6 @@
 .home-mural {
   padding-top: calc(#{$header-height} + 100px);
-  background: linear-gradient(180deg, $sky 70%, $earth-even-lighter 70%);
+  background: linear-gradient(180deg, $sky 90%, $earth-even-lighter 90%);
   overflow: hidden;
 
   @include media-down(mobile) {
