@@ -10,7 +10,7 @@ const CurlyDivider = (props) => {
   return (
     <div className="curly-divider" style={{ background: `linear-gradient(180deg, ${topColor} 15%, ${bottomColor} 15%)` }}>
       { isSmallMobile ? (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 25">
+        <svg xmlns="http://www.w3.org/2000/svg">
           <path fill={topColor} fillRule="evenodd" d="M0 0h360v14.18c-.48.947-8.562.947-24.248 0-23.53-1.419-17.882-7.149-38.949-6.592-21.066.557-17.02 7.291-38.486 6.593-21.465-.699-17.592-5.04-38.637-4.484-21.046.556-17.256 5.794-38.49 4.484-21.235-1.31-17.009-7.113-36.84-6.593-19.83.52-20.125 7.279-40.832 6.593-20.707-.686-18.073-6.736-37.468-6.736-19.396 0-21.305 8.01-40.329 6.736C13.038 13.33 4.465 12.77 0 12.5V0z" />
         </svg>
       ) : (
