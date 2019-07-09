@@ -118,15 +118,15 @@ export const pageQuery = graphql`
                 html
                 text
               }
-              link {
-                id
-                url
-                target
-              }
-              linkLabel: link_label {
-                html
-                text
-              }
+              # link {
+              #   id
+              #   url
+              #   target
+              # }
+              # linkLabel: link_label {
+              #   html
+              #   text
+              # }
             }
           }
           ... on PrismicDonateBodyNewsletterSubscriber {
