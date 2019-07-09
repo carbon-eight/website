@@ -16,8 +16,8 @@ module.exports = {
   themeColor: '#3D63AE',
   backgroundColor: '#EBEDF2',
 
-  twitter: '@loveyourfarmer', // Twitter Username
-  facebook: 'loveyourfarmer', // Facebook Site Name
+  twitter: '@carbon8', // Twitter Username
+  facebook: 'Carbon 8', // Facebook Site Name
 
   skipNavId: 'reach-skip-nav', // ID for the "Skip to content" a11y feature
 };

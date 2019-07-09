@@ -7,6 +7,7 @@ const ContentLink = (props) => {
     link,
     linkLabel,
   } = props;
+  if (!link || !linkLabel) return null;
   if (link.target) {
     return (
       <a

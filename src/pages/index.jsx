@@ -14,7 +14,7 @@ import { COLOUR_WHITE, COLOUR_EARTH_EVEN_LIGHTER } from '../util/colours';
 import './index.scss';
 
 const isClient = typeof window !== 'undefined';
-const MOBILE_BREAKPOINT = 800;
+const SMALL_MOBILE_BREAKPOINT = 500;
 
 class Index extends Component {
   state = {
@@ -40,7 +40,7 @@ class Index extends Component {
     const {
       viewportWidth,
     } = this.state;
-    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
+    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
     const {
       data: {
         page: {
@@ -75,7 +75,7 @@ class Index extends Component {
     return (
       <Layout location={location} seoData={seoData}>
         <HomeMural
-          isMobile={isMobile}
+          isSmallMobile={isSmallMobile}
         />
         <CarbonEightIntro
           intro={carbonEightIntro}
