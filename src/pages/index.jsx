@@ -11,11 +11,13 @@ import {
   CallToActionsBlock,
 } from '../components/Home';
 import { COLOUR_WHITE, COLOUR_EARTH_EVEN_LIGHTER } from '../util/colours';
+import {
+  SMALL_MOBILE_BREAKPOINT,
+  MOBILE_BREAKPOINT,
+} from '../util/breakpoints';
 import './index.scss';
 
 const isClient = typeof window !== 'undefined';
-const SMALL_MOBILE_BREAKPOINT = 500;
-const MOBILE_BREAKPOINT = 800;
 
 class Index extends Component {
   state = {

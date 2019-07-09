@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout, SliceZone, PageHero } from '../components';
+import {
+  SMALL_MOBILE_BREAKPOINT,
+  MOBILE_BREAKPOINT,
+} from '../util/breakpoints';
 
 const isClient = typeof window !== 'undefined';
-const MOBILE_BREAKPOINT = 800;
-const SMALL_MOBILE_BREAKPOINT = 500;
 
 class ExpressionOfInterestTemplate extends Component {
   state = {

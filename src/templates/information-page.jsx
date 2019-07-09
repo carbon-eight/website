@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components';
 import { LegalPageHero, LegalPageBody } from '../components/Legal';
+import {
+  SMALL_MOBILE_BREAKPOINT,
+  MOBILE_BREAKPOINT,
+} from '../util/breakpoints';
 import './information-page.scss';
 
 const isClient = typeof window !== 'undefined';
-const MOBILE_BREAKPOINT = 800;
-const SMALL_MOBILE_BREAKPOINT = 500;
 
 class InformationPageTemplate extends Component {
   state = {

@@ -4,11 +4,13 @@ import queryString from 'query-string';
 import { Layout, SliceZone } from '../components';
 import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
+import {
+  SMALL_MOBILE_BREAKPOINT,
+  MOBILE_BREAKPOINT,
+} from '../util/breakpoints';
 import './donate.scss';
 
 const isClient = typeof window !== 'undefined';
-const MOBILE_BREAKPOINT = 800;
-const SMALL_MOBILE_BREAKPOINT = 500;
 
 class Donate extends Component {
   state = {
