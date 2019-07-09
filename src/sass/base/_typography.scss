@@ -29,6 +29,10 @@ $font-weight-black: 900;
   line-height: 1.1em;
   font-weight: $font-weight-bold;
 
+  @include media-down(tablet) {
+    font-size: 52px;
+  }
+
   @include media-down(mobile) {
     font-size: 42px;
   }
@@ -46,6 +50,10 @@ $font-weight-black: 900;
   line-height: 1.2em;
   font-weight: $font-weight-semi-bold;
 
+  @include media-down(tablet) {
+    font-size: 32px;
+  }
+
   @include media-down(mobile) {
     font-size: 28px;
   }
@@ -62,6 +70,10 @@ $font-weight-black: 900;
   font-size: 24px;
   line-height: 1.5em;
   font-weight: $font-weight-regular;
+
+  @include media-down(tablet) {
+    font-size: 22px;
+  }
 
   @include media-down(mobile) {
     font-size: 20px;
