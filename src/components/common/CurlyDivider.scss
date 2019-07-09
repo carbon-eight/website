@@ -4,6 +4,10 @@
   height: 2.5vw;
   position: relative;
 
+  @include media-down(small-mobile) {
+    height: 6.95vw;
+  }
+
   svg {
     @include horizontal-align(absolute);
     top: 0;

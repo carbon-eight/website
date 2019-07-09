@@ -37,7 +37,7 @@ class HomeMural extends Component {
         <ParallaxElement parallaxSpeed={isSmallMobile ? -2 : -3}>
           <CropScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
-        <ParallaxElement parallaxSpeed={2}>
+        <ParallaxElement parallaxSpeed={-1}>
           <SoilScene isSmallMobile={isSmallMobile} />
           <RootsScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
