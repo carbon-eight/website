@@ -13,8 +13,34 @@ import {
 import { COLOUR_WHITE, COLOUR_EARTH_EVEN_LIGHTER } from '../util/colours';
 import './index.scss';
 
+const isClient = typeof window !== 'undefined';
+const SMALL_MOBILE_BREAKPOINT = 500;
+
 class Index extends Component {
+  state = {
+    viewportWidth: 0,
+  };
+
+  componentDidMount() {
+    if (isClient) {
+      this.updateWindowDimensions();
+      window.addEventListener('resize', this.updateWindowDimensions);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({ viewportWidth: window.innerWidth });
+  }
+
   render() {
+    const {
+      viewportWidth,
+    } = this.state;
+    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
     const {
       data: {
         page: {
@@ -48,7 +74,9 @@ class Index extends Component {
     };
     return (
       <Layout location={location} seoData={seoData}>
-        <HomeMural />
+        <HomeMural
+          isSmallMobile={isSmallMobile}
+        />
         <CarbonEightIntro
           intro={carbonEightIntro}
         />

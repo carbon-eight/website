@@ -25,20 +25,21 @@ class HomeMural extends Component {
   }
 
   render() {
+    const { isSmallMobile } = this.props;
     return (
       <div className="home-mural">
         <ParallaxElement parallaxSpeed={-7}>
-          <ValleyScene />
+          <ValleyScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
         <ParallaxElement parallaxSpeed={-5}>
-          <FarmScene />
+          <FarmScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
         <ParallaxElement parallaxSpeed={-3}>
-          <CropScene />
+          <CropScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
         <ParallaxElement parallaxSpeed={-1}>
-          <SoilScene />
-          <RootsScene />
+          <SoilScene isSmallMobile={isSmallMobile} />
+          <RootsScene isSmallMobile={isSmallMobile} />
         </ParallaxElement>
       </div>
     );
