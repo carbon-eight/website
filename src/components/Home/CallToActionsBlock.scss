@@ -16,8 +16,9 @@
     z-index: 2;
 
     @include media-down(mobile) {
-      flex-wrap: wrap;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .call-to-action {
@@ -26,8 +27,15 @@
       position: relative;
       margin-right: 80px;
 
+      @include media-down(mobile) {
+        width: 100%;
+        margin: 0 0 50px;
+      }
+
       &:last-child {
-        margin-right: 0px;
+        @include media-up(mobile) {
+          margin-right: 0px;
+        }
       }
 
       .container {

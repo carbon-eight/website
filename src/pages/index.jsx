@@ -79,6 +79,7 @@ class Index extends Component {
         />
         <CarbonEightIntro
           intro={carbonEightIntro}
+          isSmallMobile={isSmallMobile}
         />
         <SectionIntro
           label="The Problem"
@@ -86,6 +87,7 @@ class Index extends Component {
           intro={issuesIntro}
           topColor={COLOUR_EARTH_EVEN_LIGHTER}
           bottomColor={COLOUR_WHITE}
+          isSmallMobile={isSmallMobile}
         />
         <IssueBlocks
           issues={issues}
@@ -96,6 +98,7 @@ class Index extends Component {
           intro={solutionsIntro}
           topColor={COLOUR_WHITE}
           bottomColor={COLOUR_WHITE}
+          isSmallMobile={isSmallMobile}
         />
         <SolutionBlocks
           solutions={solutions}
@@ -106,15 +109,18 @@ class Index extends Component {
           intro={outcomesIntro}
           topColor={COLOUR_WHITE}
           bottomColor={COLOUR_WHITE}
+          isSmallMobile={isSmallMobile}
         />
         <OutcomesDiagram
           outcomes={outcomes}
+          isSmallMobile={isSmallMobile}
         />
         <CallToActionsBlock
           label="Take Action"
           headline={callToActionsHeadline}
           intro={callToActionsIntro}
           callToActions={callToActions}
+          isSmallMobile={isSmallMobile}
         />
       </Layout>
     );

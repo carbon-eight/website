@@ -10,12 +10,14 @@ const SectionIntro = (props) => {
     intro,
     topColor,
     bottomColor,
+    isSmallMobile,
   } = props;
   return (
     <div className="section-intro">
       <CurlyDivider
         topColor={topColor}
         bottomColor={COLOUR_TERTIARY}
+        isSmallMobile={isSmallMobile}
       />
       <div className="container">
         <Wrapper>
@@ -33,6 +35,7 @@ const SectionIntro = (props) => {
       <CurlyDivider
         topColor={COLOUR_TERTIARY}
         bottomColor={bottomColor}
+        isSmallMobile={isSmallMobile}
       />
     </div>
   );

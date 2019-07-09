@@ -1,10 +1,18 @@
 .issue-blocks {
-  padding: 120px 0;
+  padding: 70px 0;
 
   .issues {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+
+    @include media-down(tablet) {
+      flex-wrap: wrap;
+    }
+
+    @include media-down(mobile) {
+      flex-direction: column;
+    }
 
     .issue {
       flex: 1;
@@ -14,8 +22,22 @@
       margin-right: 100px;
       position: relative;
 
+      @include media-down(tablet) {
+        margin: 0 30px;
+      }
+
+      @include media-down(mobile) {
+        margin: 0 0 80px;
+      }
+
       &.last-child {
-        margin-right: 0;
+        @include media-up(tablet) {
+          margin-right: 0;
+        }
+
+        @include media-down(mobile) {
+          margin-bottom: 0;
+        }
       }
 
       .illustration {
@@ -23,6 +45,14 @@
         padding-bottom: 100%;
         margin-bottom: 40px;
         position: relative;
+
+        @include media-down(mobile) {
+          padding-bottom: 0;
+          height: 100vw;
+          max-width: 250px;
+          max-height: 250px;
+          margin: 0 auto 30px;
+        }
 
         svg {
           @include center-align(absolute);

@@ -11,6 +11,7 @@ const CallToActionsBlock = (props) => {
     headline,
     intro,
     callToActions,
+    isSmallMobile,
   } = props;
   return (
     <div className="call-to-actions-block">
@@ -20,6 +21,7 @@ const CallToActionsBlock = (props) => {
         intro={intro}
         topColor={COLOUR_WHITE}
         bottomColor={COLOUR_WHITE}
+        isSmallMobile={isSmallMobile}
       />
       <Wrapper>
         <div className="call-to-actions">
