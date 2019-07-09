@@ -6,7 +6,7 @@ import {
   COLOUR_EARTH_LIGHTER,
   COLOUR_EARTH_EVEN_LIGHTER,
 } from '../../util/colours';
-import { NavItem } from '../Navigation';
+import { generateKey } from '../../util/helpers';
 import './Footer.scss';
 
 const Footer = (props) => {
@@ -44,7 +44,7 @@ const Footer = (props) => {
             <div className="col col-legals">
               <span className="label">Legal</span>
               <ul className="nav-items">
-                {legalLinks && legalLinks.map((legalNavItem) => {
+                {legalLinks && legalLinks.map((legalNavItem, index) => {
                   const {
                     linkLabel,
                     link,
@@ -52,7 +52,7 @@ const Footer = (props) => {
                   const { slug } = link;
                   if (slug === 'home') return null;
                   return (
-                    <li className="nav-item">
+                    <li className="nav-item" key={generateKey(index)}>
                       <Link
                         key={slug}
                         to={`/${slug}/`}

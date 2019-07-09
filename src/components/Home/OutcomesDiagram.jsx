@@ -23,6 +23,7 @@ const OutcomesDiagram = (props) => {
                   className={`outcome-selector ${activeIndex === index ? 'active' : ''}`}
                   onClick={event => setActiveIndex(index)}
                   aria-label={`Find out about ${outcome.title.text}`}
+                  key={generateKey(index)}
                 >
                   <div className="icon-container">
                     <div className="icon">
