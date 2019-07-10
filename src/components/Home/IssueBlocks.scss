@@ -1,7 +1,12 @@
 .issue-blocks {
-  padding: 120px 0;
+  padding: 180px 0;
+
+  @include media-down(tablet) {
+    padding: 120px 0;
+  }
+
   @include media-down(mobile) {
-    padding: 70px 0;
+    padding: 80px 0;
   }
 
   .issues {
