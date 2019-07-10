@@ -26,7 +26,7 @@ class FourOhFour extends Component {
               <h1 className="title">404: Page Not Found</h1>
               <Link
                 to="/"
-                className="styled-button"
+                className="cta-button"
                 aria-label="Return to the home page"
               >
                 <span>Let's go home</span>

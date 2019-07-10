@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import {
   Layout,
 } from '../components';
@@ -21,8 +22,15 @@ const ThankYou = (props) => {
       <section className="thank-you-page">
         <Wrapper>
           <div className="text-container">
-            <h1>Thank you</h1>
+            <h1 className="title">Thank you</h1>
             <p>We'll get back to you as soon as possible</p>
+            <Link
+              to="/"
+              className="cta-button"
+              aria-label="Return to the home page"
+            >
+              <span>Let's go home</span>
+            </Link>
           </div>
         </Wrapper>
       </section>

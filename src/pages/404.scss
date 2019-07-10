@@ -1,9 +1,13 @@
 .four-oh-four-page {
-
   .text-container {
+    padding: 200px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    .title {
+      margin-bottom: 40px;
+    }
   }
 }
