@@ -215,7 +215,7 @@ const DonationModal = props => (
           }
         },
         stripeProducts: allStripeSku (
-          filter: { product: { id: { eq: "prod_FPIk2hs2K3Yu6c" } } }
+          filter: { product: { id: { eq: "prod_FPIirw33Y3DOQ7" } } }
           sort: { fields: [price] }
           limit: 4
         ) {
