@@ -102,7 +102,23 @@ const Footer = (props) => {
             </div>
           </div>
           <div className="row">
-            <div className="signature">
+            <p className="partner-shoutout">
+              <span>In partnership with</span>
+              { isHome ? (
+                <a
+                  className="twenty-forty"
+                  href="https://whatsyour2040.com/"
+                  aria-label="Navigate to 2040 Film's website"
+                >
+                  <span>2040 Film</span>
+                </a>
+              ) : (
+                <span className="twenty-forty">2040 Film</span>
+              )}
+            </p>
+          </div>
+          <div className="row">
+            <p className="signature">
               <span>Website by</span>
               { isHome ? (
                 <a
@@ -115,7 +131,7 @@ const Footer = (props) => {
               ) : (
                 <span className="studio">Little & Big</span>
               )}
-            </div>
+            </p>
           </div>
         </Wrapper>
       </div>

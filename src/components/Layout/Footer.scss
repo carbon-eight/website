@@ -20,9 +20,11 @@ footer.footer {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      margin-bottom: 30px;
 
       @include media-down(mobile) {
         flex-direction: column;
+        margin-bottom: 0;
       }
 
       .col {
@@ -72,25 +74,33 @@ footer.footer {
       }
     }
 
-    .signature {
+
+
+    .row {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
-      align-items: center;
-      width: 100%;
-      margin-top: 30px;
-      @include h4();
-      color: $roots;
 
       @include media-down(mobile) {
         justify-content: flex-start;
       }
 
-      .studio {
-        display: block;
+      .signature, .partner-shoutout {
+        display: inline-block;
         @include h4();
         color: $roots;
-        margin-left: 5px;
+        margin-top: 20px;
+
+        @include media-down(mobile) {
+          display: block;
+          width: 100%;
+        }
+
+        .studio, .twenty-forty {
+          @include h4();
+          color: $roots;
+          margin-left: 5px;
+        }
       }
     }
   }
