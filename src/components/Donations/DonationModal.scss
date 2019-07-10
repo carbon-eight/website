@@ -1,12 +1,4 @@
 .donation-modal {
-  .wrapper {
-
-  }
-
-  .modal-container {
-
-  }
-
   .donation-mode-selector {
     width: 100%;
     display: flex;
@@ -81,61 +73,61 @@
 
     button {}
   }
+}
 
-  .donation-success {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 80px;
+.donation-success {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
 
-    .donation-success-message {
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      margin-bottom: 50px;
+  .donation-success-message {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 50px;
 
-      span {
-        display: block;
-        @include h3();
-        text-align: center;
+    span {
+      display: block;
+      @include h3();
+      text-align: center;
+    }
+  }
+
+  .success-illustration {
+    width: 100%;
+    max-width: 485px;
+    max-height: 460px;
+    margin: 0 auto;
+    animation: reveal 0.3s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+
+    .success-background {
+
+    }
+
+    .success-background-bits {
+
+    }
+
+    .success-glove {
+      animation: hoverFloat 6s ease-in-out infinite;
+
+      @keyframes hoverFloat {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
       }
     }
 
-    .success-illustration {
-      width: 100%;
-      max-width: 485px;
-      max-height: 460px;
-      margin: 0 auto;
-      animation: reveal 0.3s ease forwards;
-      animation-delay: 0.3s;
-      opacity: 0;
+    .success-tick {
 
-      .success-background {
-
-      }
-
-      .success-background-bits {
-
-      }
-
-      .success-glove {
-        animation: hoverFloat 6s ease-in-out infinite;
-
-        @keyframes hoverFloat {
-          0% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0px);
-          }
-        }
-      }
-
-      .success-tick {
-
-      }
     }
   }
 }
