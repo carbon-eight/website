@@ -89,11 +89,13 @@ export default Donate;
 
 export const pageQuery = graphql`
   query DonateQuery {
-    # site {
-    #   siteMetadata {
-    #     blogSlug,
-    #   }
-    # },
+    site {
+      siteMetadata {
+        stripeOnceOffProdKey,
+        stripeMonthlyProdKey,
+        stripeVariableSku,
+      }
+    },
     page: prismicDonate {
       uid,
       data {

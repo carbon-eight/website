@@ -10,6 +10,9 @@ const {
   GOOGLE_ANALYTICS_ID,
   STRIPE_API_KEY,
   STRIPE_SECRET_KEY,
+  STRIPE_ONCE_OFF_PROD_ID,
+  STRIPE_MONTHLY_PROD_ID,
+  STRIPE_VARIABLE_SKU,
   MAILCHIMP_ENDPOINT,
 } = process.env;
 
@@ -44,6 +47,9 @@ module.exports = {
     twitter: website.twitter,
     facebook: website.facebook,
     stripeApiKey: STRIPE_API_KEY,
+    stripeOnceOffProdKey: STRIPE_ONCE_OFF_PROD_ID,
+    stripeMonthlyProdKey: STRIPE_MONTHLY_PROD_ID,
+    stripeVariableSku: STRIPE_VARIABLE_SKU,
   },
   /* Plugins */
   plugins: [
