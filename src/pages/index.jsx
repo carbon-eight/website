@@ -99,6 +99,7 @@ class Index extends Component {
         />
         <IssueBlocks
           issues={issues}
+          isMobile={isMobile}
         />
         <SectionIntro
           label="Our Solution"
@@ -110,6 +111,7 @@ class Index extends Component {
         />
         <SolutionBlocks
           solutions={solutions}
+          isMobile={isMobile}
         />
         <SectionIntro
           label="Why It Matters"

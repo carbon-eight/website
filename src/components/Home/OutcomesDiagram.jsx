@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import OnVisible from 'react-on-visible';
 import { OutcomeIllustration } from './OutcomeIllustration';
 import { OutcomeIcon } from './OutcomeIcon';
 import { Wrapper, HtmlContent } from '../common';
@@ -58,7 +59,11 @@ const OutcomesDiagram = (props) => {
             />
           </div>
           <div className="outcome-elaboration">
-            <h3 className="title">{activeOutcome.title.text}</h3>
+            <h3 className="title">
+              <OnVisible wrappingElement="span">
+                {activeOutcome.title.text}
+              </OnVisible>
+            </h3>
             <HtmlContent
               content={activeOutcome.description.html}
             />
@@ -77,7 +82,11 @@ const OutcomesDiagram = (props) => {
                 <OutcomeIllustration illustration={activeOutcome.illustration} />
               </div>
               <div className="outcome-elaboration">
-                <h3 className="title">{activeOutcome.title.text}</h3>
+                <h3 className="title">
+                  <OnVisible wrappingElement="span">
+                    {activeOutcome.title.text}
+                  </OnVisible>
+                </h3>
                 <HtmlContent
                   content={activeOutcome.description.html}
                 />
