@@ -43,22 +43,6 @@
     margin: 0 auto;
   }
 
-  .bottom-curve {
-    background: linear-gradient(180deg, $tertiary 5%, white 5%);
-    padding-bottom: 6%;
-    position: relative;
-    // z-index: 3;
-
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      // z-index: 3;
-    }
-  }
-
   .svg-background {
     @include center-align(absolute);
     height: 90%;

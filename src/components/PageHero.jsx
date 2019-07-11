@@ -1,7 +1,8 @@
 import React from 'react';
-import { Wrapper } from './common';
-import './PageHero.scss';
+import { Wrapper, CurlyDivider } from './common';
 import { ENQUIRY_FORM_ID } from './Slices/EnquiryForm';
+import { COLOUR_TERTIARY, COLOUR_WHITE } from '../util/colours';
+import './PageHero.scss';
 
 const SvgBackground = ({ isSmallMobile }) => (
   isSmallMobile ? (
@@ -84,11 +85,11 @@ const PageHero = (props) => {
           </button>
         </Wrapper>
       </div>
-      <div className="bottom-curve">
-        <svg viewBox="0 0 1600 94" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 .5h1600v70.267C1525.49 85.922 1420.591 93.5 1285.305 93.5 974.323 93.5 800 4.712 465.25 4.712 263.615 4.712 108.531 26.731 0 70.767V.5z" fill="#E8F4EF" fillRule="evenodd" />
-        </svg>
-      </div>
+      <CurlyDivider
+        topColor={COLOUR_TERTIARY}
+        bottomColor={COLOUR_WHITE}
+        isSmallMobile={isSmallMobile}
+      />
       <div className="svg-background">
         <SvgBackground isSmallMobile={isSmallMobile} />
       </div>
