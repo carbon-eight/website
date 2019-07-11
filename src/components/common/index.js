@@ -5,6 +5,7 @@ import HtmlContent from './HtmlContent';
 import ContentLink from './ContentLink';
 import SocialLink from './SocialLink';
 import CurlyDivider from './CurlyDivider';
+import SuccessMessage from './SuccessMessage';
 
 export {
   Wrapper,
@@ -14,4 +15,5 @@ export {
   ContentLink,
   SocialLink,
   CurlyDivider,
+  SuccessMessage,
 };

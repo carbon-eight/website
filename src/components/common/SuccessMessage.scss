@@ -1,9 +1,17 @@
-.donation-success {
+.success-message {
   display: flex;
   flex-direction: column;
   margin-bottom: 80px;
 
-  .donation-success-message {
+  .headline {
+    @include h1();
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .success-message-message {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;

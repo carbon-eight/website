@@ -1,13 +1,22 @@
 import React from 'react';
+import { generateKey } from '../../util/helpers';
+import './SuccessMessage.scss';
 
-const DonationSuccess = () => (
-  <div className="donation-success">
-    <p className="donation-success-message">
-      <span>You’re an absolute legend!</span>
-      <span>Thanks for your contribution.</span>
-    </p>
+
+const SuccessMessage = ({ headline, message }) => (
+  <div className="success-message">
+    {headline && (
+      <h1 className="headline">{headline}</h1>
+    )}
+    {message && (
+      <p className="success-message-message">
+        { message.map((messagePart, index) => (
+          <span key={generateKey(index)}>{messagePart}</span>
+        ))}
+      </p>
+    )}
     <div className="success-illustration">
-      <svg viewBox="0 0 479 459" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" fillRule="evenodd">
           <g className="success-background">
             <path d="M249.5 436.203c74.19 0 130.115-32.046 171.266-78.683 31.756-35.992 57.734-79.014 57.734-133.02 0-33.308-19.626-60.515-33.422-88.941C407.518 58.169 336.633 0 240.5 0c-47.628 0-90.21 58.065-127.418 80.793C47.604 120.79 2.5 145.439 2.5 224.5c0 61.031 5.878 116.768 49.988 154.086 45.502 38.496 130.27 57.617 197.012 57.617z" fill="#E8F4EF" />
@@ -36,4 +45,4 @@ const DonationSuccess = () => (
   </div>
 );
 
-export default DonationSuccess;
+export default SuccessMessage;

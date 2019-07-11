@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import { Wrapper } from '../common';
+import { Wrapper, SuccessMessage } from '../common';
 import {
   SponsorshipTiles,
   DonationTiles,
-  DonationSuccess,
 } from '.';
 import {
   RECURRING_OPTION,
@@ -151,7 +150,10 @@ class DonationModalTemplate extends Component {
         <Wrapper>
           <div className="modal-container">
             { donationSuccess ? (
-              <DonationSuccess />
+              <SuccessMessage
+                headline={null}
+                message={['You’re an absolute legend!', 'Thanks for your contribution.']}
+              />
             ) : (
               <>
                 <div className="donation-mode-selector">
