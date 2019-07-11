@@ -8,6 +8,7 @@ const {
   PRISMIC_REPO_NAME,
   PRISMIC_API_KEY,
   GOOGLE_ANALYTICS_ID,
+  FACEBOOK_PIXEL_ID,
   STRIPE_API_KEY,
   STRIPE_SECRET_KEY,
   STRIPE_ONCE_OFF_PROD_ID,
@@ -90,6 +91,12 @@ module.exports = {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: GOOGLE_ANALYTICS_ID,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: FACEBOOK_PIXEL_ID,
       },
     },
     {
