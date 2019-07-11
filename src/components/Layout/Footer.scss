@@ -41,6 +41,9 @@ footer.footer {
           @include media-up(mobile) {
             margin-right: 0;
           }
+          @include media-down(mobile) {
+            margin-bottom: 60px;
+          }
         }
 
 
@@ -89,7 +92,7 @@ footer.footer {
         display: inline-block;
         @include h4();
         color: $roots;
-        margin-top: 20px;
+        margin-top: 10px;
 
         @include media-down(mobile) {
           display: block;
@@ -100,6 +103,10 @@ footer.footer {
           @include h4();
           color: $roots;
           margin-left: 5px;
+        }
+
+        a {
+          text-decoration: underline;
         }
       }
     }
