@@ -1,7 +1,7 @@
 .donation-block {
-  padding-top: calc(#{$header-height} + 100px);
+  padding-top: calc(#{$header-height} + 40px);
 
   @include media-down(mobile) {
-    padding-top: calc(#{$header-height-mobile} + 50px);
+    padding-top: calc(#{$header-height-mobile} + 30px);
   }
 }
