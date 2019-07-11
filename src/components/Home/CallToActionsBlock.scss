@@ -52,7 +52,7 @@
       .container {
         display: flex;
         flex-direction: column;
-        padding: 60px 30px;
+        padding: 50px;
         background-color: $white;
         border: 3px solid $tertiary;
         border-radius: 16%;
@@ -60,6 +60,10 @@
         transform: translateX(-7.5px) translateY(-7.5px);
         position: relative;
         z-index: 1;
+
+        @include media-down(desktop) {
+          padding: 50px 30px;
+        }
 
         @include media-down(tablet) {
           flex-direction: row;
@@ -71,13 +75,18 @@
         }
 
         .label {
+          display: block;
           @include h4();
-          margin-bottom: 20px;
+          margin-bottom: 10px;
+
+          @include media-down(tablet) {
+            margin-bottom: 5px;
+          }
         }
 
         .title {
           @include h2();
-          margin-bottom: 20px;
+          margin-bottom: 30px;
 
           @include media-down(tablet) {
             margin-bottom: 0;
