@@ -32,6 +32,10 @@ footer.footer {
         flex-direction: column;
         margin-right: 70px;
 
+        @include media-down(tablet) {
+          margin-right: 40px;
+        }
+
         @include media-down(mobile) {
           margin-right: 0;
           margin-bottom: 30px;
