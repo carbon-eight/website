@@ -4,6 +4,7 @@ import {
   Layout,
 } from '../components';
 import {
+  SuccessMessage,
   Wrapper,
 } from '../components/common';
 import './thank-you.scss';
@@ -22,8 +23,10 @@ const ThankYou = (props) => {
       <section className="thank-you-page">
         <Wrapper>
           <div className="text-container">
-            <h1 className="title">Thank you</h1>
-            <p>We'll get back to you as soon as possible</p>
+            <SuccessMessage
+              headline="Thanks for getting in touch!"
+              message={['We\'ll get back to you soon']}
+            />
             <Link
               to="/"
               className="cta-button"
