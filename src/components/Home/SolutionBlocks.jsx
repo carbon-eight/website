@@ -20,7 +20,6 @@ const SolutionBlocks = (props) => {
               description,
               illustration,
             } = technique;
-            const styles = isMobile ? {} : { transitionDelay: `${index * 1}s` };
             return (
               <div className="solution" key={generateKey(index)}>
                 <div className="col image-col">
@@ -34,7 +33,6 @@ const SolutionBlocks = (props) => {
                     <h3 className="title">
                       <OnVisible
                         wrappingElement="span"
-                        style={styles}
                       >
                         {title.text}
                       </OnVisible>
