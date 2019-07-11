@@ -20,7 +20,7 @@ footer.footer {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
 
       @include media-down(mobile) {
         flex-direction: column;
@@ -28,9 +28,9 @@ footer.footer {
       }
 
       .col {
-        flex: 1;
         display: flex;
         flex-direction: column;
+        margin-right: 70px;
 
         @include media-down(mobile) {
           margin-right: 0;
