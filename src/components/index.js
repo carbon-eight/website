@@ -4,6 +4,7 @@ import SliceZone from './SliceZone';
 import ProgressDots from './ProgressDots';
 import ColourfulBackground from './ColourfulBackground';
 import PageHero from './PageHero';
+import SubscribeForm from './SubscribeForm';
 
 export {
   SEO,
@@ -12,4 +13,5 @@ export {
   ProgressDots,
   ColourfulBackground,
   PageHero,
+  SubscribeForm,
 };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
-import { Layout } from '../components';
+import { Layout, SubscribeForm } from '../components';
 import { HomeMural } from '../components/Mural';
 import {
   CarbonEightIntro,
@@ -129,6 +129,9 @@ class Index extends Component {
           intro={callToActionsIntro}
           callToActions={callToActions}
           isSmallMobile={isSmallMobile}
+        />
+        <SubscribeForm
+          title="Join our community"
         />
       </Layout>
     );

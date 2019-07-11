@@ -1,15 +1,14 @@
 .home {
 
-  .intro-block {
-    padding: 200px 0px;
-    background-color: #424135;
-    margin-top: -1px;
+  .subscribe-form-block {
+    padding: 120px 0;
 
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    @include media-down(tablet) {
+      padding: 80px 0;
+    }
+
+    @include media-down(mobile) {
+      padding: 60px 0;
     }
   }
 }
