@@ -1,8 +1,13 @@
 import React from 'react';
 import OnVisible from 'react-on-visible';
-import { Wrapper, HtmlContent } from '../common';
+import {
+  Wrapper,
+  HtmlContent,
+  Lottie,
+} from '../common';
 import { IssueIllustration } from './IssueIllustration';
 import { generateKey, getNumberedAffix } from '../../util/helpers';
+import droughtAnimation from '../../assets/animations/diversity.json';
 import './IssueBlocks.scss';
 
 const IssueBlocks = (props) => {
@@ -44,6 +49,12 @@ const IssueBlocks = (props) => {
             );
           })}
         </div>
+        <Lottie
+          container="my-animation"
+          animationData={droughtAnimation}
+          loop
+          autoplay
+        />
       </Wrapper>
     </div>
   );
