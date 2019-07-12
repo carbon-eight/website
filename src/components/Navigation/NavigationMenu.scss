@@ -94,16 +94,18 @@
                 }
               }
               .nav-link {
-                display: block;
-                @include h2($dark-font: false);
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
                 margin-bottom: 30px;
 
-                @include media-down(mobile) {
-                  font-size: 26px;
-                }
-
                 span {
+                  @include h2($dark-font: false);
                   position: relative;
+                  @include media-down(mobile) {
+                    font-size: 26px;
+                  }
 
                   &:after {
                     content: '';
@@ -123,12 +125,31 @@
                   }
                 }
 
+                .icon {
+                  height: 15px;
+                  width: 10px;
+                  margin-left: 15px;
+                  transform: translateX(-10px);
+                  transition: transform 0.3s ease;
+
+                  svg {
+                    path {
+                      fill: $white;
+                    }
+                  }
+                }
+
                 &:hover {
                   span {
                     &:after {
                       width: 100%;
                       transition: width 0.3s ease-out;
                     }
+                  }
+                  .icon {
+                    transform: translateX(0px);
+                    transition: transform 0.3s ease 0.3s;
+
                   }
                 }
               }
@@ -137,6 +158,22 @@
 
                 @include media-down(mobile) {
                   display: none;
+                }
+              }
+
+              &.active {
+                .nav-link {
+                  span {
+                    &:after {
+                      width: 100%;
+                    }
+                  }
+                  .icon {
+                    display: none;
+                  }
+                }
+                .description {
+
                 }
               }
             }
