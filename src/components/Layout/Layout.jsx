@@ -21,6 +21,21 @@ class PureLayout extends Component {
 
   componentDidMount() {
     viewportUnitsBuggyfill.init();
+    if (isClient) {
+      window.addEventListener('keydown', this.handleEscKey);
+    }
+  }
+
+  componentWillUnmount() {
+    if (isClient) {
+      window.removeEventListener('keydown', this.handleEscKey);
+    }
+  }
+
+  handleEscKey = (event) => {
+    console.log('Hello!');
+    const { navActive } = this.state;
+    if (event.keyCode === 27 && navActive) this.closeNav();
   }
 
   toggleNav = (event) => {
