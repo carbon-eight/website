@@ -29,9 +29,9 @@
     }
 
     .call-to-action {
-      width: calc((100% / 3) - 80px);
+      width: calc((100% / 3) - 60px);
       position: relative;
-      margin-right: 80px;
+      margin-right: 60px;
 
       @include media-down(wrapper) {
         width: calc((100% / 3) - 30px);
@@ -52,7 +52,7 @@
       .container {
         display: flex;
         flex-direction: column;
-        padding: 50px;
+        padding: 50px 40px;
         background-color: $white;
         border: 3px solid $tertiary;
         border-radius: 16%;

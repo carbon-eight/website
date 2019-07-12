@@ -8,7 +8,7 @@ import './SolutionBlocks.scss';
 const SolutionBlocks = (props) => {
   const {
     solutions,
-    isMobile,
+    // isMobile,
   } = props;
   return (
     <div className="solution-blocks">

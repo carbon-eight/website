@@ -37,7 +37,12 @@ const CallToActionsBlock = (props) => {
               slug,
             } = buttonLink;
             return (
-              <div className="call-to-action" key={generateKey(index)}>
+              <Link
+                key={generateKey(index)}
+                className="call-to-action"
+                to={`/${slug}/`}
+                aria-label={`Navigate to ${buttonLabel.text} page`}
+              >
                 <div className="container">
                   <div className="text-container">
                     <span className="label">{label.text}</span>
@@ -46,15 +51,11 @@ const CallToActionsBlock = (props) => {
                       content={description.html}
                     />
                   </div>
-                  <Link
-                    to={`/${slug}/`}
-                    className="call-to-action-link cta-button"
-                    aria-label={`Navigate to ${buttonLabel.text} page`}
-                  >
+                  <div className="call-to-action-link cta-button">
                     <span>{buttonLabel.text}</span>
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
