@@ -6,6 +6,10 @@
     justify-content: center;
     margin-bottom: 80px;
 
+    @include media-down(mobile) {
+      margin-bottom: 60px;
+    }
+
     button {
       margin-right: 30px;
 
