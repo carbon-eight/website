@@ -12,7 +12,7 @@ const OutcomeButtons = ({ outcomes, activeIndex, setActiveIndexHandler }) => (
       <button
         type="button"
         className={`outcome-selector ${activeIndex === index ? 'active' : ''}`}
-        onClick={event => setActiveIndexHandler(index)}
+        onClick={event => setActiveIndexHandler(index)} // eslint-disable-line
         aria-label={`Find out about ${outcome.title.text}`}
         key={generateKey(index)}
       >
@@ -21,6 +21,7 @@ const OutcomeButtons = ({ outcomes, activeIndex, setActiveIndexHandler }) => (
             <OutcomeIcon icon={outcome.illustration} />
           </div>
         </div>
+        <span className="hover-label">{outcome.title.text}</span>
       </button>
     ))}
   </div>

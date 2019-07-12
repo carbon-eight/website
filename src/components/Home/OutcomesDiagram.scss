@@ -67,6 +67,17 @@
         }
       }
 
+      .hover-label {
+        position: absolute;
+        @include h4();
+        color: $primary;
+        opacity: 0;
+        z-index: 2;
+        padding: 0 5px;
+        transition: opacity 0.3s ease, padding 0.3s ease;
+        padding: 0 5px;
+      }
+
       &.active {
         .icon-container {
           background-color: $secondary;
@@ -80,6 +91,10 @@
           &:before {
             opacity: 1;
           }
+        }
+
+        .hover-label {
+          opacity: 0 !important;
         }
 
         &:hover {
@@ -110,6 +125,10 @@
               }
             }
           }
+        }
+        .hover-label {
+          opacity: 1;
+          padding: 0px 5px !important;
         }
       }
 
@@ -160,23 +179,57 @@
             top: 0;
             left: 50%;
             transform: translateY(-50%) translateX(-50%);
+
+            .hover-label {
+              top: 50%;
+              left: auto;
+              right: 0;
+              transform: translateY(-50%) translateX(100%);
+              padding-left: 10px;
+            }
           }
           &:nth-child(2) {
             top: 50%;
             left: auto;
             right: 0;
             transform: translateY(-50%) translateX(50%);
+
+            .hover-label {
+              top: 50%;
+              left: auto;
+              right: 0;
+              transform: translateY(-50%) translateX(100%);
+              padding-left: 10px;
+            }
           }
           &:nth-child(3) {
             bottom: 0;
             left: 50%;
             transform: translateY(50%) translateX(-50%);
+
+            .hover-label {
+              top: 50%;
+              left: 0;
+              text-align: right;
+              transform: translateY(-50%) translateX(-100%);
+              padding-right: 10px;
+            }
           }
           &:nth-child(4) {
             top: 50%;
             left: 0;
             transform: translateY(-50%) translateX(-50%);
+
+            .hover-label {
+              top: 50%;
+              left: 0;
+              text-align: right;
+              transform: translateY(-50%) translateX(-100%);
+              padding-right: 10px;
+            }
           }
+
+
         }
       }
 
