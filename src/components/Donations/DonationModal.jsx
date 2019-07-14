@@ -40,6 +40,8 @@ class DonationModalTemplate extends Component {
     donationMode: RECURRING_OPTION,
     stripe: null,
     tilesHeight: 0,
+    errorMessage: null,
+    checkoutError: false,
   };
 
   componentDidMount() {
@@ -121,7 +123,13 @@ class DonationModalTemplate extends Component {
       cancelUrl: `${location.href}`,
       // billingAddressCollection: 'required',
     });
-    if (error) console.error('Error redirecting to the checkout:', error);
+    if (error) {
+      const { message: errorMessage } = error;
+      this.setState({
+        errorMessage,
+        checkoutError: true,
+      });
+    }
   }
 
   render() {
@@ -130,6 +138,8 @@ class DonationModalTemplate extends Component {
       donationMode,
       selectedDonationId,
       tilesHeight,
+      errorMessage,
+      checkoutError,
     } = this.state;
     const {
       donationSuccess,
@@ -187,6 +197,9 @@ class DonationModalTemplate extends Component {
                     selectTileHandler={this.selectDonationOption}
                   />
                 </div>
+                { (checkoutError && errorMessage) && (
+                  <span className="error-message">{errorMessage}</span>
+                )}
                 <div className="modal-actions">
                   <button
                     type="button"
