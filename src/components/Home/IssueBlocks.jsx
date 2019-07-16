@@ -7,7 +7,11 @@ import {
 } from '../common';
 import { IssueIllustration } from './IssueIllustration';
 import { generateKey, getNumberedAffix } from '../../util/helpers';
-import droughtAnimation from '../../assets/animations/diversity.json';
+import droughtAnimation from '../../assets/animations/drought.json';
+import diversityAnimation from '../../assets/animations/diversity.json';
+import grazingAnimation from '../../assets/animations/grazing.json';
+import croppingAnimation from '../../assets/animations/cropping.json';
+import emissionsAnimation from '../../assets/animations/emissions.json';
 import './IssueBlocks.scss';
 
 const IssueBlocks = (props) => {
@@ -50,8 +54,32 @@ const IssueBlocks = (props) => {
           })}
         </div>
         <Lottie
-          container="my-animation"
+          container="diversity-animation"
+          animationData={diversityAnimation}
+          loop
+          autoplay
+        />
+        <Lottie
+          container="emissions-animation"
+          animationData={emissionsAnimation}
+          loop
+          autoplay
+        />
+        <Lottie
+          container="drought-animation"
           animationData={droughtAnimation}
+          loop
+          autoplay
+        />
+        <Lottie
+          container="grazing-animation"
+          animationData={grazingAnimation}
+          loop
+          autoplay
+        />
+        <Lottie
+          container="cropping-animation"
+          animationData={croppingAnimation}
           loop
           autoplay
         />
