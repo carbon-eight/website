@@ -84,8 +84,8 @@
       .count {
         display: inline-block;
         @include h4();
-        color: $secondary;
-        border-bottom: $secondary 2px dashed;
+        color: $primary;
+        border-bottom: $primary 2px dashed;
         margin-bottom: 40px;
 
         @include media-down(tablet) {
