@@ -12,6 +12,7 @@ import diversityAnimation from '../../assets/animations/diversity.json';
 import grazingAnimation from '../../assets/animations/grazing.json';
 import croppingAnimation from '../../assets/animations/cropping.json';
 import emissionsAnimation from '../../assets/animations/emissions.json';
+import outcomesBiodiversityAnimation from '../../assets/animations/outcomes-biodiversity.json';
 import './IssueBlocks.scss';
 
 const IssueBlocks = (props) => {
@@ -80,6 +81,12 @@ const IssueBlocks = (props) => {
         <Lottie
           container="cropping-animation"
           animationData={croppingAnimation}
+          loop
+          autoplay
+        />
+        <Lottie
+          container="outcomes-biodiversity-animation"
+          animationData={outcomesBiodiversityAnimation}
           loop
           autoplay
         />
