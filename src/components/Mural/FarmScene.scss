@@ -1,3 +1,10 @@
 .farm-scene {
+  background-image: url('../../assets/images/Mural/farm-scene.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
+  &.mobile {
+    background-image: url('../../assets/images/Mural/farm-scene-mobile.svg');
+  }
 }

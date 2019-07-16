@@ -1,3 +1,10 @@
 .crop-scene {
-  
+  background-image: url('../../assets/images/Mural/crop-scene.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.mobile {
+    background-image: url('../../assets/images/Mural/crop-scene-mobile.svg');
+  }
 }
