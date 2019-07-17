@@ -33,7 +33,6 @@ class PureLayout extends Component {
   }
 
   handleEscKey = (event) => {
-    console.log('Hello!');
     const { navActive } = this.state;
     if (event.keyCode === 27 && navActive) this.closeNav();
   }

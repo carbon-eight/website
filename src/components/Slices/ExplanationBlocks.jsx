@@ -12,7 +12,7 @@ const Block = ({ block, index }) => {
     description,
   } = block;
   return (
-    <div className="block" key={generateKey(blockTitle.text)}>
+    <div className="block">
       <div className="image-container">
         <ColourfulBackground
           index={index}
@@ -53,6 +53,7 @@ const ExplanationBlocks = (props) => {
         <div className="blocks">
           { blocks && blocks.map((block, index) => (
             <Block
+              key={generateKey(index)}
               index={index}
               block={block}
             />
