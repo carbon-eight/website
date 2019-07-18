@@ -9,10 +9,10 @@ const CARBON_EMISSIONS_ILLUSTRATION = 'carbon-emissions';
 const BIODIVERSITY_ILLUSTRATION = 'reduction-of-biodiversity';
 const DROUGHT_ILLUSTRATION = 'drought-and-desertification';
 
-export const IssueIllustration = ({ illustration }) => {
+export const IssueIllustration = ({ illustration, isVisible }) => {
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
-    loop: true,
+    loop: false,
     autoplay: false,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
@@ -26,6 +26,8 @@ export const IssueIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: emissionsAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (BIODIVERSITY_ILLUSTRATION):
@@ -35,6 +37,8 @@ export const IssueIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: biodiversityAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (DROUGHT_ILLUSTRATION):
@@ -44,6 +48,8 @@ export const IssueIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: droughtAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     default:

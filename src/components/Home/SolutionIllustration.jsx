@@ -9,7 +9,7 @@ const CROPPING_SOLUTION_ILLUSTRATION = 'multi-species-cropping';
 const GRAZING_SOLUTION_ILLUSTRATION = 'holistic-grazing';
 const WATER_CYCLE_SOLUTION_ILLUSTRATION = 'water-cycle-restoration';
 
-export const SolutionIllustration = ({ illustration }) => {
+export const SolutionIllustration = ({ illustration, isVisible }) => {
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,
@@ -26,6 +26,8 @@ export const SolutionIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: croppingAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (GRAZING_SOLUTION_ILLUSTRATION):
@@ -35,6 +37,8 @@ export const SolutionIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: grazingAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (WATER_CYCLE_SOLUTION_ILLUSTRATION):
@@ -44,6 +48,8 @@ export const SolutionIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: waterwaysAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     default:

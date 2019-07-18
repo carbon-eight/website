@@ -11,7 +11,7 @@ const CARBON_OUTCOME_ILLUSTRATION = 'carbon-drawdown';
 const WATER_OUTCOME_ILLUSTRATION = 'water-retention';
 const PRODUCE_OUTCOME_ILLUSTRATION = 'healthier-produce';
 
-export const OutcomeIllustration = ({ illustration }) => {
+export const OutcomeIllustration = ({ illustration, isVisible }) => {
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,
@@ -28,6 +28,8 @@ export const OutcomeIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: biodiversityAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (CARBON_OUTCOME_ILLUSTRATION):
@@ -37,6 +39,8 @@ export const OutcomeIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: drawdownAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (WATER_OUTCOME_ILLUSTRATION):
@@ -47,6 +51,8 @@ export const OutcomeIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: waterAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     case (PRODUCE_OUTCOME_ILLUSTRATION):
@@ -56,6 +62,8 @@ export const OutcomeIllustration = ({ illustration }) => {
             ...defaultOptions,
             animationData: produceAnimation,
           }}
+          isStopped={!isVisible}
+          isPaused={!isVisible}
         />
       );
     default:
