@@ -19,7 +19,7 @@ export const IssueIllustration = ({ illustration }) => {
         <Lottie
           container="emissions-animation"
           animationData={emissionsAnimation}
-          autoplay
+          autoplay={false}
           loop={false}
         />
       );
@@ -28,7 +28,7 @@ export const IssueIllustration = ({ illustration }) => {
         <Lottie
           container="biodiversity-reduction-animation"
           animationData={biodiversityAnimation}
-          autoplay
+          autoplay={false}
           loop={false}
         />
       );
@@ -37,7 +37,7 @@ export const IssueIllustration = ({ illustration }) => {
         <Lottie
           container="drought-animation"
           animationData={droughtAnimation}
-          autoplay
+          autoplay={false}
           loop={false}
         />
       );

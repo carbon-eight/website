@@ -19,7 +19,7 @@ export const SolutionIllustration = ({ illustration }) => {
         <Lottie
           container="cropping-animation"
           animationData={croppingAnimation}
-          autoplay
+          autoplay={false}
           loop={false}
         />
       );
@@ -28,7 +28,7 @@ export const SolutionIllustration = ({ illustration }) => {
         <Lottie
           container="grazing-animation"
           animationData={grazingAnimation}
-          autoplay
+          autoplay={false}
           loop={false}
         />
       );
@@ -37,7 +37,7 @@ export const SolutionIllustration = ({ illustration }) => {
         <Lottie
           container="waterways-animation"
           animationData={waterwaysAnimation}
-          autoplay
+          autoplay={false}
           loop={false}
         />
       );
