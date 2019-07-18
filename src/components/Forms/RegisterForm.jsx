@@ -26,10 +26,6 @@ class RegisterForm extends Component {
       mailchimpEndpoint = null,
     } = this.props;
     const endpoint = mailchimpEndpoint && mailchimpEndpoint.text ? mailchimpEndpoint.text : null;
-    console.log({ email });
-    console.log({ fieldValues });
-    console.log({ endpoint });
-    event.preventDefault();
     if (submitting) return false;
     this.setState({
       submitting: true,
