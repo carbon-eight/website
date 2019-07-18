@@ -21,6 +21,10 @@ export default class SubscribeForm extends Component {
       email,
       submitting,
     } = this.state;
+    const {
+      mailchimpEndpoint = null,
+    } = this.props;
+    const endpoint = mailchimpEndpoint && mailchimpEndpoint.text ? mailchimpEndpoint.text : null;
     if (submitting) return false;
     const fields = {
       FNAME: name,
@@ -30,7 +34,7 @@ export default class SubscribeForm extends Component {
       submitSuccess: false,
       submitError: false,
     });
-    const result = await addToMailchimp(email, fields);
+    const result = await addToMailchimp(email, fields, endpoint);
     if (result.result === 'success') {
       this.setState({
         submitSuccess: true,
@@ -67,8 +71,6 @@ export default class SubscribeForm extends Component {
       title,
     } = this.props;
     const {
-      name,
-      email,
       submitting,
       submitSuccess,
       submitError,
@@ -96,7 +98,6 @@ export default class SubscribeForm extends Component {
                       id="name"
                       name="name"
                       onChange={event => this.handleNameChange(event)}
-                      value={name}
                       placeholder="Name"
                       required
                     />
@@ -109,7 +110,6 @@ export default class SubscribeForm extends Component {
                       name="email"
                       placeholder="Email"
                       onChange={event => this.handleEmailChange(event)}
-                      value={email}
                       required
                     />
                   </label>

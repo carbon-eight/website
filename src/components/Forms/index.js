@@ -1,5 +1,5 @@
-import ContactForm from './ContactForm';
+import RegisterForm from './RegisterForm';
 
 export {
-  ContactForm,
+  RegisterForm,
 };

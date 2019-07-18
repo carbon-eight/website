@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper } from '../common';
-import { ContactForm } from '../Forms';
+import { RegisterForm } from '../Forms';
 import './EnquiryForm.scss';
 
 export const ENQUIRY_FORM_ID = 'enquiry-form';
@@ -26,6 +26,7 @@ const EnquiryForm = (props) => {
     formTitle,
     formSubtitle,
     isBusinessEnquiry,
+    mailchimpEndpoint,
   } = primary;
   const formAffix = getSlug(location);
   return (
@@ -33,9 +34,10 @@ const EnquiryForm = (props) => {
       <Wrapper>
         <h2 className="block-title">{formTitle.text}</h2>
         <p className="subtitle">{formSubtitle.text}</p>
-        <ContactForm
+        <RegisterForm
           formName={`contact-form${formAffix ? `-${formAffix}` : ''}`}
           isBusiness={Boolean(isBusinessEnquiry === 'true')}
+          mailchimpEndpoint={mailchimpEndpoint}
         />
       </Wrapper>
     </section>

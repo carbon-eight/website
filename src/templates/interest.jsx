@@ -97,6 +97,9 @@ export const pageQuery = graphql`
                 html
                 text
               }
+              mailchimpEndpoint: mailchimp_endpoint {
+                text
+              }
             }
           }
           ... on PrismicExpressionOfInterestBodyExplanationBlocks {
@@ -171,6 +174,9 @@ export const pageQuery = graphql`
               }
               formSubtitle: form_subtitle {
                 html
+                text
+              }
+              mailchimpEndpoint: mailchimp_endpoint {
                 text
               }
               isBusinessEnquiry: business_enquiry
