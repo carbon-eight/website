@@ -28,7 +28,6 @@ const IssueBlocks = (props) => {
               <VisibilitySensor
                 key={generateKey(index)}
                 partialVisibility
-                minTopValue={100}
               >
                 {({ isVisible }) => (
                   <div className="issue">
