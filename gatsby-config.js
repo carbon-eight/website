@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // eslint-disable-line
-
 const {
   NODE_ENV,
   IS_STAGING,
@@ -56,7 +54,6 @@ module.exports = {
   },
   /* Plugins */
   plugins: [
-    new BundleAnalyzerPlugin(),
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

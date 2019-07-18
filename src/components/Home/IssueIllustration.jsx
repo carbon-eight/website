@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Lottie,
-} from '../common';
+import Lottie from 'react-lottie';
 import droughtAnimation from '../../assets/animations/issues/drought.json';
 import emissionsAnimation from '../../assets/animations/issues/emissions.json';
 import biodiversityAnimation from '../../assets/animations/issues/biodiversity.json';
@@ -13,32 +11,39 @@ const DROUGHT_ILLUSTRATION = 'drought-and-desertification';
 
 export const IssueIllustration = ({ illustration }) => {
   const illustrationId = toKebabCase(illustration);
+  const defaultOptions = {
+    loop: true,
+    autoplay: false,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
   switch (illustrationId) {
     case (CARBON_EMISSIONS_ILLUSTRATION):
       return (
         <Lottie
-          container="emissions-animation"
-          animationData={emissionsAnimation}
-          autoplay={false}
-          loop={false}
+          options={{
+            ...defaultOptions,
+            animationData: emissionsAnimation,
+          }}
         />
       );
     case (BIODIVERSITY_ILLUSTRATION):
       return (
         <Lottie
-          container="biodiversity-reduction-animation"
-          animationData={biodiversityAnimation}
-          autoplay={false}
-          loop={false}
+          options={{
+            ...defaultOptions,
+            animationData: biodiversityAnimation,
+          }}
         />
       );
     case (DROUGHT_ILLUSTRATION):
       return (
         <Lottie
-          container="drought-animation"
-          animationData={droughtAnimation}
-          autoplay={false}
-          loop={false}
+          options={{
+            ...defaultOptions,
+            animationData: droughtAnimation,
+          }}
         />
       );
     default:

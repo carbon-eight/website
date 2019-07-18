@@ -47,6 +47,7 @@
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-input-autosize": "^2.2.1",
+    "react-lottie": "^1.2.3",
     "react-on-visible": "^1.6.0",
     "react-slick": "^0.24.0",
     "react-tilt": "^0.1.4",

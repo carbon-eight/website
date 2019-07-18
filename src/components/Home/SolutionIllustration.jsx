@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Lottie,
-} from '../common';
+import Lottie from 'react-lottie';
 import croppingAnimation from '../../assets/animations/solutions/cropping.json';
 import grazingAnimation from '../../assets/animations/solutions/grazing.json';
 import waterwaysAnimation from '../../assets/animations/solutions/waterways.json';
@@ -13,32 +11,39 @@ const WATER_CYCLE_SOLUTION_ILLUSTRATION = 'water-cycle-restoration';
 
 export const SolutionIllustration = ({ illustration }) => {
   const illustrationId = toKebabCase(illustration);
+  const defaultOptions = {
+    loop: false,
+    autoplay: false,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
   switch (illustrationId) {
     case (CROPPING_SOLUTION_ILLUSTRATION):
       return (
         <Lottie
-          container="cropping-animation"
-          animationData={croppingAnimation}
-          autoplay={false}
-          loop={false}
+          options={{
+            ...defaultOptions,
+            animationData: croppingAnimation,
+          }}
         />
       );
     case (GRAZING_SOLUTION_ILLUSTRATION):
       return (
         <Lottie
-          container="grazing-animation"
-          animationData={grazingAnimation}
-          autoplay={false}
-          loop={false}
+          options={{
+            ...defaultOptions,
+            animationData: grazingAnimation,
+          }}
         />
       );
     case (WATER_CYCLE_SOLUTION_ILLUSTRATION):
       return (
         <Lottie
-          container="waterways-animation"
-          animationData={waterwaysAnimation}
-          autoplay={false}
-          loop={false}
+          options={{
+            ...defaultOptions,
+            animationData: waterwaysAnimation,
+          }}
         />
       );
     default:
