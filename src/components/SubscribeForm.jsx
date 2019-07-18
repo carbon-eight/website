@@ -71,8 +71,6 @@ export default class SubscribeForm extends Component {
       title,
     } = this.props;
     const {
-      name,
-      email,
       submitting,
       submitSuccess,
       submitError,

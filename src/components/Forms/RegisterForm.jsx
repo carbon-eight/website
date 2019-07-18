@@ -82,7 +82,7 @@ class RegisterForm extends Component {
     } = this.state;
     return (
       <form
-        className="contact-form"
+        className={`contact-form ${submitError ? 'has-error' : ''}`}
         name={formName}
         method="POST"
         onSubmit={event => this.submitHandler(event)}
@@ -164,12 +164,12 @@ class RegisterForm extends Component {
           >
             <span>{submitting ? 'Submitting...' : 'Send'}</span>
           </button>
+          { submitError && (
+            <div className="error-message">
+              <span>{this.isAlreadySubscribed ? 'Oops! Looks like you\'re already registered. Please send any further equiries to gday@carbon8.org.au' : `Uh oh! Something went wrong!`}</span>
+            </div>
+          )}
         </div>
-        { submitError && (
-          <div className="error-message">
-            <span>{this.isAlreadySubscribed ? 'Oops! Looks like you\'re already subscribed to our mailing list.' : `Uh oh! Something went wrong!`}</span>
-          </div>
-        )}
       </form>
     );
   }
