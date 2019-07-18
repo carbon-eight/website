@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import OnVisible from 'react-on-visible';
+import VisibilitySensor from 'react-visibility-sensor';
 import { OutcomeIllustration } from './OutcomeIllustration';
 import { OutcomeIcon } from './OutcomeIcon';
 import { Wrapper, HtmlContent } from '../common';
@@ -38,61 +38,81 @@ const OutcomesDiagram = (props) => {
     <div className="outcomes-diagram">
       { isMobile ? (
         <div className="diagram diagram-mobile">
-          <div className="outcome-illustration">
-            <OutcomeIllustration illustration={activeOutcome.illustration} />
-          </div>
-          <div className="half-circle">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 99">
-              <defs>
-                <path id="half-circle-a" d="M.924.5h360v100h-360z" />
-              </defs>
-              <g fill="none" fillRule="evenodd" transform="translate(-.924 -1.5)">
-                <mask id="half-circle-b" fill="#fff">
-                  <use xlinkHref="#half-circle-a" />
-                </mask>
-                <path fill="#E8F4EF" fillRule="nonzero" d="M-40-121c0 122.055 98.945 221 221 221S402 1.055 402-121h-3C399-.602 301.398 97 181 97S-37-.602-37-121h-3z" mask="url(#half-circle-b)" />
-              </g>
-            </svg>
-            <OutcomeButtons
-              outcomes={outcomes}
-              activeIndex={activeIndex}
-              setActiveIndexHandler={setActiveIndex}
-            />
-          </div>
-          <div className="outcome-elaboration">
-            <h3 className="title">
-              <OnVisible wrappingElement="span">
-                {activeOutcome.title.text}
-              </OnVisible>
-            </h3>
-            <HtmlContent
-              content={activeOutcome.description.html}
-            />
-          </div>
+          <VisibilitySensor partialVisibility>
+            {({ isVisible }) => (
+              <>
+                <div className="outcome-illustration">
+                  <OutcomeIllustration
+                    illustration={activeOutcome.illustration}
+                    isVisible={isVisible}
+                  />
+                </div>
+                <div className="half-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 99">
+                    <defs>
+                      <path id="half-circle-a" d="M.924.5h360v100h-360z" />
+                    </defs>
+                    <g fill="none" fillRule="evenodd" transform="translate(-.924 -1.5)">
+                      <mask id="half-circle-b" fill="#fff">
+                        <use xlinkHref="#half-circle-a" />
+                      </mask>
+                      <path fill="#E8F4EF" fillRule="nonzero" d="M-40-121c0 122.055 98.945 221 221 221S402 1.055 402-121h-3C399-.602 301.398 97 181 97S-37-.602-37-121h-3z" mask="url(#half-circle-b)" />
+                    </g>
+                  </svg>
+                  <OutcomeButtons
+                    outcomes={outcomes}
+                    activeIndex={activeIndex}
+                    setActiveIndexHandler={setActiveIndex}
+                  />
+                </div>
+                <div className="outcome-elaboration">
+                  <h3 className="title">
+                    <span className={isVisible ? 'visible' : ''}>
+                      {activeOutcome.title.text}
+                    </span>
+                  </h3>
+                  <HtmlContent
+                    content={activeOutcome.description.html}
+                  />
+                </div>
+              </>
+            )}
+          </VisibilitySensor>
         </div>
       ) : (
         <Wrapper>
           <div className="diagram diagram-desktop">
-            <div className="circle">
-              <OutcomeButtons
-                outcomes={outcomes}
-                activeIndex={activeIndex}
-                setActiveIndexHandler={setActiveIndex}
-              />
-              <div className="outcome-illustration">
-                <OutcomeIllustration illustration={activeOutcome.illustration} />
-              </div>
-              <div className="outcome-elaboration">
-                <h3 className="title">
-                  <OnVisible wrappingElement="span">
-                    {activeOutcome.title.text}
-                  </OnVisible>
-                </h3>
-                <HtmlContent
-                  content={activeOutcome.description.html}
-                />
-              </div>
-            </div>
+            <VisibilitySensor partialVisibility>
+              {({ isVisible }) => (
+                <>
+                  <div className="circle">
+                    <OutcomeButtons
+                      outcomes={outcomes}
+                      activeIndex={activeIndex}
+                      setActiveIndexHandler={setActiveIndex}
+                    />
+                    <div className="outcome-illustration">
+                      <OutcomeIllustration
+                        illustration={activeOutcome.illustration}
+                        isVisible={isVisible}
+                      />
+                    </div>
+                    <div className="outcome-elaboration">
+                      <h3 className="title">
+                        <h3 className="title">
+                          <span className={isVisible ? 'visible' : ''}>
+                            {activeOutcome.title.text}
+                          </span>
+                        </h3>
+                      </h3>
+                      <HtmlContent
+                        content={activeOutcome.description.html}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+            </VisibilitySensor>
           </div>
         </Wrapper>
       )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import OnVisible from 'react-on-visible';
+import VisibilitySensor from 'react-visibility-sensor';
 import { Wrapper, HtmlContent } from '../common';
 import { SolutionIllustration } from './SolutionIllustration';
 import { generateKey, getNumberedAffix } from '../../util/helpers';
@@ -21,28 +21,36 @@ const SolutionBlocks = (props) => {
               illustration,
             } = technique;
             return (
-              <div className="solution" key={generateKey(index)}>
-                <div className="col image-col">
-                  <div className="illustration">
-                    <SolutionIllustration illustration={illustration} />
+              <VisibilitySensor
+                key={generateKey(index)}
+                partialVisibility
+              >
+                {({ isVisible }) => (
+                  <div className="solution">
+                    <div className="col image-col">
+                      <div className="illustration">
+                        <SolutionIllustration
+                          illustration={illustration}
+                          isVisible={isVisible}
+                        />
+                      </div>
+                    </div>
+                    <div className="col text-col">
+                      <div className="text-container">
+                        <span className="count">{`Technique ${getNumberedAffix(index)}`}</span>
+                        <h3 className="title">
+                          <span className={isVisible ? 'visible' : ''}>
+                            {title.text}
+                          </span>
+                        </h3>
+                        <HtmlContent
+                          content={description.html}
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="col text-col">
-                  <div className="text-container">
-                    <span className="count">{`Technique ${getNumberedAffix(index)}`}</span>
-                    <h3 className="title">
-                      <OnVisible
-                        wrappingElement="span"
-                      >
-                        {title.text}
-                      </OnVisible>
-                    </h3>
-                    <HtmlContent
-                      content={description.html}
-                    />
-                  </div>
-                </div>
-              </div>
+                )}
+              </VisibilitySensor>
             );
           })}
         </div>
