@@ -22,6 +22,6 @@ export default class Lottie extends Component {
 
   render() {
     const { container, className } = this.props;
-    return <div id={container} className={className} />;
+    return <div id={container} className={`animation${className ? ` ${className}` : ''}`} />;
   }
 }
