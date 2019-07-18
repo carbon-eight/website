@@ -38,7 +38,7 @@ const OutcomesDiagram = (props) => {
     <div className="outcomes-diagram">
       { isMobile ? (
         <div className="diagram diagram-mobile">
-          <VisibilitySensor partialVisibility>
+          <VisibilitySensor partialVisibility minTopValue={100}>
             {({ isVisible }) => (
               <>
                 <div className="outcome-illustration">
@@ -82,7 +82,7 @@ const OutcomesDiagram = (props) => {
       ) : (
         <Wrapper>
           <div className="diagram diagram-desktop">
-            <VisibilitySensor partialVisibility>
+            <VisibilitySensor partialVisibility minTopValue={100}>
               {({ isVisible }) => (
                 <>
                   <div className="circle">
