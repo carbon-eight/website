@@ -26,6 +26,7 @@ const EnquiryForm = (props) => {
     formTitle,
     formSubtitle,
     isBusinessEnquiry,
+    mailchimpEndpoint,
   } = primary;
   const formAffix = getSlug(location);
   return (
@@ -36,6 +37,7 @@ const EnquiryForm = (props) => {
         <RegisterForm
           formName={`contact-form${formAffix ? `-${formAffix}` : ''}`}
           isBusiness={Boolean(isBusinessEnquiry === 'true')}
+          mailchimpEndpoint={mailchimpEndpoint}
         />
       </Wrapper>
     </section>

@@ -13,7 +13,6 @@ class RegisterForm extends Component {
     fieldValues: {},
     errorMessage: null,
     submitting: false,
-    submitSuccess: false,
     submitError: false,
   }
 
@@ -26,16 +25,19 @@ class RegisterForm extends Component {
     const {
       mailchimpEndpoint = null,
     } = this.props;
+    const endpoint = mailchimpEndpoint && mailchimpEndpoint.text ? mailchimpEndpoint.text : null;
+    console.log({ email });
+    console.log({ fieldValues });
+    console.log({ endpoint });
+    event.preventDefault();
     if (submitting) return false;
     this.setState({
       submitting: true,
-      submitSuccess: false,
       submitError: false,
     });
-    const result = await addToMailchimp(email, fieldValues, mailchimpEndpoint);
+    const result = await addToMailchimp(email, fieldValues, endpoint);
     if (result.result === 'success') {
       this.setState({
-        submitSuccess: true,
         submitting: false,
       });
     } else {
@@ -64,11 +66,20 @@ class RegisterForm extends Component {
     });
   }
 
+  isAlreadySubscribed = () => {
+    const { errorMessage } = this.state;
+    return errorMessage.indexOf('already subscribed') || errorMessage.indexOf('too many requests');
+  }
+
   render() {
     const {
       formName,
       isBusiness,
     } = this.props;
+    const {
+      submitting,
+      submitError,
+    } = this.state;
     return (
       <form
         className="contact-form"
@@ -145,10 +156,20 @@ class RegisterForm extends Component {
           <textarea id="message" name="message" rows="6" />
         </label>
         <div className="form-actions">
-          <button className="send-button cta-button" type="submit" aria-label="Send">
-            <span>Send</span>
+          <button
+            className="send-button cta-button"
+            type="submit"
+            aria-label="Send"
+            disabled={submitting}
+          >
+            <span>{submitting ? 'Submitting...' : 'Send'}</span>
           </button>
         </div>
+        { submitError && (
+          <div className="error-message">
+            <span>{this.isAlreadySubscribed ? 'Oops! Looks like you\'re already subscribed to our mailing list.' : `Uh oh! Something went wrong!`}</span>
+          </div>
+        )}
       </form>
     );
   }
