@@ -6,6 +6,7 @@ import './SubscribeForm.scss';
 
 export default class SubscribeForm extends Component {
   state = {
+    name: '',
     email: '',
     errorMessage: null,
     submitting: false,
@@ -15,14 +16,21 @@ export default class SubscribeForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const { email, submitting } = this.state;
+    const {
+      name,
+      email,
+      submitting,
+    } = this.state;
     if (submitting) return false;
+    const fields = {
+      FNAME: name,
+    };
     this.setState({
       submitting: true,
       submitSuccess: false,
       submitError: false,
     });
-    const result = await addToMailchimp(email);
+    const result = await addToMailchimp(email, fields);
     if (result.result === 'success') {
       this.setState({
         submitSuccess: true,
@@ -37,7 +45,13 @@ export default class SubscribeForm extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleNameChange = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  }
+
+  handleEmailChange = (event) => {
     this.setState({
       email: event.target.value,
     });
@@ -53,6 +67,7 @@ export default class SubscribeForm extends Component {
       title,
     } = this.props;
     const {
+      name,
       email,
       submitting,
       submitSuccess,
@@ -80,6 +95,8 @@ export default class SubscribeForm extends Component {
                       type="text"
                       id="name"
                       name="name"
+                      onChange={event => this.handleNameChange(event)}
+                      value={name}
                       placeholder="Name"
                       required
                     />
@@ -91,7 +108,7 @@ export default class SubscribeForm extends Component {
                       disabled={submitting}
                       name="email"
                       placeholder="Email"
-                      onChange={event => this.handleChange(event)}
+                      onChange={event => this.handleEmailChange(event)}
                       value={email}
                       required
                     />
