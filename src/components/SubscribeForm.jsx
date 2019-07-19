@@ -71,6 +71,8 @@ export default class SubscribeForm extends Component {
       title,
     } = this.props;
     const {
+      name,
+      email,
       submitting,
       submitSuccess,
       submitError,
@@ -92,23 +94,25 @@ export default class SubscribeForm extends Component {
                   name="subscribe"
                   onSubmit={event => this.handleSubmit(event)}
                 >
-                  <label className="field" htmlFor="name">
+                  <label className={`field${name !== '' ? ' has-value' : ''}`} htmlFor="name" aria-label="Name">
+                    <span className="field-label">Name</span>
                     <input
                       type="text"
                       id="name"
                       name="name"
+                      placeholder="name"
                       onChange={event => this.handleNameChange(event)}
-                      placeholder="Name"
                       required
                     />
                   </label>
-                  <label htmlFor="email" className="field" aria-label="Email">
+                  <label className={`field${email !== '' ? ' has-value' : ''}`} htmlFor="email" aria-label="Email">
+                    <span className="field-label">Email</span>
                     <input
                       type="email"
                       id="email"
+                      placeholder="email"
                       disabled={submitting}
                       name="email"
-                      placeholder="Email"
                       onChange={event => this.handleEmailChange(event)}
                       required
                     />
