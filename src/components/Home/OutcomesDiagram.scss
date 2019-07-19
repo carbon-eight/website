@@ -245,6 +245,30 @@
         svg {
           width: 100%;
           height: 100%;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        &:before {
+          content: '';
+          @include center-align(absolute);
+          width: 60%;
+          height: 60%;
+          background-image: url('../../assets/images/outcome-placeholder.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        }
+
+        &.visible {
+          > div {
+            opacity: 1;
+          }
+          &:before {
+            opacity: 0;
+          }
         }
       }
 

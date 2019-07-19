@@ -8,7 +8,7 @@ import './SolutionBlocks.scss';
 const SolutionBlocks = (props) => {
   const {
     solutions,
-    // isMobile,
+    loadAnimations,
   } = props;
   return (
     <div className="solution-blocks">
@@ -28,10 +28,11 @@ const SolutionBlocks = (props) => {
                 {({ isVisible }) => (
                   <div className="solution">
                     <div className="col image-col">
-                      <div className={`illustration${isVisible ? ' visible' : ''}`}>
+                      <div className={`illustration${loadAnimations ? ' visible' : ''}`}>
                         <SolutionIllustration
                           illustration={illustration}
                           isVisible={isVisible}
+                          loadAnimations={loadAnimations}
                         />
                       </div>
                     </div>

@@ -31,6 +31,7 @@ const OutcomesDiagram = (props) => {
   const {
     outcomes,
     isMobile,
+    loadAnimations,
   } = props;
   const [activeIndex, setActiveIndex] = useState(0);
   const activeOutcome = outcomes[activeIndex];
@@ -41,10 +42,11 @@ const OutcomesDiagram = (props) => {
           <VisibilitySensor partialVisibility>
             {({ isVisible }) => (
               <>
-                <div className="outcome-illustration">
+                <div className={`outcome-illustration${loadAnimations ? ' visible' : ''}`}>
                   <OutcomeIllustration
                     illustration={activeOutcome.illustration}
                     isVisible={isVisible}
+                    loadAnimations={loadAnimations}
                   />
                 </div>
                 <div className="half-circle">
@@ -91,10 +93,11 @@ const OutcomesDiagram = (props) => {
                       activeIndex={activeIndex}
                       setActiveIndexHandler={setActiveIndex}
                     />
-                    <div className="outcome-illustration">
+                    <div className={`outcome-illustration${loadAnimations ? ' visible' : ''}`}>
                       <OutcomeIllustration
                         illustration={activeOutcome.illustration}
                         isVisible={isVisible}
+                        loadAnimations={loadAnimations}
                       />
                     </div>
                     <div className="outcome-elaboration">

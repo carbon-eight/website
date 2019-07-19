@@ -12,6 +12,7 @@ const IssueBlocks = (props) => {
   const {
     issues,
     isMobile,
+    loadAnimations,
   } = props;
   return (
     <div className="issue-blocks">
@@ -31,8 +32,12 @@ const IssueBlocks = (props) => {
               >
                 {({ isVisible }) => (
                   <div className="issue">
-                    <div className={`illustration${isVisible ? ' visible' : ''}`}>
-                      <IssueIllustration illustration={illustration} isVisible={isVisible} />
+                    <div className={`illustration${loadAnimations ? ' visible' : ''}`}>
+                      <IssueIllustration
+                        illustration={illustration}
+                        isVisible={isVisible}
+                        loadAnimations={loadAnimations}
+                      />
                     </div>
                     <div className="text-container">
                       <span className="count">{`Issue ${getNumberedAffix(index)}`}</span>

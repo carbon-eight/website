@@ -11,7 +11,8 @@ const CARBON_OUTCOME_ILLUSTRATION = 'carbon-drawdown';
 const WATER_OUTCOME_ILLUSTRATION = 'water-retention';
 const PRODUCE_OUTCOME_ILLUSTRATION = 'healthier-produce';
 
-export const OutcomeIllustration = ({ illustration, isVisible }) => {
+export const OutcomeIllustration = ({ illustration, isVisible, loadAnimations }) => {
+  if (!loadAnimations && !isVisible) return null;
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,
