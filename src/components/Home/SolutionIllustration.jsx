@@ -10,6 +10,7 @@ const GRAZING_SOLUTION_ILLUSTRATION = 'holistic-grazing';
 const WATER_CYCLE_SOLUTION_ILLUSTRATION = 'water-cycle-restoration';
 
 export const SolutionIllustration = ({ illustration, isVisible }) => {
+  if (!isVisible) return null;
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,

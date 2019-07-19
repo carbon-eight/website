@@ -28,7 +28,7 @@ const SolutionBlocks = (props) => {
                 {({ isVisible }) => (
                   <div className="solution">
                     <div className="col image-col">
-                      <div className="illustration">
+                      <div className={`illustration${isVisible ? ' visible' : ''}`}>
                         <SolutionIllustration
                           illustration={illustration}
                           isVisible={isVisible}

@@ -10,10 +10,11 @@ const BIODIVERSITY_ILLUSTRATION = 'reduction-of-biodiversity';
 const DROUGHT_ILLUSTRATION = 'drought-and-desertification';
 
 export const IssueIllustration = ({ illustration, isVisible }) => {
+  if (!isVisible) return null;
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,
-    autoplay: false,
+    autoplay: true,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
