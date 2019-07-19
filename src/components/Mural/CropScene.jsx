@@ -3,10 +3,12 @@ import './CropScene.scss';
 
 const CropScene = (props) => {
   const {
+    domLoading,
     isSmallMobile,
   } = props;
+  const stateClasses = `${isSmallMobile ? ' mobile' : ''}${domLoading ? '' : ' loaded'}`;
   return (
-    <section className={`crop-scene${isSmallMobile ? ' mobile' : ''}`} />
+    <section className={`crop-scene${stateClasses}`} />
   );
 };
 
