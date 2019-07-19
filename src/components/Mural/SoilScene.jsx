@@ -3,11 +3,13 @@ import './SoilScene.scss';
 
 const SoilScene = (props) => {
   const {
+    domLoading,
     isSmallMobile,
   } = props;
+  const stateClasses = `${isSmallMobile ? ' mobile' : ''}${domLoading ? '' : ' loaded'}`;
   return (
     <section
-      className={`soil-scene${isSmallMobile ? ' mobile' : ''}`}
+      className={`soil-scene${stateClasses}`}
     >
       { isSmallMobile ? (
         <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 173">
