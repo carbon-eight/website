@@ -12,7 +12,7 @@ const WATER_OUTCOME_ILLUSTRATION = 'water-retention';
 const PRODUCE_OUTCOME_ILLUSTRATION = 'healthier-produce';
 
 export const OutcomeIllustration = ({ illustration, isVisible, loadAnimations }) => {
-  if (!loadAnimations && !isVisible) return null;
+  if (!loadAnimations) return null;
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,
