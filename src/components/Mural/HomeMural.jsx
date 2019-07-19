@@ -36,29 +36,31 @@ class HomeMural extends Component {
     const { isSmallMobile } = this.props;
     return (
       <div className={`home-mural${isSmallMobile ? ' mobile' : ''}`}>
-        <ParallaxElement parallaxSpeed={isSmallMobile ? -2.25 : -7}>
-          <ValleyScene
-            isSmallMobile={isSmallMobile}
-          />
-        </ParallaxElement>
-        <ParallaxElement parallaxSpeed={isSmallMobile ? -2 : -5}>
-          <FarmScene
-            isSmallMobile={isSmallMobile}
-          />
-        </ParallaxElement>
-        <ParallaxElement parallaxSpeed={isSmallMobile ? -1.5 : -3}>
-          <CropScene
-            isSmallMobile={isSmallMobile}
-          />
-        </ParallaxElement>
-        <ParallaxElement parallaxSpeed={isSmallMobile ? 0 : -1}>
-          <SoilScene
-            isSmallMobile={isSmallMobile}
-          />
-          <RootsScene
-            isSmallMobile={isSmallMobile}
-          />
-        </ParallaxElement>
+        <div className="mural-components">
+          <ParallaxElement parallaxSpeed={isSmallMobile ? -2.25 : -7}>
+            <ValleyScene
+              isSmallMobile={isSmallMobile}
+            />
+          </ParallaxElement>
+          <ParallaxElement parallaxSpeed={isSmallMobile ? -2 : -5}>
+            <FarmScene
+              isSmallMobile={isSmallMobile}
+            />
+          </ParallaxElement>
+          <ParallaxElement parallaxSpeed={isSmallMobile ? -1.5 : -3}>
+            <CropScene
+              isSmallMobile={isSmallMobile}
+            />
+          </ParallaxElement>
+          <ParallaxElement parallaxSpeed={isSmallMobile ? 0 : -1}>
+            <SoilScene
+              isSmallMobile={isSmallMobile}
+            />
+            <RootsScene
+              isSmallMobile={isSmallMobile}
+            />
+          </ParallaxElement>
+        </div>
       </div>
     );
   }
