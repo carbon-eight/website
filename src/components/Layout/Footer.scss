@@ -71,12 +71,13 @@ footer.footer {
           display: block;
           @include h4();
           color: $roots;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
         }
 
         .col-value {
           @include p1();
           color: $roots;
+          padding-bottom: 10px;
         }
       }
     }
