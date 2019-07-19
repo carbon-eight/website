@@ -9,8 +9,8 @@ const CROPPING_SOLUTION_ILLUSTRATION = 'multi-species-cropping';
 const GRAZING_SOLUTION_ILLUSTRATION = 'holistic-grazing';
 const WATER_CYCLE_SOLUTION_ILLUSTRATION = 'water-cycle-restoration';
 
-export const SolutionIllustration = ({ illustration, isVisible }) => {
-  if (!isVisible) return null;
+export const SolutionIllustration = ({ illustration, isVisible, loadAnimations }) => {
+  if (!loadAnimations) return null;
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,

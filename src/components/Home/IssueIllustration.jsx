@@ -9,8 +9,8 @@ const CARBON_EMISSIONS_ILLUSTRATION = 'carbon-emissions';
 const BIODIVERSITY_ILLUSTRATION = 'reduction-of-biodiversity';
 const DROUGHT_ILLUSTRATION = 'drought-and-desertification';
 
-export const IssueIllustration = ({ illustration, isVisible }) => {
-  if (!isVisible) return null;
+export const IssueIllustration = ({ illustration, isVisible, loadAnimations }) => {
+  if (!loadAnimations) return null;
   const illustrationId = toKebabCase(illustration);
   const defaultOptions = {
     loop: false,
