@@ -3,10 +3,9 @@ import './RootsScene.scss';
 
 const RootsScene = (props) => {
   const {
-    domLoading,
     isSmallMobile,
   } = props;
-  const stateClasses = `${isSmallMobile ? ' mobile' : ''}${domLoading ? '' : ' loaded'}`;
+  const stateClasses = `${isSmallMobile ? ' mobile' : ''}`;
   return (
     <section className={`roots-scene${stateClasses}`} />
   );

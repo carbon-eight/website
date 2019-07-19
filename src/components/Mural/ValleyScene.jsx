@@ -3,10 +3,9 @@ import './ValleyScene.scss';
 
 const ValleyScene = (props) => {
   const {
-    domLoading,
     isSmallMobile,
   } = props;
-  const stateClasses = `${isSmallMobile ? ' mobile' : ''}${domLoading ? '' : ' loaded'}`;
+  const stateClasses = `${isSmallMobile ? ' mobile' : ''}`;
   return (
     <section className={`valley-scene${stateClasses}`} />
   );
