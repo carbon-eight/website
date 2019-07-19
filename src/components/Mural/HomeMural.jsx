@@ -16,9 +16,11 @@ class HomeMural extends Component {
   };
 
   componentDidMount() {
-    this.setState({
-      domLoading: false,
-    });
+    setTimeout(() => {
+      this.setState({
+        domLoading: false,
+      });
+    }, 50);
     this.rellax = new Rellax('.parallax', {
       center: false,
       round: true,

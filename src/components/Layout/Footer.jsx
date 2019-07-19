@@ -52,7 +52,7 @@ const Footer = (props) => {
                   const { slug } = link;
                   if (slug === 'home') return null;
                   return (
-                    <li className="nav-item" key={generateKey(index)}>
+                    <li className="nav-item col-value" key={generateKey(index)}>
                       <Link
                         key={slug}
                         to={`/${slug}/`}
