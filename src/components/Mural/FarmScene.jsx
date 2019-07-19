@@ -3,10 +3,9 @@ import './FarmScene.scss';
 
 const FarmScene = (props) => {
   const {
-    domLoading,
     isSmallMobile,
   } = props;
-  const stateClasses = `${isSmallMobile ? ' mobile' : ''}${domLoading ? '' : ' loaded'}`;
+  const stateClasses = `${isSmallMobile ? ' mobile' : ''}`;
   return (
     <section className={`farm-scene${stateClasses}`} />
   );
