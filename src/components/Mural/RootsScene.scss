@@ -1,11 +1,17 @@
 .roots-scene {
-  background-image: url('../../assets/images/Mural/roots-scene.svg');
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: $earth;
 
-  &.mobile {
-    background-image: url('../../assets/images/Mural/roots-scene-mobile.svg');
+
+
+  &.loaded {
+    opacity: 1;
+    background-image: url('../../assets/images/Mural/roots-scene.svg');
+    &.mobile {
+      background-image: url('../../assets/images/Mural/roots-scene-mobile.svg');
+    }
   }
 }

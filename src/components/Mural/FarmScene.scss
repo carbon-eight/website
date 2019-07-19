@@ -1,10 +1,15 @@
 .farm-scene {
-  background-image: url('../../assets/images/Mural/farm-scene.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
 
-  &.mobile {
-    background-image: url('../../assets/images/Mural/farm-scene-mobile.svg');
+  &.loaded {
+    opacity: 1;
+    background-image: url('../../assets/images/Mural/farm-scene.svg');
+    &.mobile {
+      background-image: url('../../assets/images/Mural/farm-scene-mobile.svg');
+    }
   }
 }
