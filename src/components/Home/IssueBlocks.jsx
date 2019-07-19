@@ -31,7 +31,7 @@ const IssueBlocks = (props) => {
               >
                 {({ isVisible }) => (
                   <div className="issue">
-                    <div className="illustration">
+                    <div className={`illustration${isVisible ? ' visible' : ''}`}>
                       <IssueIllustration illustration={illustration} isVisible={isVisible} />
                     </div>
                     <div className="text-container">
