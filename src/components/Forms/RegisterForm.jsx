@@ -17,6 +17,7 @@ class RegisterForm extends Component {
   }
 
   submitHandler = async (event) => {
+    event.persist();
     event.preventDefault();
     const form = event.target;
     const {
