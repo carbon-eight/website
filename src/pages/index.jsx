@@ -44,8 +44,8 @@ class Index extends Component {
     const {
       viewportWidth,
     } = this.state;
-    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
-    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
+    const isSmallMobile = Boolean(viewportWidth !== 0 && viewportWidth <= SMALL_MOBILE_BREAKPOINT);
+    const isMobile = Boolean(viewportWidth !== 0 && viewportWidth <= MOBILE_BREAKPOINT);
     const {
       data: {
         page: {

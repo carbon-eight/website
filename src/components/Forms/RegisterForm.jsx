@@ -17,6 +17,8 @@ class RegisterForm extends Component {
   }
 
   submitHandler = async (event) => {
+    event.preventDefault();
+    const form = event.target;
     const {
       email,
       fieldValues,
@@ -36,8 +38,8 @@ class RegisterForm extends Component {
       this.setState({
         submitting: false,
       });
+      form.submit();
     } else {
-      event.preventDefault();
       this.setState({
         errorMessage: decodeEntities(result.msg),
         submitError: true,
