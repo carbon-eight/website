@@ -14,7 +14,7 @@ const isClient = typeof window !== 'undefined';
 
 class Donate extends Component {
   state = {
-    viewportWidth: 0,
+    viewportWidth: isClient ? window.innerWidth : 0,
   };
 
   componentDidMount() {
