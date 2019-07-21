@@ -10,7 +10,7 @@ const isClient = typeof window !== 'undefined';
 
 class ExpressionOfInterestTemplate extends Component {
   state = {
-    viewportWidth: 0,
+    viewportWidth: isClient ? window.innerWidth : 0,
   };
 
   componentDidMount() {
