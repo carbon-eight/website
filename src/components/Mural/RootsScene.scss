@@ -1,10 +1,11 @@
 .roots-scene {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: $earth;
   background-image: url('../../assets/images/Mural/roots-scene.svg');
-  &.mobile {
+  
+  @include media-down(mobile) {
     background-image: url('../../assets/images/Mural/roots-scene-mobile.svg');
   }
 }

@@ -4,7 +4,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../../assets/images/Mural/soil-scene.svg');
-  &.mobile {
+
+  @include media-down(mobile) {
     background-image: url('../../assets/images/Mural/soil-scene-mobile.svg');
   }
 

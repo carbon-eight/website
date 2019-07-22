@@ -1,9 +1,10 @@
 .valley-scene {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('../../assets/images/Mural/valley-scene.svg');
-  &.mobile {
+
+  @include media-down(mobile) {
     background-image: url('../../assets/images/Mural/valley-scene-mobile.svg');
   }
 }
