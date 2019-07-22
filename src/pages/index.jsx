@@ -27,7 +27,7 @@ class Index extends Component {
 
   componentDidMount() {
     if (isClient) {
-      this.updateWindowDimensions();
+      // this.updateWindowDimensions();
       window.addEventListener('resize', this.updateWindowDimensions);
     }
   }
