@@ -47,8 +47,13 @@ class Header extends Component {
     const headroomTop = Boolean(viewportTopPos < headerHeight);
     const headerClasses = `header ${solidHeader ? ' solid-background' : ''}${scrollingUp ? ' scrolling-up' : ''}${headroomTop ? ' headroom--top' : ' headroom--not-top'}`;
     return (
-      <header className={headerClasses} ref={headerRef => this.headerRef = headerRef}>
-        <Logo classes={`${navActive ? 'nav-open' : ''}`} clickable />
+      <header className={headerClasses}>
+        <div className="header-logo" ref={headerRef => this.headerRef = headerRef}>
+          <Logo
+            classes={`${navActive ? 'nav-open' : ''}`}
+            clickable
+          />
+        </div>
         <button
           className="toggle-nav-button"
           type="button"

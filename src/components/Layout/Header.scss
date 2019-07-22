@@ -1,51 +1,46 @@
 header.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  transform: translateY(0);
-  transition: transform 0.5s ease;
+
+  .header-logo, .toggle-nav-button {
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+  }
 
   &.solid-background {
     @include media-down(mobile) {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
       background-color: transparent;
       box-shadow: none;
-      transition: transform 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-  }
-
-  &.headroom--not-top {
-    transform: translateY(-100%);
-
-    &.scrolling-up {
       transform: translateY(0);
-      &:after {
-        transform: scaleX(1);
-        transform-origin: left;
-        transition: transform 0.3s ease 0.3s, background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-      &.solid-background {
-        @include media-down(mobile) {
-          background-color: $white;
-          box-shadow: rgba(33, 38, 44, 0.1) 0px 2px 4px 0px;
-        }
+      transition: transform 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+
+      .header-logo, .toggle-nav-button {
+        position: static;
       }
     }
   }
 
-  .logo {
-    margin: 40px;
+
+  .header-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 40px;
 
     @include media-down(mobile) {
-      margin: 20px;
+      padding: 20px;
     }
   }
 
   .toggle-nav-button {
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: 0;
     padding: 40px;
 
     @include media-down(mobile) {
@@ -69,6 +64,39 @@ header.header {
       @include media-down(mobile) {
         width: 22px;
         height: 22px;
+      }
+    }
+  }
+
+  &.headroom--not-top {
+    .header-logo, .toggle-nav-button {
+      transform: translateY(-100%);
+    }
+
+    &.solid-background {
+      transform: translateY(-100%);
+
+      .header-logo, .toggle-nav-button {
+        transform: none;
+      }
+    }
+
+    &.scrolling-up {
+      .header-logo, .toggle-nav-button {
+        transform: translateY(0);
+      }
+
+      &.solid-background {
+        transform: translateY(0);
+
+        .header-logo, .toggle-nav-button {
+          transform: none;
+        }
+
+        @include media-down(mobile) {
+          background-color: $white;
+          box-shadow: rgba(33, 38, 44, 0.1) 0px 2px 4px 0px;
+        }
       }
     }
   }
