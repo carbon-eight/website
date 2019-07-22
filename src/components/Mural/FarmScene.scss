@@ -4,7 +4,7 @@
   background-position: center;
   background-image: url('../../assets/images/Mural/farm-scene.svg');
 
-  @include media-down(mobile) {
+  &.mobile {
     background-image: url('../../assets/images/Mural/farm-scene-mobile.svg');
   }
 }

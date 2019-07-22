@@ -4,8 +4,8 @@
   background-position: center;
   background-color: $earth;
   background-image: url('../../assets/images/Mural/roots-scene.svg');
-  
-  @include media-down(mobile) {
+
+  &.mobile {
     background-image: url('../../assets/images/Mural/roots-scene-mobile.svg');
   }
 }
