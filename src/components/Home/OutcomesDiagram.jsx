@@ -102,11 +102,9 @@ const OutcomesDiagram = (props) => {
                     </div>
                     <div className="outcome-elaboration">
                       <h3 className="title">
-                        <h3 className="title">
-                          <span className={isVisible ? 'visible' : ''}>
-                            {activeOutcome.title.text}
-                          </span>
-                        </h3>
+                        <span className={isVisible ? 'visible' : ''}>
+                          {activeOutcome.title.text}
+                        </span>
                       </h3>
                       <HtmlContent
                         content={activeOutcome.description.html}
