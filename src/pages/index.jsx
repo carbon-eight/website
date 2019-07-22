@@ -84,7 +84,7 @@ class Index extends Component {
         isSmallMobile={isSmallMobile}
       >
         <HomeMural
-          isSmallMobile={isSmallMobile}
+          isMobile={isMobile}
         />
         <VisibilitySensor partialVisibility>
           {({ isVisible: loadAnimations }) => (

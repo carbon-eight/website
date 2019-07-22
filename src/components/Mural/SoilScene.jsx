@@ -3,14 +3,14 @@ import './SoilScene.scss';
 
 const SoilScene = (props) => {
   const {
-    isSmallMobile,
+    isMobile,
   } = props;
-  const stateClasses = `${isSmallMobile ? ' mobile' : ''}`;
+  const stateClasses = `${isMobile ? ' mobile' : ''}`;
   return (
     <section
       className={`soil-scene${stateClasses}`}
     >
-      { isSmallMobile ? (
+      { isMobile ? (
         <div className="bees">
           <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 175">
             <defs>

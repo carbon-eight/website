@@ -3,9 +3,9 @@ import './RootsScene.scss';
 
 const RootsScene = (props) => {
   const {
-    isSmallMobile,
+    isMobile,
   } = props;
-  const stateClasses = `${isSmallMobile ? ' mobile' : ''}`;
+  const stateClasses = `${isMobile ? ' mobile' : ''}`;
   return (
     <section className={`roots-scene${stateClasses}`} />
   );

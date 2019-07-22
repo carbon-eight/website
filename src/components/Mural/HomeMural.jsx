@@ -21,9 +21,9 @@ class HomeMural extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { isSmallMobile } = this.props;
-    const { isSmallMobile: wasSmallMobile } = prevProps;
-    if (isSmallMobile !== wasSmallMobile) {
+    const { isMobile } = this.props;
+    const { isMobile: wasMobile } = prevProps;
+    if (isMobile !== wasMobile) {
       this.rellax.refresh();
     }
   }
@@ -33,31 +33,31 @@ class HomeMural extends Component {
   }
 
   render() {
-    const { isSmallMobile } = this.props;
+    const { isMobile } = this.props;
     return (
-      <div className={`home-mural${isSmallMobile ? ' mobile' : ''}`}>
+      <div className={`home-mural${isMobile ? ' mobile' : ''}`}>
         <div className="mural-components">
-          <ParallaxElement parallaxSpeed={isSmallMobile ? -2.25 : -7}>
+          <ParallaxElement parallaxSpeed={isMobile ? -2.25 : -7}>
             <ValleyScene
-              isSmallMobile={isSmallMobile}
+              isMobile={isMobile}
             />
           </ParallaxElement>
-          <ParallaxElement parallaxSpeed={isSmallMobile ? -2 : -5}>
+          <ParallaxElement parallaxSpeed={isMobile ? -2 : -5}>
             <FarmScene
-              isSmallMobile={isSmallMobile}
+              isMobile={isMobile}
             />
           </ParallaxElement>
-          <ParallaxElement parallaxSpeed={isSmallMobile ? -1.5 : -3}>
+          <ParallaxElement parallaxSpeed={isMobile ? -1.5 : -3}>
             <CropScene
-              isSmallMobile={isSmallMobile}
+              isMobile={isMobile}
             />
           </ParallaxElement>
-          <ParallaxElement parallaxSpeed={isSmallMobile ? 0 : -1}>
+          <ParallaxElement parallaxSpeed={isMobile ? 0 : -1}>
             <SoilScene
-              isSmallMobile={isSmallMobile}
+              isMobile={isMobile}
             />
             <RootsScene
-              isSmallMobile={isSmallMobile}
+              isMobile={isMobile}
             />
           </ParallaxElement>
         </div>

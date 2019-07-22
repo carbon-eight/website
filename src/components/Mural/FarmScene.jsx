@@ -3,9 +3,9 @@ import './FarmScene.scss';
 
 const FarmScene = (props) => {
   const {
-    isSmallMobile,
+    isMobile,
   } = props;
-  const stateClasses = `${isSmallMobile ? ' mobile' : ''}`;
+  const stateClasses = `${isMobile ? ' mobile' : ''}`;
   return (
     <section className={`farm-scene${stateClasses}`} />
   );
