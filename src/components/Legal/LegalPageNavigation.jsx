@@ -15,6 +15,7 @@ const scrollToPageSection = (event, index) => {
 
 const isInView = (index, sectionOffset) => {
   const targetEl = document.getElementById(getSectionId(index));
+  if (!targetEl) return false;
   const rect = targetEl.getBoundingClientRect();
   return (rect.top - sectionOffset) < 0;
 };

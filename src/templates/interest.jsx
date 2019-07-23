@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
+import { useMediaQuery } from 'react-responsive';
 import { Layout, SliceZone, PageHero } from '../components';
 import {
   SMALL_MOBILE_BREAKPOINT,
@@ -8,74 +9,53 @@ import {
 
 const isClient = typeof window !== 'undefined';
 
-class ExpressionOfInterestTemplate extends Component {
-  state = {
-    viewportWidth: isClient ? window.innerWidth : 0,
-  };
-
-  componentDidMount() {
-    if (isClient) {
-      this.updateWindowDimensions();
-      window.addEventListener('resize', this.updateWindowDimensions);
-    }
-  }
-
-  componentWillUnmount() {
-    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions = () => {
-    this.setState({ viewportWidth: window.innerWidth });
-  }
-
-  render() {
-    const {
-      data: {
-        page: {
-          data: pageData,
-        },
+const ExpressionOfInterestTemplate = (props) => {
+  const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
+  const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  if (isClient) console.log('window.innerWidth', window.innerWidth);
+  console.log({ isMobile });
+  console.log({ isSmallMobile });
+  const {
+    data: {
+      page: {
+        data: pageData,
       },
-      location,
-    } = this.props;
-    const {
-      viewportWidth,
-    } = this.state;
-    const {
-      body,
-      heroTitle,
-      heroSubtitle,
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    } = pageData;
-    const seoData = {
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    };
-    const isMobile = Boolean(viewportWidth !== 0 && viewportWidth <= MOBILE_BREAKPOINT);
-    const isSmallMobile = Boolean(viewportWidth !== 0 && viewportWidth <= SMALL_MOBILE_BREAKPOINT);
-    return (
-      <Layout
-        location={location}
-        seoData={seoData}
+    },
+    location,
+  } = props;
+  const {
+    body,
+    heroTitle,
+    heroSubtitle,
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  } = pageData;
+  const seoData = {
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  };
+  return (
+    <Layout
+      location={location}
+      seoData={seoData}
+      isSmallMobile={isSmallMobile}
+    >
+      <PageHero
+        title={heroTitle.text}
+        subtitle={heroSubtitle.text}
         isSmallMobile={isSmallMobile}
-      >
-        <PageHero
-          title={heroTitle.text}
-          subtitle={heroSubtitle.text}
-          isSmallMobile={isSmallMobile}
-        />
-        <SliceZone
-          allSlices={body}
-          location={location}
-          isSmallMobile={isSmallMobile}
-          isMobile={isMobile}
-        />
-      </Layout>
-    );
-  }
-}
+      />
+      <SliceZone
+        allSlices={body}
+        location={location}
+        isSmallMobile={isSmallMobile}
+        isMobile={isMobile}
+      />
+    </Layout>
+  );
+};
 
 export default ExpressionOfInterestTemplate;
 

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
+import { useMediaQuery } from 'react-responsive';
 import { Layout } from '../components';
 import { LegalPageHero, LegalPageBody } from '../components/Legal';
 import {
@@ -10,71 +11,50 @@ import './information-page.scss';
 
 const isClient = typeof window !== 'undefined';
 
-class InformationPageTemplate extends Component {
-  state = {
-    viewportWidth: isClient ? window.innerWidth : 0,
-  };
-
-  componentDidMount() {
-    if (isClient) {
-      this.updateWindowDimensions();
-      window.addEventListener('resize', this.updateWindowDimensions);
-    }
-  }
-
-  componentWillUnmount() {
-    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions = () => {
-    this.setState({ viewportWidth: window.innerWidth });
-  }
-
-  render() {
-    const {
-      data: {
-        page: {
-          data: pageData,
-        },
+const InformationPageTemplate = (props) => {
+  const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
+  const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  if (isClient) console.log('window.innerWidth', window.innerWidth);
+  console.log({ isMobile });
+  console.log({ isSmallMobile });
+  const {
+    data: {
+      page: {
+        data: pageData,
       },
-      location,
-    } = this.props;
-    const {
-      pageTitle,
-      sections,
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    } = pageData;
-    const seoData = {
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    };
-    const {
-      viewportWidth,
-    } = this.state;
-    const isMobile = Boolean(viewportWidth !== 0 && viewportWidth <= MOBILE_BREAKPOINT);
-    const isSmallMobile = Boolean(viewportWidth !== 0 && viewportWidth <= SMALL_MOBILE_BREAKPOINT);
-    return (
-      <Layout
-        location={location}
-        seoData={seoData}
-        isSmallMobile={isSmallMobile}
-        solidHeader
-      >
-        <LegalPageHero
-          title={pageTitle.text}
-          isMobile={isMobile}
-        />
-        <LegalPageBody
-          sections={sections}
-          isMobile={isMobile}
-        />
-      </Layout>
-    );
-  }
-}
+    },
+    location,
+  } = props;
+  const {
+    pageTitle,
+    sections,
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  } = pageData;
+  const seoData = {
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  };
+  return (
+    <Layout
+      location={location}
+      seoData={seoData}
+      isSmallMobile={isSmallMobile}
+      solidHeader
+    >
+      <LegalPageHero
+        title={pageTitle.text}
+        isMobile={isMobile}
+      />
+      <LegalPageBody
+        sections={sections}
+        isMobile={isMobile}
+      />
+    </Layout>
+  );
+};
 
 export default InformationPageTemplate;
 
