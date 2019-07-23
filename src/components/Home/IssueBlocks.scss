@@ -140,7 +140,10 @@
           transition-property: all;
           transition-timing-function: ease-out;
           transition-duration: 1s;
-          transition-delay: 0.5s;
+
+          @include media-down(mobile) {
+            transition-delay: 1s !important;
+          }
 
           &.visible {
             background-position: -100% 0;

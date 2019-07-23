@@ -1,9 +1,49 @@
 import React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import { useInView } from 'react-intersection-observer';
 import { Wrapper, HtmlContent } from '../common';
 import { SolutionIllustration } from './SolutionIllustration';
 import { generateKey, getNumberedAffix } from '../../util/helpers';
 import './SolutionBlocks.scss';
+
+const SolutionBlock = (props) => {
+  const {
+    title,
+    description,
+    illustration,
+    index,
+    loadAnimations,
+  } = props;
+  const [ref, inView] = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+  return (
+    <div className="solution" ref={ref}>
+      <div className="col image-col">
+        <div className={`illustration${loadAnimations ? ' visible' : ''}`}>
+          <SolutionIllustration
+            illustration={illustration}
+            isVisible={inView}
+            loadAnimations={loadAnimations}
+          />
+        </div>
+      </div>
+      <div className="col text-col">
+        <div className="text-container">
+          <span className="count">{`Technique ${getNumberedAffix(index)}`}</span>
+          <h3 className="title">
+            <span className={inView ? 'visible' : ''}>
+              {title.text}
+            </span>
+          </h3>
+          <HtmlContent
+            content={description.html}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const SolutionBlocks = (props) => {
   const {
@@ -14,46 +54,14 @@ const SolutionBlocks = (props) => {
     <div className="solution-blocks">
       <Wrapper>
         <div className="solutions">
-          { solutions && solutions.map((technique, index) => {
-            const {
-              title,
-              description,
-              illustration,
-            } = technique;
-            return (
-              <VisibilitySensor
-                key={generateKey(index)}
-                partialVisibility
-              >
-                {({ isVisible }) => (
-                  <div className="solution">
-                    <div className="col image-col">
-                      <div className={`illustration${loadAnimations ? ' visible' : ''}`}>
-                        <SolutionIllustration
-                          illustration={illustration}
-                          isVisible={isVisible}
-                          loadAnimations={loadAnimations}
-                        />
-                      </div>
-                    </div>
-                    <div className="col text-col">
-                      <div className="text-container">
-                        <span className="count">{`Technique ${getNumberedAffix(index)}`}</span>
-                        <h3 className="title">
-                          <span className={isVisible ? 'visible' : ''}>
-                            {title.text}
-                          </span>
-                        </h3>
-                        <HtmlContent
-                          content={description.html}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </VisibilitySensor>
-            );
-          })}
+          { solutions && solutions.map((solution, index) => (
+            <SolutionBlock
+              key={generateKey(index)}
+              index={index}
+              loadAnimations={loadAnimations}
+              {...solution}
+            />
+          ))}
         </div>
       </Wrapper>
     </div>
