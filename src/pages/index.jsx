@@ -54,10 +54,9 @@ const Index = (props) => {
     metaDescription,
     openGraphImage,
   };
-  // const [ref, inView] = useInView({
-  //   threshold: 0,
-  // });
-  const inView = true;
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
   return (
     <Layout
       location={location}
@@ -67,7 +66,7 @@ const Index = (props) => {
       <HomeMural
         isMobile={isMobile}
       />
-      <div className="home-body">
+      <div className="home-body" ref={ref}>
         <CarbonEightIntro
           intro={carbonEightIntro}
           isSmallMobile={isSmallMobile}
