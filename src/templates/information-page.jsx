@@ -12,6 +12,7 @@ import './information-page.scss';
 const InformationPageTemplate = (props) => {
   const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
   const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  console.log('window.innerWidth', window.innerWidth);
   const {
     data: {
       page: {
