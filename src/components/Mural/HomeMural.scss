@@ -62,7 +62,7 @@
     z-index: 1;
   }
 
-  &.mobile {
+  @include media-down(mobile) {
     .valley-scene {
       height: 43.61vw;
     }

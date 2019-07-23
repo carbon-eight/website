@@ -5,7 +5,7 @@
   background-color: $earth;
   background-image: url('../../assets/images/Mural/roots-scene.svg');
 
-  &.mobile {
+  @include media-down(mobile) {
     background-image: url('../../assets/images/Mural/roots-scene-mobile.svg');
   }
 }
