@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import queryString from 'query-string';
+import { useMediaQuery } from 'react-responsive';
 import { Layout, SliceZone } from '../components';
 import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
@@ -10,80 +11,54 @@ import {
 } from '../util/breakpoints';
 import './donate.scss';
 
-const isClient = typeof window !== 'undefined';
-
-class Donate extends Component {
-  state = {
-    viewportWidth: isClient ? window.innerWidth : 0,
-  };
-
-  componentDidMount() {
-    if (isClient) {
-      this.updateWindowDimensions();
-      window.addEventListener('resize', this.updateWindowDimensions);
-    }
-  }
-
-  componentWillUnmount() {
-    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions = () => {
-    this.setState({ viewportWidth: window.innerWidth });
-  }
-
-  render() {
-    const {
-      data: {
-        page: {
-          data: pageData,
-        },
+const Donate = (props) => {
+  const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
+  const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  const {
+    data: {
+      page: {
+        data: pageData,
       },
-      location,
-    } = this.props;
-    const {
-      body,
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    } = pageData;
-    const seoData = {
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    };
-    const {
-      viewportWidth,
-    } = this.state;
-    const isMobile = Boolean(viewportWidth !== 0 && viewportWidth <= MOBILE_BREAKPOINT);
-    const isSmallMobile = Boolean(viewportWidth !== 0 && viewportWidth <= SMALL_MOBILE_BREAKPOINT);
-    const queryParams = queryString.parse(location.search);
-    const donationSuccess = queryParams.success === 'true';
-    return (
-      <Layout
-        location={location}
-        seoData={seoData}
-        isSmallMobile={isSmallMobile}
-      >
-        <div className="page-block donation-block">
-          <Wrapper>
-            <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
-          </Wrapper>
-          <DonationModal
-            location={location}
-            donationSuccess={donationSuccess}
-            isMobile={isMobile}
-          />
-        </div>
-        <SliceZone
-          allSlices={body}
+    },
+    location,
+  } = props;
+  const {
+    body,
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  } = pageData;
+  const seoData = {
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  };
+  const queryParams = queryString.parse(location.search);
+  const donationSuccess = queryParams.success === 'true';
+  return (
+    <Layout
+      location={location}
+      seoData={seoData}
+      isSmallMobile={isSmallMobile}
+    >
+      <div className="page-block donation-block">
+        <Wrapper>
+          <h1 className="block-title">Contribute to regenerating aussie soil.</h1>
+        </Wrapper>
+        <DonationModal
           location={location}
-          // siteMetadata={siteMetadata}
+          donationSuccess={donationSuccess}
+          isMobile={isMobile}
         />
-      </Layout>
-    );
-  }
-}
+      </div>
+      <SliceZone
+        allSlices={body}
+        location={location}
+        // siteMetadata={siteMetadata}
+      />
+    </Layout>
+  );
+};
 
 export default Donate;
 

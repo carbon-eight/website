@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import VisibilitySensor from 'react-visibility-sensor';
+import { useMediaQuery } from 'react-responsive';
 import { Layout, SubscribeForm } from '../components';
 import { HomeMural } from '../components/Mural';
 import {
@@ -18,137 +19,111 @@ import {
 } from '../util/breakpoints';
 import './index.scss';
 
-const isClient = typeof window !== 'undefined';
-
-class Index extends Component {
-  state = {
-    viewportWidth: isClient ? window.innerWidth : 0,
-  };
-
-  componentDidMount() {
-    if (isClient) {
-      this.updateWindowDimensions();
-      window.addEventListener('resize', this.updateWindowDimensions);
-    }
-  }
-
-  componentWillUnmount() {
-    if (isClient) window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions = () => {
-    this.setState({ viewportWidth: window.innerWidth });
-  }
-
-  render() {
-    const {
-      viewportWidth,
-    } = this.state;
-    const isSmallMobile = Boolean(viewportWidth <= SMALL_MOBILE_BREAKPOINT);
-    const isMobile = Boolean(viewportWidth <= MOBILE_BREAKPOINT);
-    const {
-      data: {
-        page: {
-          data: pageData,
-        },
+const Index = (props) => {
+  const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
+  const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  const {
+    data: {
+      page: {
+        data: pageData,
       },
-      location,
-    } = this.props;
-    const {
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-      carbonEightIntro,
-      issuesHeadline,
-      issuesIntro,
-      issues,
-      solutionsHeadline,
-      solutionsIntro,
-      solutions,
-      outcomesHeadline,
-      outcomesIntro,
-      outcomes,
-      callToActionsHeadline,
-      callToActionsIntro,
-      callToActions,
-    } = pageData;
-    const seoData = {
-      metaTitle,
-      metaDescription,
-      openGraphImage,
-    };
-    return (
-      <Layout
-        location={location}
-        seoData={seoData}
-        isSmallMobile={isSmallMobile}
-      >
-        <HomeMural
-          isMobile={isMobile}
-        />
-        <VisibilitySensor partialVisibility>
-          {({ isVisible: loadAnimations }) => (
-            <div className="home-body">
-              <CarbonEightIntro
-                intro={carbonEightIntro}
-                isSmallMobile={isSmallMobile}
-              />
-              <SectionIntro
-                label="The Problem"
-                headline={issuesHeadline}
-                intro={issuesIntro}
-                topColor={COLOUR_EARTH_EVEN_LIGHTER}
-                bottomColor={COLOUR_WHITE}
-                isSmallMobile={isSmallMobile}
-              />
-              <IssueBlocks
-                issues={issues}
-                isMobile={isMobile}
-                loadAnimations={loadAnimations}
-              />
-              <SectionIntro
-                label="Our Solution"
-                headline={solutionsHeadline}
-                intro={solutionsIntro}
-                topColor={COLOUR_WHITE}
-                bottomColor={COLOUR_WHITE}
-                isSmallMobile={isSmallMobile}
-              />
-              <SolutionBlocks
-                solutions={solutions}
-                isMobile={isMobile}
-                loadAnimations={loadAnimations}
-              />
-              <SectionIntro
-                label="Why It Matters"
-                headline={outcomesHeadline}
-                intro={outcomesIntro}
-                topColor={COLOUR_WHITE}
-                bottomColor={COLOUR_WHITE}
-                isSmallMobile={isSmallMobile}
-              />
-              <OutcomesDiagram
-                outcomes={outcomes}
-                isMobile={isMobile}
-                loadAnimations={loadAnimations}
-              />
-              <CallToActionsBlock
-                label="Take Action"
-                headline={callToActionsHeadline}
-                intro={callToActionsIntro}
-                callToActions={callToActions}
-                isSmallMobile={isSmallMobile}
-              />
-              <SubscribeForm
-                title="Join our community"
-              />
-            </div>
-          )}
-        </VisibilitySensor>
-      </Layout>
-    );
-  }
-}
+    },
+    location,
+  } = props;
+  const {
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+    carbonEightIntro,
+    issuesHeadline,
+    issuesIntro,
+    issues,
+    solutionsHeadline,
+    solutionsIntro,
+    solutions,
+    outcomesHeadline,
+    outcomesIntro,
+    outcomes,
+    callToActionsHeadline,
+    callToActionsIntro,
+    callToActions,
+  } = pageData;
+  const seoData = {
+    metaTitle,
+    metaDescription,
+    openGraphImage,
+  };
+  return (
+    <Layout
+      location={location}
+      seoData={seoData}
+      isSmallMobile={isSmallMobile}
+    >
+      <HomeMural
+        isMobile={isMobile}
+      />
+      <VisibilitySensor partialVisibility>
+        {({ isVisible: loadAnimations }) => (
+          <div className="home-body">
+            <CarbonEightIntro
+              intro={carbonEightIntro}
+              isSmallMobile={isSmallMobile}
+            />
+            <SectionIntro
+              label="The Problem"
+              headline={issuesHeadline}
+              intro={issuesIntro}
+              topColor={COLOUR_EARTH_EVEN_LIGHTER}
+              bottomColor={COLOUR_WHITE}
+              isSmallMobile={isSmallMobile}
+            />
+            <IssueBlocks
+              issues={issues}
+              isMobile={isMobile}
+              loadAnimations={loadAnimations}
+            />
+            <SectionIntro
+              label="Our Solution"
+              headline={solutionsHeadline}
+              intro={solutionsIntro}
+              topColor={COLOUR_WHITE}
+              bottomColor={COLOUR_WHITE}
+              isSmallMobile={isSmallMobile}
+            />
+            <SolutionBlocks
+              solutions={solutions}
+              isMobile={isMobile}
+              loadAnimations={loadAnimations}
+            />
+            <SectionIntro
+              label="Why It Matters"
+              headline={outcomesHeadline}
+              intro={outcomesIntro}
+              topColor={COLOUR_WHITE}
+              bottomColor={COLOUR_WHITE}
+              isSmallMobile={isSmallMobile}
+            />
+            <OutcomesDiagram
+              outcomes={outcomes}
+              isMobile={isMobile}
+              loadAnimations={loadAnimations}
+            />
+            <CallToActionsBlock
+              label="Take Action"
+              headline={callToActionsHeadline}
+              intro={callToActionsIntro}
+              callToActions={callToActions}
+              isSmallMobile={isSmallMobile}
+            />
+            <SubscribeForm
+              title="Join our community"
+            />
+          </div>
+        )}
+      </VisibilitySensor>
+    </Layout>
+  );
+};
 
 export default Index;
 
