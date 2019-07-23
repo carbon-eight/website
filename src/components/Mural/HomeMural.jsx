@@ -14,7 +14,7 @@ class HomeMural extends Component {
   // componentDidMount() {
   //   this.rellax = new Rellax('.parallax', {
   //     center: false,
-  //     round: true,
+  //     round: false,
   //     vertical: true,
   //     horizontal: false,
   //   });
@@ -35,7 +35,7 @@ class HomeMural extends Component {
   render() {
     const { isMobile } = this.props;
     return (
-      <div className={`home-mural${isMobile ? ' mobile' : ''}`}>
+      <div className="home-mural">
         <div className="mural-components">
           <ParallaxElement parallaxSpeed={isMobile ? -2.25 : -7}>
             <ValleyScene
