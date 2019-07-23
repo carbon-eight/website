@@ -15,6 +15,8 @@ const InformationPageTemplate = (props) => {
   const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
   const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
   if (isClient) console.log('window.innerWidth', window.innerWidth);
+  console.log({ isMobile });
+  console.log({ isSmallMobile });
   const {
     data: {
       page: {
