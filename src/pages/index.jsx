@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from 'react-responsive';
@@ -54,9 +54,10 @@ const Index = (props) => {
     metaDescription,
     openGraphImage,
   };
-  const [ref, inView] = useInView({
-    threshold: 0,
-  });
+  // const [ref, inView] = useInView({
+  //   threshold: 0,
+  // });
+  const inView = true;
   return (
     <Layout
       location={location}
@@ -66,7 +67,7 @@ const Index = (props) => {
       <HomeMural
         isMobile={isMobile}
       />
-      <div className="home-body" ref={ref}>
+      <div className="home-body">
         <CarbonEightIntro
           intro={carbonEightIntro}
           isSmallMobile={isSmallMobile}
