@@ -9993,10 +9993,10 @@ react-reconciler@^0.20.0:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-responsive@8.0.0-beta.0:
-  version "8.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-8.0.0-beta.0.tgz#2d017750dd556616ff2f31fa84c31f60e1f85424"
-  integrity sha512-FXNmBHdlad+dJSSdkK1epP1RfqxVsZKjqo7gEKgT5Wgih5K5rE94cnaEd9y9dbg9LoGkoenJsOT8sBhE+FpWcg==
+react-responsive@^8.0.0-beta.1:
+  version "8.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-8.0.0-beta.1.tgz#3d07fce7a8e1ef638645ca7f057a2c01b56d3956"
+  integrity sha512-tkTn6Jtpuw2uETCK6LSF5+QTpcrUqlxI0yKOTnWXi6VdifxX07sWYuE0CzQItVcttZiMLi6SKeHcWysvCv7U5w==
   dependencies:
     hyphenate-style-name "^1.0.0"
     matchmediaquery "^0.3.0"
