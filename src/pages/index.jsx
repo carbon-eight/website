@@ -22,6 +22,7 @@ import './index.scss';
 const Index = (props) => {
   const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
   const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  console.log({ isMobile });
   const {
     data: {
       page: {
