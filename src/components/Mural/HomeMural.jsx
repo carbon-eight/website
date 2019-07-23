@@ -11,26 +11,26 @@ import {
 import './HomeMural.scss';
 
 class HomeMural extends Component {
-  componentDidMount() {
-    this.rellax = new Rellax('.parallax', {
-      center: false,
-      round: true,
-      vertical: true,
-      horizontal: false,
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    const { isMobile } = this.props;
-    const { isMobile: wasMobile } = prevProps;
-    if (isMobile !== wasMobile) {
-      this.rellax.refresh();
-    }
-  }
-
-  componentWillUnmount() {
-    this.rellax.destroy();
-  }
+  // componentDidMount() {
+  //   this.rellax = new Rellax('.parallax', {
+  //     center: false,
+  //     round: true,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }
+  //
+  // componentDidUpdate(prevProps) {
+  //   const { isMobile } = this.props;
+  //   const { isMobile: wasMobile } = prevProps;
+  //   if (isMobile !== wasMobile) {
+  //     this.rellax.refresh();
+  //   }
+  // }
+  //
+  // componentWillUnmount() {
+  //   this.rellax.destroy();
+  // }
 
   render() {
     const { isMobile } = this.props;
