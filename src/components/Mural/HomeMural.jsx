@@ -34,6 +34,7 @@ class HomeMural extends Component {
 
   render() {
     const { isMobile } = this.props;
+    console.log('isMobile @ HomeMural', isMobile);
     return (
       <div className={`home-mural${isMobile ? ' mobile' : ''}`}>
         <div className="mural-components">
