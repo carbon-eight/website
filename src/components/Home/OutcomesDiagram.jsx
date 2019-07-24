@@ -40,11 +40,11 @@ const OutcomesDiagram = (props) => {
   const activeOutcome = outcomes[activeIndex];
   return (
     <div className="outcomes-diagram">
-      <div className="container" ref={ref}>
+      <div className="container">
         <Wrapper>
           <div className="diagram">
             <div className={`outcome-illustration${loadAnimations ? ' load-animations' : ''}`}>
-              <div className="illustration-container">
+              <div className="illustration-container" ref={ref}>
                 <OutcomeIllustration
                   illustration={activeOutcome.illustration}
                   isVisible={inView}
