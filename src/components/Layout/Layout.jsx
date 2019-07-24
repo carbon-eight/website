@@ -73,7 +73,6 @@ class PureLayout extends Component {
       settings,
       seoData,
       solidHeader,
-      isSmallMobile,
     } = this.props;
     const {
       metaTitle = null,
@@ -108,7 +107,6 @@ class PureLayout extends Component {
           <Footer
             location={location}
             settings={settings}
-            isSmallMobile={isSmallMobile}
           />
         </div>
       </>

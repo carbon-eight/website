@@ -13,7 +13,6 @@ const Footer = (props) => {
   const {
     settings,
     location,
-    isSmallMobile,
   } = props;
   const {
     legalLinks,
@@ -27,13 +26,11 @@ const Footer = (props) => {
       <CurlyDivider
         topColor={COLOUR_WHITE}
         bottomColor={COLOUR_EARTH_LIGHTER}
-        isSmallMobile={isSmallMobile}
       />
       <div className="soil-padding" />
       <CurlyDivider
         topColor={COLOUR_EARTH_LIGHTER}
         bottomColor={COLOUR_EARTH_EVEN_LIGHTER}
-        isSmallMobile={isSmallMobile}
       />
       <div className="footer-content">
         <Wrapper>
