@@ -96,13 +96,6 @@
       width: 60%;
       height: 60%;
 
-      svg {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
       @include media-down(mobile) {
         display: block;
         position: static;
@@ -112,29 +105,11 @@
         width: 90%;
         height: 90%;
         margin: 0 auto -10vw;
+      }
 
-        svg {
-          width: 100%;
-          height: 100%;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        &:before {
-          content: '';
-          @include center-align(absolute);
-          width: 70%;
-          height: 70%;
-          background-image: url('../../assets/images/outcome-placeholder.svg');
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
-          opacity: 1;
-          transition: opacity 0.3s ease;
-        }
-
-        &.visible {
-          svg {
+      &.load-animations {
+        .illustration-container {
+          > div {
             opacity: 1;
           }
           &:before {
@@ -143,32 +118,30 @@
         }
       }
 
-      svg {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
+      .illustration-container {
+        position: relative;
 
-      &:before {
-        content: '';
-        @include center-align(absolute);
-        width: 60%;
-        height: 60%;
-        background-image: url('../../assets/images/outcome-placeholder.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-      }
-
-      &.visible {
-        svg {
-          opacity: 1;
-        }
-        &:before {
+        > div {
           opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        &:before {
+          content: '';
+          @include center-align(absolute);
+          width: 100%;
+          height: 100%;
+          background-image: url('../../assets/images/outcome-placeholder.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+
+          @include media-down(mobile) {
+            width: 60%;
+            height: 60%;
+          }
         }
       }
     }

@@ -86,7 +86,7 @@
           transition: opacity 0.3s ease;
         }
 
-        &.visible {
+        &.load-animations {
           > div {
             opacity: 1;
           }

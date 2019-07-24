@@ -30,7 +30,6 @@ const OutcomeButtons = ({ outcomes, activeIndex, setActiveIndexHandler }) => (
 const OutcomesDiagram = (props) => {
   const {
     outcomes,
-    isMobile,
     loadAnimations,
   } = props;
   const [ref, inView] = useInView({
@@ -44,12 +43,14 @@ const OutcomesDiagram = (props) => {
       <div className="container" ref={ref}>
         <Wrapper>
           <div className="diagram">
-            <div className={`outcome-illustration${loadAnimations ? ' visible' : ''}`}>
-              <OutcomeIllustration
-                illustration={activeOutcome.illustration}
-                isVisible={inView}
-                loadAnimations={loadAnimations}
-              />
+            <div className={`outcome-illustration${loadAnimations ? ' load-animations' : ''}`}>
+              <div className="illustration-container">
+                <OutcomeIllustration
+                  illustration={activeOutcome.illustration}
+                  isVisible={inView}
+                  loadAnimations={loadAnimations}
+                />
+              </div>
             </div>
             <div className="circle desktop-only">
               <OutcomeButtons

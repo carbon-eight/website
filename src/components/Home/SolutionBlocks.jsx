@@ -20,7 +20,7 @@ const SolutionBlock = (props) => {
   return (
     <div className="solution" ref={ref}>
       <div className="col image-col">
-        <div className={`illustration${loadAnimations ? ' visible' : ''}`}>
+        <div className={`illustration${loadAnimations ? ' load-animations' : ''}`}>
           <SolutionIllustration
             illustration={illustration}
             isVisible={inView}
