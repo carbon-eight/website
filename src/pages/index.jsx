@@ -1,7 +1,7 @@
 import React from 'react';
+import useWindowSize from '@rehooks/window-size';
 import { graphql } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
-import { useMediaQuery } from 'react-responsive';
 import { Layout, SubscribeForm } from '../components';
 import { HomeMural } from '../components/Mural';
 import {
@@ -20,9 +20,10 @@ import {
 import './index.scss';
 
 const Index = (props) => {
-  const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
-  const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
-  console.log({ isMobile });
+  const windowSize = useWindowSize();
+  const { innerWidth: viewportWidth } = windowSize;
+  const isMobile = viewportWidth <= MOBILE_BREAKPOINT;
+  const isSmallMobile = viewportWidth <= SMALL_MOBILE_BREAKPOINT;
   const {
     data: {
       page: {
