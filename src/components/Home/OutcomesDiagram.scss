@@ -22,8 +22,8 @@
     margin: 0 auto;
 
     @include media-down(tablet) {
-      width: calc(60vw - 40px);
-      height: calc(60vw - 40px);
+      width: calc(60% - 40px);
+      height: calc(60% - 40px);
     }
 
     @include media-down(mobile) {
