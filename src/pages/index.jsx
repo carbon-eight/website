@@ -19,9 +19,11 @@ import {
 } from '../util/breakpoints';
 import './index.scss';
 
+const isClient = typeof window !== 'undefined';
+
 const Index = (props) => {
-  const windowSize = useWindowSize();
-  const { innerWidth: viewportWidth } = windowSize;
+  const windowSize = isClient ? useWindowSize() : {};
+  const { innerWidth: viewportWidth = 0 } = windowSize;
   const isMobile = viewportWidth <= MOBILE_BREAKPOINT;
   const isSmallMobile = viewportWidth <= SMALL_MOBILE_BREAKPOINT;
   const {
