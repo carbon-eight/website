@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import queryString from 'query-string';
-import { useMediaQuery } from 'react-responsive';
+import useWindowSize from '@rehooks/window-size';
 import { Layout, SliceZone } from '../components';
 import { Wrapper } from '../components/common';
 import { DonationModal } from '../components/Donations';
@@ -14,8 +14,10 @@ import './donate.scss';
 const isClient = typeof window !== 'undefined';
 
 const Donate = (props) => {
-  const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
-  const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  const windowSize = isClient ? useWindowSize() : {};
+  const { innerWidth: viewportWidth = 0 } = windowSize;
+  const isMobile = viewportWidth <= MOBILE_BREAKPOINT;
+  const isSmallMobile = viewportWidth <= SMALL_MOBILE_BREAKPOINT;
   const {
     data: {
       page: {

@@ -1,5 +1,4 @@
 import React from 'react';
-import useWindowSize from '@rehooks/window-size';
 import { graphql } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 import { Layout, SubscribeForm } from '../components';
@@ -13,19 +12,9 @@ import {
   CallToActionsBlock,
 } from '../components/Home';
 import { COLOUR_WHITE, COLOUR_EARTH_EVEN_LIGHTER } from '../util/colours';
-import {
-  SMALL_MOBILE_BREAKPOINT,
-  MOBILE_BREAKPOINT,
-} from '../util/breakpoints';
 import './index.scss';
 
-const isClient = typeof window !== 'undefined';
-
 const Index = (props) => {
-  const windowSize = isClient ? useWindowSize() : {};
-  const { innerWidth: viewportWidth = 0 } = windowSize;
-  const isMobile = viewportWidth <= MOBILE_BREAKPOINT;
-  const isSmallMobile = viewportWidth <= SMALL_MOBILE_BREAKPOINT;
   const {
     data: {
       page: {
@@ -64,15 +53,11 @@ const Index = (props) => {
     <Layout
       location={location}
       seoData={seoData}
-      isSmallMobile={isSmallMobile}
     >
-      <HomeMural
-        isMobile={isMobile}
-      />
+      <HomeMural />
       <div className="home-body" ref={ref}>
         <CarbonEightIntro
           intro={carbonEightIntro}
-          isSmallMobile={isSmallMobile}
         />
         <SectionIntro
           label="The Problem"
@@ -80,11 +65,9 @@ const Index = (props) => {
           intro={issuesIntro}
           topColor={COLOUR_EARTH_EVEN_LIGHTER}
           bottomColor={COLOUR_WHITE}
-          isSmallMobile={isSmallMobile}
         />
         <IssueBlocks
           issues={issues}
-          isMobile={isMobile}
           loadAnimations={inView}
         />
         <SectionIntro
@@ -93,11 +76,9 @@ const Index = (props) => {
           intro={solutionsIntro}
           topColor={COLOUR_WHITE}
           bottomColor={COLOUR_WHITE}
-          isSmallMobile={isSmallMobile}
         />
         <SolutionBlocks
           solutions={solutions}
-          isMobile={isMobile}
           loadAnimations={inView}
         />
         <SectionIntro
@@ -106,11 +87,9 @@ const Index = (props) => {
           intro={outcomesIntro}
           topColor={COLOUR_WHITE}
           bottomColor={COLOUR_WHITE}
-          isSmallMobile={isSmallMobile}
         />
         <OutcomesDiagram
           outcomes={outcomes}
-          isMobile={isMobile}
           loadAnimations={inView}
         />
         <CallToActionsBlock
@@ -118,7 +97,6 @@ const Index = (props) => {
           headline={callToActionsHeadline}
           intro={callToActionsIntro}
           callToActions={callToActions}
-          isSmallMobile={isSmallMobile}
         />
         <SubscribeForm
           title="Join our community"
