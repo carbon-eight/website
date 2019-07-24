@@ -11,31 +11,31 @@ import {
 import './HomeMural.scss';
 
 class HomeMural extends Component {
-  componentDidMount() {
-    this.rellax = new Rellax('.parallax', {
-      center: false,
-      round: true,
-      vertical: true,
-      horizontal: false,
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    const { isMobile } = this.props;
-    const { isMobile: wasMobile } = prevProps;
-    if (isMobile !== wasMobile) {
-      this.rellax.refresh();
-    }
-  }
-
-  componentWillUnmount() {
-    this.rellax.destroy();
-  }
+  // componentDidMount() {
+  //   this.rellax = new Rellax('.parallax', {
+  //     center: false,
+  //     round: false,
+  //     vertical: true,
+  //     horizontal: false,
+  //   });
+  // }
+  //
+  // componentDidUpdate(prevProps) {
+  //   const { isMobile } = this.props;
+  //   const { isMobile: wasMobile } = prevProps;
+  //   if (isMobile !== wasMobile) {
+  //     this.rellax.refresh();
+  //   }
+  // }
+  //
+  // componentWillUnmount() {
+  //   this.rellax.destroy();
+  // }
 
   render() {
     const { isMobile } = this.props;
     return (
-      <div className={`home-mural${isMobile ? ' mobile' : ''}`}>
+      <div className="home-mural">
         <div className="mural-components">
           <ParallaxElement parallaxSpeed={isMobile ? -2.25 : -7}>
             <ValleyScene

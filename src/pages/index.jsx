@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { graphql } from 'gatsby';
-import VisibilitySensor from 'react-visibility-sensor';
+import { useInView } from 'react-intersection-observer';
 import { useMediaQuery } from 'react-responsive';
 import { Layout, SubscribeForm } from '../components';
 import { HomeMural } from '../components/Mural';
@@ -19,11 +19,10 @@ import {
 } from '../util/breakpoints';
 import './index.scss';
 
-const isClient = typeof window !== 'undefined';
-
 const Index = (props) => {
   const isMobile = useMediaQuery({ maxWidth: `${MOBILE_BREAKPOINT}px` });
   const isSmallMobile = useMediaQuery({ maxWidth: `${SMALL_MOBILE_BREAKPOINT}px` });
+  console.log({ isMobile });
   const {
     data: {
       page: {
@@ -55,6 +54,9 @@ const Index = (props) => {
     metaDescription,
     openGraphImage,
   };
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
   return (
     <Layout
       location={location}
@@ -64,65 +66,61 @@ const Index = (props) => {
       <HomeMural
         isMobile={isMobile}
       />
-      <VisibilitySensor partialVisibility>
-        {({ isVisible: loadAnimations }) => (
-          <div className="home-body">
-            <CarbonEightIntro
-              intro={carbonEightIntro}
-              isSmallMobile={isSmallMobile}
-            />
-            <SectionIntro
-              label="The Problem"
-              headline={issuesHeadline}
-              intro={issuesIntro}
-              topColor={COLOUR_EARTH_EVEN_LIGHTER}
-              bottomColor={COLOUR_WHITE}
-              isSmallMobile={isSmallMobile}
-            />
-            <IssueBlocks
-              issues={issues}
-              isMobile={isMobile}
-              loadAnimations={loadAnimations}
-            />
-            <SectionIntro
-              label="Our Solution"
-              headline={solutionsHeadline}
-              intro={solutionsIntro}
-              topColor={COLOUR_WHITE}
-              bottomColor={COLOUR_WHITE}
-              isSmallMobile={isSmallMobile}
-            />
-            <SolutionBlocks
-              solutions={solutions}
-              isMobile={isMobile}
-              loadAnimations={loadAnimations}
-            />
-            <SectionIntro
-              label="Why It Matters"
-              headline={outcomesHeadline}
-              intro={outcomesIntro}
-              topColor={COLOUR_WHITE}
-              bottomColor={COLOUR_WHITE}
-              isSmallMobile={isSmallMobile}
-            />
-            <OutcomesDiagram
-              outcomes={outcomes}
-              isMobile={isMobile}
-              loadAnimations={loadAnimations}
-            />
-            <CallToActionsBlock
-              label="Take Action"
-              headline={callToActionsHeadline}
-              intro={callToActionsIntro}
-              callToActions={callToActions}
-              isSmallMobile={isSmallMobile}
-            />
-            <SubscribeForm
-              title="Join our community"
-            />
-          </div>
-        )}
-      </VisibilitySensor>
+      <div className="home-body" ref={ref}>
+        <CarbonEightIntro
+          intro={carbonEightIntro}
+          isSmallMobile={isSmallMobile}
+        />
+        <SectionIntro
+          label="The Problem"
+          headline={issuesHeadline}
+          intro={issuesIntro}
+          topColor={COLOUR_EARTH_EVEN_LIGHTER}
+          bottomColor={COLOUR_WHITE}
+          isSmallMobile={isSmallMobile}
+        />
+        <IssueBlocks
+          issues={issues}
+          isMobile={isMobile}
+          loadAnimations={inView}
+        />
+        <SectionIntro
+          label="Our Solution"
+          headline={solutionsHeadline}
+          intro={solutionsIntro}
+          topColor={COLOUR_WHITE}
+          bottomColor={COLOUR_WHITE}
+          isSmallMobile={isSmallMobile}
+        />
+        <SolutionBlocks
+          solutions={solutions}
+          isMobile={isMobile}
+          loadAnimations={inView}
+        />
+        <SectionIntro
+          label="Why It Matters"
+          headline={outcomesHeadline}
+          intro={outcomesIntro}
+          topColor={COLOUR_WHITE}
+          bottomColor={COLOUR_WHITE}
+          isSmallMobile={isSmallMobile}
+        />
+        <OutcomesDiagram
+          outcomes={outcomes}
+          isMobile={isMobile}
+          loadAnimations={inView}
+        />
+        <CallToActionsBlock
+          label="Take Action"
+          headline={callToActionsHeadline}
+          intro={callToActionsIntro}
+          callToActions={callToActions}
+          isSmallMobile={isSmallMobile}
+        />
+        <SubscribeForm
+          title="Join our community"
+        />
+      </div>
     </Layout>
   );
 };
