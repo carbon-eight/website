@@ -1,5 +1,6 @@
 .outcomes-diagram {
   padding: 180px 0;
+  overflow: hidden;
 
   @include media-down(tablet) {
     padding: 120px 0;
@@ -22,8 +23,9 @@
     margin: 0 auto;
 
     @include media-down(tablet) {
-      width: calc(60% - 40px);
-      height: calc(60% - 40px);
+      width: calc(80vw - 40px);
+      height: calc(80vw - 40px);
+      padding: 20px;
     }
 
     @include media-down(mobile) {
@@ -36,24 +38,29 @@
         position: absolute;
         top: auto;
         left: auto;
-        bottom: 0;
         right: 0;
-        width: 55%;
-        max-width: 400px;
         z-index: 2;
-
         background-color: $white;
-        transform: translateX(50%);
         padding: 20px;
+
+        @include media-up(tablet) {
+          width: 55%;
+          bottom: 0;
+          max-width: 400px;
+          transform: translateX(50%);
+        }
 
         @include media-down(tablet) {
           width: 65%;
-          transform: translateX(50%) translateY(20%);
+          bottom: -40px;
+          max-width: 350px;
+          transform: translateX(10vw);
+          // transform: translateX(50%) translateY(20%);
         }
 
         @include media-down(small-tablet) {
           width: 70%;
-          transform: translateX(50%) translateY(50%);
+          // transform: translateX(50%) translateY(0%);
         }
       }
 
@@ -285,11 +292,6 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
-
-      @include media-down(tablet) {
-        width: calc(60vw - 40px);
-        height: calc(60vw - 40px);
-      }
 
 
       .outcome-buttons {
