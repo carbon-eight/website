@@ -3,7 +3,7 @@ module.exports = {
   title: 'Carbon8 » Regenerative Agriculture NFP', // Navigation and Site Title
   titleAlt: 'Carbon8', // Title for JSONLD
   description: 'Carbon8 supports farmers to transition to regenerative agriculture by assisting them in rebuilding the carbon (organic matter) in their soil.',
-  headline: 'Websites with Character', // Headline for schema.org JSONLD
+  headline: 'Carbon8 Regenerative Agriculture', // Headline for schema.org JSONLD
   url: 'https://www.carbon8.org.au', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   logo: '/logos/logo-1024.png', // Used for SEO
