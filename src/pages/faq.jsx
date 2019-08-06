@@ -14,13 +14,19 @@ import './faq.scss';
 class FrequentlyAskedQuestions extends Component {
   state = {
     activeCategory: null,
-    searchTerm: '',
+    searchQuery: '',
+  }
+
+  setActiveCategory = (event, category) => {
+    const { activeCategory } = this.state;
+    if (event) event.preventDefault();
+    if (category !== activeCategory) this.setState({ activeCategory: category });
   }
 
   render() {
     const {
       activeCategory,
-      searchTerm,
+      searchQuery,
     } = this.state;
     const {
       data: {
@@ -41,18 +47,21 @@ class FrequentlyAskedQuestions extends Component {
       metaDescription,
       openGraphImage,
     };
-    console.log({ questions });
+    const categories = questions.map((faq => faq.category.document[0].data.categoryName.text));
+    const uniqueCategories = [...new Set(categories)];
     return (
       <Layout location={location} seoData={seoData}>
         <FaqHero />
         <SearchBar
-
+          searchQuery={searchQuery}
         />
         <CategoryButtons
-
+          activeCategory={activeCategory}
+          categories={uniqueCategories}
+          setActiveCategoryHandler={this.setActiveCategory}
         />
         <QuestionsList
-
+          questions={questions}
         />
       </Layout>
     );
