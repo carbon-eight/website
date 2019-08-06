@@ -1,5 +1,11 @@
-import Hero from './Hero';
+import FaqHero from './FaqHero';
+import CategoryButtons from './CategoryButtons';
+import QuestionsList from './QuestionsList';
+import SearchBar from './SearchBar';
 
 export {
-  Hero,
+  FaqHero,
+  CategoryButtons,
+  QuestionsList,
+  SearchBar,
 };

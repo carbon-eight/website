@@ -1,39 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import {
   Layout,
 } from '../components';
 import {
-  Hero,
+  FaqHero,
+  CategoryButtons,
+  QuestionsList,
+  SearchBar,
 } from '../components/faq';
 import './faq.scss';
 
-const FrequentlyAskedQuestions = (props) => {
-  const {
-    data: {
-      page: {
-        data: pageData,
+class FrequentlyAskedQuestions extends Component {
+  state = {
+    activeCategory: null,
+    searchTerm: '',
+  }
+
+  render() {
+    const {
+      activeCategory,
+      searchTerm,
+    } = this.state;
+    const {
+      data: {
+        page: {
+          data: pageData,
+        },
       },
-    },
-    location,
-  } = props;
-  const {
-    questions,
-    metaTitle,
-    metaDescription,
-    openGraphImage,
-  } = pageData;
-  const seoData = {
-    metaTitle,
-    metaDescription,
-    openGraphImage,
-  };
-  return (
-    <Layout location={location} seoData={seoData}>
-      <Hero />
-    </Layout>
-  );
-};
+      location,
+    } = this.props;
+    const {
+      questions,
+      metaTitle,
+      metaDescription,
+      openGraphImage,
+    } = pageData;
+    const seoData = {
+      metaTitle,
+      metaDescription,
+      openGraphImage,
+    };
+    console.log({ questions });
+    return (
+      <Layout location={location} seoData={seoData}>
+        <FaqHero />
+        <SearchBar
+
+        />
+        <CategoryButtons
+
+        />
+        <QuestionsList
+
+        />
+      </Layout>
+    );
+  }
+}
 
 export default FrequentlyAskedQuestions;
 
@@ -42,6 +66,26 @@ query FrequentlyAskedQuestionsQuery {
   page: prismicFrequentlyAskedQuestions {
     uid,
     data {
+      questions {
+        question {
+          text
+        }
+        answer {
+          html
+        }
+        category {
+          document {
+            ... on PrismicQuestionCategory {
+              id
+              data {
+                categoryName: category_name {
+                  text
+                }
+              }
+            }
+          }
+        }
+      }
       metaTitle: meta_title {
         html
         text

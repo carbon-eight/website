@@ -4,9 +4,9 @@ import {
   CurlyDivider,
 } from '../common';
 import { COLOUR_TERTIARY, COLOUR_WHITE } from '../../util/colours';
-import './Hero.scss';
+import './FaqHero.scss';
 
-export const Hero = (props) => {
+export const FaqHero = (props) => {
   return (
     <section className="faq-hero">
       <div className="container">
@@ -22,4 +22,4 @@ export const Hero = (props) => {
   );
 };
 
-export default Hero;
+export default FaqHero;
