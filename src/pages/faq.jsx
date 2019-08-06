@@ -13,18 +13,81 @@ import './faq.scss';
 
 class FrequentlyAskedQuestions extends Component {
   state = {
+    visibleQuestions: [],
     activeCategory: null,
     searchQuery: '',
+    searchActive: false,
   }
 
-  setActiveCategory = (event, category) => {
-    const { activeCategory } = this.state;
+  componentWillMount() {
+    const {
+      data: {
+        page: {
+          data: pageData,
+        },
+      },
+    } = this.props;
+    const {
+      questions,
+    } = pageData;
+    this.setState({ visibleQuestions: questions });
+  }
+
+  setSearch = (event) => {
+    const { statusFilter } = this.state;
+    const searchQuery = event.target.value.toLowerCase() || '';
+    this.setState({ searchQuery });
+    this.queryQuestions(statusFilter, searchQuery);
+  }
+
+  setCategory = (event, category) => {
+    const { activeCategory, searchQuery } = this.state;
     if (event) event.preventDefault();
-    if (category !== activeCategory) this.setState({ activeCategory: category });
+    if (category !== activeCategory) {
+      this.setState({ activeCategory: category });
+      this.queryQuestions(category, searchQuery);
+    }
+  }
+
+  queryQuestions = (activeCategory, searchQuery) => {
+    console.log('Querying!');
+    console.log({ searchQuery });
+    console.log({ activeCategory });
+    const {
+      data: {
+        page: {
+          data: pageData,
+        },
+      },
+    } = this.props;
+    const {
+      questions,
+    } = pageData;
+    let visibleQuestions = questions;
+    if (searchQuery) {
+      visibleQuestions = questions.filter(faqItem => (
+        faqItem.question.text.toLowerCase().includes(searchQuery)
+      ));
+    }
+    if (activeCategory) {
+      visibleQuestions = visibleQuestions.filter((faqItem) => {
+        const thisCategory = faqItem.category.document[0].data.categoryName.text;
+        return activeCategory === thisCategory;
+      });
+    }
+    console.log('Result!', visibleQuestions);
+    this.setState({ visibleQuestions });
+  }
+
+  searchFocusHandler = (event, clicked) => {
+    event.preventDefault();
+    this.setState({ searchActive: clicked });
   }
 
   render() {
     const {
+      searchActive,
+      visibleQuestions,
       activeCategory,
       searchQuery,
     } = this.state;
@@ -47,21 +110,24 @@ class FrequentlyAskedQuestions extends Component {
       metaDescription,
       openGraphImage,
     };
-    const categories = questions.map((faq => faq.category.document[0].data.categoryName.text));
+    const categories = questions.map((faqItem => faqItem.category.document[0].data.categoryName.text));
     const uniqueCategories = [...new Set(categories)];
     return (
       <Layout location={location} seoData={seoData}>
         <FaqHero />
         <SearchBar
+          searchActive={searchActive}
           searchQuery={searchQuery}
+          setSearch={this.setSearch}
+          searchFocusHandler={this.searchFocusHandler}
         />
         <CategoryButtons
           activeCategory={activeCategory}
           categories={uniqueCategories}
-          setActiveCategoryHandler={this.setActiveCategory}
+          setActiveCategoryHandler={this.setCategory}
         />
         <QuestionsList
-          questions={questions}
+          questions={visibleQuestions}
         />
       </Layout>
     );

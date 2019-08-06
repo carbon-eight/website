@@ -26,14 +26,24 @@ const CategoryButtons = (props) => {
     <section className="category-buttons">
       <div className="container">
         <Wrapper>
-          {categories && categories.map((category, index) => (
-            <CategoryButton
-              key={generateKey(index)}
-              isActive={activeCategory === category}
-              categoryText={category}
-              setActiveCategoryHandler={setActiveCategoryHandler}
-            />
-          ))}
+          <div className="buttons">
+            <button
+              type="button"
+              className={`category-button cta-button ${(activeCategory === null) ? 'active' : ''}`}
+              onClick={event => setActiveCategoryHandler(event, null)}
+              aria-label="Show questions from all categories"
+            >
+              <span>All</span>
+            </button>
+            {categories && categories.map((category, index) => (
+              <CategoryButton
+                key={generateKey(index)}
+                isActive={activeCategory === category}
+                categoryText={category}
+                setActiveCategoryHandler={setActiveCategoryHandler}
+              />
+            ))}
+          </div>
         </Wrapper>
       </div>
     </section>
