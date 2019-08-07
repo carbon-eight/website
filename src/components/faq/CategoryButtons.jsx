@@ -8,7 +8,7 @@ import './CategoryButtons.scss';
 const CategoryButton = ({ isActive, categoryText, setActiveCategoryHandler }) => (
   <button
     type="button"
-    className={`category-button cta-button ${isActive ? 'active' : ''}`}
+    className={`category-button selection-button ${isActive ? 'active' : ''}`}
     onClick={event => setActiveCategoryHandler(event, categoryText)}
     aria-label={`Filter by ${categoryText} questions`}
   >
@@ -29,7 +29,7 @@ const CategoryButtons = (props) => {
           <div className="buttons">
             <button
               type="button"
-              className={`category-button cta-button ${(activeCategory === null) ? 'active' : ''}`}
+              className={`category-button selection-button ${(activeCategory === null) ? 'active' : ''}`}
               onClick={event => setActiveCategoryHandler(event, null)}
               aria-label="Show questions from all categories"
             >

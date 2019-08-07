@@ -1,0 +1,26 @@
+.category-buttons {
+  margin-bottom: 60px;
+
+  .buttons {
+
+    .category-button {
+      margin-right: 15px;
+
+      span {
+        color: $secondary;
+        border-color: $secondary;
+      }
+
+      &.active {
+        span {
+          color: $white;
+          background-color: $secondary;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

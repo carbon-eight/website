@@ -1,3 +1,60 @@
 .faq-search-bar {
-  
+  padding-top: 160px;
+  margin-bottom: 30px;
+
+  .search {
+    position: relative;
+    margin: 0;
+
+    .search-input {
+      @include h4();
+      width: 100%;
+      margin: 0;
+      padding: 15px 20px 10px;
+      box-shadow: none;
+      color: $tertiary;
+      border-radius: 16px;
+      box-shadow: 0;
+      border: 3px solid $tertiary;
+
+      @include placeholder {
+        @include h4();
+        font-size: 18px;
+        color: $tertiary;
+        transition: color 0.3s ease;
+      }
+
+      &:active, &:focus {
+        outline: none;
+      }
+    }
+
+    .search-icon {
+      @include vertical-align(absolute);
+      left: auto;
+      right: 25px;
+      width: 18px;
+      height: 18px;
+      svg {
+        fill: $tertiary;
+      }
+    }
+
+    &.active {
+
+      .search-input {
+        @include placeholder {
+          color: rgba($tertiary, 0.2);
+        }
+      }
+
+      .search-icon {
+        svg {
+          fill: $secondary;
+        }
+      }
+    }
+
+
+  }
 }
