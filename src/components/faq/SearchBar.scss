@@ -10,18 +10,23 @@
       @include h4();
       width: 100%;
       margin: 0;
-      padding: 15px 20px 10px;
+      padding: 12px 20px 10px 50px;
       box-shadow: none;
-      color: $tertiary;
+      color: $secondary;
       border-radius: 16px;
       box-shadow: 0;
-      border: 3px solid $tertiary;
+      border: 3px solid $secondary;
+      background-color: $white;
+      transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 
       @include placeholder {
         @include h4();
-        font-size: 18px;
-        color: $tertiary;
+        color: $secondary;
         transition: color 0.3s ease;
+      }
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
       }
 
       &:active, &:focus {
@@ -31,26 +36,32 @@
 
     .search-icon {
       @include vertical-align(absolute);
-      left: auto;
-      right: 25px;
+      left: 20px;
       width: 18px;
       height: 18px;
       svg {
-        fill: $tertiary;
+        fill: $secondary;
       }
+    }
+
+    &.has-value {
+
     }
 
     &.active {
 
       .search-input {
+        color: $white;
+        background-color: $secondary;
+
         @include placeholder {
-          color: rgba($tertiary, 0.2);
+          color: $tertiary;
         }
       }
 
       .search-icon {
         svg {
-          fill: $secondary;
+          fill: $tertiary;
         }
       }
     }
