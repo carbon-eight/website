@@ -32,16 +32,14 @@ const QuestionListItem = (props) => {
 
 const QuestionsList = ({ questions }) => (
   <section className="faq-question-list">
-    <div className="container">
-      <Wrapper>
-        {questions && questions.map((faq, index) => (
-          <QuestionListItem
-            key={generateKey(index)}
-            {...faq}
-          />
-        ))}
-      </Wrapper>
-    </div>
+    <Wrapper>
+      {questions && questions.map((faq, index) => (
+        <QuestionListItem
+          key={generateKey(index)}
+          {...faq}
+        />
+      ))}
+    </Wrapper>
   </section>
 );
 

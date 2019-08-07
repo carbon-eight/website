@@ -1,0 +1,33 @@
+.faq-question-list {
+  margin-bottom: 160px;
+
+  .wrapper {
+
+    .faq-question {
+      margin-bottom: 60px;
+
+      .top-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 3px solid $tertiary;
+        margin-bottom: 30px;
+
+        .the-question {
+          @include h2();
+          flex: 1;
+          padding: 25px 100px 25px 0;
+        }
+
+        .category {
+          @include h4();
+          color: $secondary;
+        }
+      }
+
+      .bottom-container {
+
+      }
+    }
+  }
+}

@@ -50,9 +50,6 @@ class FrequentlyAskedQuestions extends Component {
   }
 
   queryQuestions = (activeCategory, searchQuery) => {
-    console.log('Querying!');
-    console.log({ searchQuery });
-    console.log({ activeCategory });
     const {
       data: {
         page: {
@@ -75,7 +72,6 @@ class FrequentlyAskedQuestions extends Component {
         return activeCategory === thisCategory;
       });
     }
-    console.log('Result!', visibleQuestions);
     this.setState({ visibleQuestions });
   }
 

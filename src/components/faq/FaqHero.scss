@@ -16,6 +16,8 @@
     }
   }
 
+
+
   .title {
     display: block;
     text-align: center;
@@ -29,6 +31,17 @@
 
     @include media-down(mobile) {
       max-width: 500px;
+    }
+  }
+
+  .svg-background {
+    @include center-align(absolute);
+    height: 90%;
+    width: 90%;
+
+    svg {
+      height: 100%;
+      width: 100%;
     }
   }
 }

@@ -22,6 +22,7 @@
       @include placeholder {
         @include h4();
         color: $secondary;
+        opacity: 0.7;
         transition: color 0.3s ease;
       }
 
@@ -50,18 +51,24 @@
 
     &.active {
 
+    }
+
+    &.active, &.has-value {
       .search-input {
         color: $white;
         background-color: $secondary;
-
-        @include placeholder {
-          color: $tertiary;
-        }
       }
-
       .search-icon {
         svg {
           fill: $tertiary;
+        }
+      }
+    }
+
+    &.active {
+      .search-input {
+        @include placeholder {
+          color: $tertiary;
         }
       }
     }
