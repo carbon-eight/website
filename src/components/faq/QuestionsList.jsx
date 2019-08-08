@@ -33,12 +33,18 @@ const QuestionListItem = (props) => {
 const QuestionsList = ({ questions }) => (
   <section className="faq-question-list">
     <Wrapper>
-      {questions && questions.map((faq, index) => (
-        <QuestionListItem
-          key={generateKey(index)}
-          {...faq}
-        />
-      ))}
+      { questions && questions.length > 0 ? (
+        questions.map((faq, index) => (
+          <QuestionListItem
+            key={generateKey(index)}
+            {...faq}
+          />
+        ))
+      ) : (
+        <span className="no-results-message">
+          Sorry we couldn't find anything that meets that criteria
+        </span>
+      )}
     </Wrapper>
   </section>
 );

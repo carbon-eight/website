@@ -2,6 +2,16 @@
   margin-bottom: 160px;
 
   .wrapper {
+    @include media-down(mobile) {
+      padding: 0;
+    }
+
+    .no-results-message {
+      @include h4();
+      display: block;
+      padding: 120px 20px;
+      text-align: center;
+    }
 
     .faq-question {
       margin-bottom: 60px;
@@ -13,22 +23,41 @@
         border-bottom: 3px solid $tertiary;
         margin-bottom: 30px;
 
+        @include media-down(mobile) {
+          padding: 0 20px;
+          border-bottom: none;
+          border-top: 3px solid $tertiary;
+          margin-bottom: 0px;
+        }
+
         .the-question {
           @include h2();
           flex: 1;
           max-width: 850px;
           padding: 25px 100px 25px 0;
+
+          @include media-down(mobile) {
+            padding: 40px 0 30px;
+          }
         }
 
         .category {
           margin-left: auto;
           @include h4();
           color: $secondary;
+
+          @include media-down(mobile) {
+            display: none;
+          }
         }
       }
 
       .bottom-container {
         max-width: 850px;
+
+        @include media-down(mobile) {
+          padding: 0 20px;
+        }
       }
     }
   }

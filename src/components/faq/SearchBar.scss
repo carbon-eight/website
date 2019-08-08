@@ -2,6 +2,11 @@
   padding-top: 160px;
   margin-bottom: 30px;
 
+  @include media-down(mobile) {
+    padding-top: 80px;
+    margin-bottom: 40px;
+  }
+
   .search {
     max-width: 850px;
     position: relative;
