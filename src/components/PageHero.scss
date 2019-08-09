@@ -1,6 +1,15 @@
 .page-hero {
   position: relative;
   overflow: hidden;
+  background-color: $tertiary;
+  background-image: url('../assets/images/hero-background.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include media-down(small-mobile) {
+    background-image: url('../assets/images/hero-background-mobile.svg');
+  }
 
   .wrapper {
     position: relative;
@@ -8,7 +17,6 @@
   }
 
   .top {
-    background-color: $tertiary;
     padding: 190px 0 150px;
 
     @include media-down(mobile) {
@@ -41,35 +49,5 @@
   .anchor-to-button {
     display: block;
     margin: 0 auto;
-  }
-
-  .svg-background {
-    @include center-align(absolute);
-    height: 90%;
-    width: 90%;
-
-    @include media-down(mobile) {
-      height: 100%;
-      width: 100%;
-      @include horizontal-align(absolute);
-      top: 0;
-    }
-
-    @include media-down(small-mobile) {
-      @include center-align(absolute);
-    }
-
-    svg {
-      height: 100%;
-      width: 100%;
-
-      @include media-down(mobile) {
-        height: auto;
-      }
-
-      @include media-down(small-mobile) {
-        height: 100%;
-      }
-    }
   }
 }
