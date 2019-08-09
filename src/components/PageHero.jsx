@@ -14,21 +14,26 @@ const PageHero = (props) => {
   const {
     title,
     subtitle,
+    hasButton,
   } = props;
   return (
     <section className="page-hero page-block">
       <div className="top">
         <Wrapper>
           <h1 className="title">{title}</h1>
-          <span className="subtitle">{subtitle}</span>
-          <button
-            type="button"
-            className="anchor-to-button cta-button"
-            onClick={event => scrollToForm(event)}
-            aria-label="Zoom down to the contact form"
-          >
-            <span>Get Started</span>
-          </button>
+          { subtitle && (
+            <span className="subtitle">{subtitle}</span>
+          )}
+          { hasButton && (
+            <button
+              type="button"
+              className="anchor-to-button cta-button"
+              onClick={event => scrollToForm(event)}
+              aria-label="Zoom down to the contact form"
+            >
+              <span>Get Started</span>
+            </button>
+          )}
         </Wrapper>
       </div>
       <CurlyDivider
