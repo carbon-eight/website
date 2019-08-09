@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Collapse from 'react-css-collapse';
 import {
   Wrapper,
   HtmlContent,
@@ -37,7 +38,9 @@ const QuestionListItem = (props) => {
         </button>
       </div>
       <div className="bottom-container">
-        <HtmlContent content={answer.html} />
+        <Collapse isOpen={questionExpanded}>
+          <HtmlContent content={answer.html} />
+        </Collapse>
       </div>
     </div>
   );
