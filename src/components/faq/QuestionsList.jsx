@@ -26,15 +26,11 @@ const QuestionListItem = (props) => {
         )}
         <button
           type="button"
-          className={`toggle-icon ${questionExpanded ? 'toggled' : ''}`}
+          className="toggle-button"
           onClick={event => setQuestionExpanded(!questionExpanded)}
           aria-label={`See answer to "${question.text}"`}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 10">
-            <g fill="none" fillRule="evenodd">
-              <path fill="#26C281" fillRule="nonzero" d="M2.5.418L.379 2.539 7.439 9.6 14.5 2.54 12.379.417l-4.94 4.94z" />
-            </g>
-          </svg>
+          <div className={`icon ${questionExpanded ? 'toggled' : ''}`} />
         </button>
       </div>
       <div className="bottom-container">
