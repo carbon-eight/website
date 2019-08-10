@@ -6,6 +6,7 @@ import ContentLink from './ContentLink';
 import SocialLink from './SocialLink';
 import CurlyDivider from './CurlyDivider';
 import SuccessMessage from './SuccessMessage';
+import TiltImage from './TiltImage';
 
 export {
   Wrapper,
@@ -16,4 +17,5 @@ export {
   SocialLink,
   CurlyDivider,
   SuccessMessage,
+  TiltImage,
 };

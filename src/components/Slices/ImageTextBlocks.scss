@@ -31,59 +31,8 @@
       margin-bottom: 20px;
     }
 
-    .container {
-      width: 100%;
-      padding-bottom: 90%;
-      position: relative;
-      transform-style: preserve-3d;
+    .tilt-image {
 
-      @include media-down(mobile) {
-        width: 100%;
-        height: 90vw;
-        padding-bottom: 0;
-        max-height: 500px;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-
-      .colourful-background {
-        @include center-align(absolute);
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        transform-origin: 0 0;
-
-        svg {
-          width: 100%;
-          height: 100%;
-
-          .background-fill {
-            transform: translateZ(-20px);
-            transform-origin: 0 0;
-          }
-
-          .petal {
-            transform: translateZ(50px);
-            transform-origin: 0 0;
-          }
-        }
-      }
-
-      .image-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 80%;
-        padding-bottom: 50%;
-        z-index: 2;
-        transform-origin: 0 0;
-
-        @include media-down(mobile) {
-          width: 90%;
-          padding-bottom: 60%;
-        }
-      }
     }
   }
 
@@ -148,17 +97,6 @@
       flex-direction: column-reverse;
     }
 
-    .image-col {
-      .container {
-        .image-container {
-          transform: rotateX(0deg) rotateY(-10deg) translateX(-50%) translateY(-50%) translateZ(50px);
-        }
-        .colourful-background {
-          transform: rotateX(0deg) rotateY(-10deg) translateX(-50%) translateY(-50%);
-        }
-      }
-    }
-
     .text-col {
       padding-right: 50px;
       @include media-down(mobile) {
@@ -172,17 +110,6 @@
 
     @include media-down(mobile) {
       flex-direction: column-reverse;
-    }
-
-    .image-col {
-      .container {
-        .image-container {
-          transform: rotateY(10deg) translateX(-50%) translateY(-50%) translateZ(20px);
-        }
-        .colourful-background {
-          transform: rotateY(10deg) translateX(-50%) translateY(-50%) scale3d(1, 1, 1);
-        }
-      }
     }
 
     .text-col {
