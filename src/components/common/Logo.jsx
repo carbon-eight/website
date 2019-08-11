@@ -21,13 +21,19 @@ const Logo = (props) => {
   const {
     classes,
     clickable,
+    closeNav,
     collapsed = false,
   } = props;
   const logoClasses = `logo${classes ? ` ${classes}` : ''}${collapsed ? ' collapsed' : ''}`;
   const logo = collapsed ? <LogoSvgCollapsed /> : <LogoSvg />;
   return (
     clickable ? (
-      <Link className={logoClasses} to="/" aria-label="Return Home">
+      <Link
+        className={logoClasses}
+        to="/"
+        aria-label="Return Home"
+        onClick={closeNav ? event => closeNav(event) : null}
+      >
         {logo}
       </Link>
     ) : (

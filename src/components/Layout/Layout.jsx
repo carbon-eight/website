@@ -93,6 +93,7 @@ class PureLayout extends Component {
             location={location}
             navActive={navActive}
             toggleNavHandler={event => this.toggleNav(event)}
+            closeNav={event => this.closeNav(event)}
             solidHeader={solidHeader}
           />
           <NavigationMenu

@@ -37,6 +37,7 @@ class Header extends Component {
     const {
       navActive,
       toggleNavHandler,
+      closeNav,
       solidHeader,
     } = this.props;
     const {
@@ -51,6 +52,7 @@ class Header extends Component {
         <div className="header-logo" ref={headerRef => this.headerRef = headerRef}>
           <Logo
             classes={`${navActive ? 'nav-open' : ''}`}
+            closeNav={closeNav}
             clickable
           />
         </div>
