@@ -23,33 +23,35 @@ const TextAndVideoBlock = (props) => {
     videoUrl,
   } = primary;
   return (
-    <section className="text-and-video-block">
+    <>
       <CurlyDivider
         topColor={COLOUR_WHITE}
         bottomColor={COLOUR_TERTIARY}
       />
-      <Wrapper>
-        <div className="container">
-          <div className="col video-col">
-            <VideoBlock
-              videoProvider={videoProvider.toLowerCase()}
-              videoUrl={videoUrl.url}
-            />
-          </div>
-          <div className="col text-col">
-            <div className="text-container">
-              <span className="label">{headline.text}</span>
-              <h2 className="title">{title.text}</h2>
-              <HtmlContent className="description" content={description.html} />
+      <section className="text-and-video-block">
+        <Wrapper>
+          <div className="container">
+            <div className="col video-col">
+              <VideoBlock
+                videoProvider={videoProvider.toLowerCase()}
+                videoUrl={videoUrl.url}
+              />
+            </div>
+            <div className="col text-col">
+              <div className="text-container">
+                <span className="label">{headline.text}</span>
+                <h2 className="title">{title.text}</h2>
+                <HtmlContent className="description" content={description.html} />
+              </div>
             </div>
           </div>
-        </div>
-      </Wrapper>
+        </Wrapper>
+      </section>
       <CurlyDivider
         topColor={COLOUR_TERTIARY}
         bottomColor={COLOUR_WHITE}
       />
-    </section>
+    </>
   );
 };
 
