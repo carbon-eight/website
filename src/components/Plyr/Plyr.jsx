@@ -22,6 +22,7 @@ export default class Plyr extends Component {
 
   render() {
     const { videoUrl, videoProvider } = this.props;
+    if (!isClient) return null;
     return (
       <div
         id="plyr-player"
