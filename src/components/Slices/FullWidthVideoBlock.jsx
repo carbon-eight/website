@@ -1,21 +1,25 @@
 import React from 'react';
-import { Wrapper } from '../common';
+import { Wrapper, VideoBlock } from '../common';
 
 const FullWidthVideoBlock = (props) => {
   const {
     data,
   } = props;
-  // const {
-  //   primary,
-  // } = data;
-  // const {
-  //   title,
-  // } = primary;
-  console.log({ data });
+  const {
+    primary,
+  } = data;
+  const {
+    title,
+    videoProvider,
+    videoUrl,
+  } = primary;
   return (
     <section className="full-width-video-block">
       <Wrapper>
-        <span>FullWidthVideoBlock</span>
+        <VideoBlock
+          videoProvider={videoProvider.toLowerCase()}
+          videoUrl={videoUrl.url}
+        />
       </Wrapper>
     </section>
   );
