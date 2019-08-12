@@ -23,8 +23,8 @@ const GoalsCarousel = (props) => {
       setActiveIndex(goalIndex);
       setTimeout(() => {
         setAnimating(false);
-      }, 500);
-    }, 500);
+      }, 300);
+    }, 300);
   };
   const activeGoal = goals[activeIndex];
   return (
@@ -34,18 +34,21 @@ const GoalsCarousel = (props) => {
           <div className="col text-col">
             <div className="container">
               <span className="label">Our Goals</span>
-              <div className="buttons">
+              <div className="goal-buttons">
                 {goals && goals.map((goal, index) => (
-                  <button
-                    key={generateKey(index)}
-                    type="button"
-                    className="goal-button"
-                    onClick={event => changeGoal(event, index)}
-                    aria-label={`Check out to goal #${index}`}
-                    disabled={animating}
-                  >
-                    {getNumberedAffix(index)}
-                  </button>
+                  <>
+                    <button
+                      key={generateKey(index)}
+                      type="button"
+                      className={`goal-button ${index === activeIndex ? 'active' : ''}`}
+                      onClick={event => changeGoal(event, index)}
+                      aria-label={`Check out to goal #${index}`}
+                      disabled={animating}
+                    >
+                      {getNumberedAffix(index)}
+                    </button>
+                    {index !== goals.length - 1 && (<div className="inert-connector" />)}
+                  </>
                 ))}
               </div>
               <h3 className="title">{activeGoal.goalTitle.text}</h3>

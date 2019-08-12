@@ -55,10 +55,39 @@
       .label {
         display: block;
         @include h4();
-        margin-bottom: 40px;
+        margin-bottom: 20px;
 
         @include media-down(mobile) {
           margin-bottom: 20px;
+        }
+      }
+
+      .goal-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 30px;
+
+        .goal-button {
+          @include h4();
+          color: $secondary;
+          background-color: $white;
+          border-radius: 50%;
+          border: 3px solid $secondary;
+          padding: 10px;
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          &.active {
+            color: $white;
+            background-color: $secondary;
+          }
+        }
+
+        .inert-connector {
+          display: block;
+          width: 30px;
+          height: 3px;
+          background-color: $secondary;
         }
       }
 
@@ -83,17 +112,6 @@
 
         @include media-down(mobile) {
           margin-bottom: 30px;
-        }
-      }
-
-      .actions {
-        @include media-down(small-mobile) {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-        }
-        .cta-button {
-          display: inline-block;
         }
       }
     }
