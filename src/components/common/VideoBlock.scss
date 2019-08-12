@@ -1,7 +1,26 @@
 .video-block {
   position: relative;
+  border-radius: 4px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 120px;
 
   .plyr {
+    border-radius: 4px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: calc(100% - 15px);
+    width: calc(100% - 15px);
+    background-color: $secondary;
+    border-radius: 4px;
+    overflow: hidden;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper, VideoBlock } from '../common';
-import { isClient } from '../../util/helpers';
+import './FullWidthVideoBlock.scss';
 
 const FullWidthVideoBlock = (props) => {
   const {
@@ -17,6 +17,7 @@ const FullWidthVideoBlock = (props) => {
   return (
     <section className="full-width-video-block">
       <Wrapper>
+        <h2 className="title">{title.text}</h2>
         <VideoBlock
           videoProvider={videoProvider.toLowerCase()}
           videoUrl={videoUrl.url}
