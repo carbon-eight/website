@@ -1,5 +1,6 @@
 import React from 'react';
 import { Wrapper, VideoBlock } from '../common';
+import { isClient } from '../../util/helpers';
 
 const FullWidthVideoBlock = (props) => {
   const {

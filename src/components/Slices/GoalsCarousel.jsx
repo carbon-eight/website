@@ -36,9 +36,8 @@ const GoalsCarousel = (props) => {
               <span className="label">Our Goals</span>
               <div className="goal-buttons">
                 {goals && goals.map((goal, index) => (
-                  <>
+                  <div key={generateKey(index)}>
                     <button
-                      key={generateKey(index)}
                       type="button"
                       className={`goal-button ${index === activeIndex ? 'active' : ''}`}
                       onClick={event => changeGoal(event, index)}
@@ -48,7 +47,7 @@ const GoalsCarousel = (props) => {
                       {getNumberedAffix(index)}
                     </button>
                     {index !== goals.length - 1 && (<div className="inert-connector" />)}
-                  </>
+                  </div>
                 ))}
               </div>
               <h3 className="title">{activeGoal.goalTitle.text}</h3>

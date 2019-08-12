@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import plyr from 'plyr';
 import './Plyr.scss';
 
 const isClient = typeof window !== 'undefined';
@@ -9,7 +8,10 @@ export default class Plyr extends Component {
     const options = {
       playsinline: true,
     };
-    if (isClient) this.player = plyr.setup('#plyr-player', options);
+    if (isClient) {
+      this.plyr = require('plyr');
+      this.player = this.plyr.setup('#plyr-player', options);
+    }
   }
 
   componentWillUnmount() {

@@ -68,6 +68,12 @@
         align-items: center;
         margin-bottom: 30px;
 
+        > * {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
         .goal-button {
           @include h4();
           color: $secondary;
