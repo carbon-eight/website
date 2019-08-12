@@ -1,6 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout, PageHero } from '../components';
+import {
+  Layout,
+  PageHero,
+  SliceZone,
+} from '../components';
 import { Wrapper } from '../components/common';
 import './about.scss';
 
@@ -23,6 +27,7 @@ const About = (props) => {
     visionTitle,
     visionText,
     visionImage,
+    body,
   } = pageData;
   const seoData = {
     metaTitle,
@@ -43,6 +48,10 @@ const About = (props) => {
           <h2 className="title">{introTitle.text}</h2>
         </Wrapper>
       </section>
+      <SliceZone
+        allSlices={body}
+        location={location}
+      />
     </Layout>
   );
 };
@@ -72,6 +81,129 @@ export const pageQuery = graphql`
         visionImage: vision_image {
           localFile {
             id
+          }
+        }
+        body {
+          ... on PrismicAboutBodyFoundersGallery {
+            id
+            sliceType: slice_type
+            primary {
+              title {
+                text
+              }
+            }
+            items {
+              name {
+                text
+              }
+              popUpMessage: pop_up_message {
+                text
+              }
+              profilePhoto: profile_photo {
+                alt
+                localFile {
+                  id
+                }
+              }
+              shortBio: short_bio {
+                html
+              }
+              title {
+                text
+              }
+            }
+          }
+          ... on PrismicAboutBodyFullWidthVideoBlock {
+            id
+            sliceType: slice_type
+            primary {
+              title {
+                text
+              }
+              videoProvider: video_provider
+              videoUrl: video_url {
+                url
+              }
+            }
+          }
+          ... on PrismicAboutBodyGoalsCarousel {
+            id
+            sliceType: slice_type
+            primary {
+              headline {
+                text
+              }
+            }
+            items {
+              goalTitle: goal_title {
+                text
+              }
+              photo {
+                localFile {
+                  id
+                }
+                alt
+              }
+              description {
+                html
+              }
+            }
+          }
+          ... on PrismicAboutBodyTeamGallery {
+            id
+            sliceType: slice_type
+            primary {
+              title {
+                text
+              }
+              buttonLabel: button_label {
+                text
+              }
+              buttonLink: button_link {
+                slug
+                link_type
+                url
+              }
+              subtitle {
+                html
+              }
+            }
+            items {
+              name {
+                text
+              }
+              profilePhoto: profile_photo {
+                alt
+                localFile {
+                  id
+                }
+              }
+              shortBio: short_bio {
+                html
+              }
+              title {
+                text
+              }
+            }
+          }
+          ... on PrismicAboutBodyTextAndVideo {
+            id
+            sliceType: slice_type
+            primary {
+              title {
+                text
+              }
+              videoProvider: video_provider
+              videoUrl: video_url {
+                url
+              }
+              headline {
+                text
+              }
+              description {
+                html
+              }
+            }
           }
         }
         metaTitle: meta_title {
