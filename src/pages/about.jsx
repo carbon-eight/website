@@ -5,7 +5,11 @@ import {
   PageHero,
   SliceZone,
 } from '../components';
-import { Wrapper } from '../components/common';
+import {
+  HtmlContent,
+  Wrapper,
+  TiltImage,
+} from '../components/common';
 import './about.scss';
 
 const About = (props) => {
@@ -45,7 +49,23 @@ const About = (props) => {
       />
       <section className="about-intro">
         <Wrapper>
-          <h2 className="title">{introTitle.text}</h2>
+          <h2 className="section-title">{introTitle.text}</h2>
+          <div className="vision-block">
+            <div className="col text-col">
+              <div className="container">
+                <span className="label">The Vision</span>
+                <h3 className="title">{visionTitle.text}</h3>
+                <HtmlContent className="description" content={visionText.html} />
+              </div>
+            </div>
+            <div className="col image-col">
+              <TiltImage
+                index={0}
+                image={visionImage}
+                inverted
+              />
+            </div>
+          </div>
         </Wrapper>
       </section>
       <SliceZone
@@ -73,14 +93,19 @@ export const pageQuery = graphql`
           text
         }
         visionTitle: vision_title {
-          html
-        }
-        visionText: vision_text {
           text
         }
+        visionText: vision_text {
+          html
+        }
         visionImage: vision_image {
+          alt
           localFile {
-            id
+            childImageSharp {
+              fluid(maxWidth: 800, quality: 90) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
           }
         }
         body {
@@ -139,10 +164,14 @@ export const pageQuery = graphql`
                 text
               }
               photo {
-                localFile {
-                  id
-                }
                 alt
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 800, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
               }
               description {
                 html
@@ -161,7 +190,7 @@ export const pageQuery = graphql`
               }
               buttonLink: button_link {
                 slug
-                link_type
+                linkType: link_type
                 url
               }
               subtitle {
@@ -175,7 +204,11 @@ export const pageQuery = graphql`
               profilePhoto: profile_photo {
                 alt
                 localFile {
-                  id
+                  childImageSharp {
+                    fluid(maxWidth: 800, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
                 }
               }
               shortBio: short_bio {
