@@ -1,0 +1,9 @@
+.full-width-video-block {
+  margin-bottom: 200px;
+
+  .title {
+    @include h1();
+    text-align: center;
+    margin-bottom: 120px;
+  }
+}
