@@ -8,6 +8,7 @@ import FullWidthVideoBlock from './FullWidthVideoBlock';
 import FoundersGallery from './FoundersGallery';
 import TeamGallery from './TeamGallery';
 import TextAndVideoBlock from './TextAndVideoBlock';
+import NewsletterBlock from './NewsletterBlock';
 
 export {
   ImageTextBlocks,
@@ -20,4 +21,5 @@ export {
   FoundersGallery,
   TeamGallery,
   TextAndVideoBlock,
+  NewsletterBlock,
 };

@@ -1,0 +1,95 @@
+.newsletter-block {
+  padding: 120px 0;
+
+  .container {
+    display: flex;
+    margin-bottom: 50px;
+
+    @include media-down(mobile) {
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+
+    .col {
+      width: 50%;
+      flex-grow: 0;
+
+      @include media-down(mobile) {
+        width: 100%;
+      }
+    }
+
+    .image-col {
+      padding: 20px;
+      position: relative;
+
+      @include media-down(mobile) {
+        padding: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    .text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 50px;
+
+      @include media-down(mobile) {
+        align-items: center;
+        padding-left: 0;
+      }
+
+      .text-container {
+        max-width: 450px;
+      }
+
+      .label {
+        display: block;
+        @include h4();
+        margin-bottom: 20px;
+
+        @include media-down(mobile) {
+          margin-bottom: 20px;
+        }
+      }
+
+      .title {
+        @include h2();
+        margin-bottom: 50px;
+
+        @include media-down(mobile) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .description {
+        @include p1();
+        margin-bottom: 50px;
+
+        @include media-down(mobile) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .subscribe-form-container {
+        form {
+          flex-direction: column;
+          align-items: flex-start;
+
+          label {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 30px;
+          }
+
+          button {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import {
   FoundersGallery,
   TeamGallery,
   TextAndVideoBlock,
+  NewsletterBlock,
 } from './Slices';
 
 const IMAGE_TEXT_BLOCKS_TYPE = 'image_text_blocks';
@@ -22,6 +23,7 @@ const FULL_WIDTH_VIDEO_BLOCK_TYPE = 'full_width_video_block';
 const FOUNDERS_GALLERY_TYPE = 'founders_gallery';
 const TEAM_GALLERY_TYPE = 'team_gallery';
 const TEXT_AND_VIDEO_TYPE = 'text_and_video';
+const NEWSLETTER_BLOCK_TYPE = 'newsletter_block';
 
 
 export default class SliceZone extends Component {
@@ -104,6 +106,13 @@ export default class SliceZone extends Component {
         case TEXT_AND_VIDEO_TYPE:
           return (
             <TextAndVideoBlock
+              key={slice.id}
+              data={slice}
+            />
+          );
+        case NEWSLETTER_BLOCK_TYPE:
+          return (
+            <NewsletterBlock
               key={slice.id}
               data={slice}
             />

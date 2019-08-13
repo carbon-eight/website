@@ -239,6 +239,31 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicAboutBodyNewsletterBlock {
+              id
+              primary {
+                description {
+                  html
+                }
+                label {
+                  text
+                }
+                photo {
+                  alt
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 1000, quality: 90) {
+                        ...GatsbyImageSharpFluid_withWebp
+                      }
+                    }
+                  }
+                }
+                title {
+                  text
+                }
+              }
+              sliceType: slice_type
+            }
         }
         metaTitle: meta_title {
           html

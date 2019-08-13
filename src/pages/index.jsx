@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 import { Layout, SubscribeForm } from '../components';
+import { Wrapper } from '../components/common';
 import { HomeMural } from '../components/Mural';
 import {
   CarbonEightIntro,
@@ -98,9 +99,12 @@ const Index = (props) => {
           intro={callToActionsIntro}
           callToActions={callToActions}
         />
-        <SubscribeForm
-          title="Join our community"
-        />
+        <div className="subscribe-form-block page-block">
+          <Wrapper>
+            <h2 className="block-title">Join our community</h2>
+            <SubscribeForm />
+          </Wrapper>
+        </div>
       </div>
     </Layout>
   );
