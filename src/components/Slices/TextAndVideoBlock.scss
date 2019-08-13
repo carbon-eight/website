@@ -1,6 +1,10 @@
 .text-and-video-block {
-  padding: 120px 20px;
+  padding: 120px 0;
   background-color: $tertiary;
+
+  @include media-down(mobile) {
+    padding: 80px 0;
+  }
 
   .container {
     display: flex;
@@ -11,7 +15,7 @@
     @include media-down(mobile) {
       flex-direction: column-reverse;
       align-items: center;
-      margin-bottom: 80px;
+      margin-bottom: 0;
     }
 
 
@@ -28,8 +32,8 @@
       padding: 20px;
 
       @include media-down(mobile) {
+        width: 100%;
         padding: 0;
-        margin-bottom: 20px;
       }
     }
 
@@ -41,8 +45,10 @@
       padding-left: 50px;
 
       @include media-down(mobile) {
+        width: 100%;
         align-items: center;
-        padding-right: 0;
+        padding-left: 0;
+        margin-bottom: 40px;
       }
 
       .text-container {
@@ -56,6 +62,7 @@
 
         @include media-down(mobile) {
           margin-bottom: 20px;
+          text-align: center;
         }
       }
 
@@ -65,11 +72,16 @@
 
         @include media-down(mobile) {
           margin-bottom: 30px;
+          text-align: center;
         }
       }
 
       .description {
         @include p1();
+
+        @include media-down(mobile) {
+          text-align: center;
+        }
       }
 
       .actions {
