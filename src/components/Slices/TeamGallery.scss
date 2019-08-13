@@ -22,7 +22,7 @@
 
   .actions {
     margin-bottom: 60px;
-    
+
     a {
 
     }
@@ -37,9 +37,27 @@
       width: calc((100% / 3) - 35px);
       margin-right: 50px;
       margin-bottom: 60px;
+      box-sizing: border-box;
 
-      &:nth-child(3n) {
-        margin-right: 0;
+      @include media-up(tablet) {
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+
+      @include media-down(tablet) {
+        width: calc(50% - 15px);
+        margin-right: 30px;
+        margin-bottom: 30px;
+
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+
+      @include media-down(mobile) {
+        width: 100%;
+        margin: 0 0 30px;
       }
     }
   }
