@@ -1,31 +1,47 @@
 import React from 'react';
 import { Wrapper, ContentLink } from '../common';
+import { TeamProfile } from '../About';
+import { generateKey } from '../../util/helpers';
+import './TeamGallery.scss';
 
 const TeamGallery = (props) => {
   const {
     data,
   } = props;
   const {
+    primary,
+    items: teamMembers,
+  } = data;
+  const {
+    title,
+    subtitle,
     buttonLink,
     buttonLabel,
-  } = data;
-  // const {
-  //   title,
-  // } = primary;
-  console.log({ data });
+  } = primary;
   const hasButton = Boolean(buttonLink || buttonLabel);
   return (
     <section className="team-gallery">
       <Wrapper>
-        <span>TeamGallery</span>
-        { hasButton && (
-          <div className="actions">
-            <ContentLink
-              link={buttonLink}
-              linkLabel={buttonLabel}
+        <div className="intro">
+          <h2 className="title">{title.text}</h2>
+          <p className="subtitle">{subtitle.text}</p>
+          { hasButton && (
+            <div className="actions">
+              <ContentLink
+                link={buttonLink}
+                linkLabel={buttonLabel}
+              />
+            </div>
+          )}
+        </div>
+        <div className="team-members">
+          {teamMembers && teamMembers.map((member, index) => (
+            <TeamProfile
+              key={generateKey(index)}
+              {...member}
             />
-          </div>
-        )}
+          ))}
+        </div>
       </Wrapper>
     </section>
   );

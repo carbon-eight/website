@@ -194,7 +194,7 @@ export const pageQuery = graphql`
                 url
               }
               subtitle {
-                html
+                text
               }
             }
             items {
