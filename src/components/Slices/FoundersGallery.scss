@@ -5,6 +5,22 @@
     @include h1();
     max-width: 850px;
     text-align: center;
-    margin: 0 auto 60px;
+    margin: 0 auto 80px;
+  }
+
+  .team-members {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      width: calc((100% / 3) - 35px);
+      margin-right: 50px;
+      margin-bottom: 60px;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
   }
 }

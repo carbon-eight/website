@@ -1,0 +1,42 @@
+.team-profile {
+  border: 3px solid $secondary;
+  position: relative;
+
+  &:after {
+    // The notch
+    content: '';
+    position: absolute;
+  	top: auto;
+    left: auto;
+  	right: -3px;
+  	bottom: -3px;
+  	border-style: solid;
+  	border-width: 40px 40px 0 0;
+  	background-color: transparent;
+    border-color: $secondary;
+  	border-right-color: white;
+  }
+
+  .photo {
+    height: 385px;
+    width: 100%;
+    position: relative;
+    border-bottom: 3px solid $secondary;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 50px;
+
+    .job-title {
+      @include h4();
+      color: $black;
+      margin-bottom: 10px;
+    }
+
+    .name {
+      @include h3();
+    }
+  }
+}

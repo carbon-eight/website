@@ -127,7 +127,11 @@ export const pageQuery = graphql`
               profilePhoto: profile_photo {
                 alt
                 localFile {
-                  id
+                  childImageSharp {
+                    fluid(maxWidth: 800, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
                 }
               }
               shortBio: short_bio {
