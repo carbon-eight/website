@@ -28,7 +28,7 @@ const NewsletterBlock = (props) => {
         <div className="container">
           <div className="col text-col">
             <div className="text-container">
-              <span className="label">{label.text}</span>
+              <span className="section-label">{label.text}</span>
               <h3 className="title">{title.text}</h3>
               <HtmlContent className="description" content={description.html} />
               <SubscribeForm />
