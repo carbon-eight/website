@@ -1,13 +1,16 @@
 .about {
 
   .about-intro {
-    margin-bottom: 160px;
 
     .section-title {
       @include h1();
       max-width: 850px;
       text-align: center;
       margin: 0 auto 120px;
+
+      @include media-down(mobile) {
+        margin-bottom: 40px;
+      }
     }
 
     .vision-block {
@@ -18,7 +21,6 @@
       @include media-down(mobile) {
         flex-direction: column-reverse;
         align-items: center;
-        margin-bottom: 80px;
       }
 
 

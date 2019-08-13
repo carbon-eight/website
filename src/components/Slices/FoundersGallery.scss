@@ -1,11 +1,19 @@
 .founders-gallery {
-  margin-bottom: 200px;
+  padding: 120px 0;
+
+  @include media-down(mobile) {
+    padding: 60px 0;
+  }
 
   .title {
     @include h1();
     max-width: 850px;
     text-align: center;
-    margin: 0 auto 80px;
+    margin: 0 auto 120px;
+
+    @include media-down(mobile) {
+      margin-bottom: 60px;
+    }
   }
 
   .team-members {

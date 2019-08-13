@@ -4,6 +4,11 @@
   padding-right: 15px;
   padding-bottom: 15px;
 
+  @include media-down(mobile) {
+    padding-right: 5px;
+    padding-bottom: 5px;
+  }
+
   .plyr {
     border-radius: 4px;
     margin: 0 auto;
@@ -21,5 +26,12 @@
     background-color: $secondary;
     border-radius: 4px;
     overflow: hidden;
+
+    @include media-down(mobile) {
+      top: 5px;
+      left: 5px;
+      height: calc(100% - 5px);
+      width: calc(100% - 5px);
+    }
   }
 }

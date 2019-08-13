@@ -1,5 +1,9 @@
 .team-gallery {
-  margin-bottom: 200px;
+  padding: 120px 0;
+
+  @include media-down(mobile) {
+    padding: 60px 0;
+  }
 
   .intro {
     display: flex;

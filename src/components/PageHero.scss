@@ -9,6 +9,7 @@
 
   @include media-down(small-mobile) {
     background-image: url('../assets/images/hero-background-mobile.svg');
+    background-size: cover;
   }
 
   .wrapper {
