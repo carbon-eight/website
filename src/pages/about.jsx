@@ -121,9 +121,6 @@ export const pageQuery = graphql`
               name {
                 text
               }
-              popUpMessage: pop_up_message {
-                text
-              }
               profilePhoto: profile_photo {
                 alt
                 localFile {
