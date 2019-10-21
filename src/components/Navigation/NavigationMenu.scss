@@ -31,7 +31,7 @@
       max-width: 1040px;
       max-height: 600px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       position: relative;
       z-index: 2;
@@ -41,18 +41,33 @@
       }
 
       @include media-down(mobile) {
+        max-height: none;
+        flex-direction: column;
         padding: 0 20px;
         overflow-y: scroll;
       }
 
-      .menu-row {
+      .menu-column {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
 
-        &.nav-row {
+        &.nav-col {
           @include media-down(mobile) {
             flex: 1;
+            margin-bottom: 40px;
+          }
+
+          @include media-down(small-mobile) {
+            margin-bottom: 20px;
+          }
+        }
+
+        &.details-col {
+          justify-content: space-between;
+          align-items: flex-end;
+
+          @include media-down(mobile) {
+            align-items: flex-start;
           }
         }
 
@@ -68,22 +83,20 @@
 
           .nav-items {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            @include media-down(mobile) {
-              flex-direction: column;
-              justify-content: flex-start;
-            }
+            flex-direction: column;
 
             .nav-item {
               max-width: 250px;
               display: flex;
               flex-direction: column;
-              margin-right: 50px;
+              margin-bottom: 50px;
+
+              @include media-down(mobile) {
+                margin-bottom: 20px;
+              }
 
               &:last-child {
-                margin-right: 0;
+                margin-bottom: 0;
               }
 
               .audience {
@@ -99,7 +112,7 @@
                 flex-direction: row;
                 align-items: center;
                 justify-content: space-between;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
 
                 span {
                   @include h2($dark-font: false);
@@ -113,7 +126,7 @@
                     position: absolute;
                     left: 0;
                     top: auto;
-                    bottom: -5px;
+                    bottom: -10px;
                     width: 20%;
                     height: 3px;
                     background-color: $white;
@@ -183,12 +196,30 @@
           }
         }
 
-        .row-item {
+        .hover-description {
+          display: block;
+          width: 100%;
+          max-width: 330px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          @include h3();
+          color: $white;
+
+          @include media-down(mobile) {
+            display: none;
+          }
+
+          &.active {
+            opacity: 1;
+          }
+        }
+
+        .details-block {
           display: flex;
           flex-direction: column;
           margin-bottom: 30px;
 
-          &.social-links-item {
+          &.social-links-block {
             @include media-down(mobile) {
               flex-direction: row;
               align-items: center;

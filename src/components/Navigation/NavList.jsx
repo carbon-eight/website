@@ -6,8 +6,8 @@ const NavList = (props) => {
     location,
     navItems,
     closeNav,
-    includeAudience = false,
-    includeDescription = false,
+    hoverHandler,
+    hoverExitHandler,
   } = props;
   const { pathname: currentPath } = location;
   return (
@@ -19,8 +19,8 @@ const NavList = (props) => {
             navItem={item}
             currentPath={currentPath}
             closeNav={closeNav}
-            includeAudience={includeAudience}
-            includeDescription={includeDescription}
+            hoverHandler={hoverHandler}
+            hoverExitHandler={hoverExitHandler}
           />
         ))}
       </ul>
