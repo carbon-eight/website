@@ -140,7 +140,7 @@ class Layout extends Component {
                     target
                     url
                     linkType: link_type
-                    slug
+                    slug: uid
                   }
                 }
                 legalLinks: legal_links {
