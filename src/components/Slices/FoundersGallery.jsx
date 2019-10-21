@@ -1,7 +1,6 @@
 import React from 'react';
 import { Wrapper } from '../common';
 import { TeamProfile } from '../About';
-import { generateKey } from '../../util/helpers';
 import './FoundersGallery.scss';
 
 const FoundersGallery = (props) => {
@@ -22,7 +21,7 @@ const FoundersGallery = (props) => {
         <div className="team-members">
           {teamMembers && teamMembers.map((member, index) => (
             <TeamProfile
-              key={generateKey(index)}
+              key={index}
               {...member}
             />
           ))}

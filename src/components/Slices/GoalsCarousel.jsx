@@ -4,7 +4,7 @@ import {
   HtmlContent,
   TiltImage,
 } from '../common';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
+import { getNumberedAffix } from '../../util/helpers';
 import './GoalsCarousel.scss';
 
 const GoalsCarousel = (props) => {
@@ -36,7 +36,7 @@ const GoalsCarousel = (props) => {
               <span className="label">Our Goals</span>
               <div className="goal-buttons">
                 {goals && goals.map((goal, index) => (
-                  <div key={generateKey(index)}>
+                  <div key={index}>
                     <button
                       type="button"
                       className={`goal-button ${index === activeIndex ? 'active' : ''}`}

@@ -5,7 +5,7 @@ import {
   ContentLink,
   TiltImage,
 } from '../common';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
+import { toKebabCase, getNumberedAffix } from '../../util/helpers';
 import './ImageTextBlocks.scss';
 
 const ImageTextBlocks = (props) => {
@@ -33,7 +33,7 @@ const ImageTextBlocks = (props) => {
               linkLabel,
             } = block;
             return (
-              <div className="image-text-block" key={generateKey(blockTitle.text)}>
+              <div className="image-text-block" key={toKebabCase(blockTitle.text)}>
                 <div className="col text-col">
                   <div className="container">
                     <span className="count">{getNumberedAffix(index)}</span>

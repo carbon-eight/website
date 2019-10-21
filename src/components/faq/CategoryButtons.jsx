@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Wrapper,
 } from '../common';
-import { generateKey } from '../../util/helpers';
+import { toKebabCase } from '../../util/helpers';
 import './CategoryButtons.scss';
 
 const CategoryButton = ({ isActive, categoryText, setActiveCategoryHandler }) => (
@@ -37,7 +37,7 @@ const CategoryButtons = (props) => {
             </button>
             {categories && categories.map((category, index) => (
               <CategoryButton
-                key={generateKey(index)}
+                key={`${toKebabCase(category)}-${index}}`}
                 isActive={activeCategory === category}
                 categoryText={category}
                 setActiveCategoryHandler={setActiveCategoryHandler}

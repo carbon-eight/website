@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import { Wrapper, HtmlContent } from '../common';
 import { SectionIntro } from '.';
 import { COLOUR_WHITE } from '../../util/colours';
-import { generateKey } from '../../util/helpers';
 import './CallToActionsBlock.scss';
 
 const CallToActionsBlock = (props) => {
@@ -38,7 +37,7 @@ const CallToActionsBlock = (props) => {
             } = buttonLink;
             return (
               <Link
-                key={generateKey(index)}
+                key={index}
                 className="call-to-action"
                 to={`/${slug}/`}
                 aria-label={`Navigate to ${buttonLabel.text} page`}

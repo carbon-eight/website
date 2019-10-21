@@ -3,8 +3,6 @@ import { Wrapper } from '../common';
 import { LegalPageSection, LegalPageNavigation } from '.';
 import './LegalPageBody.scss';
 
-const generateKey = pre => `${pre}_${new Date().getTime()}`;
-
 const LegalPageBody = (props) => {
   const {
     sections,
@@ -22,7 +20,7 @@ const LegalPageBody = (props) => {
         <div className="col col-right">
           { sections && sections.map((section, index) => (
             <LegalPageSection
-              key={generateKey(index)}
+              key={index}
               index={index}
               section={section}
             />

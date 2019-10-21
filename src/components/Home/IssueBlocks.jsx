@@ -5,7 +5,7 @@ import {
   HtmlContent,
 } from '../common';
 import { IssueIllustration } from './IssueIllustration';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
+import { getNumberedAffix } from '../../util/helpers';
 import './IssueBlocks.scss';
 
 const IssueBlock = (props) => {
@@ -56,7 +56,7 @@ const IssueBlocks = (props) => {
         <div className="issues">
           { issues && issues.map((issue, index) => (
             <IssueBlock
-              key={generateKey(index)}
+              key={index}
               index={index}
               loadAnimations={loadAnimations}
               {...issue}

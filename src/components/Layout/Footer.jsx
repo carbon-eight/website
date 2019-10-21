@@ -6,7 +6,6 @@ import {
   COLOUR_EARTH_LIGHTER,
   COLOUR_EARTH_EVEN_LIGHTER,
 } from '../../util/colours';
-import { generateKey } from '../../util/helpers';
 import './Footer.scss';
 
 const Footer = (props) => {
@@ -49,7 +48,7 @@ const Footer = (props) => {
                   const { slug } = link;
                   if (slug === 'home') return null;
                   return (
-                    <li className="nav-item col-value" key={generateKey(index)}>
+                    <li className="nav-item col-value" key={index}>
                       <Link
                         key={slug}
                         to={`/${slug}/`}

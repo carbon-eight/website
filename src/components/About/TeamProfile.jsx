@@ -10,7 +10,6 @@ import './TeamProfile.scss';
 const TeamProfile = (props) => {
   const {
     name,
-    popUpMessage,
     profilePhoto,
     shortBio,
     title,
@@ -20,9 +19,10 @@ const TeamProfile = (props) => {
   const [clicked, setClicked] = useState(false);
   useEffect(() => {
     const resizeHandler = (newHeight) => {
+      console.log('resizeHandler triggered!', newHeight);
       setHeight(newHeight);
     };
-    setHeight(ref.current.clientHeight);
+    resizeHandler(ref.current.clientHeight);
     window.addEventListener('resize', resizeHandler(ref.current.clientHeight), false);
     return () => {
       if (isClient) window.removeEventListener('resize', resizeHandler(ref.current.clientHeight), false);

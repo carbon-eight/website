@@ -1,8 +1,7 @@
 import React from 'react';
 import { PartnerItem } from '.';
 import './PartnerList.scss';
-
-const generateKey = pre => `${pre}_${new Date().getTime()}`;
+import { toKebabCase } from '../../util/helpers';
 
 const PartnerList = (props) => {
   const {
@@ -13,7 +12,7 @@ const PartnerList = (props) => {
       <div className="partners">
         { partners && partners.map((partner, index) => (
           <PartnerItem
-            key={generateKey(partner.name.text)}
+            key={toKebabCase(partner.name.text)}
             index={index}
             partner={partner}
           />
