@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Wrapper, SocialLink } from '../common';
 import { NavList } from '.';
 import './NavigationMenu.scss';
@@ -15,39 +15,55 @@ const NavigationMenu = (props) => {
     socialLinks,
     email,
   } = settings;
+  const [hoverDescription, setHoverDescription] = useState(null);
+  const [descriptionActive, setDescriptionActive] = useState(false);
+  const hoverHandler = (event, description) => {
+    event.preventDefault();
+    setHoverDescription(description);
+    setDescriptionActive(true);
+  };
+  const hoverExitHandler = (event) => {
+    event.preventDefault();
+    setDescriptionActive(false);
+  };
   return (
     <div className={`navigation-menu ${navActive ? 'nav-open' : ''}`}>
       <div className="container">
         <Wrapper>
-          <div className="menu-row nav-row">
+          <div className="menu-column nav-col">
             <NavList
-              includeAudience
-              includeDescription
               location={location}
               navItems={navItems}
               closeNav={closeNav}
+              hoverHandler={hoverHandler}
+              hoverExitHandler={hoverExitHandler}
             />
           </div>
-          <div className="menu-row">
-            <div className="row-item email-item">
-              <span className="label">Contact</span>
-              <a
-                className="email"
-                href={`mailto:${email.text}`}
-                aria-label={`Send email to ${email.text}`}
-              >
-                {email.text}
-              </a>
+          <div className="menu-column details-col">
+            <div className={`hover-description${descriptionActive ? ' active' : ''}`}>
+              {hoverDescription}
             </div>
-            <div className="row-item social-links-item">
-              <span className="label">Follow</span>
-              <ul className="social-links">
-                {socialLinks && socialLinks.map(item => (
-                  <li key={item.type}>
-                    <SocialLink socialLink={item} size="medium" theme="light" />
-                  </li>
-                ))}
-              </ul>
+            <div className="contact-details">
+              <div className="email-block details-block">
+                <span className="label">Contact</span>
+                <a
+                  className="email"
+                  href={`mailto:${email.text}`}
+                  aria-label={`Send email to ${email.text}`}
+                >
+                  {email.text}
+                </a>
+              </div>
+              <div className="social-links-block details-block">
+                <span className="label">Follow</span>
+                <ul className="social-links">
+                  {socialLinks && socialLinks.map(item => (
+                    <li key={item.type}>
+                      <SocialLink socialLink={item} size="medium" theme="light" />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Wrapper>

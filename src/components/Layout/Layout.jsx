@@ -16,7 +16,7 @@ const viewportUnitsBuggyfill = isClient ? require('viewport-units-buggyfill') : 
 
 class PureLayout extends Component {
   state = {
-    navActive: false,
+    navActive: true,
   };
 
   componentDidMount() {
