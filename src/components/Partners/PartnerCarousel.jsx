@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { ProgressDots } from '..';
 import { PartnerItem } from '.';
+import { toKebabCase } from '../../util/helpers';
 import './PartnerCarousel.scss';
-
-const generateKey = pre => `${pre}_${new Date().getTime()}`;
 
 const PartnerCarousel = (props) => {
   const {
@@ -36,7 +35,7 @@ const PartnerCarousel = (props) => {
         <Slider {...settings}>
           { partners && partners.map((partner, index) => (
             <PartnerItem
-              key={generateKey(partner.name.text)}
+              key={toKebabCase(partner.name.text)}
               index={index}
               partner={partner}
             />

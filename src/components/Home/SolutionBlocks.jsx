@@ -2,7 +2,7 @@ import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Wrapper, HtmlContent } from '../common';
 import { SolutionIllustration } from './SolutionIllustration';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
+import { getNumberedAffix } from '../../util/helpers';
 import './SolutionBlocks.scss';
 
 const SolutionBlock = (props) => {
@@ -56,7 +56,7 @@ const SolutionBlocks = (props) => {
         <div className="solutions">
           { solutions && solutions.map((solution, index) => (
             <SolutionBlock
-              key={generateKey(index)}
+              key={index}
               index={index}
               loadAnimations={loadAnimations}
               {...solution}

@@ -4,7 +4,6 @@ import './LegalPageNavigation.scss';
 
 const isClient = typeof window !== 'undefined';
 
-const generateKey = pre => `${pre}_${new Date().getTime()}`;
 const getSectionAffix = index => `${(index < 9) ? `0${index + 1}` : index + 1}`;
 
 const scrollToPageSection = (event, index) => {
@@ -66,7 +65,7 @@ const LegalPageNavigation = (props) => {
         <ul className={`nav-items${navOpen ? ' nav-open' : ''}`}>
           { sectionTitles && sectionTitles.map((sectionTitle, index) => (
             <li
-              key={generateKey(index)}
+              key={index}
               className="nav-item"
             >
               <button

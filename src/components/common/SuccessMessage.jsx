@@ -1,5 +1,4 @@
 import React from 'react';
-import { generateKey } from '../../util/helpers';
 import './SuccessMessage.scss';
 
 
@@ -11,7 +10,7 @@ const SuccessMessage = ({ headline, message }) => (
     {message && (
       <p className="success-message-message">
         { message.map((messagePart, index) => (
-          <span key={generateKey(index)}>{messagePart}</span>
+          <span key={index}>{messagePart}</span>
         ))}
       </p>
     )}

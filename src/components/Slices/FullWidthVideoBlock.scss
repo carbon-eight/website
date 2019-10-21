@@ -1,0 +1,19 @@
+.full-width-video-block {
+  padding: 120px 0;
+  background-color: $tertiary;
+
+  @include media-down(mobile) {
+    padding: 80px 0;
+  }
+
+  .title {
+    @include h1();
+    max-width: 850px;
+    text-align: center;
+    margin: 0 auto 120px;
+
+    @include media-down(mobile) {
+      margin-bottom: 60px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper, Image } from '../common';
 import { ColourfulBackground } from '..';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
+import { getNumberedAffix } from '../../util/helpers';
 import { SQUARE_BACKGROUND_TYPE } from '../ColourfulBackground';
 import './ExplanationBlocks.scss';
 
@@ -53,7 +53,7 @@ const ExplanationBlocks = (props) => {
         <div className="blocks">
           { blocks && blocks.map((block, index) => (
             <Block
-              key={generateKey(index)}
+              key={index}
               index={index}
               block={block}
             />

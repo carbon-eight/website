@@ -1,0 +1,105 @@
+.about {
+
+  .about-intro {
+
+    .section-title {
+      @include h1();
+      max-width: 850px;
+      text-align: center;
+      margin: 0 auto 120px;
+
+      @include media-down(mobile) {
+        margin-bottom: 40px;
+      }
+    }
+
+    .vision-block {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 50px;
+
+      @include media-down(mobile) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+
+
+      .col {
+        width: 50%;
+        flex-grow: 0;
+
+        @include media-down(mobile) {
+          width: 100%;
+        }
+      }
+
+      .image-col {
+        padding: 20px;
+
+        @include media-down(mobile) {
+          padding: 0;
+          margin-bottom: 20px;
+        }
+
+        .tilt-image {
+
+        }
+      }
+
+      .text-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 50px;
+
+        @include media-down(mobile) {
+          align-items: center;
+          padding-right: 0;
+        }
+
+        .container {
+          max-width: 450px;
+        }
+
+        .label {
+          display: block;
+          @include h4();
+          margin-bottom: 40px;
+
+          @include media-down(mobile) {
+            margin-bottom: 20px;
+          }
+        }
+
+        .title {
+          @include h2();
+          margin-bottom: 50px;
+
+          @include media-down(mobile) {
+            margin-bottom: 30px;
+          }
+        }
+
+        .description {
+          @include p1();
+          margin-bottom: 50px;
+
+          @include media-down(mobile) {
+            margin-bottom: 30px;
+          }
+        }
+
+        .actions {
+          @include media-down(small-mobile) {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .cta-button {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

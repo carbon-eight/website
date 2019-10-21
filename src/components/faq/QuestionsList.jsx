@@ -4,7 +4,6 @@ import {
   Wrapper,
   HtmlContent,
 } from '../common';
-import { generateKey } from '../../util/helpers';
 import './QuestionsList.scss';
 
 const QuestionListItem = (props) => {
@@ -48,7 +47,7 @@ const QuestionsList = ({ questions }) => (
       { questions && questions.length > 0 ? (
         questions.map((faq, index) => (
           <QuestionListItem
-            key={generateKey(index)}
+            key={index}
             {...faq}
           />
         ))

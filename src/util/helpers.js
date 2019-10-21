@@ -12,7 +12,8 @@ export const getExcerpt = (content, length) => {
   return `${excerpt}...`;
 };
 
+export const isClient = typeof window !== 'undefined';
+
 export const getSeededRandom = seedStr => seedRandom(seedStr)();
-export const generateKey = pre => `${pre}_${new Date().getTime()}`;
 export const getNumberedAffix = index => `${(index < 9) ? `0${index + 1}` : index + 1}`;
 export const toKebabCase = str => str.replace(/\s+/g, '-').toLowerCase();

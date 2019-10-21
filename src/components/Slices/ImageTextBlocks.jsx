@@ -1,14 +1,11 @@
 import React from 'react';
-import Tilt from 'react-tilt';
 import {
   Wrapper,
-  Image,
   HtmlContent,
   ContentLink,
+  TiltImage,
 } from '../common';
-import { ColourfulBackground } from '..';
-import { generateKey, getNumberedAffix } from '../../util/helpers';
-import { RECT_BACKGROUND_TYPE } from '../ColourfulBackground';
+import { toKebabCase, getNumberedAffix } from '../../util/helpers';
 import './ImageTextBlocks.scss';
 
 const ImageTextBlocks = (props) => {
@@ -22,17 +19,6 @@ const ImageTextBlocks = (props) => {
   const {
     title,
   } = primary;
-  const tiltOptions = {
-    reverse: false, // reverse the tilt direction
-    max: 10, // max tilt rotation (degrees)
-    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
-    scale: 1, // 2 = 200%, 1.5 = 150%, etc..
-    speed: 6000, // Speed of the enter/exit transition
-    transition: false, // Set a transition on enter/exit.
-    axis: 'X', // What axis should be disabled. Can be X or Y.
-    reset: true, // If the tilt effect has to be reset on exit.
-    easing: 'cubic-bezier(.03, .98, .52, .99)', // Easing on enter/exit.
-  };
   return (
     <section className="image-text-blocks page-block">
       <Wrapper>
@@ -47,7 +33,7 @@ const ImageTextBlocks = (props) => {
               linkLabel,
             } = block;
             return (
-              <div className="image-text-block" key={generateKey(blockTitle.text)}>
+              <div className="image-text-block" key={toKebabCase(blockTitle.text)}>
                 <div className="col text-col">
                   <div className="container">
                     <span className="count">{getNumberedAffix(index)}</span>
@@ -62,16 +48,11 @@ const ImageTextBlocks = (props) => {
                   </div>
                 </div>
                 <div className="col image-col">
-                  <Tilt className="container" options={tiltOptions}>
-                    <ColourfulBackground
-                      index={index}
-                      backgroundType={RECT_BACKGROUND_TYPE}
-                      inverted={Boolean(index % 2 === 0)}
-                    />
-                    <div className="image-container">
-                      <Image image={blockImage} />
-                    </div>
-                  </Tilt>
+                  <TiltImage
+                    index={index}
+                    inverted={index % 2 === 0}
+                    image={blockImage}
+                  />
                 </div>
               </div>
             );

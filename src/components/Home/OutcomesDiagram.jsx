@@ -3,7 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import { OutcomeIllustration } from './OutcomeIllustration';
 import { OutcomeIcon } from './OutcomeIcon';
 import { Wrapper, HtmlContent } from '../common';
-import { generateKey } from '../../util/helpers';
 import './OutcomesDiagram.scss';
 
 const OutcomeButtons = ({ outcomes, activeIndex, setActiveIndexHandler }) => (
@@ -14,7 +13,7 @@ const OutcomeButtons = ({ outcomes, activeIndex, setActiveIndexHandler }) => (
         className={`outcome-selector ${activeIndex === index ? 'active' : ''}`}
         onClick={event => setActiveIndexHandler(index)} // eslint-disable-line
         aria-label={`Find out about ${outcome.title.text}`}
-        key={generateKey(index)}
+        key={index}
       >
         <div className="icon-container">
           <div className="icon">
