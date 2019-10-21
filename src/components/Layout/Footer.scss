@@ -10,94 +10,147 @@ footer.footer {
     background-size: auto;
     background-repeat: repeat;
     background-position: center;
-    padding: 60px 0;
 
     @include media-down(mobile) {
       background-size: 180%;
     }
 
-    .cols {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 60px;
+    .footer-top {
+      padding: 60px 0 40px;
 
-      @include media-down(mobile) {
-        flex-direction: column;
-        margin-bottom: 0;
-      }
-
-      .col {
+      .cols {
         display: flex;
-        flex-direction: column;
-        margin-right: 70px;
-
-        @include media-down(tablet) {
-          margin-right: 40px;
-        }
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 60px;
 
         @include media-down(mobile) {
-          margin-right: 0;
-          margin-bottom: 30px;
+          flex-direction: column;
+          margin-bottom: 0;
         }
 
-        &:last-child {
-          @include media-up(mobile) {
+        .col {
+          display: flex;
+          flex-direction: column;
+          margin-right: 70px;
+
+          @include media-down(tablet) {
+            margin-right: 40px;
+          }
+
+          @include media-down(mobile) {
             margin-right: 0;
-          }
-          @include media-down(mobile) {
-            margin-bottom: 60px;
-          }
-        }
-
-
-        &.col-logo {
-          flex: 2;
-
-          @include media-down(mobile) {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
           }
 
-          .logo {
-            svg {
-              path {
-                fill: $roots;
+          &:last-child {
+            @include media-up(mobile) {
+              margin-right: 0;
+            }
+            @include media-down(mobile) {
+              margin-bottom: 60px;
+            }
+          }
+
+
+          &.col-logo {
+            flex: 2;
+
+            @include media-down(mobile) {
+              margin-bottom: 50px;
+            }
+
+            .logo {
+              svg {
+                path {
+                  fill: $roots;
+                }
               }
             }
           }
-        }
 
-        .label {
-          display: block;
-          @include h4();
-          color: $roots;
-          margin-bottom: 20px;
-        }
+          .label {
+            display: block;
+            @include h4();
+            color: $roots;
+            margin-bottom: 20px;
+          }
 
-        .col-value {
-          @include p1();
-          color: $roots;
-          padding-bottom: 10px;
+          .col-value {
+            @include p1();
+            color: $roots;
+            padding-bottom: 10px;
+          }
         }
       }
     }
 
 
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
+    .footer-bottom {
+      background-color: $earth-lighter;
+      padding: 40px 0;
 
-      @include media-down(mobile) {
-        justify-content: flex-start;
+      .wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        >* {
+          margin-right: 50px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          @include media-down(mobile) {
+            margin-bottom: 10px;
+            margin-right: 0;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        @include media-down(mobile) {
+          flex-direction: column;
+        }
+      }
+
+      .australian-charity {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @include media-down(mobile) {
+          flex-direction: column;
+        }
+
+        .acnc-logo {
+          margin-right: 20px;
+          width: 60px;
+          height: 60px;
+          background-image: url('../../assets/images/acnc-logo.png');
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          @include media-down(mobile) {
+            margin-bottom: 20px;
+          }
+        }
+        .acnc-text {
+          @include h4();
+          color: $roots;
+        }
       }
 
       .signature, .partner-shoutout {
         display: inline-block;
         @include h4();
         color: $roots;
-        margin-top: 10px;
 
         @include media-down(mobile) {
           display: block;

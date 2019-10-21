@@ -32,104 +32,116 @@ const Footer = (props) => {
         bottomColor={COLOUR_EARTH_EVEN_LIGHTER}
       />
       <div className="footer-content">
-        <Wrapper>
-          <div className="cols">
-            <div className="col col-logo">
-              <Logo collapsed clickable />
-            </div>
-            <div className="col col-legals">
-              <span className="label">Legal</span>
-              <ul className="nav-items">
-                {legalLinks && legalLinks.map((legalNavItem, index) => {
-                  const {
-                    linkLabel,
-                    link,
-                  } = legalNavItem;
-                  const { slug } = link;
-                  if (slug === 'home') return null;
-                  return (
-                    <li className="nav-item col-value" key={index}>
-                      <Link
-                        key={slug}
-                        to={`/${slug}/`}
-                        className="nav-link col-value"
-                        aria-label={`Navigate to ${linkLabel.text} page`}
-                      >
-                        <span>{linkLabel.text}</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <div className="col col-socials">
-              <span className="label">Follow</span>
-              <ul className="social-links">
-                {socialLinks && socialLinks.map((socialLink) => {
-                  const {
-                    type,
-                    link,
-                  } = socialLink;
-                  return (
-                    <li key={link.url}>
-                      <a
-                        className="social-link col-value"
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Open a new tab to ${type}`}
-                      >
-                        {type}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <div className="col col-contact">
-              <span className="label">Email</span>
-              <a
-                className="email col-value"
-                href={`mailto:${email.text}`}
-                aria-label={`Send email to ${email.text}`}
-              >
-                {email.text}
-              </a>
-            </div>
-          </div>
-          <div className="row">
-            <p className="partner-shoutout">
-              <span>In partnership with</span>
-              { isHome ? (
+        <div className="footer-top">
+          <Wrapper>
+            <div className="cols">
+              <div className="col col-logo">
+                <Logo collapsed clickable />
+              </div>
+              <div className="col col-legals">
+                <span className="label">Legal</span>
+                <ul className="nav-items">
+                  {legalLinks && legalLinks.map((legalNavItem, index) => {
+                    const {
+                      linkLabel,
+                      link,
+                    } = legalNavItem;
+                    const { slug } = link;
+                    if (slug === 'home') return null;
+                    return (
+                      <li className="nav-item col-value" key={index}>
+                        <Link
+                          key={slug}
+                          to={`/${slug}/`}
+                          className="nav-link col-value"
+                          aria-label={`Navigate to ${linkLabel.text} page`}
+                        >
+                          <span>{linkLabel.text}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="col col-socials">
+                <span className="label">Follow</span>
+                <ul className="social-links">
+                  {socialLinks && socialLinks.map((socialLink) => {
+                    const {
+                      type,
+                      link,
+                    } = socialLink;
+                    return (
+                      <li key={link.url}>
+                        <a
+                          className="social-link col-value"
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Open a new tab to ${type}`}
+                        >
+                          {type}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="col col-contact">
+                <span className="label">Email</span>
                 <a
-                  className="twenty-forty"
-                  href="https://whatsyour2040.com/"
-                  aria-label="Navigate to 2040 Film's website"
+                  className="email col-value"
+                  href={`mailto:${email.text}`}
+                  aria-label={`Send email to ${email.text}`}
                 >
-                  <span>2040 Film</span>
+                  {email.text}
                 </a>
-              ) : (
-                <span className="twenty-forty">2040 Film</span>
-              )}
-            </p>
-          </div>
-          <div className="row">
-            <p className="signature">
-              <span>Website by</span>
-              { isHome ? (
-                <a
-                  className="studio"
-                  href="https://www.littleandbig.com.au/"
-                  aria-label="Navigate to Little & Big's website"
-                >
-                  <span>Little & Big</span>
-                </a>
-              ) : (
-                <span className="studio">Little & Big</span>
-              )}
-            </p>
-          </div>
-        </Wrapper>
+              </div>
+            </div>
+          </Wrapper>
+        </div>
+        <div className="footer-bottom">
+          <Wrapper>
+            <div className="row-item">
+              <div className="australian-charity">
+                <div className="acnc-logo" />
+                <p className="acnc-text">Carbon8 is a registered charity</p>
+              </div>
+            </div>
+            <div className="row-item">
+              <p className="partner-shoutout">
+                <span>In partnership with</span>
+                { isHome ? (
+                  <a
+                    className="twenty-forty"
+                    href="https://whatsyour2040.com/"
+                    aria-label="Navigate to 2040 Film's website"
+                  >
+                    <span>2040 Film</span>
+                  </a>
+                ) : (
+                  <span className="twenty-forty">2040 Film</span>
+                )}
+              </p>
+            </div>
+            <div className="row-item">
+              <p className="signature">
+                <span>Website by</span>
+                { isHome ? (
+                  <a
+                    className="studio"
+                    href="https://www.littleandbig.com.au/"
+                    aria-label="Navigate to Little & Big's website"
+                  >
+                    <span>Little & Big</span>
+                  </a>
+                ) : (
+                  <span className="studio">Little & Big</span>
+                )}
+              </p>
+            </div>
+          </Wrapper>
+        </div>
       </div>
     </footer>
   );
