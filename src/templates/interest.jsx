@@ -42,7 +42,7 @@ const ExpressionOfInterestTemplate = (props) => {
       <PageHero
         title={heroTitle.text}
         subtitle={heroSubtitle.text}
-        isSmallMobile={isSmallMobile}
+        hasButton
       />
       <SliceZone
         allSlices={body}

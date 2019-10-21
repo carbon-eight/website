@@ -18,8 +18,9 @@ const {
 } = process.env;
 
 const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer');
-
 const website = require('./config/website');
+const faqSchema = require('./src/schemas/frequently-asked-questions.json');
+const questionCategorySchema = require('./src/schemas/question-category.json');
 
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
 
@@ -111,6 +112,10 @@ module.exports = {
       options: {
         repositoryName: PRISMIC_REPO_NAME,
         accessToken: PRISMIC_API_KEY,
+        schemas: {
+          frequently_asked_questions: faqSchema,
+          question_category: questionCategorySchema,
+        },
         // Get the correct URLs in blog posts
         linkResolver: () => post => `/${post.uid}`,
         // PrismJS highlighting for labels and slices
