@@ -9,7 +9,7 @@ import {
   QuestionsList,
   SearchBar,
 } from '../components/faq';
-import './faq.scss';
+import './faqs.scss';
 
 class FrequentlyAskedQuestions extends Component {
   state = {
