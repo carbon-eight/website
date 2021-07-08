@@ -74,8 +74,9 @@
     @include media-down(mobile) {
       margin-bottom: 60px;
     }
-
-    button {}
+    .disclaimer{
+      text-align: center;
+    }
   }
 
   .error-message {

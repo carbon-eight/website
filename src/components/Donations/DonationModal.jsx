@@ -173,12 +173,6 @@ class DonationModalTemplate extends Component {
                     label="Monthly"
                     setDonationModeHandler={this.setDonationMode}
                   />
-                  <ModeSelectionButton
-                    isActive={onceOffDonationMode}
-                    mode={ONCE_OFF_OPTION}
-                    label="Once"
-                    setDonationModeHandler={this.setDonationMode}
-                  />
                 </div>
                 <div className="donation-options" style={tilesStyles}>
                   <SponsorshipTiles
@@ -188,28 +182,24 @@ class DonationModalTemplate extends Component {
                     selectTileHandler={this.selectDonationOption}
                     setTilesHeightHandler={this.setTilesHeight}
                   />
-                  <DonationTiles
-                    visible={onceOffDonationMode}
-                    tiles={stripeProductItems}
-                    variableAmount={variableAmount}
-                    setVariableAmountHandler={this.setVariableAmount}
-                    selectedDonationId={selectedDonationId}
-                    selectTileHandler={this.selectDonationOption}
-                  />
+                  
                 </div>
                 { (checkoutError && errorMessage) && (
                   <span className="error-message">{errorMessage}</span>
                 )}
                 <div className="modal-actions">
-                  <button
-                    type="button"
-                    disabled={!selectedDonationId || (selectedDonationId === VARIABLE_DONATION_SKU && !variableAmount)}
-                    className="modal-action-button cta-button"
-                    onClick={event => this.redirectToCheckout(event, selectedDonationId)}
-                    aria-label="Proceed to checkout"
-                  >
+                  <div className="disclaimer">
+                    <p><em>* All donations are tax deductible</em></p>
+                    <button
+                      type="button"
+                      disabled={!selectedDonationId || (selectedDonationId === VARIABLE_DONATION_SKU && !variableAmount)}
+                      className="modal-action-button cta-button"
+                      onClick={event => this.redirectToCheckout(event, selectedDonationId)}
+                      aria-label="Proceed to checkout"
+                    >
                     <span>Next</span>
-                  </button>
+                    </button>
+                  </div>
                 </div>
               </>
             )}
