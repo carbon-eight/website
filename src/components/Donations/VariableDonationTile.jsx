@@ -52,7 +52,7 @@ const VariableDonationTile = (props) => {
                 name="variable-donation"
                 type="number"
                 value={variableAmount || ''}
-                placeholder="100"
+                placeholder="1000"
                 min={MIN_DONATION_VALUE}
                 max={MAX_DONATION_VALUE}
                 onChange={event => validateVariableAmount(event)}
