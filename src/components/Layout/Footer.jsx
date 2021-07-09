@@ -109,34 +109,19 @@ const Footer = (props) => {
               </div>
             </div>
             <div className="row-item">
-              <p className="partner-shoutout">
-                <span>In partnership with</span>
-                { isHome ? (
-                  <a
-                    className="twenty-forty"
-                    href="https://whatsyour2040.com/"
-                    aria-label="Navigate to 2040 Film's website"
-                  >
-                    <span>2040 Film</span>
-                  </a>
-                ) : (
-                  <span className="twenty-forty">2040 Film</span>
-                )}
-              </p>
-            </div>
-            <div className="row-item">
               <p className="signature">
                 <span>Website by</span>
                 { isHome ? (
                   <a
                     className="studio"
-                    href="https://www.littleandbig.com.au/"
-                    aria-label="Navigate to Little & Big's website"
+                    href="https://srrycmpny.com/"
+                    aria-label="Navigate to Sorry Company's website"
+                    target="_blank"
                   >
-                    <span>Little & Big</span>
+                    <span>Sorry Company</span>
                   </a>
                 ) : (
-                  <span className="studio">Little & Big</span>
+                  <span className="studio">Sorry Company</span>
                 )}
               </p>
             </div>
