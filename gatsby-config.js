@@ -150,5 +150,6 @@ module.exports = {
     // Must be placed at the end
     // 'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
+    'gatsby-plugin-remove-serviceworker',
   ],
 };
