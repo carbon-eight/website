@@ -9,11 +9,11 @@ const {
   PRISMIC_API_KEY,
   GOOGLE_ANALYTICS_ID,
   FACEBOOK_PIXEL_ID,
-  STRIPE_API_KEY,
-  STRIPE_SECRET_KEY,
-  STRIPE_ONCE_OFF_PROD_ID,
-  STRIPE_MONTHLY_PROD_ID,
-  STRIPE_VARIABLE_SKU,
+  GATSBY_STRIPE_API_KEY,
+  GATSBY_STRIPE_SECRET_KEY,
+  GATSBY_STRIPE_ONCE_OFF_PROD_ID,
+  GATSBY_STRIPE_MONTHLY_PROD_ID,
+  GATSBY_STRIPE_VARIABLE_SKU,
   MAILCHIMP_ENDPOINT,
 } = process.env;
 
@@ -48,10 +48,10 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     facebook: website.facebook,
-    stripeApiKey: STRIPE_API_KEY,
-    stripeOnceOffProdKey: STRIPE_ONCE_OFF_PROD_ID,
-    stripeMonthlyProdKey: STRIPE_MONTHLY_PROD_ID,
-    stripeVariableSku: STRIPE_VARIABLE_SKU,
+    stripeApiKey: GATSBY_STRIPE_API_KEY,
+    stripeOnceOffProdKey: GATSBY_STRIPE_ONCE_OFF_PROD_ID,
+    stripeMonthlyProdKey: GATSBY_STRIPE_MONTHLY_PROD_ID,
+    stripeVariableSku: GATSBY_STRIPE_VARIABLE_SKU,
   },
   /* Plugins */
   plugins: [
@@ -126,7 +126,7 @@ module.exports = {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ['Sku', 'Plan'],
-        secretKey: STRIPE_SECRET_KEY,
+        secretKey: GATSBY_STRIPE_SECRET_KEY,
         downloadFiles: true,
       },
     },
